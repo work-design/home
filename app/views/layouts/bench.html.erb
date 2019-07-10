@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+
+<head>
+  <title><%= content_for?(:title) ? yield(:title) : t('site_name') %></title>
+  <meta name="description" content="<%= yield(:meta_description) %>">
+  <meta name="keywords" content="<%= yield(:meta_keywords) %>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true %>
+  <%= css_load media: 'all', 'data-turbolinks-track': true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': true %>
+  <%= js_ready 'data-turbolinks-track': true %>
+  <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
+</head>
+
+<body>
+
+  <%= render 'waiting/my/base/navbar' %>
+
+  <main class="ui container">
+    <%= yield %>
+  </main>
+
+  <%= render 'layouts/footer' %>
+
+  <%= js_load 'data-turbolinks-track': false %>
+  <%= javascript_include_tag 'footer' %>
+</body>
+
+</html>

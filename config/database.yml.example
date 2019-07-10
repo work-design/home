@@ -1,0 +1,31 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: one_work_development
+  username:
+  password:
+  host:
+
+test:
+  <<: *default
+  database: one_work_test
+  username:
+  password:
+  host:
+
+staging:
+  <<: *default
+  database: one_work_staging
+  username:
+  password:
+  host:
+
+production:
+  <<: *default
+  database: one_work_production
+  username:
+  password:

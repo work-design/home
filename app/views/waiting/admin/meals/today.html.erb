@@ -1,0 +1,43 @@
+<div class="ui top attached borderless menu">
+  <%= link_to 'Dinners', hr_dinners_path, class: 'item' %>
+  <div class="header item">Dinner Orders</div>
+  <div class="right menu">
+    <div class="item">
+      <%= link_to t('.export'), find_data_list_table_lists_path('DinnerExport', @query_params), class: 'ui blue button', remote: true %>
+    </div>
+  </div>
+</div>
+
+<div class="ui attached segment">
+  <%= render 'search_form' %>
+</div>
+
+<table class="ui bottom attached table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th><%= Dinner.human_attribute_name(:office) %></th>
+      <th><%= Dinner.human_attribute_name(:name) %></th>
+      <th><%= Dinner.human_attribute_name(:order_items_count) %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @dinners.each do |dinner| %>
+    <tr>
+      <td><%= dinner.id %></td>
+      <td><%= dinner.office&.name %></td>
+      <td><%= dinner.name %></td>
+      <td><%= dinner.today_order_items_count %></td>
+      <td>
+        <%#= link_to 'Show', hr_dinner_path(dinner), class: 'ui blue label' %>
+        <%= link_to t('.edit'), edit_hr_dinner_path(dinner), class: 'ui pink label' %>
+        <%= link_to t('.destroy'), hr_dinner_path(dinner), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red label' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @dinners %>

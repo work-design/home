@@ -1,0 +1,41 @@
+<div class="ui top attached borderless menu">
+  <div class="header item">Posts</div>
+  <div class="right menu">
+    <div class="item">
+      <%= link_to 'New Post', new_admin_post_path, class: 'ui teal button' %>
+    </div>
+  </div>
+</div>
+
+<div class="ui attached segment">
+  <%= render 'search_form' %>
+</div>
+
+<table class="ui bottom attached table">
+  <thead>
+    <tr>
+      <th><%= Post.human_attribute_name(:id) %></th>
+      <th><%= Post.human_attribute_name(:name) %></th>
+      <th><%= Post.human_attribute_name(:code) %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.id %></td>
+      <td><%= post.name %></td>
+      <td><%= post.code %></td>
+      <td class="ui labels">
+        <%= link_to 'Pictures', detail_pictures_path(detail_type: 'Post', detail_id: post.id) %>
+        <%= link_to 'Show', admin_post_path(post), class: 'ui blue label' %>
+        <%= link_to 'Edit', edit_admin_post_path(post), class: 'ui pink label' %>
+        <%= link_to 'Destroy', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red label' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @posts %>

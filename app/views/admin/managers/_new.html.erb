@@ -1,0 +1,13 @@
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="ui header blue">
+    Add New Manager
+  </div>
+
+  <div class="content">
+    <%= form_with model: [:admin, @manager] do |f| %>
+      <%= render partial: 'form', locals: { f: f } %>
+    <% end %>
+  </div>
+
+</div>

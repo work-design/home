@@ -1,0 +1,18 @@
+<footer class="ui padded grid">
+  <div class="ui container">
+    <div class="divided row">
+
+    </div>
+    <div class="ui basic center aligned segment">
+      <div class="">©2016-<%= Date.today.year %> <%= t('site_name') %> All Rights Reserved.</div>
+      <div>
+        <a target="_blank" href="http://www.miitbeian.gov.cn/">鄂ICP备17011451号-2</a>
+      </div>
+    </div>
+  </div>
+
+  <% if Rails.env.production? %>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=62343993" charset="UTF-8" data-turbolinks-eval="false"></script>
+  <% end %>
+
+</footer>

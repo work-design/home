@@ -1,0 +1,13 @@
+<%= form_with model: [:my, @worker] do |f| %>
+  <%= render partial: 'shared/error_messages', locals: { target: @worker } %>
+  <div class="inline fields">
+    <label class="six wide field" for="worker_pomodoro">番茄钟</label>
+    <div class="ui right labeled input">
+      <%= f.number_field :pomodoro, label: false, on: { wrapper_input: false, wrapper_all: false } %>
+      <div class="ui basic label">分钟</div>
+    </div>
+  </div>
+  <%= f.select :duty_id, options_for_select(current_user.duty_options), label: '职位：' %>
+  <%= f.select :provider_id, options_for_select([]), { label: '所属供应商', include_blank: true }, { class: 'ui search fluid dropdown' } %>
+  <%= f.submit %>
+<% end %>

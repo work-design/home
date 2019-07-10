@@ -1,0 +1,15 @@
+<div class="ui vertical fluid menu">
+  <div class="item">
+    <span class="header">时间</span>
+    <div class="menu">
+      <%= link_to '今天', tasks_path, class: 'item active' %>
+      <%= link_to '接下来', tasks_path, class: active_helper(paths: ['roles']) %>
+    </div>
+  </div>
+  <div class="item">
+    <span class="header">项目</span>
+    <div class="menu">
+      <%= link_to '项目名', tasks_path, class: 'active item' %>
+    </div>
+  </div>
+</div>

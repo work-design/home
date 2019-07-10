@@ -1,0 +1,38 @@
+{
+  "nameme": "one-work",
+  "private": true,
+  "dependencies": {
+    "@antv/data-set": "^0.10.2",
+    "@antv/g2": "^3.4.10",
+    "@fortawesome/fontawesome-free": "^5.4.0",
+    "@fullcalendar/core": "^4.1.0",
+    "@fullcalendar/daygrid": "^4.1.0",
+    "@fullcalendar/moment": "^4.1.0",
+    "@fullcalendar/moment-timezone": "^4.1.0",
+    "@fullcalendar/resource-common": "^4.1.0",
+    "@fullcalendar/resource-daygrid": "^4.1.0",
+    "@fullcalendar/resource-timegrid": "^4.1.0",
+    "@fullcalendar/timegrid": "^4.1.0",
+    "@rails/actioncable": "^6.0.0-alpha",
+    "@rails/activestorage": "^6.0.0-alpha",
+    "@rails/ujs": "^6.0.0-alpha",
+    "@rails/webpacker": "https://github.com/rails/webpacker",
+    "axios": "^0.18.0",
+    "fullcalendar": "^3.9.0",
+    "jquery": "^3.3.1",
+    "jsdoc": "^3.5.5",
+    "moment": "^2.22.1",
+    "moment-timezone": "^0.5.25",
+    "rails-erb-loader": "^5.4.2",
+    "sortablejs": "^1.7.0",
+    "stickybits": "^3.5.8",
+    "stimulus": "^1.1.0",
+    "turbolinks": "^5.2.0",
+    "weui": "^2.0.0",
+    "weui.js": "^1.1.4",
+    "work-design-ui": "https://github.com/work-design/work-design-ui.git"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.1.9"
+  }
+}

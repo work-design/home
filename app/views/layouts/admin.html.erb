@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <title>管理后台</title>
+    <%= stylesheet_link_tag "admin/application" %>
+    <%= javascript_include_tag "admin/application" %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
+  <body>
+
+    <%= render 'nav_bar' %>
+    <%= render 'shared/alert' %>
+
+    <main class="ui inverted side">
+      <div class="sidebar" style="width: 260px;">
+        <%= render 'nav' %>
+      </div>
+      <div class="content">
+        <%= yield %>
+      </div>
+    </main>
+    
+    <%= js_load %>
+    <%= javascript_include_tag 'footer' %>
+    <div id="modal"></div>
+  </body>
+</html>
+

@@ -1,0 +1,25 @@
+zh:
+  activerecord:
+    attributes:
+      oauth_user/provider:
+        github: Github
+        facebook: Factbook
+        developer: Developer
+        wechat: 微信
+      oauth_user/type:
+        GithubUser: Github User
+        FacebookUser: Facebook User
+      order/payment_type:
+        alipay: Alipay
+      poster/type:
+        WebPoster: Web端
+        MobilePoster: 手机端
+        AppPoster: App端
+      task/focus:
+        inbox: 待办
+        today: 今天
+        scheduled: 日程
+      task/state:
+        todo: 接下来
+        doing: 进行中
+        done: 完成的

@@ -1,0 +1,8 @@
+<%= search_form_with model: Dinner.new do |f| %>
+  <div class="fields">
+    <%= f.text_field 'name-like', placeholder: 'Input Name' %>
+    <%= f.submit 'Search' %>
+  </div>
+<% end %>
+
+

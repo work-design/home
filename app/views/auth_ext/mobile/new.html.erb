@@ -1,0 +1,10 @@
+<%= form_with model: @user, scope: '', url: join_mobile_path, method: :post, local: true do |f| %>
+  <%= f.text_field :mobile, id: 'new_mobile' %>
+  <div class="weui-cell weui-cell_vcode">
+    <%= f.text_field :token, on: { wrapper_all: false } %>
+    <div class="weui-cell__ft">
+      <%= link_to 'Get Token', join_confirm_path, remote: true, class: 'weui-vcode-btn', id: 'mobile_confirm' %>
+    </div>
+  </div>
+  <%= f.submit 'submit' %>
+<% end %>

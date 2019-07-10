@@ -1,0 +1,7 @@
+
+
+<div id="detail_contents_add">
+  <%= link_to 'add', new_detail_picture_path(detail_type: 'Post', detail_id: @post.id), remote: true %>
+</div>
+
+<%= render 'rails_detail/pictures/index' %>

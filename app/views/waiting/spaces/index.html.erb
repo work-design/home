@@ -1,0 +1,34 @@
+<div class="ui segment">
+  <%= render 'taxon' %>
+</div>
+
+<div class="ui grid">
+  <div class="twelve wide column">
+    <div class="ui segment items">
+      <% @spaces.each do |space| %>
+        <div class="item">
+          <div class="avatar image">
+          </div>
+
+          <div class="content">
+            <%= link_to space.name, space_path(space) %>
+            <p><%= space.desc %></p>
+            <%= link_to '加入购物车', my_carts_path(good_id: space.id, good_type: 'Space'), method: :post, class: 'ui mini button' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <%= paginate @spaces %>
+  </div>
+
+
+  <div class="four wide column">
+    <div class="ui segment">
+      <div class="ui menu vertical">
+        <div class="item"><%= link_to '申请为供应商', new_my_space_path(space_taxon_id: params[:space_taxon_id]), class: 'ui mini primary button' %></div>
+      </div>
+    </div>
+  </div>
+</div>
+

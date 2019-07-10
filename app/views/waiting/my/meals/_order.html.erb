@@ -1,0 +1,13 @@
+<div class="ui modal" id="modal">
+  <i class="close icon"></i>
+  <div class="ui header blue">
+    Add Note
+  </div>
+
+  <div class="content">
+    <%= form_with model: @order, url: confirm_my_order_path(@order), method: :patch, local: true do |f| %>
+      <%= f.text_area :note %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

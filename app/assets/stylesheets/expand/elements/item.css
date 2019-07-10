@@ -1,0 +1,7 @@
+ul.ui.list .item {
+  background: none repeat scroll 0 0 #f0f0f0;
+}
+
+ul.ui.list .item:before {
+  content: '';
+}

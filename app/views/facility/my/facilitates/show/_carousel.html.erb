@@ -1,0 +1,35 @@
+<div id="photo_main" class="carousel slide">
+
+  <div class="carousel-inner">
+    <% unless @good.photos.blank? %>
+    <div class="item active">
+      <%= image_tag @good.photos.first.photo %>
+    </div>
+    <% end %>
+    <% @good.photos.where('position > ?', 0).each do |photo| %>
+    <div class="item">
+      <%= image_tag photo.photo %>
+      <div class="carousel-caption">
+        <h3><%= photo.title %></h3>
+        <p><%= photo.description %></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <a class="left carousel-control" href="#photo_main" data-slide="prev">
+    <span class="icon-prev"></span>
+  </a>
+  <a class="right carousel-control" href="#photo_main" data-slide="next">
+    <span class="icon-next"></span>
+  </a>
+
+</div>
+
+<ol class="indicators clearfix">
+  <% @good.photos.each do |photo| %>
+  <li data-target="#photo_main" data-slide-to="<%= photo.position %>" class="thumbnail">
+    <%= image_tag photo.photo.small %>
+  </li>
+  <% end %>
+</ol>

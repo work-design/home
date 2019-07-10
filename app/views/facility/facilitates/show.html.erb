@@ -1,0 +1,43 @@
+<% content_for :title, @facilitate.name %>
+<% content_for :meta_description, @facilitate.desc %>
+
+<div class="ui grid">
+  <div class="sixteen wide column">
+
+    <div class="ui segment breadcrumb">
+      <%= link_to '服务列表', facilitates_path, class: 'section' %>
+      <i class="right chevron icon divider"></i>
+      <%= link_to @facilitate.facilitate_taxon.name, facilitates_path(facilitate_taxon_id: @facilitate.facilitate_taxon_id), class: 'section' %>
+      <i class="right chevron icon divider"></i>
+      <div class="active section"><%= @facilitate.name %></div>
+    </div>
+
+    <h1 class="ui dividing header center aligned">
+      <%= @facilitate.name %>
+    </h1>
+
+  </div>
+</div>
+
+
+<div class="ui grid">
+  <div class="twelve wide column">
+
+    <div class="ui menu fluid three item">
+      <%= link_to facilitate_path(@facilitate), class: 'item' do %>
+        <i class="home icon"></i>商品信息
+      <% end %>
+      <%= link_to '服务商信息', facilitate_path(@facilitate), class: 'item' %>
+      <a class="item"></a>
+    </div>
+    <div class="ui segment">
+      <%= ex_simple_format @facilitate.desc %>
+    </div>
+    <%# render partial: 'store/goods/show/items', locals: { good: @good } %>
+  </div>
+
+  <div class="four wide column">
+    <%= render partial: 'show_side', locals: { good: @good } %>
+  </div>
+
+</div>

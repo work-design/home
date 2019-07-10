@@ -1,0 +1,40 @@
+<main>
+<div class="bg_banner">
+<div class="ui container">
+
+  <div class="ui basic center aligned segment">
+    <h1 class="ui header white text">One.Work</h1>
+    <h2 class="ui center aligned header white text">
+      Any<span class="green text">One</span>, Anytime, Anywhere, Any <span class="green text">Work</span>
+    </h2>
+    <h2 class="ui center aligned header white text">
+      你唯一的工作方式
+    </h2>
+  </div>
+
+</div>
+</div>
+
+<div class="ui divider"></div>
+
+<div class="bg2">
+
+  <div class="ui divided container items">
+    <% @post.pictures.each do |pic| %>
+    <div class="item">
+      <div class="center image">
+        <%= image_tag pic.file if pic.file.attached? %>
+      </div>
+      <div class="middle aligned content">
+        <a class="header"><%= pic.title %></a>
+        <div class="description">
+          <%= simple_format(pic.body) %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+</div>
+
+</main>

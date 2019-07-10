@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : t('site_name') %></title>
+    <meta name="description" content="<%= yield(:meta_description) %>" />
+    <meta name="keywords" content="<%= yield(:meta_keywords) %>" />
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= css_load media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= js_ready 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= csp_meta_tag %>
+  </head>
+
+  <body>
+    <%= render 'layouts/navbar' %>
+    <%= render 'shared/alert' %>
+  
+    <main class="ui container">
+      <%= yield %>
+    </main>
+  
+    <%= render 'layouts/footer' %>
+    <div id="modal"></div>
+    <%= js_load %>
+  </body>
+</html>

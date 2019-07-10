@@ -1,0 +1,11 @@
+<div class="ui borderless top attached inverted menu">
+  <div class="header item">管理后台</div>
+  <%= link_to '用户管理', admin_users_path, class: active_helper(modules: ['auth/admin', 'role/admin']) %>
+  <%= link_to '应用管理', admin_job_titles_path, class: active_helper(modules: ['bench/admin']) %>
+  <%= link_to '交易管理', admin_orders_path, class: active_helper(modules: ['trade/admin']) %>
+  <%= link_to '通知管理', admin_notifications_path, class: active_helper(modules: ['notice/admin']) %>
+  <%= link_to '生产管理', admin_products_path, class: active_helper(modules: ['factory/admin']) %>
+  <%= link_to '队列任务', '/sidekiq', class: 'item', target: '_blank' %>
+  
+  <%= render 'layouts/right_menu' %>
+</div>

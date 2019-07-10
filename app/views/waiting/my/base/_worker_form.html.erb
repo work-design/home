@@ -1,0 +1,11 @@
+<% if current_user.present_worker %>
+<div class="ui simple dropdown item">
+  <%= current_user.present_worker.duty.name %>
+  <i class="dropdown icon"></i>
+  <div class="menu">
+    <% current_user.workers.reject(&:new_record?).each do |worker| %>
+      <%= link_to worker.duty.name, present_my_worker_path(worker.id), method: :patch, class: 'item' %>
+    <% end %>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,8 @@
+zh:
+  activerecord:
+    attributes:
+      user:
+        name: 姓名
+      pipeline_member:
+        duty_id: 职位
+        worker_id: 人选

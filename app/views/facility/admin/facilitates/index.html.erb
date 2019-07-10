@@ -1,0 +1,43 @@
+<div class="ui top attached borderless menu">
+  <div class="item header">服务列表</div>
+  <div class="right menu">
+    <div class="item"><%= link_to '新建', new_admin_facilitate_path, class: 'ui teal button' %></div>
+  </div>
+</div>
+
+<div class="ui attached segment">
+  <%= render 'search_form' %>
+</div>
+
+<table class="ui selectable structured celled bottom attached table">
+  <thead>
+    <tr>
+      <th><%= Facilitate.human_attribute_name(:taxon) %></th>
+      <th><%= Facilitate.human_attribute_name(:id) %></th>
+      <th><%= Facilitate.human_attribute_name(:name) %></th>
+      <th><%= Facilitate.human_attribute_name(:logo) %></th>
+      <th><%= Facilitate.human_attribute_name(:desc) %></th>
+      <th><%= Facilitate.human_attribute_name(:created_at) %></th>
+      <th><%= Facilitate.human_attribute_name(:price) %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% FacilitateTaxon.where('facilitates_count > 0').each do |taxon| %>
+    <tr>
+      <td rowspan="<%= taxon.facilitates_count + 1 %>">
+        <%= taxon.name %>
+        <%= link_to edit_admin_facilitate_taxon_path(taxon) do %>
+          <i class="write icon"></i>
+        <% end %>
+      </td>
+    </tr>
+    <% taxon.facilitates.each do |facilitate| %>
+      <%= render partial: 'facilitate', locals: { facilitate: facilitate } %>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @facilitates %>

@@ -1,0 +1,630 @@
+GIT
+  remote: https://github.com/jasl/wx_pay.git
+  revision: dfd5d1481c13168b8c4b6ab23b134b40f190a2f7
+  specs:
+    wx_pay (0.20.1)
+      activesupport (>= 3.2)
+      rest-client (>= 2.0.0)
+
+GIT
+  remote: https://github.com/qinmingyuan/alipay2.git
+  revision: 9e59fbca203b8814dd179fcf1fb9e251b9b16d6d
+  branch: master
+  specs:
+    alipay2 (2.0)
+
+GIT
+  remote: https://github.com/qinmingyuan/default_form.git
+  revision: 1a47c753e7faf0e4658d003ef173dc5e4a030ec6
+  branch: master
+  specs:
+    default_form (1.3.4)
+      rails (>= 5.2)
+
+GIT
+  remote: https://github.com/qinmingyuan/default_where.git
+  revision: b95be97caf3f77318268952d0a21f80d6e1cf63f
+  branch: master
+  specs:
+    default_where (2.2.3)
+      activerecord (>= 4.0, <= 6.0)
+
+GIT
+  remote: https://github.com/qinmingyuan/omniauth-wechat-oauth2.git
+  revision: 3391e65ce1e58a589ae2cdf6d280399c1ff68a9a
+  branch: master
+  specs:
+    omniauth-wechat-oauth2 (0.1.0)
+      omniauth-oauth2 (~> 1.5)
+
+GIT
+  remote: https://github.com/qinmingyuan/qiniu_rails.git
+  revision: 6d3cb80cff174d4aa4b2a09c2a72d3055fbc6a77
+  branch: master
+  specs:
+    qiniu_rails (1.0.0)
+      qiniu (~> 6.9)
+      rails (>= 5.2)
+
+GIT
+  remote: https://github.com/work-design/rails_audit.git
+  revision: 4ab3f1d90521d3c09061ee723563598e89bc0914
+  branch: master
+  specs:
+    rails_audit (1.0.3)
+      rails_com (~> 1.2)
+
+GIT
+  remote: https://github.com/work-design/rails_auth.git
+  revision: 9e1da64499d09efc25581095df441ed7d540b122
+  branch: master
+  specs:
+    rails_auth (1.0.6)
+      bcrypt (~> 3.1)
+      jwt (>= 2.0, <= 3.0)
+      rails_com (~> 1.2)
+
+GIT
+  remote: https://github.com/work-design/rails_bench.git
+  revision: c396b59a5d20e4349dc95da6fd0b9e611327979d
+  branch: master
+  specs:
+    rails_bench (0.1.0)
+      rails (~> 6.0.0.rc1)
+      rails_org
+
+GIT
+  remote: https://github.com/work-design/rails_booking.git
+  revision: 4ff8f7a719d3997979ec886970cf4123f223c315
+  branch: master
+  specs:
+    rails_booking (0.1.1)
+      rails (>= 5.0, <= 6.0)
+
+GIT
+  remote: https://github.com/work-design/rails_com.git
+  revision: b55e9f5b3301ad589d5aed8f19661aeceb570af0
+  branch: master
+  specs:
+    rails_com (1.2.9)
+      default_form (~> 1.3)
+      default_where (~> 2.2)
+      httparty (>= 0.16, <= 1.0)
+      rails (~> 6.0.0.rc1)
+
+GIT
+  remote: https://github.com/work-design/rails_data.git
+  revision: 0cd7a42cb65122db848324afc39baef0a358a95c
+  branch: master
+  specs:
+    rails_data (1.0.2)
+      prawn (~> 2.2)
+      prawn-table (~> 0.2)
+      rails_com (~> 1.2)
+      roo (~> 2.7)
+      roo-xls (~> 1.2)
+      write_xlsx (~> 0.83.0)
+
+GIT
+  remote: https://github.com/work-design/rails_detail.git
+  revision: d346468e39db73ebcaf7cd9f37d1709c6a1da565
+  branch: master
+  specs:
+    rails_detail (0.0.1)
+      acts_as_list (~> 0.9)
+      rails (>= 5.0, <= 6.0)
+      rails_com (~> 1.2)
+
+GIT
+  remote: https://github.com/work-design/rails_factory.git
+  revision: c3604cfa55b5303f59ab8a2ffa31b25d7036379a
+  branch: master
+  specs:
+    rails_factory (1.0.0)
+      rails_com (~> 1.2)
+      rails_taxon (~> 1.0)
+
+GIT
+  remote: https://github.com/work-design/rails_log.git
+  revision: 7c987e619934fb7f2c3649f1eea414eb6e42cbeb
+  branch: master
+  specs:
+    rails_log (2.1.6)
+      rails_com (~> 1.2)
+
+GIT
+  remote: https://github.com/work-design/rails_notice.git
+  revision: 47277e20f49a5f8032052bf58ad531d6e3753cc6
+  branch: master
+  specs:
+    rails_notice (1.0.2)
+      rails_com (~> 1.2)
+
+GIT
+  remote: https://github.com/work-design/rails_org.git
+  revision: 676f8d65471ee9e44d727368d6590dcce67d5792
+  branch: master
+  specs:
+    rails_org (0.1)
+      rails_com (~> 1.2)
+      rails_profile
+
+GIT
+  remote: https://github.com/work-design/rails_profile.git
+  revision: d1b13a37913f63d9ccd94a37e5938c1c990a8849
+  branch: master
+  specs:
+    rails_profile (0.1.0)
+      rails (>= 5.2.1)
+
+GIT
+  remote: https://github.com/work-design/rails_role.git
+  revision: 73eef3c3571cca9b973ec8cfe125f6b661bd4f25
+  branch: master
+  specs:
+    rails_role (1.0.3)
+      acts_as_list (~> 0.9)
+      rails_com (~> 1.2)
+
+GIT
+  remote: https://github.com/work-design/rails_taxon.git
+  revision: c28c6974e2993d0204aef8d18a5c4a6686d97207
+  branch: master
+  specs:
+    rails_taxon (1.0.0)
+      acts_as_list (>= 0.9, <= 1.0)
+      closure_tree (>= 6.6, <= 7.1)
+      rails_com (~> 1.2)
+
+GIT
+  remote: https://github.com/work-design/rails_trade.git
+  revision: 86e0d42bddb42f241a73f08e2b87ee33aab2820e
+  branch: master
+  specs:
+    rails_trade (0.0.1)
+      money-rails (~> 1.12)
+      rails_audit (~> 1.0)
+      rails_auth (~> 1.0)
+      rails_com (~> 1.2)
+      rails_data (~> 1.0)
+      rails_role (~> 1.0)
+
+GIT
+  remote: https://github.com/work-design/rails_wechat.git
+  revision: 59f665760ace0256c94e182b13832e2a343d88dd
+  branch: master
+  specs:
+    rails_wechat (0.1.0)
+      http (~> 4.1)
+      rails (~> 6.0.0.rc1)
+      rails_auth
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    actioncable (6.0.0.rc1)
+      actionpack (= 6.0.0.rc1)
+      nio4r (~> 2.0)
+      websocket-driver (>= 0.6.1)
+    actionmailbox (6.0.0.rc1)
+      actionpack (= 6.0.0.rc1)
+      activejob (= 6.0.0.rc1)
+      activerecord (= 6.0.0.rc1)
+      activestorage (= 6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
+      mail (>= 2.7.1)
+    actionmailer (6.0.0.rc1)
+      actionpack (= 6.0.0.rc1)
+      actionview (= 6.0.0.rc1)
+      activejob (= 6.0.0.rc1)
+      mail (~> 2.5, >= 2.5.4)
+      rails-dom-testing (~> 2.0)
+    actionpack (6.0.0.rc1)
+      actionview (= 6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
+      rack (~> 2.0)
+      rack-test (>= 0.6.3)
+      rails-dom-testing (~> 2.0)
+      rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    actiontext (6.0.0.rc1)
+      actionpack (= 6.0.0.rc1)
+      activerecord (= 6.0.0.rc1)
+      activestorage (= 6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
+      nokogiri (>= 1.8.5)
+    actionview (6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
+      builder (~> 3.1)
+      erubi (~> 1.4)
+      rails-dom-testing (~> 2.0)
+      rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    activejob (6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
+      globalid (>= 0.3.6)
+    activemodel (6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
+    activerecord (6.0.0.rc1)
+      activemodel (= 6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
+    activestorage (6.0.0.rc1)
+      actionpack (= 6.0.0.rc1)
+      activejob (= 6.0.0.rc1)
+      activerecord (= 6.0.0.rc1)
+      marcel (~> 0.3.1)
+    activesupport (6.0.0.rc1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+      zeitwerk (~> 2.1, >= 2.1.4)
+    acts_as_list (0.9.19)
+      activerecord (>= 3.0)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
+    awesome_print (1.8.0)
+    bcrypt (3.1.12)
+    bindex (0.7.0)
+    binding_of_caller (0.8.0)
+      debug_inspector (>= 0.0.1)
+    bootsnap (1.4.4)
+      msgpack (~> 1.0)
+    builder (3.2.3)
+    byebug (11.0.1)
+    capybara (3.18.0)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (~> 1.2)
+      xpath (~> 3.2)
+    chartkick (3.0.2)
+    childprocess (1.0.1)
+      rake (< 13.0)
+    chunky_png (1.3.11)
+    closure_tree (7.0.0)
+      activerecord (>= 4.2.10)
+      with_advisory_lock (>= 4.0.0)
+    coderay (1.1.2)
+    coffee-rails (5.0.0)
+      coffee-script (>= 2.2.0)
+      railties (>= 5.2.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
+    concurrent-ruby (1.1.5)
+    connection_pool (2.2.2)
+    crass (1.0.4)
+    dalli (2.7.10)
+    debug_inspector (0.0.3)
+    domain_name (0.5.20180417)
+      unf (>= 0.0.5, < 1.0.0)
+    erubi (1.8.0)
+    execjs (2.7.0)
+    factory_bot (5.0.2)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.0.2)
+      factory_bot (~> 5.0.2)
+      railties (>= 4.2.0)
+    faraday (0.15.4)
+      multipart-post (>= 1.2, < 3)
+    ffi (1.10.0)
+    globalid (0.4.2)
+      activesupport (>= 4.2.0)
+    groupdate (4.1.1)
+      activesupport (>= 4.2)
+    hashie (3.6.0)
+    http (4.1.1)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.0)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (2.1.1)
+    http_parser.rb (0.6.0)
+    httparty (0.17.0)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
+    i18n (1.6.0)
+      concurrent-ruby (~> 1.0)
+    jbuilder (2.8.0)
+      activesupport (>= 4.2.0)
+      multi_json (>= 1.2)
+    jwt (2.1.0)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
+    kramdown (2.1.0)
+    listen (3.1.5)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
+    loofah (2.2.3)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.5.9)
+    mail (2.7.1)
+      mini_mime (>= 0.1.1)
+    marcel (0.3.3)
+      mimemagic (~> 0.3.2)
+    method_source (0.9.2)
+    mime-types (3.2.2)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2019.0331)
+    mimemagic (0.3.3)
+    mini_magick (4.9.3)
+    mini_mime (1.0.1)
+    mini_portile2 (2.4.0)
+    minitest (5.11.3)
+    monetize (1.9.1)
+      money (~> 6.12)
+    money (6.13.4)
+      i18n (>= 0.6.4, <= 2)
+    money-rails (1.13.2)
+      activesupport (>= 3.0)
+      monetize (~> 1.9.0)
+      money (~> 6.13.2)
+      railties (>= 3.0)
+    msgpack (1.2.10)
+    multi_json (1.13.1)
+    multi_xml (0.6.0)
+    multipart-post (2.0.0)
+    netrc (0.11.0)
+    nio4r (2.3.1)
+    nokogiri (1.10.3)
+      mini_portile2 (~> 2.4.0)
+    oauth2 (1.4.1)
+      faraday (>= 0.8, < 0.16.0)
+      jwt (>= 1.0, < 3.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    octokit (4.14.0)
+      sawyer (~> 0.8.0, >= 0.5.3)
+    omniauth (1.9.0)
+      hashie (>= 3.4.6, < 3.7.0)
+      rack (>= 1.6.2, < 3)
+    omniauth-github (1.3.0)
+      omniauth (~> 1.5)
+      omniauth-oauth2 (>= 1.4.0, < 2.0)
+    omniauth-oauth2 (1.6.0)
+      oauth2 (~> 1.1)
+      omniauth (~> 1.9)
+    paypal-sdk-core (0.3.4)
+      multi_json (~> 1.0)
+      xml-simple
+    paypal-sdk-rest (1.6.0)
+      multi_json (~> 1.0)
+      xml-simple
+    pdf-core (0.7.0)
+    pg (1.1.4)
+    prawn (2.2.2)
+      pdf-core (~> 0.7.0)
+      ttfunk (~> 1.5)
+    prawn-table (0.2.2)
+      prawn (>= 1.3.0, < 3.0.0)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
+    pry-stack_explorer (0.4.9.3)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
+    public_suffix (3.0.3)
+    puma (4.0.0)
+      nio4r (~> 2.0)
+    qiniu (6.9.0)
+      mime-types (~> 3.1)
+      rest-client (~> 2.0)
+    rack (2.0.7)
+    rack-protection (2.0.5)
+      rack
+    rack-proxy (0.6.5)
+      rack
+    rack-test (1.1.0)
+      rack (>= 1.0, < 3)
+    rails (6.0.0.rc1)
+      actioncable (= 6.0.0.rc1)
+      actionmailbox (= 6.0.0.rc1)
+      actionmailer (= 6.0.0.rc1)
+      actionpack (= 6.0.0.rc1)
+      actiontext (= 6.0.0.rc1)
+      actionview (= 6.0.0.rc1)
+      activejob (= 6.0.0.rc1)
+      activemodel (= 6.0.0.rc1)
+      activerecord (= 6.0.0.rc1)
+      activestorage (= 6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
+      bundler (>= 1.3.0)
+      railties (= 6.0.0.rc1)
+      sprockets-rails (>= 2.0.0)
+    rails-dom-testing (2.0.3)
+      activesupport (>= 4.2.0)
+      nokogiri (>= 1.6)
+    rails-html-sanitizer (1.0.4)
+      loofah (~> 2.2, >= 2.2.2)
+    railties (6.0.0.rc1)
+      actionpack (= 6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
+      method_source
+      rake (>= 0.8.7)
+      thor (>= 0.20.3, < 2.0)
+    rake (12.3.2)
+    rb-fsevent (0.10.3)
+    rb-inotify (0.10.0)
+      ffi (~> 1.0)
+    redis (4.1.0)
+    regexp_parser (1.4.0)
+    rest-client (2.0.2)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
+    roo (2.8.2)
+      nokogiri (~> 1)
+      rubyzip (>= 1.2.1, < 2.0.0)
+    roo-xls (1.2.0)
+      nokogiri
+      roo (>= 2.0.0, < 3)
+      spreadsheet (> 0.9.0)
+    rqrcode (0.10.1)
+      chunky_png (~> 1.0)
+    ruby-ole (1.2.12.2)
+    ruby_dep (1.5.0)
+    rubyzip (1.2.2)
+    rucaptcha (2.5.0)
+      railties (>= 3.2)
+    sassc (2.0.1)
+      ffi (~> 1.9)
+      rake
+    sassc-rails (2.1.1)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
+    sawyer (0.8.1)
+      addressable (>= 2.3.5, < 2.6)
+      faraday (~> 0.8, < 1.0)
+    selenium-webdriver (3.142.0)
+      childprocess (>= 0.5, < 2.0)
+      rubyzip (~> 1.2, >= 1.2.2)
+    sidekiq (5.2.7)
+      connection_pool (~> 2.2, >= 2.2.2)
+      rack (>= 1.5.0)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.5, < 5)
+    spreadsheet (1.2.4)
+      ruby-ole (>= 1.0)
+    spring (2.0.2)
+      activesupport (>= 4.2)
+    spring-watcher-listen (2.0.1)
+      listen (>= 2.7, < 4.0)
+      spring (>= 1.2, < 3.0)
+    sprockets (4.0.0.beta8)
+      concurrent-ruby (~> 1.0)
+      rack (> 1, < 3)
+    sprockets-rails (3.2.1)
+      actionpack (>= 4.0)
+      activesupport (>= 4.0)
+      sprockets (>= 3.0.0)
+    thor (0.20.3)
+    thread_safe (0.3.6)
+    tilt (2.0.9)
+    ttfunk (1.5.1)
+    turbolinks (5.2.0)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
+    uglifier (4.1.20)
+      execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.6)
+    web-console (4.0.0)
+      actionview (>= 6.0.0.a)
+      activemodel (>= 6.0.0.a)
+      bindex (>= 0.4.0)
+      railties (>= 6.0.0.a)
+    webpacker (4.0.2)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
+    websocket-driver (0.7.0)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.3)
+    with_advisory_lock (4.0.0)
+      activerecord (>= 4.2)
+    write_xlsx (0.83.0)
+      rubyzip (>= 1.0.0)
+      zip-zip
+    xml-simple (1.1.5)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
+    zeitwerk (2.1.6)
+    zip-zip (0.3)
+      rubyzip (>= 1.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  acts_as_list
+  alipay2!
+  awesome_print
+  bcrypt
+  bootsnap (>= 1.1.0)
+  byebug
+  capybara
+  chartkick
+  closure_tree
+  coffee-rails
+  dalli
+  default_form!
+  default_where!
+  factory_bot_rails
+  groupdate
+  jbuilder
+  kaminari
+  kramdown
+  listen
+  mini_magick
+  octokit
+  omniauth-github
+  omniauth-wechat-oauth2!
+  paypal-sdk-core (= 0.3.4)
+  paypal-sdk-rest (= 1.6.0)
+  pg
+  pry-rails
+  pry-stack_explorer
+  puma
+  qiniu
+  qiniu_rails!
+  rack
+  rails (= 6.0.0.rc1)
+  rails_audit!
+  rails_auth!
+  rails_bench!
+  rails_booking!
+  rails_com!
+  rails_data!
+  rails_detail!
+  rails_factory!
+  rails_log!
+  rails_notice!
+  rails_org!
+  rails_profile!
+  rails_role!
+  rails_taxon!
+  rails_trade!
+  rails_wechat!
+  redis
+  roo
+  rqrcode
+  rucaptcha
+  sassc-rails
+  selenium-webdriver
+  sidekiq
+  spring
+  spring-watcher-listen (~> 2.0.0)
+  sprockets (= 4.0.0.beta8)
+  turbolinks (~> 5.x)
+  uglifier
+  web-console
+  webpacker
+  wx_pay!
+  zeitwerk
+
+BUNDLED WITH
+   1.17.2

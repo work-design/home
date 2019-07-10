@@ -1,0 +1,15 @@
+<div class="sixteen wide column">
+
+  <div class="ui breadcrumb">
+    <%= link_to 'Back', admin_facilitates_path, class: 'section' %>
+    <div class="divider"> / </div>
+    <div class="active section">Add New</div>
+  </div>
+
+  <div class="ui segment">
+    <%= form_with model: @facilitate_taxon, url: admin_facilitate_taxons_path(return_to: params[:return_to]) do |f| %>
+      <%= render partial: 'form', locals: { f: f } %>
+    <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,36 @@
+<div class="ui top attached borderless menu">
+  <div class="header item">空间分类列表</div>
+  <div class="right menu">
+    <div class="item"><%= link_to '新建', new_admin_space_taxon_path, class: 'ui teal button' %></div>
+  </div>
+</div>
+
+<div class="ui attached segment">
+</div>
+
+<table class="ui bottom attached table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @space_taxons.each do |space_taxon| %>
+    <tr>
+      <td><%= space_taxon.id %></td>
+      <td><%= space_taxon.name %></td>
+      <td>
+        <%= link_to 'Show', admin_space_taxon_path(space_taxon) %>
+        <%= link_to 'Items', detail_taxon_items_path('SpaceTaxon', space_taxon.id) %>
+      </td>
+      <td><%= link_to 'Edit', edit_admin_space_taxon_path(space_taxon) %></td>
+      <td><%= link_to 'Destroy', admin_space_taxon_path(space_taxon), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @space_taxons %>

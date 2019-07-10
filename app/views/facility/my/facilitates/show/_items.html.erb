@@ -1,0 +1,32 @@
+<table class="ui table">
+  <% good.lists.uniq.each do |list| %>
+  <tr class="">
+    <td colspan="3"><%= list.name %></td>
+  </tr>
+    <% good.good_items.the_list(list.id).each do |good_item| %>
+      <tr>
+        <% if good_item.picture.present? %>
+          <td class="three wide"><%= image_tag good_item.picture.item_url %></td>
+        <% elsif good_item.item.picture.present? %>
+          <td class="three wide"><%= image_tag good_item.item.picture.item_url %></td>
+        <% else %>
+          <td class="three wide"></td>
+        <% end %>
+        <td class="thirteen wide">
+          <div>
+          <%= link_to good_item.item.name, item_goods_path(good_item.item), :target => '_blank' %>
+          <div><%= ex_simple_format good_item.item.content %></div>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+
+
+
+
+
+
+
+

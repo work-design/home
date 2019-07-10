@@ -1,0 +1,26 @@
+<%= search_form_with model: Dinner.new do |f| %>
+  <div class="fields">
+    <%= f.text_field :name %>
+    <%= f.submit 'Search' %>
+  </div>
+<% end %>
+
+<dl>
+  <dt>Office:</dt>
+  <dd>
+    <%= link_to 'All', filter_params(except: [:office_id]), class: active_params(office_id: '', active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <% Office.all.each do |office| %>
+      <%= link_to office.name, filter_params(office_id: office.id), class: active_params(office_id: office.id, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <% end %>
+  </dd>
+</dl>
+
+<dl>
+  <dt>Provider:</dt>
+  <dd>
+    <%= link_to 'All', filter_params(except: [:provider_id]), class: active_params(provider_id: '', active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <% Provider.all.each do |provider| %>
+      <%= link_to provider.name, filter_params(provider_id: provider.id), class: active_params(provider_id: provider.id, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <% end %>
+  </dd>
+</dl>

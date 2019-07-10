@@ -1,0 +1,22 @@
+/*
+*= require weui/dist/style/weui
+*= require @fortawesome/fontawesome-free/css/fontawesome
+*= require rails_com/fa_all
+*= require_self
+*/
+
+html, body {
+  height: 100%;
+}
+
+.weui-article h1 {
+  margin-top: .9em;
+  text-align: center;
+}
+.weui-article img {
+  display: block;
+}
+
+.weui-cell_disabled {
+  opacity: .5;
+}

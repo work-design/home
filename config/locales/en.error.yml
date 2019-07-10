@@ -1,0 +1,8 @@
+en:
+  errors:
+    messages:
+      blank: 不能为空
+      too_short: 长度不够
+      taken: 已被占用
+      record_invalid: 已存在
+

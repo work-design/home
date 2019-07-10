@@ -1,0 +1,23 @@
+test:
+  service: Disk
+  root: <%= Rails.root.join('tmp/storage') %>
+
+local:
+  service: Disk
+  root: <%= Rails.root.join('storage') %>
+
+qiniu_dev:
+  service: Qiniu
+  host: assets-yigenongfu.one.work
+  access_key: H-6B2tpj9nzreGISYgwJnQ8fOJhsbv3IAcmKeik7
+  secret_key: 9XPOxEu1vzWRD0HiDtkjt6qJqGpBEVGuLrzQmXw0
+  bucket: yigenongfu
+  protocol: http
+
+qiniu:
+  service: Qiniu
+  host: assets.one.work
+  access_key: iX6NuM1xN04Wdh-DogI0F3jLVpc-A4CsTHET1zDx
+  secret_key: aN44R3yzJFaeswbyM4Y8YaJvnkmL0XlECnTfafTB
+  bucket: one-work
+  protocol: https

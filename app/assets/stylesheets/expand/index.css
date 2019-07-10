@@ -1,0 +1,39 @@
+/*
+*= require_tree .
+*= require_self
+*/
+
+.ui.form textarea {
+  border-radius: 0;
+  z-index: 1;
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.container {
+    width: 993px;
+  }
+  .ui.grid.container {
+    width: calc( 993px  +  2rem ) !important;
+  }
+  .ui.relaxed.grid.container {
+    width: calc( 993px  +  3rem ) !important;
+  }
+  .ui.very.relaxed.grid.container {
+    width: calc( 993px  +  5rem ) !important;
+  }
+}
+
+header.ui.borderless.menu {
+  border-radius: 0;
+  border-top: none;
+}
+
+[draggable] .icon {
+  /*cursor: move; */
+}
+
+.sortable-ghost {
+  opacity: .2;
+  background-color: red !important;
+}
+

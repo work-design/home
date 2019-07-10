@@ -1,0 +1,8 @@
+if ($('.ui.modals').length === 0) {
+  $('body').append('<%= j(render 'edit') %>');
+} else {
+  $('.ui.modals').html('<%= j(render 'edit') %>');
+}
+
+
+$('.ui.modal').modal('setting', {autofocus: false}).modal('show');

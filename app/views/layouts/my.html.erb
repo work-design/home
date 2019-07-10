@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+
+<head>
+  <title><%= content_for?(:title) ? yield(:title) : t('site_name') %></title>
+  <meta name="description" content="<%= yield(:meta_description) %>">
+  <meta name="keywords" content="<%= yield(:meta_keywords) %>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true %>
+  <%= css_load media: 'all', 'data-turbolinks-track': true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': true %>
+  <%= js_ready 'data-turbolinks-track': true %>
+  <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
+</head>
+
+<body>
+
+  <%= render 'layouts/navbar' %>
+
+  <main class="ui inverted side">
+    <div class="sidebar" style="width: 260px;">
+      <% if content_for?(:nav) %>
+        <%= yield :nav %>
+      <% else %>
+        <%= render 'nav' %>
+      <% end %>
+    </div>
+    <div class="content">
+      <div class="main">
+        <%= yield %>
+      </div>
+      <%= render 'layouts/footer' %>
+    </div>
+  </main>
+  <div id="modal"></div>
+  <%= js_load %>
+  <%= javascript_include_tag 'footer' %>
+</body>
+
+</html>

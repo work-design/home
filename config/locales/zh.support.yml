@@ -1,0 +1,51 @@
+zh:
+  number:
+    human:
+      format:
+        # These five are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        precision: 0
+        significant: false
+        strip_insignificant_zeros: false
+      # Used in number_to_human_size()
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+          pb: "PB"
+          eb: "EB"
+      # Used in NumberHelper.number_to_human()
+      decimal_units:
+        format: "%n %u"
+        # Decimal units output formatting
+        # By default we will only quantify some of the exponents
+        # but the commented ones might be defined or overridden
+        # by the user.
+        units:
+          femto: Quadrillionth
+          pico: Trillionth
+          nano: Billionth
+          micro: Millionth
+          mili: Thousandth
+          centi: 分
+          deci: 角
+          unit: ""
+          ten:
+            one: 拾
+            other: 拾
+          hundred: 佰
+          thousand: 仟
+          ten_thousand: 万
+          million: 佰万
+          billion: Billion
+          trillion: Trillion
+          quadrillion: Quadrillion

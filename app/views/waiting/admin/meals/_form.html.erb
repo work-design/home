@@ -1,0 +1,8 @@
+<%= form_with model: [:hr, @dinner], local: true do |f| %>
+  <%= render 'shared/error_messages', target: @dinner %>
+  <%= f.collection_select :office_id, Office.all, :id, :name, { include_blank: true } %>
+  <%= f.collection_select :provider_id, Provider.all, :id, :name, { include_blank: true } %>
+  <%= f.text_field :name %>
+  <%= f.number_field :position, step: 1 %>
+  <%= f.submit %>
+<% end %>

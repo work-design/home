@@ -1,0 +1,17 @@
+<%= default_form_with model: @profile, url: my_profile_path do |f| %>
+  <%= f.text_field :real_name %>
+  <%= f.select :gender, options_for_select(Profile.options_i18n(:gender), @profile.gender) %>
+  <%= f.email_field :private_email %>
+  <%= f.select :birthday_type, options_for_select(Profile.options_i18n(:birthday_type)) %>
+  <%= f.date_field :birthday %>
+  <%= f.text_field :major %>
+  <%= f.text_field :degree %>
+  <%= f.text_field :highest_education %>
+  <%= f.text_area :work_experience %>
+  <%= f.file_field :resume %>
+  <div class="inline fields">
+    <%= f.submit 'update info', class: 'ui green button', on: {wrapper_all: false} %>
+    <%= link_to 'back', my_profile_path, class: 'ui button' %>
+  </div>
+<% end %>
+

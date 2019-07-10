@@ -1,0 +1,32 @@
+<div class="ui top attached borderless menu">
+  <%= link_to 'My Dinners', dinners_my_orders_path, class: 'item' %>
+  <div class="header item">Dinner List</div>
+</div>
+
+<div class="ui attached segment">
+  <%= render 'search_form' %>
+</div>
+
+<table class="ui bottom attached table">
+  <thead>
+    <tr>
+      <th><%= Dinner.human_attribute_name(:id) %></th>
+      <th><%= Dinner.human_attribute_name(:name) %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @dinners.each do |dinner| %>
+    <tr>
+      <td><%= dinner.id %></td>
+      <td><%= dinner.name %></td>
+      <td>
+        <%= link_to 'Order', order_dinner_path(dinner), method: :patch,  remote: true, class: 'ui green label' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @dinners %>

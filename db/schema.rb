@@ -1,0 +1,1452 @@
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# This file is the source Rails uses to define your schema when running `rails
+# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
+#
+# It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 2019_07_09_142604) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "type"
+    t.string "identity"
+    t.boolean "confirmed", default: false
+    t.boolean "primary", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_accounts_on_user_id"
+  end
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blob_defaults", force: :cascade do |t|
+    t.bigint "blob_id"
+    t.string "record_class"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "private"
+    t.index ["blob_id"], name: "index_active_storage_blob_defaults_on_blob_id"
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "addresses", force: :cascade do |t|
+    t.bigint "area_id"
+    t.string "addressing_type"
+    t.bigint "addressing_id"
+    t.string "address"
+    t.string "kind"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["addressing_type", "addressing_id"], name: "index_addresses_on_addressing_type_and_addressing_id"
+    t.index ["area_id"], name: "index_addresses_on_area_id"
+  end
+
+  create_table "area_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "area_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "area_desc_idx"
+  end
+
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.string "names", array: true
+    t.bigint "parent_id"
+    t.boolean "published", default: true
+    t.boolean "popular", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "index_areas_on_parent_id"
+  end
+
+  create_table "cart_promotes", force: :cascade do |t|
+    t.bigint "cart_id"
+    t.bigint "cart_item_id"
+    t.bigint "promote_id"
+    t.decimal "amount", precision: 10, scale: 2
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "promote_charge_id"
+    t.bigint "promote_buyer_id"
+    t.index ["cart_id"], name: "index_cart_promotes_on_cart_id"
+    t.index ["cart_item_id"], name: "index_cart_promotes_on_cart_item_id"
+    t.index ["promote_buyer_id"], name: "index_cart_promotes_on_promote_buyer_id"
+    t.index ["promote_charge_id"], name: "index_cart_promotes_on_promote_charge_id"
+    t.index ["promote_id"], name: "index_cart_promotes_on_promote_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.string "buyer_type"
+    t.bigint "buyer_id"
+    t.string "session_id", limit: 128
+    t.decimal "amount", precision: 10, scale: 2
+    t.bigint "user_id"
+    t.bigint "payment_strategy_id"
+    t.integer "deposit_ratio"
+    t.boolean "default"
+    t.index ["buyer_type", "buyer_id"], name: "index_carts_on_buyer_type_and_buyer_id"
+    t.index ["payment_strategy_id"], name: "index_carts_on_payment_strategy_id"
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "charges", force: :cascade do |t|
+    t.string "unit"
+    t.decimal "min", precision: 10, scale: 2
+    t.decimal "max", precision: 10, scale: 2
+    t.decimal "price", precision: 10, scale: 2
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contents", force: :cascade do |t|
+    t.string "type"
+    t.string "title"
+    t.text "body"
+    t.integer "position", default: 0
+    t.string "list", limit: 50
+    t.bigint "detail_id"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "detail_type"
+    t.index ["author_id"], name: "index_contents_on_author_id"
+    t.index ["detail_id"], name: "index_contents_on_detail_id"
+  end
+
+  create_table "custom_parts", force: :cascade do |t|
+    t.bigint "custom_id"
+    t.bigint "part_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "original_price", precision: 10, scale: 2
+    t.decimal "price", precision: 10, scale: 2
+    t.index ["custom_id"], name: "index_custom_parts_on_custom_id"
+    t.index ["part_id"], name: "index_custom_parts_on_part_id"
+  end
+
+  create_table "customs", force: :cascade do |t|
+    t.string "state"
+    t.string "qr_code"
+    t.datetime "ordered_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "product_id"
+    t.string "customer_type"
+    t.bigint "customer_id"
+    t.decimal "price", precision: 10, scale: 2
+    t.index ["customer_type", "customer_id"], name: "index_customs_on_customer_type_and_customer_id"
+    t.index ["product_id"], name: "index_customs_on_product_id"
+  end
+
+  create_table "data_lists", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.string "comment", limit: 4096
+    t.string "type"
+    t.string "data_table"
+    t.string "export_excel"
+    t.string "export_pdf"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "parameters"
+    t.jsonb "columns"
+  end
+
+  create_table "department_grants", force: :cascade do |t|
+    t.bigint "organ_id"
+    t.bigint "organ_handle_id"
+    t.bigint "department_id"
+    t.bigint "job_title_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["department_id"], name: "index_department_grants_on_department_id"
+    t.index ["job_title_id"], name: "index_department_grants_on_job_title_id"
+    t.index ["organ_handle_id"], name: "index_department_grants_on_organ_handle_id"
+    t.index ["organ_id"], name: "index_department_grants_on_organ_id"
+  end
+
+  create_table "department_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "department_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "department_desc_idx"
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.bigint "organ_id"
+    t.bigint "parent_id"
+    t.string "name"
+    t.integer "member_departments_count", default: 0
+    t.integer "needed_number"
+    t.string "collective_email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "all_member_departments_count"
+    t.index ["organ_id"], name: "index_departments_on_organ_id"
+    t.index ["parent_id"], name: "index_departments_on_parent_id"
+  end
+
+  create_table "details", force: :cascade do |t|
+    t.string "name"
+    t.integer "contents_count", default: 0
+    t.integer "pictures_count", default: 0
+    t.integer "links_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "entity_items", force: :cascade do |t|
+    t.bigint "list_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "value"
+    t.string "entity_type"
+    t.bigint "entity_id"
+    t.bigint "taxon_item_id"
+    t.index ["entity_type", "entity_id"], name: "index_entity_items_on_entity_type_and_entity_id"
+    t.index ["item_id"], name: "index_entity_items_on_item_id"
+    t.index ["list_id"], name: "index_entity_items_on_list_id"
+    t.index ["taxon_item_id"], name: "index_entity_items_on_taxon_item_id"
+  end
+
+  create_table "extractions", force: :cascade do |t|
+    t.bigint "extractor_id"
+    t.string "extractable_type"
+    t.bigint "extractable_id"
+    t.string "name"
+    t.string "matched"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["extractable_type", "extractable_id"], name: "index_extractions_on_extractable_type_and_extractable_id"
+    t.index ["extractor_id"], name: "index_extractions_on_extractor_id"
+  end
+
+  create_table "extractors", force: :cascade do |t|
+    t.string "name"
+    t.string "prefix"
+    t.string "suffix"
+    t.boolean "more"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "organ_id"
+    t.index ["organ_id"], name: "index_extractors_on_organ_id"
+  end
+
+  create_table "facilitate_taxons", force: :cascade do |t|
+    t.string "name"
+    t.integer "position", default: 0
+    t.integer "facilitates_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "facilitates", force: :cascade do |t|
+    t.string "name"
+    t.string "desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "facilitate_taxon_id"
+    t.decimal "price", precision: 10, scale: 2
+    t.string "sku"
+    t.decimal "import_price", precision: 10, scale: 2
+    t.decimal "profit_price", precision: 10, scale: 2
+    t.string "type"
+    t.string "qr_prefix"
+    t.decimal "quantity"
+    t.string "unit"
+    t.boolean "published", default: true
+    t.index ["facilitate_taxon_id"], name: "index_facilitates_on_facilitate_taxon_id"
+  end
+
+  create_table "good_providers", force: :cascade do |t|
+    t.bigint "provider_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "export_price", precision: 10, scale: 2
+    t.boolean "verified", default: false
+    t.boolean "selected"
+    t.string "good_type"
+    t.bigint "good_id"
+    t.index ["good_type", "good_id"], name: "index_good_providers_on_good_type_and_good_id"
+    t.index ["provider_id"], name: "index_good_providers_on_provider_id"
+  end
+
+  create_table "govern_taxons", force: :cascade do |t|
+    t.string "name"
+    t.integer "position", default: 0
+    t.integer "governs_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "code"
+  end
+
+  create_table "governs", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.integer "position", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.bigint "govern_taxon_id"
+    t.string "type"
+    t.index ["govern_taxon_id"], name: "index_governs_on_govern_taxon_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.string "key"
+    t.string "desc", limit: 1024
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "list_id"
+    t.index ["list_id"], name: "index_items_on_list_id"
+  end
+
+  create_table "job_titles", force: :cascade do |t|
+    t.bigint "department_id"
+    t.bigint "department_root_id"
+    t.string "name"
+    t.integer "grade"
+    t.integer "limit_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "organ_id"
+    t.string "description"
+    t.integer "cached_role_ids", array: true
+    t.index ["department_id"], name: "index_job_titles_on_department_id"
+    t.index ["department_root_id"], name: "index_job_titles_on_department_root_id"
+    t.index ["organ_id"], name: "index_job_titles_on_organ_id"
+  end
+
+  create_table "links", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.integer "content_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["content_id"], name: "index_links_on_content_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "name"
+    t.integer "position"
+    t.integer "items_count", default: 0
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "log_csps", force: :cascade do |t|
+    t.string "document_uri"
+    t.string "referrer"
+    t.string "violated_directive"
+    t.string "effective_directive"
+    t.string "original_policy", limit: 1024
+    t.string "disposition"
+    t.string "blocked_uri"
+    t.string "line_number"
+    t.string "column_number"
+    t.string "source_file"
+    t.string "status_code"
+    t.string "script_sample"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "log_records", id: :serial, force: :cascade do |t|
+    t.string "path"
+    t.string "controller"
+    t.string "action"
+    t.string "params"
+    t.string "headers", limit: 4096
+    t.string "cookie", limit: 2048
+    t.string "session", limit: 2048
+    t.string "exception", limit: 10240
+    t.string "exception_object"
+    t.text "exception_backtrace"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "logs", id: :serial, force: :cascade do |t|
+    t.integer "task_id"
+    t.datetime "started_at"
+    t.datetime "stopped_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_logs_on_task_id"
+  end
+
+  create_table "managers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "who_id"
+    t.bigint "leader_id"
+    t.boolean "disabled", default: false
+    t.string "type"
+    t.string "title"
+    t.date "join_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["leader_id"], name: "index_managers_on_leader_id"
+    t.index ["user_id"], name: "index_managers_on_user_id"
+    t.index ["who_id"], name: "index_managers_on_who_id"
+  end
+
+  create_table "member_departments", force: :cascade do |t|
+    t.bigint "member_id"
+    t.bigint "job_title_id"
+    t.bigint "department_root_id"
+    t.bigint "department_id"
+    t.integer "grade"
+    t.boolean "major"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["department_id"], name: "index_member_departments_on_department_id"
+    t.index ["department_root_id"], name: "index_member_departments_on_department_root_id"
+    t.index ["job_title_id"], name: "index_member_departments_on_job_title_id"
+    t.index ["member_id"], name: "index_member_departments_on_member_id"
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "department_id"
+    t.bigint "office_id"
+    t.bigint "organ_id"
+    t.bigint "job_title_id"
+    t.string "name"
+    t.string "identity"
+    t.string "number"
+    t.date "join_on"
+    t.boolean "enabled", default: true
+    t.string "state"
+    t.integer "grade", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "pomodoro"
+    t.bigint "organ_root_id"
+    t.index ["department_id"], name: "index_members_on_department_id"
+    t.index ["job_title_id"], name: "index_members_on_job_title_id"
+    t.index ["office_id"], name: "index_members_on_office_id"
+    t.index ["organ_id"], name: "index_members_on_organ_id"
+    t.index ["organ_root_id"], name: "index_members_on_organ_root_id"
+    t.index ["user_id"], name: "index_members_on_user_id"
+  end
+
+  create_table "notification_settings", id: :serial, force: :cascade do |t|
+    t.string "receiver_type"
+    t.integer "receiver_id"
+    t.string "notifiable_types"
+    t.integer "showtime"
+    t.boolean "accept_email", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_type", "receiver_id"], name: "index_notification_settings_on_receiver_type_and_receiver_id"
+  end
+
+  create_table "notifications", id: :serial, force: :cascade do |t|
+    t.string "receiver_type"
+    t.integer "receiver_id"
+    t.string "notifiable_type"
+    t.integer "notifiable_id"
+    t.string "code"
+    t.integer "state", default: 0
+    t.string "title"
+    t.string "body", limit: 5000
+    t.string "link"
+    t.datetime "sending_at"
+    t.datetime "sent_at"
+    t.string "sent_result"
+    t.datetime "read_at"
+    t.boolean "verbose", default: false
+    t.string "cc_emails"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id"
+    t.index ["read_at"], name: "index_notifications_on_read_at"
+    t.index ["receiver_type", "receiver_id"], name: "index_notifications_on_receiver_type_and_receiver_id"
+  end
+
+  create_table "notify_settings", id: :serial, force: :cascade do |t|
+    t.string "notifiable_type"
+    t.string "code"
+    t.string "notify_mailer"
+    t.string "notify_method"
+    t.string "only_verbose_columns"
+    t.string "except_verbose_columns"
+    t.string "cc_emails"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "oauth_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "provider"
+    t.string "uid"
+    t.string "name"
+    t.string "avatar_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "type"
+    t.string "access_token"
+    t.string "refresh_token"
+    t.string "unionid"
+    t.string "app_id"
+    t.bigint "account_id"
+    t.datetime "expires_at"
+    t.index ["account_id"], name: "index_oauth_users_on_account_id"
+    t.index ["user_id"], name: "index_oauth_users_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "uuid", null: false
+    t.integer "state", default: 0
+    t.decimal "amount", precision: 10, scale: 2
+    t.decimal "received_amount", precision: 10, scale: 2
+    t.decimal "subtotal", precision: 10, scale: 2
+    t.string "currency"
+    t.integer "payment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "payment_type"
+    t.bigint "payment_strategy_id"
+    t.boolean "myself"
+    t.decimal "pure_serve_sum", precision: 10, scale: 2
+    t.decimal "pure_promote_sum", precision: 10, scale: 2
+    t.decimal "serve_sum", precision: 10, scale: 2
+    t.decimal "promote_sum", precision: 10, scale: 2
+    t.string "buyer_type"
+    t.bigint "buyer_id"
+    t.string "payment_status"
+    t.index ["buyer_type", "buyer_id"], name: "index_orders_on_buyer_type_and_buyer_id"
+    t.index ["payment_strategy_id"], name: "index_orders_on_payment_strategy_id"
+  end
+
+  create_table "organ_grants", force: :cascade do |t|
+    t.bigint "organ_id"
+    t.bigint "member_id"
+    t.bigint "user_id"
+    t.string "token", null: false
+    t.datetime "expire_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_organ_grants_on_member_id"
+    t.index ["organ_id"], name: "index_organ_grants_on_organ_id"
+    t.index ["user_id"], name: "index_organ_grants_on_user_id"
+  end
+
+  create_table "organ_handles", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "record_class"
+    t.string "record_column"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "organ_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "organ_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "organ_desc_idx"
+  end
+
+  create_table "organs", force: :cascade do |t|
+    t.string "name"
+    t.string "organ_uuid"
+    t.integer "limit_wechat"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "area_id"
+    t.bigint "parent_id"
+    t.string "address"
+    t.string "locale"
+    t.string "timezone"
+    t.integer "members_count"
+    t.bigint "creator_id"
+    t.index ["area_id"], name: "index_organs_on_area_id"
+    t.index ["creator_id"], name: "index_organs_on_creator_id"
+    t.index ["parent_id"], name: "index_organs_on_parent_id"
+  end
+
+  create_table "part_items", force: :cascade do |t|
+    t.bigint "part_id"
+    t.bigint "product_item_id"
+    t.string "qr_code"
+    t.string "state"
+    t.datetime "received_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["part_id"], name: "index_part_items_on_part_id"
+    t.index ["product_item_id"], name: "index_part_items_on_product_item_id"
+  end
+
+  create_table "part_plans", force: :cascade do |t|
+    t.bigint "part_id"
+    t.datetime "start_at"
+    t.datetime "finish_at"
+    t.string "state"
+    t.integer "purchased_count", default: 0
+    t.integer "received_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["part_id"], name: "index_part_plans_on_part_id"
+  end
+
+  create_table "part_taxon_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "part_taxon_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "part_taxon_desc_idx"
+  end
+
+  create_table "part_taxons", force: :cascade do |t|
+    t.string "name"
+    t.integer "position", default: 1
+    t.bigint "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "index_part_taxons_on_parent_id"
+  end
+
+  create_table "parts", force: :cascade do |t|
+    t.bigint "part_taxon_id"
+    t.string "name"
+    t.string "desc"
+    t.string "qr_prefix"
+    t.string "sku"
+    t.string "type"
+    t.integer "order_items_count", default: 0
+    t.boolean "published", default: true
+    t.decimal "price", precision: 10, scale: 2
+    t.decimal "import_price", precision: 10, scale: 2
+    t.decimal "profit_price", precision: 10, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["part_taxon_id"], name: "index_parts_on_part_taxon_id"
+    t.index ["sku"], name: "index_parts_on_sku"
+  end
+
+  create_table "payment_methods", force: :cascade do |t|
+    t.string "type"
+    t.string "account_name"
+    t.string "account_num"
+    t.string "bank"
+    t.text "extra"
+    t.boolean "verified"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "payment_orders", force: :cascade do |t|
+    t.bigint "payment_id"
+    t.bigint "order_id"
+    t.decimal "check_amount", precision: 10, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "state"
+    t.index ["order_id"], name: "index_payment_orders_on_order_id"
+    t.index ["payment_id"], name: "index_payment_orders_on_payment_id"
+  end
+
+  create_table "payment_references", force: :cascade do |t|
+    t.bigint "payment_method_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "buyer_type"
+    t.bigint "buyer_id"
+    t.index ["buyer_type", "buyer_id"], name: "index_payment_references_on_buyer_type_and_buyer_id"
+    t.index ["payment_method_id"], name: "index_payment_references_on_payment_method_id"
+  end
+
+  create_table "payment_strategies", force: :cascade do |t|
+    t.string "name"
+    t.string "strategy"
+    t.integer "period", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "type", limit: 255
+    t.decimal "total_amount", precision: 10, scale: 2
+    t.decimal "fee_amount", precision: 10, scale: 2
+    t.decimal "income_amount", precision: 10, scale: 2
+    t.decimal "checked_amount", precision: 10, scale: 2
+    t.decimal "adjust_amount", precision: 10, scale: 2, default: "0.0"
+    t.string "payment_uuid", limit: 255
+    t.string "notify_type", limit: 255
+    t.datetime "notified_at"
+    t.string "pay_status", limit: 255
+    t.string "seller_identifier", limit: 255
+    t.string "buyer_name", limit: 255
+    t.string "buyer_identifier", limit: 255
+    t.string "buyer_bank"
+    t.integer "user_id"
+    t.string "currency", limit: 255
+    t.string "comment"
+    t.bigint "payment_method_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "state"
+    t.index ["payment_method_id"], name: "index_payments_on_payment_method_id"
+  end
+
+  create_table "pictures", id: :serial, force: :cascade do |t|
+    t.string "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pipeline_members", id: :serial, force: :cascade do |t|
+    t.integer "job_title_id"
+    t.integer "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "position", default: 1
+    t.integer "pipeline_id"
+    t.string "color"
+    t.index ["job_title_id"], name: "index_pipeline_members_on_job_title_id"
+    t.index ["member_id"], name: "index_pipeline_members_on_member_id"
+    t.index ["pipeline_id"], name: "index_pipeline_members_on_pipeline_id"
+  end
+
+  create_table "pipelines", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "piping_type"
+    t.bigint "piping_id"
+    t.index ["piping_type", "piping_id"], name: "index_pipelines_on_piping_type_and_piping_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "product_items", force: :cascade do |t|
+    t.bigint "product_id"
+    t.string "qr_code"
+    t.string "state"
+    t.datetime "produced_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_items_on_product_id"
+  end
+
+  create_table "product_parts", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "part_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "part_taxon_id"
+    t.index ["part_id"], name: "index_product_parts_on_part_id"
+    t.index ["part_taxon_id"], name: "index_product_parts_on_part_taxon_id"
+    t.index ["product_id"], name: "index_product_parts_on_product_id"
+  end
+
+  create_table "product_plans", force: :cascade do |t|
+    t.bigint "product_id"
+    t.datetime "start_at"
+    t.datetime "finish_at"
+    t.string "state"
+    t.integer "planned_count", default: 0
+    t.integer "produced_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_plans_on_product_id"
+  end
+
+  create_table "product_taxon_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "product_taxon_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "product_taxon_desc_idx"
+  end
+
+  create_table "product_taxons", force: :cascade do |t|
+    t.string "name"
+    t.integer "position", default: 1
+    t.bigint "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "profit_margin", precision: 4, scale: 2
+    t.index ["parent_id"], name: "index_product_taxons_on_parent_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.bigint "product_taxon_id"
+    t.string "name"
+    t.string "desc"
+    t.string "qr_prefix"
+    t.string "sku"
+    t.string "type"
+    t.integer "order_items_count", default: 0
+    t.boolean "published", default: true
+    t.decimal "price", precision: 10, scale: 2
+    t.decimal "import_price", precision: 10, scale: 2
+    t.decimal "profit_price", precision: 10, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "reference_price", precision: 10, scale: 2
+    t.index ["product_taxon_id"], name: "index_products_on_product_taxon_id"
+    t.index ["sku"], name: "index_products_on_sku"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "real_name"
+    t.string "nick_name"
+    t.string "gender"
+    t.string "birthday_type"
+    t.date "birthday"
+    t.string "identity"
+    t.string "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "extra"
+    t.bigint "organ_id"
+    t.index ["organ_id"], name: "index_profiles_on_organ_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "project_funds", force: :cascade do |t|
+    t.bigint "project_id"
+    t.decimal "price", precision: 10, scale: 2
+    t.boolean "visible", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["project_id"], name: "index_project_funds_on_project_id"
+    t.index ["user_id"], name: "index_project_funds_on_user_id"
+  end
+
+  create_table "project_members", id: :serial, force: :cascade do |t|
+    t.integer "job_title_id"
+    t.integer "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "project_id"
+    t.index ["job_title_id"], name: "index_project_members_on_job_title_id"
+    t.index ["member_id"], name: "index_project_members_on_member_id"
+    t.index ["project_id"], name: "index_project_members_on_project_id"
+  end
+
+  create_table "project_webhooks", force: :cascade do |t|
+    t.bigint "project_id"
+    t.json "origin_data"
+    t.json "valuable_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_webhooks_on_project_id"
+  end
+
+  create_table "projects", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "logo"
+    t.integer "creator_id"
+    t.string "github_repo"
+    t.index ["creator_id"], name: "index_projects_on_creator_id"
+  end
+
+  create_table "promote_buyers", force: :cascade do |t|
+    t.bigint "promote_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "buyer_type"
+    t.bigint "buyer_id"
+    t.string "state"
+    t.string "status"
+    t.integer "trade_promotes_count", default: 0
+    t.index ["buyer_type", "buyer_id"], name: "index_promote_buyers_on_buyer_type_and_buyer_id"
+    t.index ["promote_id"], name: "index_promote_buyers_on_promote_id"
+  end
+
+  create_table "promote_charges", force: :cascade do |t|
+    t.bigint "promote_id"
+    t.decimal "min", precision: 10, scale: 2, default: "0.0"
+    t.decimal "max", precision: 10, scale: 2, default: "99999999.99"
+    t.decimal "parameter", precision: 10, scale: 2
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "contain_max"
+    t.boolean "contain_min"
+    t.decimal "base_price", precision: 10, scale: 2
+    t.string "metering"
+    t.string "unit"
+    t.index ["promote_id"], name: "index_promote_charges_on_promote_id"
+  end
+
+  create_table "promote_goods", force: :cascade do |t|
+    t.string "good_type"
+    t.bigint "good_id"
+    t.bigint "promote_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status"
+    t.index ["good_type", "good_id"], name: "index_promote_goods_on_good_type_and_good_id"
+    t.index ["promote_id"], name: "index_promote_goods_on_promote_id"
+  end
+
+  create_table "promotes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_at"
+    t.datetime "finish_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "verified", default: false
+    t.integer "sequence", default: 1
+    t.string "scope"
+    t.string "extra", array: true
+    t.string "short_name"
+    t.string "description"
+    t.string "code"
+    t.string "deal_type"
+    t.bigint "deal_id"
+    t.index ["deal_type", "deal_id"], name: "index_promotes_on_deal_type_and_deal_id"
+  end
+
+  create_table "providers", force: :cascade do |t|
+    t.bigint "area_id"
+    t.string "type"
+    t.string "name"
+    t.string "service_tel"
+    t.string "service_qq"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_providers_on_area_id"
+  end
+
+  create_table "record_items", id: :serial, force: :cascade do |t|
+    t.integer "record_list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "fields"
+    t.index ["record_list_id"], name: "index_record_items_on_record_list_id"
+  end
+
+  create_table "record_lists", id: :serial, force: :cascade do |t|
+    t.integer "data_list_id"
+    t.boolean "done"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "parameters"
+    t.jsonb "columns"
+    t.index ["data_list_id"], name: "index_record_lists_on_data_list_id"
+  end
+
+  create_table "refunds", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "payment_id"
+    t.bigint "operator_id"
+    t.string "type"
+    t.decimal "total_amount", precision: 10, scale: 2
+    t.string "buyer_identifier"
+    t.string "comment", limit: 512
+    t.integer "state", default: 0
+    t.datetime "refunded_at"
+    t.string "reason", limit: 512
+    t.string "currency"
+    t.string "refund_uuid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["operator_id"], name: "index_refunds_on_operator_id"
+    t.index ["order_id"], name: "index_refunds_on_order_id"
+    t.index ["payment_id"], name: "index_refunds_on_payment_id"
+  end
+
+  create_table "role_rules", id: :serial, force: :cascade do |t|
+    t.integer "role_id"
+    t.integer "rule_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.bigint "govern_id"
+    t.bigint "govern_taxon_id"
+    t.index ["govern_id"], name: "index_role_rules_on_govern_id"
+    t.index ["govern_taxon_id"], name: "index_role_rules_on_govern_taxon_id"
+  end
+
+  create_table "roles", id: :serial, force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean "visible"
+    t.string "code"
+    t.string "who_types", array: true
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.bigint "organ_id"
+    t.string "room_number"
+    t.integer "limit_number"
+    t.string "color"
+    t.integer "time_plans_count", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organ_id"], name: "index_rooms_on_organ_id"
+  end
+
+  create_table "rules", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.integer "govern_id"
+    t.integer "position", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "params"
+  end
+
+  create_table "serve_goods", force: :cascade do |t|
+    t.string "good_type"
+    t.bigint "good_id"
+    t.bigint "serve_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["good_type", "good_id"], name: "index_serve_goods_on_good_type_and_good_id"
+    t.index ["serve_id"], name: "index_serve_goods_on_serve_id"
+  end
+
+  create_table "space_taxons", force: :cascade do |t|
+    t.string "name"
+    t.integer "position", default: 1
+    t.integer "spaces_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "spaces", force: :cascade do |t|
+    t.string "name"
+    t.string "desc"
+    t.string "sku"
+    t.decimal "price", precision: 10, scale: 2
+    t.decimal "import_price", precision: 10, scale: 2
+    t.decimal "profit_price", precision: 10, scale: 2
+    t.bigint "area_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "provider_id"
+    t.bigint "space_taxon_id"
+    t.index ["area_id"], name: "index_spaces_on_area_id"
+    t.index ["provider_id"], name: "index_spaces_on_provider_id"
+    t.index ["space_taxon_id"], name: "index_spaces_on_space_taxon_id"
+  end
+
+  create_table "supports", force: :cascade do |t|
+    t.bigint "department_id"
+    t.bigint "organ_id"
+    t.bigint "member_id"
+    t.string "name"
+    t.integer "grade"
+    t.string "code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["department_id"], name: "index_supports_on_department_id"
+    t.index ["member_id"], name: "index_supports_on_member_id"
+    t.index ["organ_id"], name: "index_supports_on_organ_id"
+  end
+
+  create_table "table_items", id: :serial, force: :cascade do |t|
+    t.integer "table_list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "fields", array: true
+    t.index ["table_list_id"], name: "index_table_items_on_table_list_id"
+  end
+
+  create_table "table_lists", id: :serial, force: :cascade do |t|
+    t.integer "data_list_id"
+    t.integer "table_items_count", default: 0
+    t.string "timestamp"
+    t.boolean "done"
+    t.boolean "published"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "headers", array: true
+    t.string "footers", array: true
+    t.jsonb "parameters"
+    t.index ["data_list_id"], name: "index_table_lists_on_data_list_id"
+  end
+
+  create_table "task_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "task_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "task_desc_idx"
+  end
+
+  create_table "task_templates", force: :cascade do |t|
+    t.string "title"
+    t.integer "parent_id"
+    t.integer "position", default: 1
+    t.integer "pipeline_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "tasking_type"
+    t.bigint "tasking_id"
+    t.index ["tasking_type", "tasking_id"], name: "index_task_templates_on_tasking_type_and_tasking_id"
+  end
+
+  create_table "task_timers", id: :serial, force: :cascade do |t|
+    t.integer "task_id"
+    t.integer "duration"
+    t.datetime "finish_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_task_timers_on_task_id"
+  end
+
+  create_table "tasks", id: :serial, force: :cascade do |t|
+    t.integer "project_id"
+    t.string "title"
+    t.integer "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "state", default: 0
+    t.integer "focus", default: 0
+    t.string "repeat_type"
+    t.integer "repeat_days", array: true
+    t.integer "position", default: 1
+    t.integer "estimated_time"
+    t.integer "actual_time"
+    t.datetime "done_at"
+    t.integer "children_count", default: 0
+    t.bigint "detail_id"
+    t.bigint "pipeline_id"
+    t.bigint "member_id"
+    t.bigint "user_id"
+    t.datetime "start_at"
+    t.index ["detail_id"], name: "index_tasks_on_detail_id"
+    t.index ["member_id"], name: "index_tasks_on_member_id"
+    t.index ["pipeline_id"], name: "index_tasks_on_pipeline_id"
+    t.index ["project_id"], name: "index_tasks_on_project_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "taxon_items", force: :cascade do |t|
+    t.string "taxon_type"
+    t.bigint "taxon_id"
+    t.bigint "list_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_taxon_items_on_item_id"
+    t.index ["list_id"], name: "index_taxon_items_on_list_id"
+    t.index ["taxon_type", "taxon_id"], name: "index_taxon_items_on_taxon_type_and_taxon_id"
+  end
+
+  create_table "team_members", id: :serial, force: :cascade do |t|
+    t.integer "team_id"
+    t.integer "job_title_id"
+    t.integer "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_title_id"], name: "index_team_members_on_job_title_id"
+    t.index ["member_id"], name: "index_team_members_on_member_id"
+    t.index ["team_id"], name: "index_team_members_on_team_id"
+  end
+
+  create_table "teams", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "teaming_type"
+    t.integer "teaming_id"
+    t.string "description", limit: 1024
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ticket_items", force: :cascade do |t|
+    t.bigint "ticket_id"
+    t.bigint "wechat_user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "wechat_request_id"
+    t.integer "serial_number"
+    t.index ["ticket_id"], name: "index_ticket_items_on_ticket_id"
+    t.index ["wechat_request_id"], name: "index_ticket_items_on_wechat_request_id"
+    t.index ["wechat_user_id"], name: "index_ticket_items_on_wechat_user_id"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.bigint "organ_id"
+    t.string "match_value"
+    t.integer "serial_start"
+    t.time "start_at"
+    t.time "finish_at"
+    t.string "valid_response"
+    t.string "invalid_response"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organ_id"], name: "index_tickets_on_organ_id"
+  end
+
+  create_table "trade_items", force: :cascade do |t|
+    t.string "good_type"
+    t.bigint "good_id"
+    t.decimal "quantity", precision: 10, scale: 2
+    t.decimal "amount", precision: 10, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "provider_id"
+    t.integer "number"
+    t.decimal "reduced_price", precision: 10, scale: 2
+    t.decimal "additional_price", precision: 10, scale: 2
+    t.string "trade_type"
+    t.bigint "trade_id"
+    t.decimal "single_price", precision: 10, scale: 2
+    t.boolean "myself"
+    t.boolean "starred"
+    t.index ["good_type", "good_id"], name: "index_trade_items_on_good_type_and_good_id"
+    t.index ["provider_id"], name: "index_trade_items_on_provider_id"
+    t.index ["trade_type", "trade_id"], name: "index_trade_items_on_trade_type_and_trade_id"
+  end
+
+  create_table "trade_promotes", force: :cascade do |t|
+    t.bigint "promote_id"
+    t.bigint "promote_charge_id"
+    t.decimal "amount", precision: 10, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "promote_buyer_id"
+    t.string "trade_type"
+    t.bigint "trade_id"
+    t.bigint "trade_item_id"
+    t.bigint "promote_good_id"
+    t.string "scope"
+    t.integer "sequence"
+    t.decimal "based_amount", precision: 10, scale: 2
+    t.decimal "original_amount", precision: 10, scale: 2
+    t.index ["promote_buyer_id"], name: "index_trade_promotes_on_promote_buyer_id"
+    t.index ["promote_charge_id"], name: "index_trade_promotes_on_promote_charge_id"
+    t.index ["promote_good_id"], name: "index_trade_promotes_on_promote_good_id"
+    t.index ["promote_id"], name: "index_trade_promotes_on_promote_id"
+    t.index ["trade_item_id"], name: "index_trade_promotes_on_trade_item_id"
+    t.index ["trade_type", "trade_id"], name: "index_trade_promotes_on_trade_type_and_trade_id"
+  end
+
+  create_table "tutorials", force: :cascade do |t|
+    t.bigint "member_id"
+    t.bigint "tutor_id"
+    t.string "kind"
+    t.string "state"
+    t.string "accepted_status"
+    t.string "verified"
+    t.date "start_on"
+    t.date "finish_on"
+    t.string "performance"
+    t.integer "allowance"
+    t.string "note", limit: 4096
+    t.string "comment", limit: 4096
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_tutorials_on_member_id"
+    t.index ["tutor_id"], name: "index_tutorials_on_tutor_id"
+  end
+
+  create_table "user_providers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "provider_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider_id"], name: "index_user_providers_on_provider_id"
+    t.index ["user_id"], name: "index_user_providers_on_user_id"
+  end
+
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "password_digest"
+    t.datetime "last_login_at"
+    t.inet "last_login_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean "disabled", default: false
+    t.integer "pomodoro", default: 25
+    t.string "timezone"
+    t.string "locale"
+    t.string "source"
+  end
+
+  create_table "verify_tokens", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "type", limit: 100
+    t.string "token"
+    t.datetime "expire_at"
+    t.string "identity"
+    t.integer "access_counter", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "account_id"
+    t.index ["account_id"], name: "index_verify_tokens_on_account_id"
+    t.index ["user_id"], name: "index_verify_tokens_on_user_id"
+  end
+
+  create_table "wechat_app_extractors", force: :cascade do |t|
+    t.bigint "extractor_id"
+    t.bigint "wechat_app_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["extractor_id"], name: "index_wechat_app_extractors_on_extractor_id"
+    t.index ["wechat_app_id"], name: "index_wechat_app_extractors_on_wechat_app_id"
+  end
+
+  create_table "wechat_apps", force: :cascade do |t|
+    t.string "name", null: false
+    t.boolean "enabled", default: true
+    t.string "appid"
+    t.string "secret"
+    t.string "agentid"
+    t.boolean "encrypt_mode"
+    t.string "encoding_aes_key"
+    t.string "token", null: false
+    t.string "access_token"
+    t.string "jsapi_ticket"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "help", limit: 1024
+    t.string "help_user_disabled"
+    t.string "help_without_user"
+    t.bigint "organ_id"
+    t.string "help_feedback"
+    t.string "type"
+    t.datetime "access_token_expires_at"
+    t.datetime "jsapi_ticket_expires_at"
+    t.string "mch_id"
+    t.string "key"
+    t.boolean "primary"
+    t.index ["organ_id"], name: "index_wechat_apps_on_organ_id"
+  end
+
+  create_table "wechat_menus", force: :cascade do |t|
+    t.bigint "wechat_app_id"
+    t.bigint "parent_id"
+    t.string "type"
+    t.string "menu_type"
+    t.string "name"
+    t.string "value"
+    t.string "appid"
+    t.string "pagepath"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["parent_id"], name: "index_wechat_menus_on_parent_id"
+    t.index ["wechat_app_id"], name: "index_wechat_menus_on_wechat_app_id"
+  end
+
+  create_table "wechat_requests", force: :cascade do |t|
+    t.bigint "wechat_user_id"
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "wechat_app_id"
+    t.string "type"
+    t.index ["wechat_app_id"], name: "index_wechat_requests_on_wechat_app_id"
+    t.index ["wechat_user_id"], name: "index_wechat_requests_on_wechat_user_id"
+  end
+
+  create_table "wechat_responses", force: :cascade do |t|
+    t.bigint "wechat_app_id"
+    t.string "match_value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "expire_seconds"
+    t.string "type"
+    t.string "qrcode_ticket"
+    t.string "qrcode_url"
+    t.datetime "expire_at"
+    t.string "effective_type"
+    t.bigint "effective_id"
+    t.index ["effective_type", "effective_id"], name: "index_wechat_responses_on_effective_type_and_effective_id"
+    t.index ["wechat_app_id"], name: "index_wechat_responses_on_wechat_app_id"
+  end
+
+  create_table "wechat_tag_defaults", force: :cascade do |t|
+    t.string "name"
+    t.string "default_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "wechat_tags", force: :cascade do |t|
+    t.bigint "wechat_app_id"
+    t.string "tagging_type"
+    t.bigint "tagging_id"
+    t.string "name"
+    t.string "tag_id"
+    t.integer "count"
+    t.integer "wechat_user_tags_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tagging_type", "tagging_id"], name: "index_wechat_tags_on_tagging_type_and_tagging_id"
+    t.index ["wechat_app_id"], name: "index_wechat_tags_on_wechat_app_id"
+  end
+
+  create_table "wechat_user_tags", force: :cascade do |t|
+    t.bigint "wechat_user_id"
+    t.bigint "wechat_tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["wechat_tag_id"], name: "index_wechat_user_tags_on_wechat_tag_id"
+    t.index ["wechat_user_id"], name: "index_wechat_user_tags_on_wechat_user_id"
+  end
+
+  create_table "who_roles", force: :cascade do |t|
+    t.string "who_type"
+    t.bigint "who_id"
+    t.bigint "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_who_roles_on_role_id"
+    t.index ["who_type", "who_id"], name: "index_who_roles_on_who_type_and_who_id"
+  end
+
+  create_table "whos", id: :serial, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+end

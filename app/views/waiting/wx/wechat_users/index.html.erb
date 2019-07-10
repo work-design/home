@@ -1,0 +1,41 @@
+<div class="ui top attached borderless menu">
+  <div class="header item">Wechat Users</div>
+  <div class="right menu">
+    <div class="item">
+      <%= link_to 'New Wechat User', new_wechat_user_path, class: 'ui teal button' %>
+    </div>
+  </div>
+</div>
+
+<div class="ui attached segment">
+  <%= render 'search_form' %>
+</div>
+
+<table class="ui bottom attached table">
+  <thead>
+    <tr>
+      <th><%= WechatUser.human_attribute_name(:id) %></th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @wechat_users.each do |wechat_user| %>
+    <tr>
+      <td><%= wechat_user.id %></td>
+      <td class="ui labels">
+        <%= link_to wechat_user_path(wechat_user), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
+          <i class="location arrow icon"></i>
+        <% end %>
+        <%= link_to edit_wechat_user_path(wechat_user), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
+          <i class="pencil alternate icon"></i>
+        <% end %>
+        <%= link_to wechat_user_path(wechat_user), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+          <i class="times icon"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @wechat_users %>

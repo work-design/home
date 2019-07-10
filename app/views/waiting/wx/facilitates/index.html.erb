@@ -1,0 +1,21 @@
+<div class="ui segment top attached">
+  <%= render 'taxon' %>
+</div>
+
+<div class="ui segment bottom attached items">
+  <% @facilitates.each do |facilitate| %>
+    <div class="item">
+      <div class="avatar image">
+        <%= image_tag facilitate.logo if facilitate.logo_attachment %>
+      </div>
+
+      <div class="content">
+        <%= link_to facilitate.name, facilitate_path(facilitate) %>
+        <p><%= facilitate.desc %></p>
+        <%= link_to '加入购物车', my_cart_items_path(good_id: facilitate.id, good_type: 'Facilitate'), method: :post, class: 'ui mini button' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @facilitates %>

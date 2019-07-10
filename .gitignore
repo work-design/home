@@ -1,0 +1,15 @@
+# Ignore all logfiles and tempfiles.
+log
+tmp
+!log/.keep
+!tmp/.keep
+
+.bundle
+public/assets
+public/packs
+storage
+node_modules
+
+# Ignore master key for decrypting credentials and more.
+config/master.key
+config/database.yml
