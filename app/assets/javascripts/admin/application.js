@@ -3,7 +3,7 @@
 //= require qiniu_direct_upload
 
 //= require jquery
-//= require work-design-ui/dist/semantic
+//= require work-ui/dist/semantic
 //= require moment
 //= require cable
 

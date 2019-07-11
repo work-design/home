@@ -30,7 +30,7 @@
     "turbolinks": "^5.2.0",
     "weui": "^2.0.0",
     "weui.js": "^1.1.4",
-    "work-design-ui": "https://github.com/work-design/work-design-ui.git"
+    "work-ui": "https://github.com/work-design/work-ui.git"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.1.9"

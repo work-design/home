@@ -7836,9 +7836,9 @@ wordwrap@0.0.2:
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.2.tgz#b79669bb42ecb409f83d583cad52ca17eaa1643f"
   integrity sha1-t5Zpu0LstAn4PVg8rVLKF+qhZD8=
 
-"work-design-ui@https://github.com/work-design/work-design-ui.git":
+"work-ui@https://github.com/work-design/work-ui.git":
   version "1.0.0"
-  resolved "https://github.com/work-design/work-design-ui.git#37303a4a6a69cfdc9d33239c1d53fe91fbb3eab1"
+  resolved "https://github.com/work-design/work-ui.git#ca30d937b5b1cd62d267ad9547e713b05611d8bb"
   dependencies:
     "@fortawesome/fontawesome-free" "^5.9.0"
     jquery "^3.4.1"

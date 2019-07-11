@@ -3,7 +3,7 @@
 //= require jquery
 
 //= require stimulus/dist/stimulus.umd
-//= require work-design-ui/dist/semantic
+//= require work-ui/dist/semantic
 //= require cable
 
 //= require default_form/valid
