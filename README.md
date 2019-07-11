@@ -1,8 +1,8 @@
 # One Work
 
-[one.work](https://one.work) 是个服务于现代企业的管理系统，遵循先进的管理理念而设计。
+[one.work](https://one.work) 是个服务于现代企业的管理系统，遵循先进的管理理念设计实现。
 
-基于[work.design](https://github.com/work-design)系列组件开发。
+基于[work.design](https://github.com/work-design)系列组件快速开发。
 
 旨在打造一个开发成本低，维护简单，扩展灵活的应用框架，支持微信等多端。
 
