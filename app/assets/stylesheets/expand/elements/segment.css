@@ -1,0 +1,24 @@
+.ui[class*="top attached"].segment {
+  margin-top: 0;
+}
+.ui.site.segments {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  width: calc(100% + 2rem);
+}
+
+.ui.site.segments > .segment {
+  padding: 0;
+}
+
+#flash_toast {
+  padding-top: 0.928571em;
+  padding-bottom: 0.928571em;
+  padding-left: 1em;
+  line-height: 1;
+}
+#flash_toast + .progress > .bar {
+  width: 100%;
+}
