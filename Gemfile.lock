@@ -56,7 +56,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 9e1da64499d09efc25581095df441ed7d540b122
+  revision: 018576684da268d669771dfeb84da713ffa4fd13
   branch: master
   specs:
     rails_auth (1.0.6)
@@ -83,7 +83,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: b55e9f5b3301ad589d5aed8f19661aeceb570af0
+  revision: a8e187477896fd58ee7171d9ac05b5c23288ab54
   branch: master
   specs:
     rails_com (1.2.9)
@@ -134,7 +134,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 47277e20f49a5f8032052bf58ad531d6e3753cc6
+  revision: b734afef5c92a7de2acd6bf067a54eb456ac025a
   branch: master
   specs:
     rails_notice (1.0.2)
@@ -142,7 +142,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 676f8d65471ee9e44d727368d6590dcce67d5792
+  revision: 34e5450481dfd622b03d6f823423dd59fb48cf5e
   branch: master
   specs:
     rails_org (0.1)
@@ -151,7 +151,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: d1b13a37913f63d9ccd94a37e5938c1c990a8849
+  revision: 5b6211bfb1946571ea0c82324d64824cd0afa781
   branch: master
   specs:
     rails_profile (0.1.0)
@@ -168,7 +168,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: c28c6974e2993d0204aef8d18a5c4a6686d97207
+  revision: ff6415c987df233f675bc8ba60228adb63606b39
   branch: master
   specs:
     rails_taxon (1.0.0)
@@ -191,7 +191,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 59f665760ace0256c94e182b13832e2a343d88dd
+  revision: 9b2490442189b3140a3308813c3fb8f1179bc515
   branch: master
   specs:
     rails_wechat (0.1.0)
