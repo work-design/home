@@ -11,8 +11,8 @@
       <%= current_user.name %>
       <i class="dropdown icon"></i>
       <div class="menu">
-        <%= link_to 'Profile', '/my', class: active_helper(controllers: ['users']) %>
-        <%= link_to 'Admin', '/admin', class: 'item' %>
+        <%= link_to '个人中心', '/my', class: active_helper(controllers: ['users']) %>
+        <%= link_to '管理', admin_root_path, class: 'item' %>
         <%= link_to '退出', logout_path, data: { confirm: '确认退出' }, class: 'item' %>
       </div>
     </div>
