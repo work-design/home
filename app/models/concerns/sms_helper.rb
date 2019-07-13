@@ -3,9 +3,9 @@ module SmsHelper
   def self.send(mobile, vars = {})
     url = 'https://api.mysubmail.com/message/xsend'
     body = {
-      appid: SETTING.dig(:sms, :appid),
+      appid: CREDENT.dig(:sms, :appid),
       sign_type: 'normal',
-      signature: SETTING.dig(:sms, :signture),
+      signature: CREDENT.dig(:sms, :signature),
       to: mobile,
       vars: vars,
       project: '6aGCz3'
@@ -18,9 +18,9 @@ module SmsHelper
     host = 'https://api.mysubmail.com/'
     url = "#{host}balance/sms"
     options = {
-      appid: SETTING.dig(:sms, :appid),
+      appid: CREDENT.dig(:sms, :appid),
       sign_type: 'normal',
-      signature: SETTING.dig(:sms, :signture)
+      signature: CREDENT.dig(:sms, :signature)
     }
 
     HTTParty.post(url, body: options)

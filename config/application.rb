@@ -51,6 +51,7 @@ module Facility
   end
 end
 SETTING = Rails.application.config_for('setting')
+CREDENT = Rails.application.credentials.dig(Rails.env.to_sym)
 
 RailsRole.config.default_admin_accounts = SETTING['admin_email']
 ENV['EDITOR'] = 'code --wait'

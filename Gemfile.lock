@@ -134,7 +134,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 13724c42854a6cd7f7dce2a9dea25f4dd6dd840b
+  revision: a5b48e16ca07c5370c5468080975831a0b2028ff
   branch: master
   specs:
     rails_notice (1.0.2)
@@ -142,7 +142,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 34e5450481dfd622b03d6f823423dd59fb48cf5e
+  revision: 7e2702e973c9ed7f739b51f2cd00856014c9a5c2
   branch: master
   specs:
     rails_org (0.1)
