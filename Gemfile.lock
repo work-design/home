@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 1a47c753e7faf0e4658d003ef173dc5e4a030ec6
+  revision: d30d5c22c14243bdaa7589a8d5043cdc0d424d96
   branch: master
   specs:
     default_form (1.3.4)
@@ -56,7 +56,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 018576684da268d669771dfeb84da713ffa4fd13
+  revision: e4cdf1899e374f4178e5e2cb4f11bc85c7437bac
   branch: master
   specs:
     rails_auth (1.0.6)
@@ -83,7 +83,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: b66fedb57a8ad11b38b945859aebab6eb1c5ca12
+  revision: 3bde00fa22073d3c0ea91efb9de67be1c1e88bcc
   branch: master
   specs:
     rails_com (1.2.9)
@@ -134,7 +134,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: b734afef5c92a7de2acd6bf067a54eb456ac025a
+  revision: 13724c42854a6cd7f7dce2a9dea25f4dd6dd840b
   branch: master
   specs:
     rails_notice (1.0.2)
@@ -168,7 +168,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: ff6415c987df233f675bc8ba60228adb63606b39
+  revision: c892f7b9205ec4ead7b9dcbf21e60d9fe3868402
   branch: master
   specs:
     rails_taxon (1.0.0)
@@ -191,7 +191,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 9b2490442189b3140a3308813c3fb8f1179bc515
+  revision: 389a3d172255dd48e45cd0b3e631efb2cab3fffc
   branch: master
   specs:
     rails_wechat (0.1.0)

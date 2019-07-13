@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_142604) do
+ActiveRecord::Schema.define(version: 2019_07_13_061412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,31 @@ ActiveRecord::Schema.define(version: 2019_07_09_142604) do
     t.datetime "updated_at", null: false
     t.index ["addressing_type", "addressing_id"], name: "index_addresses_on_addressing_type_and_addressing_id"
     t.index ["area_id"], name: "index_addresses_on_area_id"
+  end
+
+  create_table "annunciates", force: :cascade do |t|
+    t.bigint "annunciation_id"
+    t.bigint "user_tag_id"
+    t.string "receiver_type"
+    t.string "state"
+    t.datetime "annunciated_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["annunciation_id"], name: "index_annunciates_on_annunciation_id"
+    t.index ["user_tag_id"], name: "index_annunciates_on_user_tag_id"
+  end
+
+  create_table "annunciations", force: :cascade do |t|
+    t.bigint "organ_id"
+    t.string "publisher_type"
+    t.bigint "publisher_id"
+    t.string "title"
+    t.string "body"
+    t.string "link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organ_id"], name: "index_annunciations_on_organ_id"
+    t.index ["publisher_type", "publisher_id"], name: "index_annunciations_on_publisher_type_and_publisher_id"
   end
 
   create_table "area_hierarchies", id: false, force: :cascade do |t|
@@ -1296,6 +1321,27 @@ ActiveRecord::Schema.define(version: 2019_07_09_142604) do
     t.index ["user_id"], name: "index_user_providers_on_user_id"
   end
 
+  create_table "user_taggeds", force: :cascade do |t|
+    t.bigint "user_tag_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_taggeds_on_user_id"
+    t.index ["user_tag_id"], name: "index_user_taggeds_on_user_tag_id"
+  end
+
+  create_table "user_tags", force: :cascade do |t|
+    t.bigint "organ_id"
+    t.string "tagging_type"
+    t.bigint "tagging_id"
+    t.string "name"
+    t.integer "user_taggeds_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organ_id"], name: "index_user_tags_on_organ_id"
+    t.index ["tagging_type", "tagging_id"], name: "index_user_tags_on_tagging_type_and_tagging_id"
+  end
+
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
@@ -1411,15 +1457,14 @@ ActiveRecord::Schema.define(version: 2019_07_09_142604) do
 
   create_table "wechat_tags", force: :cascade do |t|
     t.bigint "wechat_app_id"
-    t.string "tagging_type"
-    t.bigint "tagging_id"
     t.string "name"
     t.string "tag_id"
     t.integer "count"
     t.integer "wechat_user_tags_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["tagging_type", "tagging_id"], name: "index_wechat_tags_on_tagging_type_and_tagging_id"
+    t.bigint "user_tag_id"
+    t.index ["user_tag_id"], name: "index_wechat_tags_on_user_tag_id"
     t.index ["wechat_app_id"], name: "index_wechat_tags_on_wechat_app_id"
   end
 
