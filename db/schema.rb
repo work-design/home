@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_13_061412) do
+ActiveRecord::Schema.define(version: 2019_07_13_130950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -432,21 +432,6 @@ ActiveRecord::Schema.define(version: 2019_07_13_061412) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["task_id"], name: "index_logs_on_task_id"
-  end
-
-  create_table "managers", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "who_id"
-    t.bigint "leader_id"
-    t.boolean "disabled", default: false
-    t.string "type"
-    t.string "title"
-    t.date "join_on"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["leader_id"], name: "index_managers_on_leader_id"
-    t.index ["user_id"], name: "index_managers_on_user_id"
-    t.index ["who_id"], name: "index_managers_on_who_id"
   end
 
   create_table "member_departments", force: :cascade do |t|
