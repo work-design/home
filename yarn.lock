@@ -7838,7 +7838,7 @@ wordwrap@0.0.2:
 
 "work-ui@https://github.com/work-design/work-ui.git":
   version "1.0.0"
-  resolved "https://github.com/work-design/work-ui.git#ca30d937b5b1cd62d267ad9547e713b05611d8bb"
+  resolved "https://github.com/work-design/work-ui.git#4cf7806bc92c3e54997d71fa0d91b20e7ddd61a3"
   dependencies:
     "@fortawesome/fontawesome-free" "^5.9.0"
     jquery "^3.4.1"
