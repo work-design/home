@@ -142,7 +142,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 9a6d00f2f8731169c11630444b055c07005e388f
+  revision: 1078d013a730734068970a1606bbba4aad811d0f
   branch: master
   specs:
     rails_org (0.1)
@@ -168,7 +168,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: faec37e8bce72aca2cedf4988507ea3fcdd2d696
+  revision: 68ae1d9784d582845b6cadfb39d2f5de21238ddd
   branch: master
   specs:
     rails_taxon (1.0.0)
