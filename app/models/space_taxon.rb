@@ -1,5 +1,5 @@
 class SpaceTaxon < ApplicationRecord
-  include RailsTaxon::Node
+  prepend RailsTaxon::Node
   acts_as_list
   has_many :spaces
 

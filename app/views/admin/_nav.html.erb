@@ -1,4 +1,8 @@
-<%= render 'org/admin/base/choose_nav' %>
+<% if current_organ %>
+  <div class="ui one item menu">
+    <%= render 'org/admin/base/choose_nav' %>
+  </div>
+<% end %>
 <div class="ui vertical fluid accordion menu">
   <%= render 'auth/admin/base/auth_nav' %>
   <%= render 'org/admin/base/org_nav' %>
