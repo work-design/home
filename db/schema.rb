@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_13_130950) do
+ActiveRecord::Schema.define(version: 2019_07_16_154347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -234,12 +234,15 @@ ActiveRecord::Schema.define(version: 2019_07_13_130950) do
     t.string "name"
     t.integer "member_departments_count", default: 0
     t.integer "needed_number"
-    t.string "collective_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "all_member_departments_count"
+    t.bigint "superior_id"
+    t.jsonb "superior_ancestors"
+    t.jsonb "parent_ancestors"
     t.index ["organ_id"], name: "index_departments_on_organ_id"
     t.index ["parent_id"], name: "index_departments_on_parent_id"
+    t.index ["superior_id"], name: "index_departments_on_superior_id"
   end
 
   create_table "details", force: :cascade do |t|
@@ -370,9 +373,12 @@ ActiveRecord::Schema.define(version: 2019_07_13_130950) do
     t.bigint "organ_id"
     t.string "description"
     t.integer "cached_role_ids", array: true
+    t.string "type"
+    t.bigint "super_job_title_id"
     t.index ["department_id"], name: "index_job_titles_on_department_id"
     t.index ["department_root_id"], name: "index_job_titles_on_department_root_id"
     t.index ["organ_id"], name: "index_job_titles_on_organ_id"
+    t.index ["super_job_title_id"], name: "index_job_titles_on_super_job_title_id"
   end
 
   create_table "links", id: :serial, force: :cascade do |t|
@@ -762,6 +768,41 @@ ActiveRecord::Schema.define(version: 2019_07_13_130950) do
     t.string "piping_type"
     t.bigint "piping_id"
     t.index ["piping_type", "piping_id"], name: "index_pipelines_on_piping_type_and_piping_id"
+  end
+
+  create_table "plan_attenders", id: :serial, force: :cascade do |t|
+    t.integer "plan_item_id"
+    t.string "attender_type"
+    t.integer "attender_id"
+    t.integer "room_id"
+    t.boolean "attended"
+    t.string "state"
+    t.jsonb "extra"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attender_type", "attender_id"], name: "index_plan_attenders_on_attender_type_and_attender_id"
+    t.index ["plan_item_id"], name: "index_plan_attenders_on_plan_item_id"
+    t.index ["room_id"], name: "index_plan_attenders_on_room_id"
+  end
+
+  create_table "plan_items", id: :serial, force: :cascade do |t|
+    t.integer "time_plan_id"
+    t.string "plan_type"
+    t.integer "plan_id"
+    t.integer "time_item_id"
+    t.integer "time_list_id"
+    t.integer "room_id"
+    t.date "plan_on"
+    t.string "repeat_index"
+    t.integer "time_bookings_count", default: 0
+    t.jsonb "extra"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plan_type", "plan_id"], name: "index_plan_items_on_plan_type_and_plan_id"
+    t.index ["room_id"], name: "index_plan_items_on_room_id"
+    t.index ["time_item_id"], name: "index_plan_items_on_time_item_id"
+    t.index ["time_list_id"], name: "index_plan_items_on_time_list_id"
+    t.index ["time_plan_id"], name: "index_plan_items_on_time_plan_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -1232,6 +1273,64 @@ ActiveRecord::Schema.define(version: 2019_07_13_130950) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["organ_id"], name: "index_tickets_on_organ_id"
+  end
+
+  create_table "time_bookings", id: :serial, force: :cascade do |t|
+    t.string "booker_type"
+    t.integer "booker_id"
+    t.string "booked_type"
+    t.integer "booked_id"
+    t.integer "plan_item_id"
+    t.integer "time_item_id"
+    t.integer "time_list_id"
+    t.integer "room_id"
+    t.date "booking_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booked_type", "booked_id"], name: "index_time_bookings_on_booked_type_and_booked_id"
+    t.index ["booker_type", "booker_id"], name: "index_time_bookings_on_booker_type_and_booker_id"
+    t.index ["plan_item_id"], name: "index_time_bookings_on_plan_item_id"
+    t.index ["room_id"], name: "index_time_bookings_on_room_id"
+    t.index ["time_item_id"], name: "index_time_bookings_on_time_item_id"
+    t.index ["time_list_id"], name: "index_time_bookings_on_time_list_id"
+  end
+
+  create_table "time_items", id: :serial, force: :cascade do |t|
+    t.integer "time_list_id"
+    t.time "start_at"
+    t.time "finish_at"
+    t.integer "position", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["time_list_id"], name: "index_time_items_on_time_list_id"
+  end
+
+  create_table "time_lists", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.integer "interval_minutes", default: 0
+    t.integer "item_minutes", default: 45
+    t.boolean "default"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "organ_id"
+    t.index ["organ_id"], name: "index_time_lists_on_organ_id"
+  end
+
+  create_table "time_plans", id: :serial, force: :cascade do |t|
+    t.integer "time_list_id"
+    t.string "plan_type"
+    t.integer "plan_id"
+    t.integer "room_id"
+    t.date "begin_on"
+    t.date "end_on"
+    t.string "repeat_type"
+    t.integer "repeat_days", array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plan_type", "plan_id"], name: "index_time_plans_on_plan_type_and_plan_id"
+    t.index ["room_id"], name: "index_time_plans_on_room_id"
+    t.index ["time_list_id"], name: "index_time_plans_on_time_list_id"
   end
 
   create_table "trade_items", force: :cascade do |t|
