@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: c28db5e1308809914bbe58b97260598a8f5f2cb9
+  revision: 064d954c2063a64b491eef6e15eaabf04774d796
   specs:
     default_form (1.5.0)
       rails (>= 5.2, <= 6.1)
@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/rails_vip.git
-  revision: 2cf368a4f157e5e155bc7c719acb0d629d6744af
+  revision: 0e7bcfc46e18a61ad86dfcf4465767a194665393
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
@@ -82,7 +82,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: c396b59a5d20e4349dc95da6fd0b9e611327979d
+  revision: 122f4a8bc102a75fce6568b15e53deef0b8ef9c5
   specs:
     rails_bench (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -150,7 +150,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 028db9452a82a83eea4a5c231ddd44a034feb469
+  revision: cfa95718921811e2c10fe9fd93d6f5fe82c041d7
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
@@ -165,7 +165,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 73eef3c3571cca9b973ec8cfe125f6b661bd4f25
+  revision: 65e28e10d3458fde1701e97e3a2957f132b01e2d
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -173,7 +173,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 4096baa2566f3b2ec9da4aef88f6f2a609526b0c
+  revision: ddb4834a80e896bc54cdd1096aec76168bd45759
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 0.9, <= 1.0)
@@ -270,7 +270,7 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
-    capybara (3.25.0)
+    capybara (3.26.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -278,7 +278,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    chartkick (3.2.0)
+    chartkick (3.2.1)
     childprocess (1.0.1)
       rake (< 13.0)
     chunky_png (1.3.11)
@@ -358,7 +358,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.0331)
     mimemagic (0.3.3)
-    mini_magick (4.9.3)
+    mini_magick (4.9.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
@@ -461,7 +461,7 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     redis (4.1.2)
-    regexp_parser (1.5.1)
+    regexp_parser (1.6.0)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
@@ -547,7 +547,7 @@ GEM
     xml-simple (1.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.1.8)
+    zeitwerk (2.1.9)
     zip-zip (0.3)
       rubyzip (>= 1.0.0)
 
