@@ -5,7 +5,10 @@ class ApplicationController < ActionController::Base
   include RailsRole::Controller
   protect_from_forgery with: :exception
   content_security_policy false
-
+  
+  def current_user
+    User.first
+  end
 
   default_form_builder 'ApplicationFormBuilder' do |config|
 
