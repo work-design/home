@@ -1,9 +1,12 @@
 <% if current_organ %>
-  <div class="ui one item secondary menu">
+  <div class="ui one item secondary top attached menu">
     <%= render 'org/admin/base/choose_nav' %>
   </div>
+  <div class="ui fluid vertical attached menu">
+    <%= render 'org/panel/base/org_nav' %>
+  </div>
 <% end %>
-<div class="ui vertical fluid accordion menu">
+<div class="ui fluid vertical accordion bottom attached menu">
   <%= render 'auth/admin/base/auth_nav' %>
   <%= render 'org/admin/base/org_nav' %>
   <%= render 'wechat/admin/base/wechat_nav' %>
