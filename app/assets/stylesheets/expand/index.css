@@ -23,11 +23,6 @@
   }
 }
 
-header.ui.borderless.menu {
-  border-radius: 0;
-  border-top: none;
-}
-
 [draggable] .icon {
   /*cursor: move; */
 }

@@ -128,7 +128,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 87bf8b5d09e5789dc3b9f15155b0eb32040ea16f
+  revision: dff50f3be3eab4c7a6ee9ae7946b421a12dc14b4
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
