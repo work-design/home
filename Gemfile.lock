@@ -142,7 +142,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 01e1e614bb7aa7c2348ab2d5e951baf030d83dfd
+  revision: fc928920d656db52db8554305e8d2a4728b5017a
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
