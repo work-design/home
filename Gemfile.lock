@@ -57,14 +57,6 @@ GIT
       rails (>= 5.2)
 
 GIT
-  remote: https://github.com/qinmingyuan/rails_vip.git
-  revision: 8ac1f0cd5dd4a6c99af6bd98d28b03a031b4c6db
-  specs:
-    rails_vip (0.1.0)
-      rails_com (~> 1.2)
-      rails_trade
-
-GIT
   remote: https://github.com/work-design/rails_audit.git
   revision: 4ab3f1d90521d3c09061ee723563598e89bc0914
   specs:
@@ -191,6 +183,14 @@ GIT
       rails_com (~> 1.2)
       rails_data (~> 1.0)
       rails_role (~> 1.0)
+
+GIT
+  remote: https://github.com/work-design/rails_vip.git
+  revision: 8ac1f0cd5dd4a6c99af6bd98d28b03a031b4c6db
+  specs:
+    rails_vip (0.1.0)
+      rails_com (~> 1.2)
+      rails_trade
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
