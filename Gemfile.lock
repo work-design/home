@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/rails_vip.git
-  revision: 5f7fa1c89d9bd08626817db2be41230e4e10fe6f
+  revision: 8ac1f0cd5dd4a6c99af6bd98d28b03a031b4c6db
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
@@ -82,7 +82,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 122f4a8bc102a75fce6568b15e53deef0b8ef9c5
+  revision: be2de6f443d20a5685c827c63e4b816e9f586067
   specs:
     rails_bench (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -97,7 +97,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 1398685b20fbfc9e99ade7cce8a2950e27984359
+  revision: d0202451b5b99f66e9fd49cfa18d1761b260125f
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -150,7 +150,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: ddacb326a637d653941ddaec8d5a2cebb478df6d
+  revision: a85ebfded2fa87aaa9cce7cb5eeac2813a703824
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
