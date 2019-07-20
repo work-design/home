@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/acts_as_list.git
-  revision: 86554c13f3c6d2c5db8b371ed07df942a52a0137
+  revision: 63cc2c9687cf0fa534e3a33077b470a7c984a354
   specs:
     acts_as_list (0.9.19)
       activerecord (>= 3.0)
@@ -97,7 +97,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: d575c92d660f49763bef7945db0f513012c5b1e7
+  revision: 1398685b20fbfc9e99ade7cce8a2950e27984359
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
