@@ -17,7 +17,9 @@
     "@rails/activestorage": "^6.0.0-alpha",
     "@rails/ujs": "^6.0.0-alpha",
     "@rails/webpacker": "https://github.com/rails/webpacker",
+    "add": "^2.0.6",
     "axios": "^0.18.0",
+    "core-js": "3",
     "fullcalendar": "^3.9.0",
     "jquery": "^3.3.1",
     "jsdoc": "^3.5.5",
@@ -30,7 +32,8 @@
     "turbolinks": "^5.2.0",
     "weui": "^2.0.0",
     "weui.js": "^1.1.4",
-    "work-ui": "https://github.com/work-design/work-ui.git"
+    "work-ui": "https://github.com/work-design/work-ui.git",
+    "yarn": "^1.17.3"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.1.9"
