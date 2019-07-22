@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_17_155858) do
+ActiveRecord::Schema.define(version: 2019_07_20_130308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -540,32 +540,29 @@ ActiveRecord::Schema.define(version: 2019_07_17_155858) do
     t.boolean "major"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.jsonb "department_ancestors"
+    t.integer "department_ids", array: true
+    t.bigint "superior_id"
     t.index ["department_id"], name: "index_member_departments_on_department_id"
     t.index ["department_root_id"], name: "index_member_departments_on_department_root_id"
     t.index ["job_title_id"], name: "index_member_departments_on_job_title_id"
     t.index ["member_id"], name: "index_member_departments_on_member_id"
+    t.index ["superior_id"], name: "index_member_departments_on_superior_id"
   end
 
   create_table "members", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "department_id"
-    t.bigint "office_id"
     t.bigint "organ_id"
-    t.bigint "job_title_id"
     t.string "name"
     t.string "identity"
     t.string "number"
     t.date "join_on"
     t.boolean "enabled", default: true
     t.string "state"
-    t.integer "grade", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "pomodoro"
     t.bigint "organ_root_id"
-    t.index ["department_id"], name: "index_members_on_department_id"
-    t.index ["job_title_id"], name: "index_members_on_job_title_id"
-    t.index ["office_id"], name: "index_members_on_office_id"
     t.index ["organ_id"], name: "index_members_on_organ_id"
     t.index ["organ_root_id"], name: "index_members_on_organ_root_id"
     t.index ["user_id"], name: "index_members_on_user_id"
