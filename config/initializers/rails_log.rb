@@ -1,3 +1,3 @@
 RailsLog.configure do |config|
-  config.quiet_logs = false
+  config.quiet_logs = true
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_20_130308) do
+ActiveRecord::Schema.define(version: 2019_07_22_142526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -753,6 +753,8 @@ ActiveRecord::Schema.define(version: 2019_07_20_130308) do
     t.bigint "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "organ_id"
+    t.index ["organ_id"], name: "index_part_taxons_on_organ_id"
     t.index ["parent_id"], name: "index_part_taxons_on_parent_id"
   end
 
@@ -770,6 +772,8 @@ ActiveRecord::Schema.define(version: 2019_07_20_130308) do
     t.decimal "profit_price", precision: 10, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "organ_id"
+    t.index ["organ_id"], name: "index_parts_on_organ_id"
     t.index ["part_taxon_id"], name: "index_parts_on_part_taxon_id"
     t.index ["sku"], name: "index_parts_on_sku"
   end
@@ -980,6 +984,8 @@ ActiveRecord::Schema.define(version: 2019_07_20_130308) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "profit_margin", precision: 4, scale: 2
+    t.bigint "organ_id"
+    t.index ["organ_id"], name: "index_product_taxons_on_organ_id"
     t.index ["parent_id"], name: "index_product_taxons_on_parent_id"
   end
 
@@ -998,6 +1004,8 @@ ActiveRecord::Schema.define(version: 2019_07_20_130308) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "reference_price", precision: 10, scale: 2
+    t.bigint "organ_id"
+    t.index ["organ_id"], name: "index_products_on_organ_id"
     t.index ["product_taxon_id"], name: "index_products_on_product_taxon_id"
     t.index ["sku"], name: "index_products_on_sku"
   end

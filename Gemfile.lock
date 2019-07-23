@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: e58c58c2d8fe0eab78a49089cc964b424f7ed956
+  revision: f196eb3eb54d7604bfeef0e5d6ccba48d34d63ee
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -74,7 +74,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 2e6f3da503f044ca009689fc6054a2bf3a84fa97
+  revision: 6aafd122a8572c4458687bf49d14c2d90d3dec16
   specs:
     rails_bench (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -82,14 +82,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_booking.git
-  revision: 5bc03d19d12f09770aeb24dd83eda968d5f07afe
+  revision: ac4489851ff9bdc5ad9b045a47d3f46b97497d36
   specs:
     rails_booking (0.1.1)
       rails (>= 5.0, <= 6.0)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 0da41607cd14e57438e7e53625856851d135f23c
+  revision: bc87ab51ff5c9f5989366d186600744ff7fcc193
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -120,7 +120,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: d1ccf3eb147f8a37e6030cc6737b2019f6f45baf
+  revision: b153fe1e3b21dba6a51b7ea1b5a09c0b9d0fcd30
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -142,7 +142,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: fc928920d656db52db8554305e8d2a4728b5017a
+  revision: 2c6747533e693ef438ac36f98e70a12b394307cb
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
@@ -174,7 +174,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 86e0d42bddb42f241a73f08e2b87ee33aab2820e
+  revision: 81b145eab337eb8dff50d6127d7332d474dc66f1
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -186,7 +186,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: 8ac1f0cd5dd4a6c99af6bd98d28b03a031b4c6db
+  revision: f638ada5c26ed7a697d8bf293e56d4336023b20e
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
