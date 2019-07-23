@@ -5,7 +5,7 @@
 
 //= require stimulus/dist/stimulus.umd
 //= require work-ui/dist/semantic
-//= require cable
+//= require channels
 
 //= require default_form/valid
 //= require default_form/ready

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'pry-rails'
-gem 'rails', '6.0.0.rc1'
+gem 'rails', '6.0.0.rc2'
 gem 'zeitwerk'
 gem 'puma'
 gem 'rack'
