@@ -1,4 +1,4 @@
-App.cable.subscriptions.create('NoticesChannel', {
+ApplicationCable.subscriptions.create('NoticesChannel', {
   collection: function() {
     return $("[data-channel='notices']");
   },

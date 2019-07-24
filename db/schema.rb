@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_22_142526) do
+ActiveRecord::Schema.define(version: 2019_07_24_153018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -393,7 +393,7 @@ ActiveRecord::Schema.define(version: 2019_07_22_142526) do
 
   create_table "facilitates", force: :cascade do |t|
     t.string "name"
-    t.string "desc"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "facilitate_taxon_id"
@@ -446,7 +446,7 @@ ActiveRecord::Schema.define(version: 2019_07_22_142526) do
     t.string "name"
     t.string "type"
     t.string "key"
-    t.string "desc", limit: 1024
+    t.string "description", limit: 1024
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "list_id"
@@ -761,7 +761,7 @@ ActiveRecord::Schema.define(version: 2019_07_22_142526) do
   create_table "parts", force: :cascade do |t|
     t.bigint "part_taxon_id"
     t.string "name"
-    t.string "desc"
+    t.string "description"
     t.string "qr_prefix"
     t.string "sku"
     t.string "type"
@@ -992,7 +992,7 @@ ActiveRecord::Schema.define(version: 2019_07_22_142526) do
   create_table "products", force: :cascade do |t|
     t.bigint "product_taxon_id"
     t.string "name"
-    t.string "desc"
+    t.string "description"
     t.string "qr_prefix"
     t.string "sku"
     t.string "type"
@@ -1239,7 +1239,7 @@ ActiveRecord::Schema.define(version: 2019_07_22_142526) do
 
   create_table "spaces", force: :cascade do |t|
     t.string "name"
-    t.string "desc"
+    t.string "description"
     t.string "sku"
     t.decimal "price", precision: 10, scale: 2
     t.decimal "import_price", precision: 10, scale: 2

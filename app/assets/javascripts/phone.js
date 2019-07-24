@@ -5,7 +5,7 @@
 
 //= require weui.js/dist/weui
 //= require moment
-//= require cable
+//= require channels
 //= require stickybits
 
 //= require default_form/ready
