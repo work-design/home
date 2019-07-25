@@ -36,7 +36,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_where.git
-  revision: b95be97caf3f77318268952d0a21f80d6e1cf63f
+  revision: f37d25b3cb8d179fa73af83e5e0fb00bda5e256f
   specs:
     default_where (2.2.3)
       activerecord (>= 4.0, <= 6.0)
@@ -82,14 +82,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_booking.git
-  revision: ac4489851ff9bdc5ad9b045a47d3f46b97497d36
+  revision: 81a96ff81adcdf17359522a37e9299011db6246b
   specs:
     rails_booking (0.1.1)
       rails (>= 5.0, <= 6.0)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: b43fbbf442d36302c61d03df35b6c2c2aa9ba7e9
+  revision: 459b04a5ec97a70c81645abc3f7b237166543f4c
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -120,7 +120,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 13db7cd6e91fe4b19f4329bd9dfcc7df3556f547
+  revision: 83465a6f5cbaa526bfce80415b39f9042cd99712
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -142,7 +142,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 19010a2d4f28761741b100183734274de993edea
+  revision: c4d59ed55f95ae3e72abae0a00ba20e0c3256d17
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
@@ -157,7 +157,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 65e28e10d3458fde1701e97e3a2957f132b01e2d
+  revision: 42c8e28a2c315b1fed07c782ea56cfa90d92f0ae
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -174,7 +174,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: cc188480664a947e30a75298f0a7217fdf32f25c
+  revision: a3c7bba85d858f000d46e95c0b119a1f3d9765a1
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -186,7 +186,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: f638ada5c26ed7a697d8bf293e56d4336023b20e
+  revision: 13058eea22fa414f07f32551c39ff686d9fab49d
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
@@ -194,7 +194,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 63e42be71013ee4e837aa35a4760db3a5f06f3e4
+  revision: e1c4bc40d5674f5a64abf93d8049a4a669eb3da9
   specs:
     rails_wechat (0.1.0)
       http (~> 4.1)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_24_153018) do
+ActiveRecord::Schema.define(version: 2019_07_25_165116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -278,10 +278,10 @@ ActiveRecord::Schema.define(version: 2019_07_24_153018) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "product_id"
-    t.string "customer_type"
-    t.bigint "customer_id"
+    t.string "buyer_type"
+    t.bigint "buyer_id"
     t.decimal "price", precision: 10, scale: 2
-    t.index ["customer_type", "customer_id"], name: "index_customs_on_customer_type_and_customer_id"
+    t.index ["buyer_type", "buyer_id"], name: "index_customs_on_buyer_type_and_buyer_id"
     t.index ["product_id"], name: "index_customs_on_product_id"
   end
 
