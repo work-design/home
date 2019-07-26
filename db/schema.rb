@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_25_165116) do
+ActiveRecord::Schema.define(version: 2019_07_26_141539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1078,7 +1078,9 @@ ActiveRecord::Schema.define(version: 2019_07_25_165116) do
     t.string "state"
     t.string "status"
     t.integer "trade_promotes_count", default: 0
+    t.bigint "promote_good_id"
     t.index ["buyer_type", "buyer_id"], name: "index_promote_buyers_on_buyer_type_and_buyer_id"
+    t.index ["promote_good_id"], name: "index_promote_buyers_on_promote_good_id"
     t.index ["promote_id"], name: "index_promote_buyers_on_promote_id"
   end
 
@@ -1093,8 +1095,9 @@ ActiveRecord::Schema.define(version: 2019_07_25_165116) do
     t.boolean "contain_max"
     t.boolean "contain_min"
     t.decimal "base_price", precision: 10, scale: 2
-    t.string "metering"
     t.string "unit"
+    t.decimal "filter_min", precision: 10, scale: 2
+    t.decimal "filter_max", precision: 10, scale: 2
     t.index ["promote_id"], name: "index_promote_charges_on_promote_id"
   end
 
@@ -1124,6 +1127,8 @@ ActiveRecord::Schema.define(version: 2019_07_25_165116) do
     t.string "code"
     t.string "deal_type"
     t.bigint "deal_id"
+    t.string "metering"
+    t.boolean "editable"
     t.index ["deal_type", "deal_id"], name: "index_promotes_on_deal_type_and_deal_id"
   end
 
@@ -1497,6 +1502,8 @@ ActiveRecord::Schema.define(version: 2019_07_25_165116) do
     t.integer "sequence"
     t.decimal "based_amount", precision: 10, scale: 2
     t.decimal "original_amount", precision: 10, scale: 2
+    t.decimal "computed_amount", precision: 10, scale: 2
+    t.string "note"
     t.index ["promote_buyer_id"], name: "index_trade_promotes_on_promote_buyer_id"
     t.index ["promote_charge_id"], name: "index_trade_promotes_on_promote_charge_id"
     t.index ["promote_good_id"], name: "index_trade_promotes_on_promote_good_id"

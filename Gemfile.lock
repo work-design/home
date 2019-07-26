@@ -142,7 +142,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: c4d59ed55f95ae3e72abae0a00ba20e0c3256d17
+  revision: 17aab91779ddea68ce06f14cb05e113c2db3871c
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
@@ -157,7 +157,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 42c8e28a2c315b1fed07c782ea56cfa90d92f0ae
+  revision: 09af0715f450e549eeefae37c0cb9076e775367a
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -174,7 +174,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: a3c7bba85d858f000d46e95c0b119a1f3d9765a1
+  revision: 39e6dd2e52d24bf36f008c5a0714afea2bd5c6b0
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
