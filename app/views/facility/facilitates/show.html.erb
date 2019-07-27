@@ -1,5 +1,5 @@
 <% content_for :title, @facilitate.name %>
-<% content_for :meta_description, @facilitate.desc %>
+<% content_for :meta_description, @facilitate.description %>
 
 <div class="ui grid">
   <div class="sixteen wide column">
@@ -31,7 +31,7 @@
       <a class="item"></a>
     </div>
     <div class="ui segment">
-      <%= ex_simple_format @facilitate.desc %>
+      <%= ex_simple_format @facilitate.description %>
     </div>
     <%# render partial: 'store/goods/show/items', locals: { good: @good } %>
   </div>

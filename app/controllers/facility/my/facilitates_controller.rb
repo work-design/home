@@ -11,7 +11,7 @@ class Facility::My::FacilitatesController < Facility::My::BaseController
   end
   
   def order
-    @facilitate.generate_order(current_user)
+    @facilitate.generate_order!(buyer: current_user)
     redirect_to my_orders_url
   end
 

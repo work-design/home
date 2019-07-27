@@ -1,20 +1,19 @@
 <tr>
-  <td><%= facilitate.id %></td>
   <td><%= facilitate.name %></td>
   <td><%= image_tag facilitate.logo, size: '50x50' if facilitate.logo.attached? %></td>
-  <td><%= facilitate.desc %></td>
+  <td><%= facilitate.description %></td>
   <td><time><%= facilitate.created_at.to_s(:rfc822) %></time></td>
   <td><%= facilitate.price %></td>
   <td>
     <%= link_to '供应商管理', admin_good_providers_path('Facilitate', facilitate), class: 'ui orange label' %>
-    <%= link_to admin_facilitate_path(facilitate), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
-      <i class="location arrow icon"></i>
+    <%= link_to admin_facilitate_path(facilitate), data: { tooltip: t('.show') }, class: 'ui mini circular icon button' do %>
+      <i class="fas fa-eye"></i>
     <% end %>
-    <%= link_to edit_admin_facilitate_path(facilitate), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
-      <i class="pencil alternate icon"></i>
+    <%= link_to edit_admin_facilitate_path(facilitate), data: { tooltip: t('.edit') }, class: 'ui mini circular icon button' do %>
+      <i class="fas fa-pencil-alt"></i>
     <% end %>
-    <%= link_to admin_facilitate_path(facilitate), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
-      <i class="times icon"></i>
+    <%= link_to admin_facilitate_path(facilitate), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, class: 'ui mini circular icon button' do %>
+      <i class="fas fa-trash-alt"></i>
     <% end %>
   </td>
 </tr>
