@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'pry-rails'
 gem 'rails', '6.0.0.rc2'
 gem 'zeitwerk'
 gem 'puma'
@@ -36,12 +35,12 @@ gem 'bcrypt'
 gem 'kaminari'
 gem 'acts_as_list', github: 'qinmingyuan/acts_as_list'
 gem 'closure_tree', github: 'qinmingyuan/closure_tree'
-gem 'rucaptcha'
+#gem 'rucaptcha'
 gem 'mini_magick'
 gem 'rqrcode'
 gem 'alipay2', github: 'qinmingyuan/alipay2'
-gem 'chartkick'
-gem 'groupdate'
+#gem 'chartkick'
+#gem 'groupdate'
 
 # Files & Data
 gem 'qiniu'
@@ -76,6 +75,7 @@ gem 'rails_vip', github: 'work-design/rails_vip'
 
 # Debug
 gem 'awesome_print'
+gem 'pry-rails'
 
 group :development, :test do
   gem 'byebug'
