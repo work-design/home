@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 0f84025d5eca65e1cf4789dc3fbe7fedf97920a6
+  revision: 1271afbf7e0d6fef09e3540414d08816122b1a06
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -174,7 +174,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 39e6dd2e52d24bf36f008c5a0714afea2bd5c6b0
+  revision: 0c8fce2a683bdc5cef4dc2423a3ef425406fbc8d
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -475,6 +475,8 @@ GEM
     ruby-ole (1.2.12.2)
     ruby_dep (1.5.0)
     rubyzip (1.2.3)
+    rucaptcha (2.5.1)
+      railties (>= 3.2)
     sassc (2.0.1)
       ffi (~> 1.9)
       rake
@@ -601,6 +603,7 @@ DEPENDENCIES
   redis
   roo
   rqrcode
+  rucaptcha
   sassc-rails
   selenium-webdriver
   sidekiq
