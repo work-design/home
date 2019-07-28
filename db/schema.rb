@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_141539) do
+ActiveRecord::Schema.define(version: 2019_07_27_140023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -648,23 +648,24 @@ ActiveRecord::Schema.define(version: 2019_07_26_141539) do
     t.integer "state", default: 0
     t.decimal "amount", precision: 10, scale: 2
     t.decimal "received_amount", precision: 10, scale: 2
-    t.decimal "subtotal", precision: 10, scale: 2
+    t.decimal "item_amount", precision: 10, scale: 2
     t.string "currency"
     t.integer "payment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "payment_type"
     t.bigint "payment_strategy_id"
     t.boolean "myself"
-    t.decimal "pure_serve_sum", precision: 10, scale: 2
-    t.decimal "pure_promote_sum", precision: 10, scale: 2
-    t.decimal "serve_sum", precision: 10, scale: 2
-    t.decimal "promote_sum", precision: 10, scale: 2
+    t.decimal "overall_reduced_amount", precision: 10, scale: 2
+    t.decimal "overall_additional_amount", precision: 10, scale: 2
     t.string "buyer_type"
     t.bigint "buyer_id"
     t.string "payment_status"
+    t.bigint "user_id"
+    t.bigint "cart_id"
     t.index ["buyer_type", "buyer_id"], name: "index_orders_on_buyer_type_and_buyer_id"
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["payment_strategy_id"], name: "index_orders_on_payment_strategy_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "organ_grants", force: :cascade do |t|
@@ -1475,13 +1476,16 @@ ActiveRecord::Schema.define(version: 2019_07_26_141539) do
     t.datetime "updated_at", null: false
     t.bigint "provider_id"
     t.integer "number"
-    t.decimal "reduced_price", precision: 10, scale: 2
-    t.decimal "additional_price", precision: 10, scale: 2
+    t.decimal "reduced_amount", precision: 10, scale: 2
+    t.decimal "additional_amount", precision: 10, scale: 2
     t.string "trade_type"
     t.bigint "trade_id"
     t.decimal "single_price", precision: 10, scale: 2
     t.boolean "myself"
     t.boolean "starred"
+    t.decimal "original_amount", precision: 10, scale: 2
+    t.decimal "retail_price", precision: 10, scale: 2
+    t.decimal "wholesale_price", precision: 10, scale: 2
     t.index ["good_type", "good_id"], name: "index_trade_items_on_good_type_and_good_id"
     t.index ["provider_id"], name: "index_trade_items_on_provider_id"
     t.index ["trade_type", "trade_id"], name: "index_trade_items_on_trade_type_and_trade_id"
