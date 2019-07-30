@@ -120,7 +120,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 3f0efa757ca5e0285e38399fee86995b7f4cc858
+  revision: 147202be3f3d1b3bba6beda103f745555e9840cc
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -174,7 +174,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 2771159ddbad29c939d295133e5db81446dab637
+  revision: a2ca9a052f6dedd4f9f8f8df62e0a7e4a6c1d850
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -186,7 +186,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: 13058eea22fa414f07f32551c39ff686d9fab49d
+  revision: 9b4c50d21bf7fc3d87bf3934f7f2a99e12f5ef2d
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
@@ -194,7 +194,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: e1c4bc40d5674f5a64abf93d8049a4a669eb3da9
+  revision: 5bb4c6ba56f4462a657cae3f4047f0289b7636dc
   specs:
     rails_wechat (0.1.0)
       http (~> 4.1)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_27_140023) do
+ActiveRecord::Schema.define(version: 2019_07_30_115517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,8 +151,6 @@ ActiveRecord::Schema.define(version: 2019_07_27_140023) do
   create_table "cards", force: :cascade do |t|
     t.bigint "organ_id"
     t.bigint "card_template_id"
-    t.string "buyer_type"
-    t.bigint "buyer_id"
     t.bigint "trade_item_id"
     t.bigint "tutelage_id"
     t.string "client_type"
@@ -167,7 +165,6 @@ ActiveRecord::Schema.define(version: 2019_07_27_140023) do
     t.datetime "expire_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["buyer_type", "buyer_id"], name: "index_cards_on_buyer_type_and_buyer_id"
     t.index ["card_template_id"], name: "index_cards_on_card_template_id"
     t.index ["client_type", "client_id"], name: "index_cards_on_client_type_and_client_id"
     t.index ["organ_id"], name: "index_cards_on_organ_id"
@@ -281,7 +278,9 @@ ActiveRecord::Schema.define(version: 2019_07_27_140023) do
     t.string "buyer_type"
     t.bigint "buyer_id"
     t.decimal "price", precision: 10, scale: 2
+    t.bigint "organ_id"
     t.index ["buyer_type", "buyer_id"], name: "index_customs_on_buyer_type_and_buyer_id"
+    t.index ["organ_id"], name: "index_customs_on_organ_id"
     t.index ["product_id"], name: "index_customs_on_product_id"
   end
 
