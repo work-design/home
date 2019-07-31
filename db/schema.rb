@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_30_115517) do
+ActiveRecord::Schema.define(version: 2019_07_31_070025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,13 +71,13 @@ ActiveRecord::Schema.define(version: 2019_07_30_115517) do
 
   create_table "advances", force: :cascade do |t|
     t.decimal "price", precision: 10, scale: 2
-    t.string "name"
-    t.string "description"
     t.string "apple_product_id"
     t.string "state"
     t.decimal "amount", precision: 10, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "card_template_id"
+    t.index ["card_template_id"], name: "index_advances_on_card_template_id"
   end
 
   create_table "annunciates", force: :cascade do |t|
@@ -141,10 +141,9 @@ ActiveRecord::Schema.define(version: 2019_07_30_115517) do
     t.bigint "organ_id"
     t.string "name"
     t.integer "valid_days"
-    t.integer "amount"
-    t.decimal "price", precision: 10, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
     t.index ["organ_id"], name: "index_card_templates_on_organ_id"
   end
 
@@ -1536,18 +1535,18 @@ ActiveRecord::Schema.define(version: 2019_07_30_115517) do
 
   create_table "user_advances", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "wallet_id"
+    t.bigint "card_id"
     t.bigint "advance_id"
-    t.bigint "order_item_id"
+    t.bigint "trade_item_id"
     t.decimal "price", precision: 10, scale: 2
     t.decimal "amount", precision: 10, scale: 2
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["advance_id"], name: "index_user_advances_on_advance_id"
-    t.index ["order_item_id"], name: "index_user_advances_on_order_item_id"
+    t.index ["card_id"], name: "index_user_advances_on_card_id"
+    t.index ["trade_item_id"], name: "index_user_advances_on_trade_item_id"
     t.index ["user_id"], name: "index_user_advances_on_user_id"
-    t.index ["wallet_id"], name: "index_user_advances_on_wallet_id"
   end
 
   create_table "user_providers", force: :cascade do |t|

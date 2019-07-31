@@ -174,7 +174,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: a2ca9a052f6dedd4f9f8f8df62e0a7e4a6c1d850
+  revision: fb608cc4f80c87f1486eb7672e591487dea593fa
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -194,7 +194,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 5bb4c6ba56f4462a657cae3f4047f0289b7636dc
+  revision: f4f4b1216d7cf5b17457e0220be91f138acb0e05
   specs:
     rails_wechat (0.1.0)
       http (~> 4.1)
