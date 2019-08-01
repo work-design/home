@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_01_021714) do
+ActiveRecord::Schema.define(version: 2019_08_01_085956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -763,6 +763,7 @@ ActiveRecord::Schema.define(version: 2019_08_01_021714) do
     t.bigint "cart_id"
     t.bigint "maintain_id"
     t.bigint "organ_id"
+    t.integer "lock_version"
     t.index ["buyer_type", "buyer_id"], name: "index_orders_on_buyer_type_and_buyer_id"
     t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["maintain_id"], name: "index_orders_on_maintain_id"
@@ -1235,7 +1236,9 @@ ActiveRecord::Schema.define(version: 2019_08_01_021714) do
     t.bigint "deal_id"
     t.string "metering"
     t.boolean "editable"
+    t.bigint "organ_id"
     t.index ["deal_type", "deal_id"], name: "index_promotes_on_deal_type_and_deal_id"
+    t.index ["organ_id"], name: "index_promotes_on_organ_id"
   end
 
   create_table "providers", force: :cascade do |t|
