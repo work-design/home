@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_31_070025) do
+ActiveRecord::Schema.define(version: 2019_07_31_154831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,6 +124,20 @@ ActiveRecord::Schema.define(version: 2019_07_31_070025) do
     t.index ["parent_id"], name: "index_areas_on_parent_id"
   end
 
+  create_table "card_advances", force: :cascade do |t|
+    t.bigint "card_id"
+    t.bigint "advance_id"
+    t.bigint "trade_item_id"
+    t.decimal "price", precision: 10, scale: 2
+    t.decimal "amount", precision: 10, scale: 2
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["advance_id"], name: "index_card_advances_on_advance_id"
+    t.index ["card_id"], name: "index_card_advances_on_card_id"
+    t.index ["trade_item_id"], name: "index_card_advances_on_trade_item_id"
+  end
+
   create_table "card_logs", force: :cascade do |t|
     t.bigint "card_id"
     t.string "source_type"
@@ -164,6 +178,9 @@ ActiveRecord::Schema.define(version: 2019_07_31_070025) do
     t.datetime "expire_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "buyer_type"
+    t.bigint "buyer_id"
+    t.index ["buyer_type", "buyer_id"], name: "index_cards_on_buyer_type_and_buyer_id"
     t.index ["card_template_id"], name: "index_cards_on_card_template_id"
     t.index ["client_type", "client_id"], name: "index_cards_on_client_type_and_client_id"
     t.index ["organ_id"], name: "index_cards_on_organ_id"
@@ -529,6 +546,88 @@ ActiveRecord::Schema.define(version: 2019_07_31_070025) do
     t.index ["task_id"], name: "index_logs_on_task_id"
   end
 
+  create_table "maintain_logs", force: :cascade do |t|
+    t.bigint "maintain_id"
+    t.bigint "member_id"
+    t.string "logged_type"
+    t.bigint "logged_id"
+    t.bigint "maintain_tag_id"
+    t.string "note"
+    t.jsonb "extra", default: {}
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["logged_type", "logged_id"], name: "index_maintain_logs_on_logged_type_and_logged_id"
+    t.index ["maintain_id"], name: "index_maintain_logs_on_maintain_id"
+    t.index ["maintain_tag_id"], name: "index_maintain_logs_on_maintain_tag_id"
+    t.index ["member_id"], name: "index_maintain_logs_on_member_id"
+  end
+
+  create_table "maintain_source_templates", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "maintain_sources", force: :cascade do |t|
+    t.bigint "organ_id"
+    t.bigint "maintain_source_template_id"
+    t.string "name"
+    t.integer "maintains_count", default: 0
+    t.index ["maintain_source_template_id"], name: "index_maintain_sources_on_maintain_source_template_id"
+    t.index ["organ_id"], name: "index_maintain_sources_on_organ_id"
+  end
+
+  create_table "maintain_tag_templates", force: :cascade do |t|
+    t.string "name"
+    t.string "logged_type"
+    t.string "entity_column"
+    t.string "entity_value"
+    t.integer "sequence"
+    t.string "color"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "maintain_tags", force: :cascade do |t|
+    t.bigint "maintain_tag_template_id"
+    t.bigint "organ_id"
+    t.string "name"
+    t.boolean "manual"
+    t.integer "sequence"
+    t.integer "maintain_logs_count", default: 0
+    t.string "color"
+    t.string "logged_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["maintain_tag_template_id"], name: "index_maintain_tags_on_maintain_tag_template_id"
+    t.index ["organ_id"], name: "index_maintain_tags_on_organ_id"
+  end
+
+  create_table "maintains", force: :cascade do |t|
+    t.bigint "member_id"
+    t.string "client_type"
+    t.bigint "client_id"
+    t.string "tutelar_type"
+    t.bigint "tutelar_id"
+    t.bigint "tutelage_id"
+    t.bigint "maintain_source_id"
+    t.bigint "organ_id"
+    t.bigint "pipeline_member_id"
+    t.bigint "pipeline_id"
+    t.string "state"
+    t.string "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_type", "client_id"], name: "index_maintains_on_client_type_and_client_id"
+    t.index ["maintain_source_id"], name: "index_maintains_on_maintain_source_id"
+    t.index ["member_id"], name: "index_maintains_on_member_id"
+    t.index ["organ_id"], name: "index_maintains_on_organ_id"
+    t.index ["pipeline_id"], name: "index_maintains_on_pipeline_id"
+    t.index ["pipeline_member_id"], name: "index_maintains_on_pipeline_member_id"
+    t.index ["tutelage_id"], name: "index_maintains_on_tutelage_id"
+    t.index ["tutelar_type", "tutelar_id"], name: "index_maintains_on_tutelar_type_and_tutelar_id"
+  end
+
   create_table "member_departments", force: :cascade do |t|
     t.bigint "member_id"
     t.bigint "job_title_id"
@@ -568,12 +667,14 @@ ActiveRecord::Schema.define(version: 2019_07_31_070025) do
 
   create_table "money_givens", force: :cascade do |t|
     t.string "type"
-    t.bigint "user_id"
     t.decimal "amount", precision: 10, scale: 2, default: "0.0"
     t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_money_givens_on_user_id"
+    t.bigint "money_id"
+    t.bigint "organ_id"
+    t.index ["money_id"], name: "index_money_givens_on_money_id"
+    t.index ["organ_id"], name: "index_money_givens_on_organ_id"
   end
 
   create_table "notification_settings", id: :serial, force: :cascade do |t|
@@ -660,8 +761,10 @@ ActiveRecord::Schema.define(version: 2019_07_31_070025) do
     t.string "payment_status"
     t.bigint "user_id"
     t.bigint "cart_id"
+    t.bigint "maintain_id"
     t.index ["buyer_type", "buyer_id"], name: "index_orders_on_buyer_type_and_buyer_id"
     t.index ["cart_id"], name: "index_orders_on_cart_id"
+    t.index ["maintain_id"], name: "index_orders_on_maintain_id"
     t.index ["payment_strategy_id"], name: "index_orders_on_payment_strategy_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -890,6 +993,8 @@ ActiveRecord::Schema.define(version: 2019_07_31_070025) do
     t.datetime "updated_at", null: false
     t.string "piping_type"
     t.bigint "piping_id"
+    t.bigint "organ_id"
+    t.index ["organ_id"], name: "index_pipelines_on_organ_id"
     t.index ["piping_type", "piping_id"], name: "index_pipelines_on_piping_type_and_piping_id"
   end
 
@@ -1533,22 +1638,6 @@ ActiveRecord::Schema.define(version: 2019_07_31_070025) do
     t.index ["tutor_id"], name: "index_tutorials_on_tutor_id"
   end
 
-  create_table "user_advances", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "card_id"
-    t.bigint "advance_id"
-    t.bigint "trade_item_id"
-    t.decimal "price", precision: 10, scale: 2
-    t.decimal "amount", precision: 10, scale: 2
-    t.string "state"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["advance_id"], name: "index_user_advances_on_advance_id"
-    t.index ["card_id"], name: "index_user_advances_on_card_id"
-    t.index ["trade_item_id"], name: "index_user_advances_on_trade_item_id"
-    t.index ["user_id"], name: "index_user_advances_on_user_id"
-  end
-
   create_table "user_providers", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "provider_id"
@@ -1605,34 +1694,6 @@ ActiveRecord::Schema.define(version: 2019_07_31_070025) do
     t.bigint "account_id"
     t.index ["account_id"], name: "index_verify_tokens_on_account_id"
     t.index ["user_id"], name: "index_verify_tokens_on_user_id"
-  end
-
-  create_table "wallet_logs", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "wallet_id"
-    t.string "source_type"
-    t.bigint "source_id"
-    t.string "title"
-    t.string "tag_str"
-    t.decimal "amount", precision: 10, scale: 2
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["source_type", "source_id"], name: "index_wallet_logs_on_source_type_and_source_id"
-    t.index ["user_id"], name: "index_wallet_logs_on_user_id"
-    t.index ["wallet_id"], name: "index_wallet_logs_on_wallet_id"
-  end
-
-  create_table "wallets", force: :cascade do |t|
-    t.bigint "user_id"
-    t.decimal "amount", precision: 10, scale: 2, default: "0.0"
-    t.decimal "income_amount", precision: 10, scale: 2, default: "0.0"
-    t.decimal "expense_amount", precision: 10, scale: 2, default: "0.0"
-    t.integer "lock_version"
-    t.string "type"
-    t.boolean "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
   create_table "wechat_app_extractors", force: :cascade do |t|

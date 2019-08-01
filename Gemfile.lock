@@ -98,6 +98,13 @@ GIT
       rails (~> 6.0.0.rc1)
 
 GIT
+  remote: https://github.com/work-design/rails_crm.git
+  revision: fea0e27c97ef6657c32a495415e2c434ba8e5685
+  specs:
+    rails_crm (0.1.0)
+      rails (~> 6.0.0.rc1)
+
+GIT
   remote: https://github.com/work-design/rails_data.git
   revision: 13a9bbaa77d381f477b8b307cce859caba893f80
   specs:
@@ -150,7 +157,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: e801d462ff8a008cb3bba85ff866b50c57ec0397
+  revision: 97a1c1f6b06c37ec41381d83f8fb460c967a2a1b
   specs:
     rails_profile (0.1.0)
       rails (>= 5.2.1)
@@ -174,7 +181,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: fb608cc4f80c87f1486eb7672e591487dea593fa
+  revision: e47c6a7b31f09c8c1b4cd45103aba320651ee437
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -186,7 +193,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: 9b4c50d21bf7fc3d87bf3934f7f2a99e12f5ef2d
+  revision: 9f7c61a8223fbd487503c2db43972b7d73d059f6
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
@@ -588,6 +595,7 @@ DEPENDENCIES
   rails_bench!
   rails_booking!
   rails_com!
+  rails_crm!
   rails_data!
   rails_detail!
   rails_factory!

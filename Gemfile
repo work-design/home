@@ -72,6 +72,7 @@ gem 'rails_factory', github: 'work-design/rails_factory'
 gem 'rails_wechat', github: 'work-design/rails_wechat'
 gem 'rails_bench', github: 'work-design/rails_bench'
 gem 'rails_vip', github: 'work-design/rails_vip'
+gem 'rails_crm', github: 'work-design/rails_crm'
 
 # Debug
 gem 'awesome_print'
