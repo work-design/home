@@ -1,6 +1,5 @@
 class RemoveWallets < ActiveRecord::Migration[6.0]
   def change
-    add_reference :cards, :buyer, polymorphic: true
     drop_table :wallets
     drop_table :wallet_logs
     add_reference :money_givens, :money
