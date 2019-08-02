@@ -1,4 +1,4 @@
-.ui.side .content {
+.ui.side > .content {
   padding: 1rem;
 }
 
