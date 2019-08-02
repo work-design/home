@@ -74,7 +74,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: a3097e55732557708916866d2f5258bb121b1ddd
+  revision: fff1b3cf1fbedf3a5f2d88aae3e7d737bd993ab6
   specs:
     rails_bench (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -99,7 +99,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: 208a9679b47c656c462e67f17eb51b77e971176c
+  revision: a220fbfdc4018f62d9490e84075366af68f6ebae
   specs:
     rails_crm (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -157,7 +157,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 033ecc954357c41b15deb861270fe1a632eb5df1
+  revision: 65dae9ddafe8df1a2702956d6cdbfad44374431f
   specs:
     rails_profile (0.1.0)
       rails (>= 5.2.1)
@@ -181,7 +181,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 8ff3564cad10d4a9baa934b18ab3d248663b37e9
+  revision: e8dabb486f582e9f5586b36eaa77474d85ee620b
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -193,7 +193,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: aac6ec62103a12626b280841d211c6c95d70e872
+  revision: e77e07d4c91d413293d2cc8924df3b4915782b5a
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
