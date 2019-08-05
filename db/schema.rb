@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_01_085956) do
+ActiveRecord::Schema.define(version: 2019_08_03_145500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1594,6 +1594,7 @@ ActiveRecord::Schema.define(version: 2019_08_01_085956) do
     t.decimal "original_amount", precision: 10, scale: 2
     t.decimal "retail_price", precision: 10, scale: 2
     t.decimal "wholesale_price", precision: 10, scale: 2
+    t.string "status"
     t.index ["good_type", "good_id"], name: "index_trade_items_on_good_type_and_good_id"
     t.index ["provider_id"], name: "index_trade_items_on_provider_id"
     t.index ["trade_type", "trade_id"], name: "index_trade_items_on_trade_type_and_trade_id"
