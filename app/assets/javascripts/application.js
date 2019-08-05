@@ -2,8 +2,8 @@
 //= require turbolinks
 //= require jquery
 //= require rails_com/application
+//= require rails_com/stimulus
 
-//= require stimulus/dist/stimulus.umd
 //= require work-ui/dist/semantic
 //= require channels
 
