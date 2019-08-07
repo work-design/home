@@ -6,7 +6,6 @@
 header.ui.borderless.menu {
   border-radius: 0;
   border-top: none;
-  border-width: unset;
 }
 
 .ui.attached.vertical.menu,

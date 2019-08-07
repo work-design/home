@@ -12,7 +12,7 @@
 
           <div class="content">
             <%= link_to space.name, space_path(space) %>
-            <p><%= space.desc %></p>
+            <p><%= space.description %></p>
             <%= link_to '加入购物车', my_carts_path(good_id: space.id, good_type: 'Space'), method: :post, class: 'ui mini button' %>
           </div>
         </div>

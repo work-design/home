@@ -1,3 +1,7 @@
+main.ui.side {
+  margin-top: -1rem;
+}
+
 .ui.side > .content {
   padding: 1rem;
 }
