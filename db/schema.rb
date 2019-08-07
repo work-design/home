@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_03_145500) do
+ActiveRecord::Schema.define(version: 2019_08_07_123911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -468,6 +468,18 @@ ActiveRecord::Schema.define(version: 2019_08_03_145500) do
     t.index ["list_id"], name: "index_items_on_list_id"
   end
 
+  create_table "job_title_references", force: :cascade do |t|
+    t.bigint "super_job_title_id"
+    t.bigint "department_root_id"
+    t.bigint "department_id"
+    t.integer "grade"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["department_id"], name: "index_job_title_references_on_department_id"
+    t.index ["department_root_id"], name: "index_job_title_references_on_department_root_id"
+    t.index ["super_job_title_id"], name: "index_job_title_references_on_super_job_title_id"
+  end
+
   create_table "job_titles", force: :cascade do |t|
     t.bigint "department_id"
     t.bigint "department_root_id"
@@ -480,11 +492,9 @@ ActiveRecord::Schema.define(version: 2019_08_03_145500) do
     t.string "description"
     t.integer "cached_role_ids", array: true
     t.string "type"
-    t.bigint "super_job_title_id"
     t.index ["department_id"], name: "index_job_titles_on_department_id"
     t.index ["department_root_id"], name: "index_job_titles_on_department_root_id"
     t.index ["organ_id"], name: "index_job_titles_on_organ_id"
-    t.index ["super_job_title_id"], name: "index_job_titles_on_super_job_title_id"
   end
 
   create_table "links", id: :serial, force: :cascade do |t|
@@ -800,6 +810,17 @@ ActiveRecord::Schema.define(version: 2019_08_03_145500) do
     t.integer "generations", null: false
     t.index ["ancestor_id", "descendant_id", "generations"], name: "organ_anc_desc_idx", unique: true
     t.index ["descendant_id"], name: "organ_desc_idx"
+  end
+
+  create_table "organ_tokens", force: :cascade do |t|
+    t.bigint "organ_id"
+    t.bigint "user_id"
+    t.string "token"
+    t.datetime "expire_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organ_id"], name: "index_organ_tokens_on_organ_id"
+    t.index ["user_id"], name: "index_organ_tokens_on_user_id"
   end
 
   create_table "organs", force: :cascade do |t|

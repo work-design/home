@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 41bad2ebb9690479ce735eec971f47fbb06dfcb7
+  revision: 26516653b8ef12ff8c331ec26d0285fdf4f4639b
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -74,7 +74,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 11681fc84e6a934542c4fb60cf764e255b7196cf
+  revision: 8844dd7a2f71a998df8d3c012dfcfb9b0454ca13
   specs:
     rails_bench (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: ec0d0865aa016174ea9260859cdbd9b8945b9cbc
+  revision: 9e899c4feb8c5fbe3d15a903306ffb4e3f5748b5
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -149,7 +149,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: a1730a79c3a187c93dbfffe736dbf26d381f6cf6
+  revision: 93b09110e782fe1f9489aa2059fced338fe3581d
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
@@ -157,7 +157,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: bf420e5220e79b34664b6d324f2a301b4ea72f61
+  revision: 55a589476b5b4059874430f9b3ea9b916612befd
   specs:
     rails_profile (0.1.0)
       rails (>= 5.2.1)
