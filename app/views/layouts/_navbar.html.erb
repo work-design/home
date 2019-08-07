@@ -1,4 +1,5 @@
 <header class="ui borderless menu">
+  <%= render 'choose_nav' %>
   <% if current_user %>
     <%= link_to index_path, class: 'logo item' do %>
       <%= image_tag 'logo.jpg', class: 'ui image' %>
