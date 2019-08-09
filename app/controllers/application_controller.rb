@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
-  include RailsAuth::Controller
-  include RailsCom::Controller
-  include RailsRole::Controller
+  include RailsAuth::Application
+  include RailsCom::Application
+  include RailsRole::Application
+  include RailsOrg::Application
   protect_from_forgery with: :exception
   content_security_policy false
 
