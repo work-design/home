@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 9b19be0a4378eb03bac09ffc898c56bed9abf5c3
+  revision: 90157da1f796c3e1aa0b384bef8e214c9e14d8bc
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -149,7 +149,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 23bde01251a40a1b94595818ab6f2859db8970b3
+  revision: 9b631a8495fca2bb07b8f003b6d397d5532fc190
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
@@ -164,7 +164,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: f812935d613db6b37a4913e5f20a22c2f48f3e5b
+  revision: 6b6147ca6f1b8aafca0582736cd4330aa01a664f
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
