@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: f03377cce88c7d25a7928b145e1b75d9b3ecc488
+  revision: 06c88fc0995c7d16b74067d2c0392e9a26b2ec1c
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -127,7 +127,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 3c795dfafbecc6cc80e4b3c9e4710aeaae01a48a
+  revision: 7dc5fe150f1d48f404e6df52196e3695ce2aa1ca
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -149,7 +149,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: d3eb6f421159c61b5d5cf6ba5813a84d583ff3e6
+  revision: ce886e13c9513a7f27ab2752cc03d7d9b9078dec
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
@@ -181,7 +181,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 1c361f7f0a1661ee0a66766a9deddd70d3ae9ba2
+  revision: 9f4e5a18d18db60cde5614ac9cc2026daa036c30
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)

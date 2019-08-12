@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_12_141745) do
+ActiveRecord::Schema.define(version: 2019_08_12_153458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -670,6 +670,7 @@ ActiveRecord::Schema.define(version: 2019_08_12_141745) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "pomodoro"
     t.bigint "organ_root_id"
+    t.boolean "owned"
     t.index ["organ_id"], name: "index_members_on_organ_id"
     t.index ["organ_root_id"], name: "index_members_on_organ_root_id"
     t.index ["user_id"], name: "index_members_on_user_id"
@@ -835,9 +836,7 @@ ActiveRecord::Schema.define(version: 2019_08_12_141745) do
     t.string "locale"
     t.string "timezone"
     t.integer "members_count"
-    t.bigint "creator_id"
     t.index ["area_id"], name: "index_organs_on_area_id"
-    t.index ["creator_id"], name: "index_organs_on_creator_id"
     t.index ["parent_id"], name: "index_organs_on_parent_id"
   end
 
