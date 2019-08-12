@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   scope :my, module: 'waiting/my', as: :my do
-    root to: '/auth/my/users#show', as: :root
+    root to: '/auth/mine/users#show', as: :root
 
     resource :roles
     resources :spaces

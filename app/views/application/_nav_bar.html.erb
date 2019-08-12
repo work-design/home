@@ -1,0 +1,10 @@
+<header class="ui borderless menu">
+  <% if current_user %>
+    <%= render 'nav_items' %>
+  <% else %>
+    <%= render 'nav_without_login' %>
+  <% end %>
+  <%= render 'layouts/right_menu' %>
+</header>
+
+
