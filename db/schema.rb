@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_07_123911) do
+ActiveRecord::Schema.define(version: 2019_08_12_141745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1382,10 +1382,10 @@ ActiveRecord::Schema.define(version: 2019_08_07_123911) do
     t.bigint "area_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "provider_id"
+    t.bigint "organ_id"
     t.bigint "space_taxon_id"
     t.index ["area_id"], name: "index_spaces_on_area_id"
-    t.index ["provider_id"], name: "index_spaces_on_provider_id"
+    t.index ["organ_id"], name: "index_spaces_on_organ_id"
     t.index ["space_taxon_id"], name: "index_spaces_on_space_taxon_id"
   end
 

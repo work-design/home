@@ -1,23 +1,22 @@
 class Waiting::My::SpacesController < Waiting::My::BaseController
-  before_action :set_provider
   before_action :set_space, only: [:show, :edit, :update, :destroy]
 
   def index
-    @spaces = @provider.spaces
+    @spaces = current_organ.spaces
   end
 
   def show
   end
 
   def new
-    @space = @provider.spaces.build(space_taxon_id: params[:space_taxon_id])
+    @space = current_organ.spaces.build(space_taxon_id: params[:space_taxon_id])
   end
 
   def edit
   end
 
   def create
-    @space = @provider.spaces.build(space_params)
+    @space = current_organ.spaces.build(space_params)
 
     respond_to do |format|
       if @space.save
@@ -51,12 +50,8 @@ class Waiting::My::SpacesController < Waiting::My::BaseController
   end
 
   private
-  def set_provider
-    @provider = current_user.provider
-  end
-
   def set_space
-    @space = Space.find(params[:id])
+    @space = current_organ.spaces.find(params[:id])
   end
 
   def space_params

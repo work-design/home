@@ -9,6 +9,7 @@ class Space < ApplicationRecord
   belongs_to :space_taxon
   belongs_to :taxon, class_name: 'SpaceTaxon', foreign_key: :space_taxon_id
   belongs_to :area
+  belongs_to :organ
   
   
 end

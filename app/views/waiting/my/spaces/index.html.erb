@@ -1,7 +1,6 @@
 <table class="ui table">
   <thead>
   <tr>
-    <th>ID</th>
     <th>Area</th>
     <th>Name</th>
     <th>Price</th>
@@ -12,7 +11,6 @@
   <tbody>
   <% @spaces.each do |space| %>
     <tr>
-      <td><%= space.id %></td>
       <td><%= space.area.province %> <%= space.area.city %></td>
       <td><%= space.name %></td>
       <td><%= space.price %></td>
