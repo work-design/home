@@ -1,27 +1,20 @@
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
-
-<head>
-  <title><%= content_for?(:title) ? yield(:title) : t('site_name') %></title>
-  <meta name="description" content="<%= yield(:meta_description) %>" />
-  <meta name="keywords" content="<%= yield(:meta_keywords) %>" />
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= css_load media: 'all' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= js_ready 'data-turbolinks-track': 'reload' %>
-  <%= csrf_meta_tags %>
-  <%= action_cable_meta_tag %>
-</head>
-
-<body>
-
-  <%= render 'layouts/navbar' %>
-
-  <%= yield %>
-
-  <%= render 'layouts/footer' %>
-
-  <%= js_load %>
-</body>
-
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : t('site_name') %></title>
+    <meta name="description" content="<%= yield(:meta_description) %>" />
+    <meta name="keywords" content="<%= yield(:meta_keywords) %>" />
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= css_load media: 'all' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= js_ready 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+  </head>
+  <body>
+    <%= render 'nav_bar' %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+    <%= js_load %>
+  </body>
 </html>
