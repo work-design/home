@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_12_153458) do
+ActiveRecord::Schema.define(version: 2019_08_13_084942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -214,7 +214,9 @@ ActiveRecord::Schema.define(version: 2019_08_12_153458) do
     t.bigint "payment_strategy_id"
     t.integer "deposit_ratio"
     t.boolean "default"
+    t.bigint "organ_id"
     t.index ["buyer_type", "buyer_id"], name: "index_carts_on_buyer_type_and_buyer_id"
+    t.index ["organ_id"], name: "index_carts_on_organ_id"
     t.index ["payment_strategy_id"], name: "index_carts_on_payment_strategy_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end

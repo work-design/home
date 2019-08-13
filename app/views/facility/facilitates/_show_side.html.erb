@@ -7,7 +7,7 @@
 </div>
 
 <div class="ui menu vertical">
-  <div class="item"><%= button_to '在线购买', order_my_facilitate_path(@facilitate.id), method: :put, class: 'ui button primary' %></div>
+  <div class="item"><%= link_to '在线购买', my_trade_items_path(good_type: @facilitate.class.name, good_id: @facilitate.id), method: :post, class: 'ui button primary' %></div>
   <% unless @facilitate.good_providers.exists?(provider_id: current_user.provider_id) %>
   <div class="item">
     <%= link_to '申请为供应商', new_my_good_provider_path(good_type: 'Facilitate', good_id: @facilitate.id), class: 'ui mini primary button' %>

@@ -12,7 +12,7 @@
       <div class="content">
         <%= link_to facilitate.name, facilitate_path(facilitate) %>
         <p><%= facilitate.description %></p>
-        <%= link_to '加入购物车', my_carts_path(good_id: facilitate.id, good_type: 'Facilitate'), method: :post, class: 'ui mini button' %>
+        <%= link_to '加入购物车', my_trade_items_path(good_id: facilitate.id, good_type: 'Facilitate'), method: :post, class: 'ui mini button' %>
       </div>
     </div>
   <% end %>

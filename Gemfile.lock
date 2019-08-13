@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 85b77987eba4fd57a300b971c00e8d3e180cb587
+  revision: ef68090f84d518bfa2fbb497445d955420eebe87
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 06c88fc0995c7d16b74067d2c0392e9a26b2ec1c
+  revision: 6f8f182186a97e3016100350000193e56142e50f
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -99,7 +99,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: 86ad034856249dc60f33c2fcd9098d47e8c82c55
+  revision: 2154e39d28f14cb27cd01d4c60c588b9b0bfbd3d
   specs:
     rails_crm (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -149,7 +149,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: ce886e13c9513a7f27ab2752cc03d7d9b9078dec
+  revision: fc0025231ee9892831904a108928b38fc58ad399
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
@@ -164,7 +164,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: c95153908a2e37d4fad0ed46700bf68397ebf8ee
+  revision: 95362fcaca50e20b36eb748c76a4ea9d22c762e3
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -181,7 +181,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 9f4e5a18d18db60cde5614ac9cc2026daa036c30
+  revision: 0a95924816efc7b6a318d83df6a71ce21f85d1ac
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -193,7 +193,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: 34225c4ed52227e8020c1e31b3105219bd486d2e
+  revision: 5ed0b7e49ce93324f186d7840e8558deb0aef9cb
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
@@ -201,7 +201,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 68eab6ddf443de868643517ee6ca19e704f7756e
+  revision: f3d34bd104efab1b37a492e2c83241d505f710b4
   specs:
     rails_wechat (0.1.0)
       http (~> 4.1)
