@@ -1,5 +1,6 @@
 //= require rails_com/footer
 //= require default_form/footer
+//= require rails_org/footer
 $('#navbar_dropdown').dropdown();
 $('#worker_dropdown').dropdown();
 
