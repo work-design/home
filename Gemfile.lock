@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 8baadd7b0994da55af889334047cb5338c6df283
+  revision: 1a7371b5a55b7331e1407341565e6c50b3f7efa5
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -99,7 +99,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: 9a342bb710ab63fdb7816c2582d558ab4e13565e
+  revision: 052e641408d883cbf4e72c93fc13154e73b97c30
   specs:
     rails_crm (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -149,7 +149,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 486eaee73d37538609845f75c8cb5deb44ffc4a8
+  revision: ee9980123427566f73d3c1cbc0c85948aa0193c4
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
@@ -172,7 +172,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 2a6dfda6cbc7a0d2ed8b4aa1ef4ef64f0844ad9f
+  revision: fe2c7706e64298b4be09a3b11148e74ca3bbe997
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 0.9, <= 1.0)
