@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_13_084942) do
+ActiveRecord::Schema.define(version: 2019_08_16_034219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1228,6 +1228,15 @@ ActiveRecord::Schema.define(version: 2019_08_13_084942) do
     t.decimal "filter_min", precision: 10, scale: 2
     t.decimal "filter_max", precision: 10, scale: 2
     t.index ["promote_id"], name: "index_promote_charges_on_promote_id"
+  end
+
+  create_table "promote_extras", force: :cascade do |t|
+    t.bigint "promote_id"
+    t.string "extra_name"
+    t.string "column_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["promote_id"], name: "index_promote_extras_on_promote_id"
   end
 
   create_table "promote_goods", force: :cascade do |t|
