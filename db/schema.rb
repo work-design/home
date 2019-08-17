@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_16_034219) do
+ActiveRecord::Schema.define(version: 2019_08_16_152937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -297,7 +297,9 @@ ActiveRecord::Schema.define(version: 2019_08_16_034219) do
     t.bigint "buyer_id"
     t.decimal "price", precision: 10, scale: 2
     t.bigint "organ_id"
+    t.bigint "cart_id"
     t.index ["buyer_type", "buyer_id"], name: "index_customs_on_buyer_type_and_buyer_id"
+    t.index ["cart_id"], name: "index_customs_on_cart_id"
     t.index ["organ_id"], name: "index_customs_on_organ_id"
     t.index ["product_id"], name: "index_customs_on_product_id"
   end

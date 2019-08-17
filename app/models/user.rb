@@ -2,6 +2,7 @@ class User < ApplicationRecord
   include RailsRole::User
   include RailsAuth::User
   include RailsTrade::User
+  include RailsTrade::Buyer
   include RailsNotice::Receiver
   include RailsOrg::User
   include RailsProfile::User
