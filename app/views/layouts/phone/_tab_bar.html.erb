@@ -1,11 +1,11 @@
 <div class="weui-tabbar">
   <%= link_to product_taxons_path, class: 'weui-tabbar__item' do %>
-    <i class="fas fa-user-alt weui-tabbar__icon"></i>
+    <i class="fas fa-store-alt weui-tabbar__icon"></i>
     <div class="weui-tabbar__label">产品</div>
   <% end %>
-  <%= link_to '/my/tutelages', class: 'weui-tabbar__item' do %>
-    <i class="fas fa-user-alt weui-tabbar__icon"></i>
-    <div class="weui-tabbar__label">我的宝贝</div>
+  <%= link_to my_customs_path, class: 'weui-tabbar__item' do %>
+    <i class="fas fa-shopping-cart weui-tabbar__icon"></i>
+    <div class="weui-tabbar__label">购物车</div>
   <% end %>
   <%= link_to '/my/user', class: 'weui-tabbar__item' do %>
     <i class="fas fa-user-alt weui-tabbar__icon"></i>

@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 2f53c96bb5113290ed0e25701446d5468bfb6585
+  revision: 93cb6382328d4977718a5a55fb6b3df7ba034fa4
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -127,7 +127,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: abf59866fa11304e6011b30a72b73647bf9fe6aa
+  revision: d2fedfb427cc7eb748c5323d30c1b2c8ac4f85de
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
