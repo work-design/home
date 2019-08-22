@@ -1,6 +1,5 @@
 //= require rails-ujs
 //= require turbolinks
-//= require jquery
 //= require rails_com/application
 //= require rails_com/stimulus
 
@@ -10,3 +9,5 @@
 //= require default_form/valid
 //= require default_form/ready
 //= require_self
+
+require('jquery')
