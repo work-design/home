@@ -8,7 +8,7 @@
     <title><%= t('site_name') %></title>
     <%= stylesheet_link_tag 'phone', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= css_load media: 'all' %>
-    <%= javascript_include_tag 'phone', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'phone', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
     <% if content_for?(:wechat_js) %>
