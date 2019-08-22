@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 064d954c2063a64b491eef6e15eaabf04774d796
+  revision: 2045fd78c4030dd113317993c04665e5fd4fa945
   specs:
     default_form (1.5.0)
       rails (>= 5.2, <= 6.1)
@@ -74,7 +74,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: a90010652dbbedec4841a94d9c85aba68d55a94d
+  revision: 950c249463183bdfe36efc62316feeb5afc72b7c
   specs:
     rails_bench (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 93cb6382328d4977718a5a55fb6b3df7ba034fa4
+  revision: d02528f2dc984921f1445c878758c488137df838
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -99,7 +99,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: 052e641408d883cbf4e72c93fc13154e73b97c30
+  revision: e36e171271efc45f002af9eec5fc738319b794e6
   specs:
     rails_crm (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -127,7 +127,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: d2fedfb427cc7eb748c5323d30c1b2c8ac4f85de
+  revision: bce53d0443cd2765e5fd4b6fa0f08876fc993961
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -149,7 +149,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 9240220eafe4b86d7f8fa6118ac408f5f6cf023c
+  revision: 6468bd30b1d98043fa2819c92326ceed03361371
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
@@ -181,7 +181,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 88ff123ac0dbc2c27ee80b92f50850631d67a744
+  revision: e49d35e30590274dc1f438c565c36095d0515a98
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -193,7 +193,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: 5ed0b7e49ce93324f186d7840e8558deb0aef9cb
+  revision: 4ca3a6aba26035cdb3839bd7b1df332498bd3279
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)

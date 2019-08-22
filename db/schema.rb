@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_16_152937) do
+ActiveRecord::Schema.define(version: 2019_08_21_034841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -170,9 +170,9 @@ ActiveRecord::Schema.define(version: 2019_08_16_152937) do
     t.bigint "client_id"
     t.string "type"
     t.string "card_uuid"
-    t.integer "amount"
-    t.integer "expense_amount"
-    t.integer "income_amount"
+    t.decimal "amount", precision: 10, scale: 2
+    t.decimal "expense_amount", precision: 10, scale: 2
+    t.decimal "income_amount", precision: 10, scale: 2
     t.integer "lock_version"
     t.datetime "effect_at"
     t.datetime "expire_at"
@@ -1008,6 +1008,7 @@ ActiveRecord::Schema.define(version: 2019_08_16_152937) do
     t.integer "position", default: 1
     t.integer "pipeline_id"
     t.string "color"
+    t.string "name"
     t.index ["job_title_id"], name: "index_pipeline_members_on_job_title_id"
     t.index ["member_id"], name: "index_pipeline_members_on_member_id"
     t.index ["pipeline_id"], name: "index_pipeline_members_on_pipeline_id"
