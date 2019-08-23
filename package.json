@@ -37,6 +37,7 @@
     "yarn": "^1.17.3"
   },
   "devDependencies": {
+    "expose-loader": "^0.7.5",
     "webpack-dev-server": "^3.1.9"
   }
 }
