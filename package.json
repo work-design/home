@@ -37,7 +37,7 @@
     "yarn": "^1.17.3"
   },
   "devDependencies": {
-    "expose-loader": "^0.7.5",
+    "expose-loader": "https://github.com/qinmingyuan/expose-loader.git",
     "webpack-dev-server": "^3.1.9"
   }
 }
