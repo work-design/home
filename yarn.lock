@@ -6222,9 +6222,9 @@ rails-erb-loader@^5.4.2:
     loader-utils "^1.1.0"
     lodash.defaults "^4.2.0"
 
-"rails_com@https://github.com/work-design/rails_com":
+"rails_com@https://github.com/work-design/rails_com.git":
   version "0.0.1"
-  resolved "https://github.com/work-design/rails_com#90934db9e0fc64037026c3df90ca82b2fcb4c707"
+  resolved "https://github.com/work-design/rails_com.git#bb855f066e9da1fe2d4e9e36d57c2ff3f7c8b3f8"
 
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.1.0"
