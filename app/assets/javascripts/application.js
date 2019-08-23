@@ -7,4 +7,4 @@
 
 require('rails_com/application')
 require('jquery')
-require('fomantic-ui')
+require('work-ui/dist/semantic')
