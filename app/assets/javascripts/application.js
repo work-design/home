@@ -3,8 +3,8 @@
 
 //= require default_form/valid
 //= require default_form/ready
-//= require_self
 
 require('rails_com/application')
 require('jquery')
+require('moment')
 require('work-ui/dist/semantic')

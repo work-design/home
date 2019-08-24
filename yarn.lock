@@ -3017,7 +3017,7 @@ expand-tilde@^2.0.0, expand-tilde@^2.0.2:
 
 "expose-loader@https://github.com/qinmingyuan/expose-loader.git":
   version "0.7.5"
-  resolved "https://github.com/qinmingyuan/expose-loader.git#b0f608021bc186fb2668d510bc5dbb6d2cc47e5e"
+  resolved "https://github.com/qinmingyuan/expose-loader.git#ffbb52d2fd0d1dc01df171b889fac5069cdf0b09"
   dependencies:
     "@webpack-contrib/schema-utils" "^1.0.0-beta.0"
     loader-utils "^1.1.0"
@@ -6292,7 +6292,7 @@ rails-erb-loader@^5.4.2:
 
 "rails_com@https://github.com/work-design/rails_com.git":
   version "0.0.1"
-  resolved "https://github.com/work-design/rails_com.git#4e6e82d69c59dda24f87f20a5bd1babf3d5135c9"
+  resolved "https://github.com/work-design/rails_com.git#b283bc6aae710f8d0c3e80d8865f9f7a0d75f0c9"
 
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.1.0"
