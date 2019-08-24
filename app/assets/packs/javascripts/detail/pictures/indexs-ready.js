@@ -1,5 +1,3 @@
-/* eslint no-console:0 */
-
 import { Application, Controller } from 'stimulus'
 
 debugger

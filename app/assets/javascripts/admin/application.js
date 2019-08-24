@@ -3,9 +3,8 @@
 
 //= require channels
 
-//= require default_form/ready
-//= require default_form/valid
-//= require_self
+import 'default_form/ready'
+import 'default_form/valid'
 
 require('rails_com/application')
 require('jquery')
