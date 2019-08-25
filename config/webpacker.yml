@@ -12,8 +12,7 @@ default: &default
   # Additional paths webpack should lookup modules
   # ['app/assets', 'engine/foo/app/assets']
   resolved_paths: [
-    'node_modules/rails_com/package',
-    '/Users/qinmingyuan/work/engine/rails_trade/app/assets/javascripts/controllers/trade/my/carts'
+    'node_modules/rails_com/package'
   ]
 
   # Reload manifest.json on all requests so we reload latest compiled packs
