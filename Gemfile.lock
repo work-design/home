@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 3f0582ce19a69c3fd7f3baedf384313b15d72573
+  revision: 52b2dbd1196a7cbe9b887a77a50b738e74cca6c3
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -118,7 +118,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_detail.git
-  revision: 81b41560961df4e57df44cde197d2f63345f17b6
+  revision: e1e4809cb71c0adcc1d3650647703227f24cd056
   specs:
     rails_detail (0.0.1)
       acts_as_list (~> 0.9)
@@ -135,7 +135,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_log.git
-  revision: 15ab70eee8e54afe9529ebf5cd60f4ed3dd557b0
+  revision: bc57fdadefcc50a14a0050c142ca56b9743eed0c
   specs:
     rails_log (2.1.6)
       rails_com (~> 1.2)
@@ -526,8 +526,6 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.20)
-      execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
@@ -618,8 +616,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets (= 4.0.0.beta8)
-  turbolinks (~> 5.x)
-  uglifier
+  turbolinks
   web-console
   webpacker
   wx_pay!

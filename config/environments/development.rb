@@ -28,7 +28,6 @@ Rails.application.configure do
   config.active_storage.service = :qiniu_dev
   config.active_storage.logger = nil
 
-  config.assets.js_compressor = nil
   config.assets.css_compressor = nil
   config.assets.debug = true
   config.assets.quiet = true

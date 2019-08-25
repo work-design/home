@@ -18,8 +18,7 @@ module Facility
     config.time_zone = 'Beijing'
     config.ssl_options = { hsts: { subdomains: true } }
     config.i18n.default_locale = :zh
-
-    config.assets.js_compressor = Uglifier.new(harmony: true)
+    
     config.assets.css_compressor = :sass
 
     config.generators do |g|

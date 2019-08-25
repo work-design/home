@@ -19,8 +19,7 @@ gem 'redis'
 gem 'dalli'
 
 # Assets
-gem 'uglifier'
-gem 'turbolinks', '~> 5.x'
+gem 'turbolinks'
 gem 'sassc-rails'
 gem 'coffee-rails'
 gem 'webpacker'
