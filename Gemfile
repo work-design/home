@@ -21,7 +21,6 @@ gem 'dalli'
 # Assets
 gem 'turbolinks'
 gem 'sassc-rails'
-gem 'coffee-rails'
 gem 'webpacker'
 gem 'sprockets', '4.0.0.beta8'
 
