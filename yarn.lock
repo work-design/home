@@ -6292,7 +6292,7 @@ rails-erb-loader@^5.4.2:
 
 "rails_com@https://github.com/work-design/rails_com.git":
   version "0.0.1"
-  resolved "https://github.com/work-design/rails_com.git#b283bc6aae710f8d0c3e80d8865f9f7a0d75f0c9"
+  resolved "https://github.com/work-design/rails_com.git#2f719e2fa7f4f969c92432a1d9dfaea60222830c"
 
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.1.0"
