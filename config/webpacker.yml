@@ -10,19 +10,34 @@ default: &default
     'node_modules/rails_com/package'
   ]
   cache_manifest: false
+  extract_css: false
+  static_assets_extensions:
+  - .jpg
+  - .jpeg
+  - .png
+  - .gif
+  - .tiff
+  - .ico
+  - .svg
+  - .eot
+  - .otf
+  - .ttf
+  - .woff
+  - .woff2
   extensions:
-    - .js
-    - .sass
-    - .scss
-    - .css
-    - .module.sass
-    - .module.scss
-    - .module.css
-    - .png
-    - .svg
-    - .gif
-    - .jpeg
-    - .jpg
+  - .mjs
+  - .js
+  - .sass
+  - .scss
+  - .css
+  - .module.sass
+  - .module.scss
+  - .module.css
+  - .png
+  - .svg
+  - .gif
+  - .jpeg
+  - .jpg
 development:
   <<: *default
   compile: true
@@ -50,5 +65,5 @@ test:
 production:
   <<: *default
   compile: false
-  compress: false
+  extract_css: true
   cache_manifest: true
