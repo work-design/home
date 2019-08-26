@@ -1,4 +1,6 @@
-ApplicationCable.subscriptions.create('NoticesChannel', {
+import consumer from 'rails_com/cable'
+
+consumer.subscriptions.create('NoticesChannel', {
   collection: function() {
     return $("[data-channel='notices']");
   },

@@ -1,12 +1,9 @@
 //= require activestorage
 //= require qiniu_direct_upload
+import 'rails_com/application'
+import 'default_form/application'
 
-//= require channels
-
-import 'default_form/ready'
-import 'default_form/valid'
-
-require('rails_com/application')
-require('jquery')
-require('work-ui/dist/semantic')
-require('moment')
+import 'jquery'
+import 'work-ui/dist/semantic'
+import 'moment'
+import '../channels'

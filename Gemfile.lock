@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 82f05756ea6da13a7a4b9d0342a45bf81d68413c
+  revision: 5d5d1ee38b2b6d372202ce1a7635372a989a11ab
   specs:
     default_form (1.5.0)
       rails (>= 5.2, <= 6.1)
@@ -74,7 +74,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 9333132b8404d295d08575e387be060073b5bb5f
+  revision: 9973266b6d486dd96b819f2f36ef0e7343c5ec37
   specs:
     rails_bench (0.1.0)
       rails (~> 6.0.0.rc1)
