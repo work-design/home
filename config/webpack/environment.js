@@ -1,4 +1,5 @@
 const { environment } = require('@rails/webpacker')
+const { resolve } = require('path')
 const paths = require('rails_com')
 
 const jquery = require('rails_com/package/loaders/jquery')
@@ -13,5 +14,6 @@ environment.loaders.append('remote_js_load', remote_js_load)
 
 const env = environment.toWebpackConfig()
 env.entry = Object.assign(paths(), env.entry)
+env.resolve.modules = env.resolve.modules.concat(resolve('node_modules'))
 
 module.exports = env
