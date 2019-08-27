@@ -6,28 +6,7 @@ default: &default
   cache_path: tmp/cache/webpacker
   check_yarn_integrity: false
   webpack_compile_output: false
-  resolved_paths:
-  - /Users/qin/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activestorage-6.0.0/app/assets/javascripts
-  - /Users/qin/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actioncable-6.0.0/app/assets/javascripts
-  - /Users/qin/work/ruby/default_form/app/assets/javascripts
-  - /Users/qin/work/engine/rails_com/app/assets/javascripts
-  - /Users/qin/work/engine/rails_log/app/assets/javascripts
-  - /Users/qin/work/engine/rails_org/app/assets/javascripts
-  - /Users/qin/work/engine/rails_profile/app/assets/javascripts
-  - /Users/qin/work/engine/rails_auth/app/assets/javascripts
-  - /Users/qin/work/engine/rails_role/app/assets/javascripts
-  - /Users/qin/work/engine/rails_data/app/assets/javascripts
-  - /Users/qin/work/engine/rails_detail/app/assets/javascripts
-  - /Users/qin/work/engine/rails_notice/app/assets/javascripts
-  - /Users/qin/work/engine/rails_audit/app/assets/javascripts
-  - /Users/qin/work/engine/rails_trade/app/assets/javascripts
-  - /Users/qin/work/engine/rails_factory/app/assets/javascripts
-  - /Users/qin/work/engine/rails_taxon/app/assets/javascripts
-  - /Users/qin/work/engine/rails_booking/app/assets/javascripts
-  - /Users/qin/work/engine/rails_wechat/app/assets/javascripts
-  - /Users/qin/work/engine/rails_bench/app/assets/javascripts
-  - /Users/qin/work/engine/rails_vip/app/assets/javascripts
-  - /Users/qin/work/engine/rails_crm/app/assets/javascripts
+  resolved_paths: []
   cache_manifest: false
   extract_css: false
   static_assets_extensions:
