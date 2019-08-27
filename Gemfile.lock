@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 8419bc0afbf9c9db9dff2a406407e037433b696d
+  revision: 37cc05aa86cdf17fa9fb28694d6f03d39ac11fca
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: e99d8f16b9d4f580a281cf086b289fe942357c57
+  revision: 7e08353a642e59f5d9b9b21b1e8795ab14e9432a
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -99,7 +99,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: bff20eef680773b6dcf52430e065e0125578900f
+  revision: c8b82826cf46df5ce8ff4789489d7dcee3a8c6c4
   specs:
     rails_crm (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -164,7 +164,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: ba171653acd3dadde0d64cf17155fd203f2bb3dc
+  revision: 8e9197f68e7dc74fbd0c065b6f89007debd974cf
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
