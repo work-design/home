@@ -21,7 +21,7 @@ gem 'dalli'
 # Assets
 gem 'turbolinks'
 gem 'sassc-rails'
-gem 'webpacker'
+gem 'webpacker', require: File.exist?('config/webpacker.yml')
 gem 'sprockets', '4.0.0.beta8'
 
 # Views
