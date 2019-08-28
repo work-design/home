@@ -1,4 +1,5 @@
 Rails.application.configure do
+  
   config.cache_classes = true
   config.eager_load = true
 
@@ -8,6 +9,7 @@ Rails.application.configure do
 
   config.public_file_server.enabled = true
 
+  config.webpacker.check_yarn_integrity = false if config.respond_to?(:webpacker)
   config.assets.css_compressor = :sass
   config.assets.raise_runtime_errors = false
   config.assets.compile = false

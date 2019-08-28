@@ -5,8 +5,6 @@ Rails.application.configure do
     'one.work'
   ]
   
-  config.webpacker.check_yarn_integrity = false
-
   config.cache_classes = true
   config.eager_load = true
   config.consider_all_requests_local = false
@@ -18,7 +16,7 @@ Rails.application.configure do
 
   config.active_storage.service = :qiniu
 
-
+  config.webpacker.check_yarn_integrity = false if config.respond_to?(:webpacker)
   config.assets.css_compressor = :sass
   config.assets.raise_runtime_errors = false
   config.assets.compile = false
