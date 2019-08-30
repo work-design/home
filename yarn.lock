@@ -7091,10 +7091,10 @@ stdout-stream@^1.4.0:
   dependencies:
     readable-stream "^2.0.1"
 
-stickybits@^3.5.8:
-  version "3.6.6"
-  resolved "https://registry.yarnpkg.com/stickybits/-/stickybits-3.6.6.tgz#ce042cbeaecfcc84cda602be6f5bc99b63e2964c"
-  integrity sha512-+++I84+V+IqRXCDIgSn7tGHXF1BtsPn/Nb3Ve3ZEH2NnTauorHyUFbKTW+nycobxtsGQMnl5V0WdHxGTDdmp+A==
+stickybits@^3.6.7:
+  version "3.6.7"
+  resolved "https://registry.yarnpkg.com/stickybits/-/stickybits-3.6.7.tgz#f5250fba5afcaadddf0e0e2c8ebeb05bcff0d563"
+  integrity sha512-kpoLLxeLd9gwL4CmMYv2p5VRTnK7JviGgieR6rybuesYRheJdL64DgAnHdn0xsJG5yaGR1hjfNT6inKsW9Bxpw==
 
 stimulus@^1.1.0:
   version "1.1.1"

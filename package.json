@@ -28,7 +28,7 @@
     "rails-erb-loader": "^5.4.2",
     "rails_com": "https://github.com/work-design/rails_com.git",
     "sortablejs": "^1.7.0",
-    "stickybits": "^3.5.8",
+    "stickybits": "^3.6.7",
     "stimulus": "^1.1.0",
     "turbolinks": "^5.2.0",
     "weui": "^2.0.0",
