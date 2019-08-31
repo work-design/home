@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 2bb2b395149c75396858f8ee9fca3c62f73922ed
+  revision: 4304547e5f642462bbcf321b90147eab75004862
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -127,7 +127,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: fdcab485ab68e11b92cc5fc7d71ee73380c182d9
+  revision: 97dbd976dbc88642f7c4eabf59a4f5bd97751fda
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -149,7 +149,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 9b02f85358eb403e95e1c187c3b982605cb4b7ef
+  revision: d94b4732e1e2d5e29d75e2ceece4b21b5a1ec909
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
@@ -172,7 +172,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: b5a494ff19ed074c1fee06bf6df9e11847b30fb5
+  revision: 4e302d5f6231b02295932d9f4d81170ac7bf7507
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 0.9, <= 1.0)
@@ -201,7 +201,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: eb33337cbb6c6379349d73c8838cc5c8e1440f74
+  revision: a8d701131cbb3a091ed47ce028d3b918e2c8cba3
   specs:
     rails_wechat (0.1.0)
       http (~> 4.1)
