@@ -58,14 +58,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_audit.git
-  revision: 4ab3f1d90521d3c09061ee723563598e89bc0914
+  revision: 5697868ca5e872e1530faa5a84cba31979e6744a
   specs:
     rails_audit (1.0.3)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 646c434c7441fbd8ec64c1e0d469494c59b2b89c
+  revision: 1ec9006228687ff4ce8d6574cd8779213270a7f8
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -82,14 +82,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_booking.git
-  revision: 187eaa4dfab85f6bcd39ad659b9676d93e9891f3
+  revision: 670c345c23128c02aefbd4f1e40438179b9380ad
   specs:
     rails_booking (0.1.1)
       rails (>= 5.0, <= 6.0)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 4304547e5f642462bbcf321b90147eab75004862
+  revision: 7b3ec00fbf6d022d45e82ebd2ba17109609e1570
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -127,7 +127,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 97dbd976dbc88642f7c4eabf59a4f5bd97751fda
+  revision: f4b61f6a071ea470ced53618c8695c2ee73302af
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -135,7 +135,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_log.git
-  revision: bc57fdadefcc50a14a0050c142ca56b9743eed0c
+  revision: 4eb2877936a8a464280418548e34c5c05c1eca58
   specs:
     rails_log (2.1.6)
       rails_com (~> 1.2)
@@ -149,7 +149,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: d94b4732e1e2d5e29d75e2ceece4b21b5a1ec909
+  revision: d162ce21f5c3dd77b6551910c82f62840d671e7d
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
@@ -164,7 +164,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 8e9197f68e7dc74fbd0c065b6f89007debd974cf
+  revision: f31ed7abdacc59ea1f1490e8b9a39774b479f79c
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -181,7 +181,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 98d386b4d0724cd894b39c8a85c5045f86bddf13
+  revision: 108711f33b2a8984b7ec9bebcf79f67ec0e3381b
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -193,7 +193,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: a5215ed0cece5994c5c4f3600ee261a2afdcbd85
+  revision: 19ac86c0ecb4b24ffdf1571f134146bf353337b1
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
