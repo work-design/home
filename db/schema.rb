@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_31_060520) do
+ActiveRecord::Schema.define(version: 2019_09_03_133240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -138,6 +138,17 @@ ActiveRecord::Schema.define(version: 2019_08_31_060520) do
     t.index ["trade_item_id"], name: "index_card_advances_on_trade_item_id"
   end
 
+  create_table "card_expenses", force: :cascade do |t|
+    t.bigint "card_id"
+    t.string "consumable_type"
+    t.bigint "consumable_id"
+    t.decimal "amount", precision: 10, scale: 2
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["card_id"], name: "index_card_expenses_on_card_id"
+    t.index ["consumable_type", "consumable_id"], name: "index_card_expenses_on_consumable_type_and_consumable_id"
+  end
+
   create_table "card_logs", force: :cascade do |t|
     t.bigint "card_id"
     t.string "source_type"
@@ -149,6 +160,19 @@ ActiveRecord::Schema.define(version: 2019_08_31_060520) do
     t.datetime "updated_at", null: false
     t.index ["card_id"], name: "index_card_logs_on_card_id"
     t.index ["source_type", "source_id"], name: "index_card_logs_on_source_type_and_source_id"
+  end
+
+  create_table "card_returns", force: :cascade do |t|
+    t.bigint "card_id"
+    t.string "consumable_type"
+    t.bigint "consumable_id"
+    t.bigint "card_expense_id"
+    t.decimal "amount", precision: 10, scale: 2
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["card_expense_id"], name: "index_card_returns_on_card_expense_id"
+    t.index ["card_id"], name: "index_card_returns_on_card_id"
+    t.index ["consumable_type", "consumable_id"], name: "index_card_returns_on_consumable_type_and_consumable_id"
   end
 
   create_table "card_templates", force: :cascade do |t|
@@ -168,7 +192,6 @@ ActiveRecord::Schema.define(version: 2019_08_31_060520) do
     t.bigint "tutelage_id"
     t.string "client_type"
     t.bigint "client_id"
-    t.string "type"
     t.string "card_uuid"
     t.decimal "amount", precision: 10, scale: 2
     t.decimal "expense_amount", precision: 10, scale: 2
@@ -686,9 +709,10 @@ ActiveRecord::Schema.define(version: 2019_08_31_060520) do
     t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "money_id"
     t.bigint "organ_id"
-    t.index ["money_id"], name: "index_money_givens_on_money_id"
+    t.string "money_type"
+    t.bigint "money_id"
+    t.index ["money_type", "money_id"], name: "index_money_givens_on_money_type_and_money_id"
     t.index ["organ_id"], name: "index_money_givens_on_organ_id"
   end
 

@@ -82,7 +82,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_booking.git
-  revision: 670c345c23128c02aefbd4f1e40438179b9380ad
+  revision: 012d5da0c36067c88469c8dc35aa9feb72ccb954
   specs:
     rails_booking (0.1.1)
       rails (>= 5.0, <= 6.0)
@@ -157,14 +157,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 90993d922db545e5c474b960b36a1e9094733563
+  revision: 7be0a2b43e3fee2a7964bcb2571300bfa5d3500e
   specs:
     rails_profile (0.1.0)
       rails (>= 5.2.1)
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: f31ed7abdacc59ea1f1490e8b9a39774b479f79c
+  revision: 09c557d51dc5550f38df152128584094ba15ebb9
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -193,7 +193,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: 19ac86c0ecb4b24ffdf1571f134146bf353337b1
+  revision: 76a8dfeabad6ae2a01f45f7be82175a66537bfcd
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
