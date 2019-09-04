@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 00855b3bebec22e5d40cdd7d5888bf76a7f3407c
+  revision: 6e5fdfe819283ae8ff2b6e61d502ba3181041e92
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -127,7 +127,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 6ef2c806fe4dce4afcfcf701337346cc0423ee1b
+  revision: 15b306f60d3ca626359fd5bba8d0f6a17bbf2219
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -193,7 +193,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: 109d00e413ed65970b0e2b19e2611e36a02482b8
+  revision: f15ffc9d0808b40c54846be80c3965a038cb6ec2
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)

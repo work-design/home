@@ -4,7 +4,9 @@
     <div class="weui-tabbar__label">产品</div>
   <% end %>
   <%= link_to my_customs_path, class: 'weui-tabbar__item' do %>
-    <i class="fas fa-shopping-cart weui-tabbar__icon"></i>
+    <i class="fas fa-shopping-cart weui-tabbar__icon">
+      <span class="weui-badge"><%= current_cart.customs.count %></span>
+    </i>
     <div class="weui-tabbar__label">购物车</div>
   <% end %>
   <%= link_to root_path, class: 'weui-tabbar__item' do %>
