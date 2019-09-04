@@ -134,6 +134,13 @@ GIT
       rails_taxon (~> 1.0)
 
 GIT
+  remote: https://github.com/work-design/rails_hall.git
+  revision: 929096323463f9388d15b6c95fecfef76ef1eb8f
+  specs:
+    rails_hall (0.1.0)
+      rails (~> 6.0.0)
+
+GIT
   remote: https://github.com/work-design/rails_log.git
   revision: 4eb2877936a8a464280418548e34c5c05c1eca58
   specs:
@@ -588,6 +595,7 @@ DEPENDENCIES
   rails_data!
   rails_detail!
   rails_factory!
+  rails_hall!
   rails_log!
   rails_notice!
   rails_org!
