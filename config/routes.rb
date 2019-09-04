@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   controller :oauth do
     match '/auth/alipay', action: 'alipay', via: [:get, :post]
   end
+  
+  namespace :admin do
+    resources :posts
+  end
 
   constraints(->(req){ User.find_by(id: req.env['rack.session']['user_id']) if req.env['rack.session'].present? }) do
     #root to: 'bench/my/tasks#index'

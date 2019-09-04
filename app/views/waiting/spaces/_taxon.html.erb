@@ -1,9 +1,0 @@
-<p>
-  <%= link_to '默认', filter_params(except: :space_taxon_id), class: active_helper(space_taxon_id: '', active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
-  <% @space_taxons.each do |space_taxon| %>
-    <%= link_to space_taxon.name, filter_params(space_taxon_id: space_taxon.id), class: active_helper(space_taxon_id: space_taxon.id, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
-  <% end %>
-</p>
-
-
-
