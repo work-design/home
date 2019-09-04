@@ -99,7 +99,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: d99bc6492397aefc521757dd6d1f58580fe708b6
+  revision: 4e8c846b41c58de9eaca5f619adf3d80b6f0a4ad
   specs:
     rails_crm (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -157,7 +157,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 7be0a2b43e3fee2a7964bcb2571300bfa5d3500e
+  revision: 8aef38977aa6b52caffcb65ae84a0e4b5abb43b6
   specs:
     rails_profile (0.1.0)
       rails (>= 5.2.1)
@@ -193,7 +193,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: 76a8dfeabad6ae2a01f45f7be82175a66537bfcd
+  revision: 109d00e413ed65970b0e2b19e2611e36a02482b8
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)

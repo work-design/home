@@ -1,7 +1,7 @@
 class Profile < ApplicationRecord
   include RailsProfile::Profile
-  include RailsProfile::Pupil
-  include RailsProfile::Tutelar
+  include RailsProfile::Agent
+  include RailsProfile::Client
   include RailsTrade::Buyer
   include RailsVip::Profile
   

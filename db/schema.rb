@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_03_133240) do
+ActiveRecord::Schema.define(version: 2019_09_04_031022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,20 @@ ActiveRecord::Schema.define(version: 2019_09_03_133240) do
     t.datetime "updated_at", null: false
     t.bigint "card_template_id"
     t.index ["card_template_id"], name: "index_advances_on_card_template_id"
+  end
+
+  create_table "agencies", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "relation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "client_type"
+    t.bigint "client_id"
+    t.string "agent_type"
+    t.bigint "agent_id"
+    t.index ["agent_type", "agent_id"], name: "index_agencies_on_agent_type_and_agent_id"
+    t.index ["client_type", "client_id"], name: "index_agencies_on_client_type_and_client_id"
+    t.index ["user_id"], name: "index_agencies_on_user_id"
   end
 
   create_table "annunciates", force: :cascade do |t|
@@ -644,9 +658,9 @@ ActiveRecord::Schema.define(version: 2019_09_03_133240) do
     t.bigint "member_id"
     t.string "client_type"
     t.bigint "client_id"
-    t.string "tutelar_type"
-    t.bigint "tutelar_id"
-    t.bigint "tutelage_id"
+    t.string "agent_type"
+    t.bigint "agent_id"
+    t.bigint "agency_id"
     t.bigint "maintain_source_id"
     t.bigint "organ_id"
     t.bigint "pipeline_member_id"
@@ -655,14 +669,14 @@ ActiveRecord::Schema.define(version: 2019_09_03_133240) do
     t.string "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["agency_id"], name: "index_maintains_on_agency_id"
+    t.index ["agent_type", "agent_id"], name: "index_maintains_on_agent_type_and_agent_id"
     t.index ["client_type", "client_id"], name: "index_maintains_on_client_type_and_client_id"
     t.index ["maintain_source_id"], name: "index_maintains_on_maintain_source_id"
     t.index ["member_id"], name: "index_maintains_on_member_id"
     t.index ["organ_id"], name: "index_maintains_on_organ_id"
     t.index ["pipeline_id"], name: "index_maintains_on_pipeline_id"
     t.index ["pipeline_member_id"], name: "index_maintains_on_pipeline_member_id"
-    t.index ["tutelage_id"], name: "index_maintains_on_tutelage_id"
-    t.index ["tutelar_type", "tutelar_id"], name: "index_maintains_on_tutelar_type_and_tutelar_id"
   end
 
   create_table "member_departments", force: :cascade do |t|
@@ -1683,19 +1697,6 @@ ActiveRecord::Schema.define(version: 2019_09_03_133240) do
     t.index ["promote_id"], name: "index_trade_promotes_on_promote_id"
     t.index ["trade_item_id"], name: "index_trade_promotes_on_trade_item_id"
     t.index ["trade_type", "trade_id"], name: "index_trade_promotes_on_trade_type_and_trade_id"
-  end
-
-  create_table "tutelages", force: :cascade do |t|
-    t.bigint "tutelar_id"
-    t.bigint "pupil_id"
-    t.bigint "user_id"
-    t.string "relation"
-    t.boolean "major"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["pupil_id"], name: "index_tutelages_on_pupil_id"
-    t.index ["tutelar_id"], name: "index_tutelages_on_tutelar_id"
-    t.index ["user_id"], name: "index_tutelages_on_user_id"
   end
 
   create_table "tutorials", force: :cascade do |t|
