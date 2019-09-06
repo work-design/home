@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: a3424995e07b66af8050bb0cd3699fe507086d3f
+  revision: 6a7237109b939fc26b9995fdd21bb06b98d2507d
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -79,13 +79,6 @@ GIT
     rails_bench (0.1.0)
       rails (~> 6.0.0.rc1)
       rails_org
-
-GIT
-  remote: https://github.com/work-design/rails_booking.git
-  revision: fe220db9d972115b7781ff7f02044268af69ac63
-  specs:
-    rails_booking (0.1.1)
-      rails (>= 5.0, <= 6.0)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
@@ -135,7 +128,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_hall.git
-  revision: 929096323463f9388d15b6c95fecfef76ef1eb8f
+  revision: 15f24e063d59c562adaeeddada52cfaee9235121
   specs:
     rails_hall (0.1.0)
       rails (~> 6.0.0)
@@ -156,7 +149,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 8d2942636bca8ab7a72cd16eb14a2c01cd96144c
+  revision: a49355ff01d85a804014a71b6a7f6b607f76315e
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
@@ -589,7 +582,6 @@ DEPENDENCIES
   rails_audit!
   rails_auth!
   rails_bench!
-  rails_booking!
   rails_com!
   rails_crm!
   rails_data!
