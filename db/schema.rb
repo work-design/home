@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_04_031022) do
+ActiveRecord::Schema.define(version: 2019_09_06_153214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,6 +136,24 @@ ActiveRecord::Schema.define(version: 2019_09_04_031022) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["parent_id"], name: "index_areas_on_parent_id"
+  end
+
+  create_table "bookings", id: :serial, force: :cascade do |t|
+    t.string "booker_type"
+    t.integer "booker_id"
+    t.string "booked_type"
+    t.integer "booked_id"
+    t.integer "plan_item_id"
+    t.integer "time_item_id"
+    t.integer "place_id"
+    t.date "booking_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booked_type", "booked_id"], name: "index_bookings_on_booked_type_and_booked_id"
+    t.index ["booker_type", "booker_id"], name: "index_bookings_on_booker_type_and_booker_id"
+    t.index ["place_id"], name: "index_bookings_on_place_id"
+    t.index ["plan_item_id"], name: "index_bookings_on_plan_item_id"
+    t.index ["time_item_id"], name: "index_bookings_on_time_item_id"
   end
 
   create_table "card_advances", force: :cascade do |t|
@@ -312,6 +330,29 @@ ActiveRecord::Schema.define(version: 2019_09_04_031022) do
     t.index ["detail_id"], name: "index_contents_on_detail_id"
   end
 
+  create_table "crowd_members", force: :cascade do |t|
+    t.bigint "crowd_id"
+    t.string "member_type"
+    t.bigint "member_id"
+    t.bigint "agency_id"
+    t.string "state"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["agency_id"], name: "index_crowd_members_on_agency_id"
+    t.index ["crowd_id"], name: "index_crowd_members_on_crowd_id"
+    t.index ["member_type", "member_id"], name: "index_crowd_members_on_member_type_and_member_id"
+  end
+
+  create_table "crowds", force: :cascade do |t|
+    t.bigint "organ_id"
+    t.string "name"
+    t.string "member_type"
+    t.integer "crowd_members_count", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organ_id"], name: "index_crowds_on_organ_id"
+  end
+
   create_table "custom_parts", force: :cascade do |t|
     t.bigint "custom_id"
     t.bigint "part_id"
@@ -414,6 +455,68 @@ ActiveRecord::Schema.define(version: 2019_09_04_031022) do
     t.index ["item_id"], name: "index_entity_items_on_item_id"
     t.index ["list_id"], name: "index_entity_items_on_list_id"
     t.index ["taxon_item_id"], name: "index_entity_items_on_taxon_item_id"
+  end
+
+  create_table "event_grants", force: :cascade do |t|
+    t.bigint "event_id"
+    t.string "grant_kind"
+    t.string "grant_column"
+    t.jsonb "filter", default: {}
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_event_grants_on_event_id"
+  end
+
+  create_table "event_items", force: :cascade do |t|
+    t.bigint "event_id"
+    t.string "title"
+    t.bigint "author_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_event_items_on_author_id"
+    t.index ["event_id"], name: "index_event_items_on_event_id"
+  end
+
+  create_table "event_members", force: :cascade do |t|
+    t.bigint "event_id"
+    t.string "member_type"
+    t.bigint "member_id"
+    t.bigint "crowd_id"
+    t.string "state"
+    t.integer "score"
+    t.string "comment", limit: 4096
+    t.string "quit_note"
+    t.string "assigned_status"
+    t.string "job_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["crowd_id"], name: "index_event_members_on_crowd_id"
+    t.index ["event_id"], name: "index_event_members_on_event_id"
+    t.index ["member_type", "member_id"], name: "index_event_members_on_member_type_and_member_id"
+  end
+
+  create_table "event_taxons", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "organ_id"
+    t.index ["organ_id"], name: "index_event_taxons_on_organ_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.bigint "event_taxon_id"
+    t.string "type"
+    t.string "title"
+    t.string "description", limit: 4096
+    t.integer "position"
+    t.integer "event_members_count", default: 0
+    t.integer "event_items_count", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "organ_id"
+    t.decimal "price", precision: 10, scale: 2
+    t.index ["event_taxon_id"], name: "index_events_on_event_taxon_id"
+    t.index ["organ_id"], name: "index_events_on_organ_id"
   end
 
   create_table "extractions", force: :cascade do |t|
@@ -1070,35 +1173,60 @@ ActiveRecord::Schema.define(version: 2019_09_04_031022) do
     t.integer "plan_item_id"
     t.string "attender_type"
     t.integer "attender_id"
-    t.integer "room_id"
+    t.integer "place_id"
     t.boolean "attended"
     t.string "state"
     t.jsonb "extra"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "plan_member_id"
     t.index ["attender_type", "attender_id"], name: "index_plan_attenders_on_attender_type_and_attender_id"
+    t.index ["place_id"], name: "index_plan_attenders_on_place_id"
     t.index ["plan_item_id"], name: "index_plan_attenders_on_plan_item_id"
-    t.index ["room_id"], name: "index_plan_attenders_on_room_id"
+    t.index ["plan_member_id"], name: "index_plan_attenders_on_plan_member_id"
   end
 
   create_table "plan_items", id: :serial, force: :cascade do |t|
-    t.integer "time_plan_id"
-    t.string "plan_type"
     t.integer "plan_id"
     t.integer "time_item_id"
-    t.integer "time_list_id"
-    t.integer "room_id"
+    t.integer "place_id"
     t.date "plan_on"
     t.string "repeat_index"
-    t.integer "time_bookings_count", default: 0
+    t.integer "bookings_count", default: 0
     t.jsonb "extra"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["plan_type", "plan_id"], name: "index_plan_items_on_plan_type_and_plan_id"
-    t.index ["room_id"], name: "index_plan_items_on_room_id"
+    t.index ["place_id"], name: "index_plan_items_on_place_id"
     t.index ["time_item_id"], name: "index_plan_items_on_time_item_id"
-    t.index ["time_list_id"], name: "index_plan_items_on_time_list_id"
-    t.index ["time_plan_id"], name: "index_plan_items_on_time_plan_id"
+  end
+
+  create_table "plan_members", force: :cascade do |t|
+    t.bigint "plan_id"
+    t.bigint "event_member_id"
+    t.string "member_type"
+    t.bigint "member_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_member_id"], name: "index_plan_members_on_event_member_id"
+    t.index ["member_type", "member_id"], name: "index_plan_members_on_member_type_and_member_id"
+    t.index ["plan_id"], name: "index_plan_members_on_plan_id"
+  end
+
+  create_table "plans", id: :serial, force: :cascade do |t|
+    t.integer "time_list_id"
+    t.string "planned_type"
+    t.integer "planned_id"
+    t.integer "place_id"
+    t.date "begin_on"
+    t.date "end_on"
+    t.string "repeat_type"
+    t.integer "repeat_days", array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "repeat_count"
+    t.index ["place_id"], name: "index_plans_on_place_id"
+    t.index ["planned_type", "planned_id"], name: "index_plans_on_planned_type_and_planned_id"
+    t.index ["time_list_id"], name: "index_plans_on_time_list_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -1591,26 +1719,6 @@ ActiveRecord::Schema.define(version: 2019_09_04_031022) do
     t.index ["organ_id"], name: "index_tickets_on_organ_id"
   end
 
-  create_table "time_bookings", id: :serial, force: :cascade do |t|
-    t.string "booker_type"
-    t.integer "booker_id"
-    t.string "booked_type"
-    t.integer "booked_id"
-    t.integer "plan_item_id"
-    t.integer "time_item_id"
-    t.integer "time_list_id"
-    t.integer "room_id"
-    t.date "booking_on"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["booked_type", "booked_id"], name: "index_time_bookings_on_booked_type_and_booked_id"
-    t.index ["booker_type", "booker_id"], name: "index_time_bookings_on_booker_type_and_booker_id"
-    t.index ["plan_item_id"], name: "index_time_bookings_on_plan_item_id"
-    t.index ["room_id"], name: "index_time_bookings_on_room_id"
-    t.index ["time_item_id"], name: "index_time_bookings_on_time_item_id"
-    t.index ["time_list_id"], name: "index_time_bookings_on_time_list_id"
-  end
-
   create_table "time_items", id: :serial, force: :cascade do |t|
     t.integer "time_list_id"
     t.time "start_at"
@@ -1631,22 +1739,6 @@ ActiveRecord::Schema.define(version: 2019_09_04_031022) do
     t.datetime "updated_at", null: false
     t.bigint "organ_id"
     t.index ["organ_id"], name: "index_time_lists_on_organ_id"
-  end
-
-  create_table "time_plans", id: :serial, force: :cascade do |t|
-    t.integer "time_list_id"
-    t.string "plan_type"
-    t.integer "plan_id"
-    t.integer "room_id"
-    t.date "begin_on"
-    t.date "end_on"
-    t.string "repeat_type"
-    t.integer "repeat_days", array: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["plan_type", "plan_id"], name: "index_time_plans_on_plan_type_and_plan_id"
-    t.index ["room_id"], name: "index_time_plans_on_room_id"
-    t.index ["time_list_id"], name: "index_time_plans_on_time_list_id"
   end
 
   create_table "trade_items", force: :cascade do |t|

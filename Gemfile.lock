@@ -119,6 +119,13 @@ GIT
       rails_com (~> 1.2)
 
 GIT
+  remote: https://github.com/work-design/rails_event.git
+  revision: 3d433b2140bd0fdc84dedbca64095284700f6e1f
+  specs:
+    rails_event (0.1.1)
+      rails (>= 5.0, <= 6.0)
+
+GIT
   remote: https://github.com/work-design/rails_factory.git
   revision: 15b306f60d3ca626359fd5bba8d0f6a17bbf2219
   specs:
@@ -586,6 +593,7 @@ DEPENDENCIES
   rails_crm!
   rails_data!
   rails_detail!
+  rails_event!
   rails_factory!
   rails_hall!
   rails_log!
