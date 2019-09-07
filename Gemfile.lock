@@ -120,7 +120,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: 3d433b2140bd0fdc84dedbca64095284700f6e1f
+  revision: 0de10c41682febb324baf6aaa4bf0d23ac0ede7b
   specs:
     rails_event (0.1.1)
       rails (>= 5.0, <= 6.0)

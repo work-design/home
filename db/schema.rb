@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_06_153214) do
+ActiveRecord::Schema.define(version: 2019_09_07_083122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -477,11 +477,10 @@ ActiveRecord::Schema.define(version: 2019_09_06_153214) do
     t.index ["event_id"], name: "index_event_items_on_event_id"
   end
 
-  create_table "event_members", force: :cascade do |t|
+  create_table "event_participants", force: :cascade do |t|
     t.bigint "event_id"
-    t.string "member_type"
-    t.bigint "member_id"
-    t.bigint "crowd_id"
+    t.string "participant_type"
+    t.bigint "participant_id"
     t.string "state"
     t.integer "score"
     t.string "comment", limit: 4096
@@ -490,9 +489,8 @@ ActiveRecord::Schema.define(version: 2019_09_06_153214) do
     t.string "job_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["crowd_id"], name: "index_event_members_on_crowd_id"
-    t.index ["event_id"], name: "index_event_members_on_event_id"
-    t.index ["member_type", "member_id"], name: "index_event_members_on_member_type_and_member_id"
+    t.index ["event_id"], name: "index_event_participants_on_event_id"
+    t.index ["participant_type", "participant_id"], name: "index_event_participants_on_participant_type_and_participant_id"
   end
 
   create_table "event_taxons", force: :cascade do |t|
@@ -1169,6 +1167,16 @@ ActiveRecord::Schema.define(version: 2019_09_06_153214) do
     t.index ["piping_type", "piping_id"], name: "index_pipelines_on_piping_type_and_piping_id"
   end
 
+  create_table "places", force: :cascade do |t|
+    t.bigint "organ_id"
+    t.string "name"
+    t.integer "max_members"
+    t.string "color"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organ_id"], name: "index_places_on_organ_id"
+  end
+
   create_table "plan_attenders", id: :serial, force: :cascade do |t|
     t.integer "plan_item_id"
     t.string "attender_type"
@@ -1200,16 +1208,16 @@ ActiveRecord::Schema.define(version: 2019_09_06_153214) do
     t.index ["time_item_id"], name: "index_plan_items_on_time_item_id"
   end
 
-  create_table "plan_members", force: :cascade do |t|
+  create_table "plan_participants", force: :cascade do |t|
     t.bigint "plan_id"
-    t.bigint "event_member_id"
-    t.string "member_type"
-    t.bigint "member_id"
+    t.bigint "event_participant_id"
+    t.string "participant_type"
+    t.bigint "participant_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["event_member_id"], name: "index_plan_members_on_event_member_id"
-    t.index ["member_type", "member_id"], name: "index_plan_members_on_member_type_and_member_id"
-    t.index ["plan_id"], name: "index_plan_members_on_plan_id"
+    t.index ["event_participant_id"], name: "index_plan_participants_on_event_participant_id"
+    t.index ["participant_type", "participant_id"], name: "index_plan_participants_on_participant_type_and_participant_id"
+    t.index ["plan_id"], name: "index_plan_participants_on_plan_id"
   end
 
   create_table "plans", id: :serial, force: :cascade do |t|
@@ -1512,17 +1520,6 @@ ActiveRecord::Schema.define(version: 2019_09_06_153214) do
     t.boolean "visible"
     t.string "code"
     t.string "who_types", array: true
-  end
-
-  create_table "rooms", force: :cascade do |t|
-    t.bigint "organ_id"
-    t.string "room_number"
-    t.integer "limit_number"
-    t.string "color"
-    t.integer "time_plans_count", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["organ_id"], name: "index_rooms_on_organ_id"
   end
 
   create_table "rules", id: :serial, force: :cascade do |t|

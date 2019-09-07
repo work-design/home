@@ -15,10 +15,10 @@ class AddEvents < ActiveRecord::Migration[6.0]
     rename_column :plan_items, :time_bookings_count, :bookings_count
     remove_columns :plan_items, :plan_type, :time_plan_id, :time_list_id
     
-    create_table :plan_members do |t|
+    create_table :plan_participants do |t|
       t.references :plan
-      t.references :event_member
-      t.references :member, polymorphic: true
+      t.references :event_participant
+      t.references :participant, polymorphic: true
       t.timestamps
     end
     add_reference :plan_attenders, :plan_member
@@ -70,10 +70,9 @@ class AddEvents < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
-    create_table :event_members do |t|
+    create_table :event_participants do |t|
       t.references :event
-      t.references :member, polymorphic: true
-      t.references :crowd
+      t.references :participant, polymorphic: true
       t.string :state
       t.integer :score
       t.string :comment, limit: 4096
