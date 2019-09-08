@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_07_015107) do
+ActiveRecord::Schema.define(version: 2019_09_08_091413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1228,10 +1228,10 @@ ActiveRecord::Schema.define(version: 2019_09_07_015107) do
     t.date "begin_on"
     t.date "end_on"
     t.string "repeat_type"
-    t.integer "repeat_days", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "repeat_count"
+    t.jsonb "repeat_days"
     t.index ["place_id"], name: "index_plans_on_place_id"
     t.index ["planned_type", "planned_id"], name: "index_plans_on_planned_type_and_planned_id"
     t.index ["time_list_id"], name: "index_plans_on_time_list_id"
