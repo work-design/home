@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   include RailsRole::Application
   include RailsOrg::Application
   include RailsTrade::MyCart
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :exception, unless: -> { json_format? }
+
   content_security_policy false
 
   default_form_builder 'ApplicationFormBuilder' do |config|

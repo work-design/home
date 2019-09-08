@@ -82,7 +82,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 230214dc998585884f2f2901e2358312e4c4635b
+  revision: b394be74811910caf035611d8bf5bd781670db66
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -120,7 +120,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: 5cb69aea0473213c04628a393ecdefda4e30d345
+  revision: 87ff3e4a5df463bdcaf24983d119fd1991d41402
   specs:
     rails_event (0.1.1)
       rails (>= 5.0, <= 6.0)
