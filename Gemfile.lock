@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_audit.git
-  revision: 5697868ca5e872e1530faa5a84cba31979e6744a
+  revision: 464c34084c61cf833340ef25c889a075ebf503bd
   specs:
     rails_audit (1.0.3)
       rails_com (~> 1.2)
@@ -74,7 +74,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 9973266b6d486dd96b819f2f36ef0e7343c5ec37
+  revision: 22d83116192d2f127b21e5f53d5f3087e95b9224
   specs:
     rails_bench (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -82,7 +82,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: b394be74811910caf035611d8bf5bd781670db66
+  revision: 1322dad219cc8dd9b19930549b1d5e42982fbedb
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -120,7 +120,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: 0aa5b5c0ba4894f2e97913122785f43f232d3617
+  revision: c247f414cd3b6e0f7fa105829cd23723b004cb71
   specs:
     rails_event (0.1.1)
       rails (>= 5.0, <= 6.0)
@@ -156,7 +156,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: a49355ff01d85a804014a71b6a7f6b607f76315e
+  revision: 85b6576f7313f1664b4825a39dcfc6722b3f6f2b
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
@@ -188,7 +188,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 108711f33b2a8984b7ec9bebcf79f67ec0e3381b
+  revision: 49b8bf1aa7099a4fc3e25fec0461ba696baa8635
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -208,7 +208,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: a8d701131cbb3a091ed47ce028d3b918e2c8cba3
+  revision: 4ad27b7efabe2a3578a18816aa5ac214176593bd
   specs:
     rails_wechat (0.1.0)
       http (~> 4.1)
@@ -427,7 +427,7 @@ GEM
       mime-types (~> 3.1)
       rest-client (~> 2.0)
     rack (2.0.7)
-    rack-protection (2.0.5)
+    rack-protection (2.0.7)
       rack
     rack-proxy (0.6.5)
       rack
@@ -498,11 +498,11 @@ GEM
     selenium-webdriver (3.142.3)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
-    sidekiq (5.2.7)
-      connection_pool (~> 2.2, >= 2.2.2)
-      rack (>= 1.5.0)
-      rack-protection (>= 1.5.0)
-      redis (>= 3.3.5, < 5)
+    sidekiq (6.0.0)
+      connection_pool (>= 2.2.2)
+      rack (>= 2.0.0)
+      rack-protection (>= 2.0.0)
+      redis (>= 4.1.0)
     spreadsheet (1.2.4)
       ruby-ole (>= 1.0)
     spring (2.1.0)

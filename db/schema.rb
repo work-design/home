@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_08_091413) do
+ActiveRecord::Schema.define(version: 2019_09_12_140611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -469,7 +469,7 @@ ActiveRecord::Schema.define(version: 2019_09_08_091413) do
 
   create_table "event_items", force: :cascade do |t|
     t.bigint "event_id"
-    t.string "title"
+    t.string "name"
     t.bigint "author_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -504,7 +504,7 @@ ActiveRecord::Schema.define(version: 2019_09_08_091413) do
   create_table "events", force: :cascade do |t|
     t.bigint "event_taxon_id"
     t.string "type"
-    t.string "title"
+    t.string "name"
     t.string "description", limit: 4096
     t.integer "position"
     t.integer "event_members_count", default: 0
@@ -1204,8 +1204,10 @@ ActiveRecord::Schema.define(version: 2019_09_08_091413) do
     t.jsonb "extra"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "time_list_id_id"
     t.index ["place_id"], name: "index_plan_items_on_place_id"
     t.index ["time_item_id"], name: "index_plan_items_on_time_item_id"
+    t.index ["time_list_id_id"], name: "index_plan_items_on_time_list_id_id"
   end
 
   create_table "plan_participants", force: :cascade do |t|
