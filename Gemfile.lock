@@ -82,7 +82,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 5c15e7e942bf59f75ecec0a493b55409224c5b1f
+  revision: a2d70e2cf5bfa0b67eb71507166d785b322a9492
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -120,14 +120,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: d338b38b876d8a5aaab4b70e585be8dd75c57fe2
+  revision: b15da0cc61cb7b19e0fdbb0e921521e96bc4cfa1
   specs:
     rails_event (0.1.1)
       rails (>= 5.0, <= 6.0)
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 15b306f60d3ca626359fd5bba8d0f6a17bbf2219
+  revision: 53a4961287c1262c6e0cafeff96ec7b96bf07083
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -171,7 +171,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: b4f99667ce4a1ff3801ee0d73b27a15c3300091a
+  revision: 76ddb1dd6e8de5f68554df95b66e13230d749bc1
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -188,7 +188,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 49b8bf1aa7099a4fc3e25fec0461ba696baa8635
+  revision: d606a20c486e12a0bd9c9de831fb3ed0ecea591c
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -208,7 +208,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 4ad27b7efabe2a3578a18816aa5ac214176593bd
+  revision: 05f4de45f629445b3a80bb82db75a4d713251f02
   specs:
     rails_wechat (0.1.0)
       http (~> 4.1)
@@ -273,18 +273,18 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.1, >= 2.1.8)
-    addressable (2.6.0)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
     awesome_print (1.8.0)
     bcrypt (3.1.13)
     bindex (0.8.1)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
-    bootsnap (1.4.4)
+    bootsnap (1.4.5)
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
-    capybara (3.26.0)
+    capybara (3.29.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -292,7 +292,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    childprocess (1.0.1)
+    childprocess (2.0.0)
       rake (< 13.0)
     chunky_png (1.3.11)
     coderay (1.1.2)
@@ -320,6 +320,7 @@ GEM
       http-cookie (~> 1.0)
       http-form_data (~> 2.0)
       http_parser.rb (~> 0.6.0)
+    http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     http-form_data (2.1.1)
@@ -357,9 +358,9 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
-    mime-types (3.2.2)
+    mime-types (3.3)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2019.0331)
+    mime-types-data (3.2019.0904)
     mimemagic (0.3.3)
     mini_magick (4.9.5)
     mini_mime (1.0.2)
@@ -374,12 +375,12 @@ GEM
       monetize (~> 1.9.0)
       money (~> 6.13.2)
       railties (>= 3.0)
-    msgpack (1.3.0)
+    msgpack (1.3.1)
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     netrc (0.11.0)
-    nio4r (2.4.0)
+    nio4r (2.5.1)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     oauth2 (1.4.1)
@@ -420,14 +421,14 @@ GEM
     pry-stack_explorer (0.4.9.3)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    public_suffix (3.1.1)
-    puma (4.0.1)
+    public_suffix (4.0.1)
+    puma (4.1.1)
       nio4r (~> 2.0)
     qiniu (6.9.0)
       mime-types (~> 3.1)
       rest-client (~> 2.0)
     rack (2.0.7)
-    rack-protection (2.0.5)
+    rack-protection (2.0.7)
       rack
     rack-proxy (0.6.5)
       rack
@@ -465,7 +466,8 @@ GEM
       ffi (~> 1.0)
     redis (4.1.2)
     regexp_parser (1.6.0)
-    rest-client (2.0.2)
+    rest-client (2.1.0)
+      http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
@@ -480,12 +482,11 @@ GEM
       chunky_png (~> 1.0)
     ruby-ole (1.2.12.2)
     ruby_dep (1.5.0)
-    rubyzip (1.2.3)
+    rubyzip (1.2.4)
     rucaptcha (2.5.1)
       railties (>= 3.2)
-    sassc (2.0.1)
+    sassc (2.2.0)
       ffi (~> 1.9)
-      rake
     sassc-rails (2.1.2)
       railties (>= 4.0.0)
       sassc (>= 2.0)
@@ -495,21 +496,21 @@ GEM
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
-    selenium-webdriver (3.142.3)
-      childprocess (>= 0.5, < 2.0)
+    selenium-webdriver (3.142.4)
+      childprocess (>= 0.5, < 3.0)
       rubyzip (~> 1.2, >= 1.2.2)
-    sidekiq (5.2.7)
-      connection_pool (~> 2.2, >= 2.2.2)
-      rack (>= 1.5.0)
-      rack-protection (>= 1.5.0)
-      redis (>= 3.3.5, < 5)
+    sidekiq (6.0.0)
+      connection_pool (>= 2.2.2)
+      rack (>= 2.0.0)
+      rack-protection (>= 2.0.0)
+      redis (>= 4.1.0)
     spreadsheet (1.2.4)
       ruby-ole (>= 1.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
-    sprockets (4.0.0.beta8)
+    sprockets (4.0.0.beta10)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.2.1)
@@ -528,11 +529,11 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
-    web-console (4.0.0)
-      actionview (>= 6.0.0.a)
-      activemodel (>= 6.0.0.a)
+    web-console (4.0.1)
+      actionview (>= 6.0.0)
+      activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
-      railties (>= 6.0.0.a)
+      railties (>= 6.0.0)
     webpacker (4.0.7)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
@@ -548,7 +549,7 @@ GEM
     xml-simple (1.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.1.9)
+    zeitwerk (2.1.10)
     zip-zip (0.3)
       rubyzip (>= 1.0.0)
 
@@ -614,7 +615,7 @@ DEPENDENCIES
   sidekiq
   spring
   spring-watcher-listen (~> 2.0.0)
-  sprockets (= 4.0.0.beta8)
+  sprockets (= 4.0.0.beta10)
   turbolinks
   web-console
   webpacker

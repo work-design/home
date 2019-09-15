@@ -22,7 +22,7 @@ gem 'dalli'
 gem 'turbolinks'
 gem 'sassc-rails'
 gem 'webpacker', require: File.exist?('config/webpacker.yml')
-gem 'sprockets', '4.0.0.beta8'
+gem 'sprockets', '4.0.0.beta10'
 
 # Views
 gem 'jbuilder'
