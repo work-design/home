@@ -36,7 +36,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_where.git
-  revision: 41d41bee3a3a0cd56124919663462f7d5841f980
+  revision: 8a187ad489643864d6ebf2eeb8f09fd5001cedf8
   specs:
     default_where (2.2.3)
       activerecord (>= 4.0, <= 6.0)
@@ -74,7 +74,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 22d83116192d2f127b21e5f53d5f3087e95b9224
+  revision: 4270a40b26aaf95c2f9840da9a0e656b66742916
   specs:
     rails_bench (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -82,7 +82,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: a2d70e2cf5bfa0b67eb71507166d785b322a9492
+  revision: cbafb25b219165f4fa409c1ef7d2bfe2d3fdc537
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -92,7 +92,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: 66b803e7dd74c0b39fdad0de65ccbf864e656d8b
+  revision: bbbe9a9c3b6b9cc4c0c983cc13128346e86bb8de
   specs:
     rails_crm (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -120,14 +120,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: b15da0cc61cb7b19e0fdbb0e921521e96bc4cfa1
+  revision: 362cfd00468fbda641d6bb45fd692157a310a614
   specs:
     rails_event (0.1.1)
       rails (>= 5.0, <= 6.0)
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 53a4961287c1262c6e0cafeff96ec7b96bf07083
+  revision: 8fc4754fbb3f48d3888c8fc31d116c2c8795841a
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -164,7 +164,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 8aef38977aa6b52caffcb65ae84a0e4b5abb43b6
+  revision: b3795e7014cce23963934d5560845334f94f9850
   specs:
     rails_profile (0.1.0)
       rails (>= 5.2.1)
@@ -188,7 +188,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: d606a20c486e12a0bd9c9de831fb3ed0ecea591c
+  revision: e7ed74876fc5cc91822c1e8b213917e86f5b8742
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
