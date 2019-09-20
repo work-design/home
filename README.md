@@ -10,7 +10,7 @@
 更多：[blog.one.work](http://blog.one.work)
 
 ## 一切皆开源
-One Work 将尝试一切均以开源模式运作，包括：
+One Work 将尝试一切均开源的模式进行运作，包括：
 
 * 代码开源；
 * 商业模式开源，具体见[项目说明书](https://github.com/one-work/project)
