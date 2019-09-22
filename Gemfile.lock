@@ -82,7 +82,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 43f221c425c635a50dd1cf538cd3f363bd0b6279
+  revision: cfd49e01eb765cfdc3a06ee1827bd743a8633765
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -127,7 +127,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 8fc4754fbb3f48d3888c8fc31d116c2c8795841a
+  revision: 33502845127803116c4056034d71fbc8a7fae3bb
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -188,7 +188,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: e8d841e51de7c6c09eb7d83524ebad70c14a3eac
+  revision: d728311ee05ea30d064793574ef1b4b795d792f0
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -325,7 +325,7 @@ GEM
       domain_name (~> 0.5)
     http-form_data (2.1.1)
     http_parser.rb (0.6.0)
-    httparty (0.17.0)
+    httparty (0.17.1)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
     i18n (1.6.0)
