@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_12_140611) do
+ActiveRecord::Schema.define(version: 2019_09_26_102326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1174,7 +1174,11 @@ ActiveRecord::Schema.define(version: 2019_09_12_140611) do
     t.string "color"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "place_taxon_id"
+    t.string "description"
+    t.decimal "price", precision: 10, scale: 2
     t.index ["organ_id"], name: "index_places_on_organ_id"
+    t.index ["place_taxon_id"], name: "index_places_on_place_taxon_id"
   end
 
   create_table "plan_attenders", id: :serial, force: :cascade do |t|
@@ -1542,31 +1546,6 @@ ActiveRecord::Schema.define(version: 2019_09_12_140611) do
     t.datetime "updated_at", null: false
     t.index ["good_type", "good_id"], name: "index_serve_goods_on_good_type_and_good_id"
     t.index ["serve_id"], name: "index_serve_goods_on_serve_id"
-  end
-
-  create_table "space_taxons", force: :cascade do |t|
-    t.string "name"
-    t.integer "position", default: 1
-    t.integer "spaces_count", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "spaces", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.string "sku"
-    t.decimal "price", precision: 10, scale: 2
-    t.decimal "import_price", precision: 10, scale: 2
-    t.decimal "profit_price", precision: 10, scale: 2
-    t.bigint "area_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "organ_id"
-    t.bigint "space_taxon_id"
-    t.index ["area_id"], name: "index_spaces_on_area_id"
-    t.index ["organ_id"], name: "index_spaces_on_organ_id"
-    t.index ["space_taxon_id"], name: "index_spaces_on_space_taxon_id"
   end
 
   create_table "supports", force: :cascade do |t|
