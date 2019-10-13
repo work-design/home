@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/acts_as_list.git
-  revision: 86554c13f3c6d2c5db8b371ed07df942a52a0137
+  revision: 63cc2c9687cf0fa534e3a33077b470a7c984a354
   specs:
     acts_as_list (0.9.19)
       activerecord (>= 3.0)
@@ -29,14 +29,14 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 5d5d1ee38b2b6d372202ce1a7635372a989a11ab
+  revision: f244e3f358272bf487609a395fb205f6ab19b6e8
   specs:
     default_form (1.5.0)
       rails (>= 5.2, <= 6.1)
 
 GIT
   remote: https://github.com/qinmingyuan/default_where.git
-  revision: dbfa2d551c79adb1c503d683e26526d80d19f1b4
+  revision: 6977442a3f354bdd453378e6f8993bd8b5787e41
   specs:
     default_where (2.2.3)
       activerecord (>= 4.0, <= 6.0)
@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: cac11ca3ae51c07c6e443154ad929bacaf19e08d
+  revision: a19f484702461db65a7814049a8c98a2d4638a60
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -82,7 +82,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: eeb9d7cdf689037c231d2b92601fdec7efa3d0d8
+  revision: a617cfbb499b0bd360c4200959b25d291ff8d609
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -92,7 +92,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: 0043abaee6d62f3f634b64965be6f3c5d8978030
+  revision: 0bd97c368b8add2885646f9f3573b10ddf7a1906
   specs:
     rails_crm (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -120,7 +120,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: a161b183ca174468e19678635e748fbc5ba1a1d8
+  revision: 46666e882cbfa4baad4ec38ed2304557efa8f268
   specs:
     rails_event (0.1.1)
       rails (>= 5.0, <= 6.0)
@@ -149,7 +149,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 105efbe1e0fa03b53d4186674e9abe677af5220b
+  revision: 60298eae2229bf94e17b710650d1468487fb0c90
   specs:
     rails_org (0.1)
       rails_com (~> 1.2)
@@ -157,7 +157,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 89f4e151cae8e79a9e2977adb3709223d9835eed
+  revision: 5f88d93dc912aea2a186418e4761e1a9c69cb3d7
   specs:
     rails_profile (0.1.0)
       rails (>= 5.2.1)

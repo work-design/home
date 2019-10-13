@@ -1,7 +1,7 @@
 <header class="ui borderless menu">
   <div class="ui container">
     <% if current_user %>
-      <%= render 'nav_items' %>
+      <%= render 'nav_with_login' %>
     <% else %>
       <%= render 'nav_without_login' %>
     <% end %>
