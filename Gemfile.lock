@@ -58,14 +58,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_audit.git
-  revision: 464c34084c61cf833340ef25c889a075ebf503bd
+  revision: 5712877407f46de68dd38d472c4a5bbbbd6f794a
   specs:
     rails_audit (1.0.3)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: a19f484702461db65a7814049a8c98a2d4638a60
+  revision: 394d832ceaa7dbc0944973b86db75020adcc6c62
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -82,13 +82,13 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: a617cfbb499b0bd360c4200959b25d291ff8d609
+  revision: 82e868dba3c30609fb6886a9e50a65cb0ab30854
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
       default_where (~> 2.2)
       httparty (>= 0.16, <= 1.0)
-      rails (~> 6.0.0.rc1)
+      rails (~> 6.0.0)
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
@@ -135,7 +135,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_log.git
-  revision: bd48ca08a907be550e68c7747011372657ce23e7
+  revision: 893cdc6d0868263875c4143d6d0a0a648950e76e
   specs:
     rails_log (2.1.6)
       rails_com (~> 1.2)
@@ -181,7 +181,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: d38d0a1e247bcc58862d58c19c1e5638c2cd727e
+  revision: 0ea6bc741ca7988688d31378acc68a77668559f4
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -201,11 +201,11 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 061d1df4808a0c75574e7b95ce26d73dd01122b4
+  revision: 0e0e07fcb1b379c30dd6b35ad2821653b3713491
   specs:
     rails_wechat (0.1.0)
-      http (~> 4.1)
-      rails (~> 6.0.0.rc1)
+      http
+      rails (~> 6.0.0)
       rails_auth
 
 GEM

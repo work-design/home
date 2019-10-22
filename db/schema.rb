@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_26_102326) do
+ActiveRecord::Schema.define(version: 2019_10_22_134058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,6 +136,22 @@ ActiveRecord::Schema.define(version: 2019_09_26_102326) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["parent_id"], name: "index_areas_on_parent_id"
+  end
+
+  create_table "authorized_tokens", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "oauth_user_id"
+    t.bigint "account_id"
+    t.string "token"
+    t.datetime "expire_at"
+    t.string "session_key"
+    t.integer "access_counter", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_authorized_tokens_on_account_id"
+    t.index ["oauth_user_id"], name: "index_authorized_tokens_on_oauth_user_id"
+    t.index ["user_id", "oauth_user_id", "account_id", "token"], name: "index_authorized_tokens_on_unique_token", unique: true
+    t.index ["user_id"], name: "index_authorized_tokens_on_user_id"
   end
 
   create_table "bookings", id: :serial, force: :cascade do |t|
