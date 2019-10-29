@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: f244e3f358272bf487609a395fb205f6ab19b6e8
+  revision: 7c651e529a93297d4a8661458d08776ae1ca5cf7
   specs:
     default_form (1.5.0)
       rails (>= 5.2, <= 6.1)
@@ -50,7 +50,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/qiniu_rails.git
-  revision: 6d3cb80cff174d4aa4b2a09c2a72d3055fbc6a77
+  revision: e06373f760d281c189a938c31104080f39b6bb00
   specs:
     qiniu_rails (1.0.0)
       qiniu (~> 6.9)
@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 394d832ceaa7dbc0944973b86db75020adcc6c62
+  revision: 6423d5b149c55ba46d3665aeee5503539acb8ae7
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -82,7 +82,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 82e868dba3c30609fb6886a9e50a65cb0ab30854
+  revision: d6a0f22465a308a0382ee21ae1660f953787e1cc
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -92,7 +92,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: 0bd97c368b8add2885646f9f3573b10ddf7a1906
+  revision: 79f34d895f22c945fee073791030ce1b1bbba190
   specs:
     rails_crm (0.1.0)
       rails (~> 6.0.0.rc1)
@@ -135,7 +135,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_log.git
-  revision: 893cdc6d0868263875c4143d6d0a0a648950e76e
+  revision: 309cd1b3412ec095e627fe62eba0f6d253b49b59
   specs:
     rails_log (2.1.6)
       rails_com (~> 1.2)
@@ -149,22 +149,24 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 60298eae2229bf94e17b710650d1468487fb0c90
+  revision: b9ef7019269ef541e7f76827de9ca9a977cf509a
   specs:
     rails_org (0.1)
+      rails_auth
       rails_com (~> 1.2)
       rails_profile
+      rails_taxon
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 5f88d93dc912aea2a186418e4761e1a9c69cb3d7
+  revision: a1365a9367b0bbc41f191788e3b2cf836a158397
   specs:
     rails_profile (0.1.0)
       rails (>= 5.2.1)
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: f75a5eba938a9196f0eb5cd92c975101de2d31b0
+  revision: 54c5ff26fa3d9d2ae8d9c6586fd8367e86991392
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -172,7 +174,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 5a8355c83866880cbd959e685fca397a7a1e5355
+  revision: a165ca9a57f3df0515c2899085c0ea143ad62dd8
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 0.9, <= 1.0)
@@ -201,7 +203,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 0e0e07fcb1b379c30dd6b35ad2821653b3713491
+  revision: 98eeb430eea12386acc16b9345ec090420af1efd
   specs:
     rails_wechat (0.1.0)
       http
@@ -304,19 +306,23 @@ GEM
     faraday (0.16.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (3.6.0)
-    http (4.1.1)
+    http (4.2.0)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
       http-form_data (~> 2.0)
-      http_parser.rb (~> 0.6.0)
+      http-parser (~> 1.2.0)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     http-form_data (2.1.1)
-    http_parser.rb (0.6.0)
+    http-parser (1.2.1)
+      ffi-compiler (>= 1.0, < 2.0)
     httparty (0.17.1)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)

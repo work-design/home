@@ -4,7 +4,9 @@
   </div>
 <% end %>
 <div class="ui fluid vertical accordion bottom attached menu">
-  <%= render 'admin/org_nav' %>
+  <% if rails_role_user.any_role?('org/admin') %>
+    <%= render 'admin/org_nav' %>
+  <% end %>
   <%= render 'auth_nav' %>
   <%= render 'role_nav' %>
   <%= render 'wechat_nav' %>
