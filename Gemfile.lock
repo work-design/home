@@ -58,14 +58,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_audit.git
-  revision: 5712877407f46de68dd38d472c4a5bbbbd6f794a
+  revision: bb00b378c79d3205a49b7ea19fed90ef58c31678
   specs:
     rails_audit (1.0.3)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 6423d5b149c55ba46d3665aeee5503539acb8ae7
+  revision: 1aa9f86bc7ff456815dcf14f7d9e10d1cd0d3fa3
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -82,7 +82,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: d6a0f22465a308a0382ee21ae1660f953787e1cc
+  revision: 0ef1d71a8043b8ef8bf0f3448407ed93440dd182
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -99,7 +99,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: 1ea13383acb2a4ace0553cf9e0c58469d278d2d3
+  revision: 2385d62cbb2de11f391c05231ee42f37ecc9de58
   specs:
     rails_data (1.0.2)
       prawn (~> 2.2)
@@ -135,21 +135,21 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_log.git
-  revision: 309cd1b3412ec095e627fe62eba0f6d253b49b59
+  revision: b863ed6ccc6aa910cc88eb3b80badbc695c56153
   specs:
     rails_log (2.1.6)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 01fcef858822a84e2f0e117782d6dec523093126
+  revision: 7d34027c0834abaa867eecdfe594354bad882312
   specs:
     rails_notice (1.0.2)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: b9ef7019269ef541e7f76827de9ca9a977cf509a
+  revision: 8329393ad3c815e6fbb98be180a9e839de22daa1
   specs:
     rails_org (0.1)
       rails_auth
@@ -166,7 +166,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 54c5ff26fa3d9d2ae8d9c6586fd8367e86991392
+  revision: ec935746052961f1244b095edef366e2cfa4a19c
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -203,7 +203,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 98eeb430eea12386acc16b9345ec090420af1efd
+  revision: 071c32cc795f584262ac863a28045ed57e97e70b
   specs:
     rails_wechat (0.1.0)
       http
@@ -292,7 +292,7 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
-    crass (1.0.4)
+    crass (1.0.5)
     dalli (2.7.10)
     debug_inspector (0.0.3)
     domain_name (0.5.20190701)
@@ -303,7 +303,7 @@ GEM
     factory_bot_rails (5.1.1)
       factory_bot (~> 5.1.0)
       railties (>= 4.2.0)
-    faraday (0.16.2)
+    faraday (0.17.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
     ffi-compiler (1.0.1)
@@ -347,7 +347,7 @@ GEM
     listen (3.2.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.3.0)
+    loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -357,23 +357,23 @@ GEM
     method_source (0.9.2)
     mime-types (3.3)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2019.0904)
+    mime-types-data (3.2019.1009)
     mimemagic (0.3.3)
     mini_magick (4.9.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.12.2)
+    minitest (5.13.0)
     monetize (1.9.2)
       money (~> 6.12)
     money (6.13.4)
       i18n (>= 0.6.4, <= 2)
-    money-rails (1.13.2)
+    money-rails (1.13.3)
       activesupport (>= 3.0)
       monetize (~> 1.9.0)
       money (~> 6.13.2)
       railties (>= 3.0)
     msgpack (1.3.1)
-    multi_json (1.13.1)
+    multi_json (1.14.1)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     netrc (0.11.0)
@@ -419,7 +419,7 @@ GEM
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
     public_suffix (4.0.1)
-    puma (4.2.0)
+    puma (4.2.1)
       nio4r (~> 2.0)
     qiniu (6.9.0)
       mime-types (~> 3.1)
@@ -449,8 +449,8 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.2.0)
-      loofah (~> 2.2, >= 2.2.2)
+    rails-html-sanitizer (1.3.0)
+      loofah (~> 2.3)
     railties (6.0.0)
       actionpack (= 6.0.0)
       activesupport (= 6.0.0)
@@ -497,12 +497,12 @@ GEM
     selenium-webdriver (3.142.6)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    sidekiq (6.0.1)
+    sidekiq (6.0.3)
       connection_pool (>= 2.2.2)
       rack (>= 2.0.0)
       rack-protection (>= 2.0.0)
       redis (>= 4.1.0)
-    spreadsheet (1.2.4)
+    spreadsheet (1.2.5)
       ruby-ole (>= 1.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
@@ -547,7 +547,7 @@ GEM
     xml-simple (1.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.1.10)
+    zeitwerk (2.2.0)
     zip-zip (0.3)
       rubyzip (>= 1.0.0)
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_134058) do
+ActiveRecord::Schema.define(version: 2019_11_05_131050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -643,16 +643,13 @@ ActiveRecord::Schema.define(version: 2019_10_22_134058) do
     t.bigint "department_root_id"
     t.string "name"
     t.integer "grade"
-    t.integer "limit_number"
+    t.integer "limit_member"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "organ_id"
     t.string "description"
     t.integer "cached_role_ids", array: true
-    t.string "type"
     t.index ["department_id"], name: "index_job_titles_on_department_id"
     t.index ["department_root_id"], name: "index_job_titles_on_department_root_id"
-    t.index ["organ_id"], name: "index_job_titles_on_organ_id"
   end
 
   create_table "links", id: :serial, force: :cascade do |t|
@@ -802,11 +799,9 @@ ActiveRecord::Schema.define(version: 2019_10_22_134058) do
     t.bigint "department_root_id"
     t.bigint "department_id"
     t.integer "grade"
-    t.boolean "major"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.jsonb "department_ancestors"
-    t.integer "department_ids", array: true
     t.bigint "superior_id"
     t.index ["department_id"], name: "index_member_departments_on_department_id"
     t.index ["department_root_id"], name: "index_member_departments_on_department_root_id"
@@ -1562,6 +1557,18 @@ ActiveRecord::Schema.define(version: 2019_10_22_134058) do
     t.datetime "updated_at", null: false
     t.index ["good_type", "good_id"], name: "index_serve_goods_on_good_type_and_good_id"
     t.index ["serve_id"], name: "index_serve_goods_on_serve_id"
+  end
+
+  create_table "super_job_titles", force: :cascade do |t|
+    t.bigint "organ_id"
+    t.string "name"
+    t.string "description"
+    t.integer "grade"
+    t.integer "limit_member"
+    t.integer "cached_role_ids", array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organ_id"], name: "index_super_job_titles_on_organ_id"
   end
 
   create_table "supports", force: :cascade do |t|
