@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_05_131050) do
+ActiveRecord::Schema.define(version: 2019_11_14_110605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -842,6 +842,15 @@ ActiveRecord::Schema.define(version: 2019_11_05_131050) do
     t.index ["organ_id"], name: "index_money_givens_on_organ_id"
   end
 
+  create_table "notification_sendings", force: :cascade do |t|
+    t.string "way"
+    t.string "sent_to"
+    t.datetime "sent_at"
+    t.string "sent_result"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "notification_settings", id: :serial, force: :cascade do |t|
     t.string "receiver_type"
     t.integer "receiver_id"
@@ -864,13 +873,11 @@ ActiveRecord::Schema.define(version: 2019_11_05_131050) do
     t.string "body", limit: 5000
     t.string "link"
     t.datetime "sending_at"
-    t.datetime "sent_at"
-    t.string "sent_result"
     t.datetime "read_at"
     t.boolean "verbose", default: false
-    t.string "cc_emails"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "archived"
     t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id"
     t.index ["read_at"], name: "index_notifications_on_read_at"
     t.index ["receiver_type", "receiver_id"], name: "index_notifications_on_receiver_type_and_receiver_id"

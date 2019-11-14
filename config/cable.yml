@@ -2,7 +2,7 @@
 production:
   adapter: redis
   url: redis://localhost:6379/1
-  channel_prefix: facility_production
+  channel_prefix: one_work_production
 
 development:
   adapter: async

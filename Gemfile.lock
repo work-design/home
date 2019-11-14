@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: db199dd5fdaa263e6fff522a574e10b03bc98a9c
+  revision: 823908f398193aeed6dbad4d9e62b49519c47a4b
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -82,7 +82,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 8fe018ce3476877f98f39aa9b8a5644d71fbc6f2
+  revision: 07bb7c6f8ede7c04b87501bb5504882ce1890293
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -142,7 +142,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: e0fe6c8526aa546a7f75ceb6d26875acdcf28e0b
+  revision: ccd9b3d249d1d3b65c19c1deda75ee96ec7a1928
   specs:
     rails_notice (1.0.2)
       rails_auth
@@ -184,7 +184,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 229cf4bd300704b47a92050fcee876486b054654
+  revision: 13f36a6d6bc6dca0d5c2c723a01868325ae3b423
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -306,7 +306,7 @@ GEM
       railties (>= 4.2.0)
     faraday (0.17.0)
       multipart-post (>= 1.2, < 3)
-    ffi (1.11.1)
+    ffi (1.11.2)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
@@ -380,7 +380,7 @@ GEM
     multipart-post (2.1.1)
     netrc (0.11.0)
     nio4r (2.5.2)
-    nokogiri (1.10.4)
+    nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
     oauth2 (1.4.2)
       faraday (>= 0.8, < 2.0)
@@ -421,7 +421,7 @@ GEM
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
     public_suffix (4.0.1)
-    puma (4.2.1)
+    puma (4.3.0)
       nio4r (~> 2.0)
     qiniu (6.9.0)
       mime-types (~> 3.1)
@@ -459,7 +459,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
-    rake (13.0.0)
+    rake (13.0.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -477,10 +477,10 @@ GEM
       nokogiri
       roo (>= 2.0.0, < 3)
       spreadsheet (> 0.9.0)
-    rqrcode (1.1.1)
+    rqrcode (1.1.2)
       chunky_png (~> 1.0)
-      rqrcode_core (~> 0.1.0)
-    rqrcode_core (0.1.0)
+      rqrcode_core (~> 0.1)
+    rqrcode_core (0.1.1)
     ruby-ole (1.2.12.2)
     rubyzip (1.3.0)
     rucaptcha (2.5.1)
@@ -535,7 +535,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webpacker (4.0.7)
+    webpacker (4.2.0)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
@@ -550,7 +550,7 @@ GEM
     xml-simple (1.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.2.0)
+    zeitwerk (2.2.1)
     zip-zip (0.3)
       rubyzip (>= 1.0.0)
 

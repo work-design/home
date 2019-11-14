@@ -34,6 +34,7 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
   #config.action_controller.asset_host = '7u2gfi.com1.z0.glb.clouddn.com'
 
+  config.action_cable.disable_request_forgery_protection = true
   config.action_cable.allowed_request_origins = [
     'http://localhost:3000',
     'http://weixin.one.work'
@@ -54,5 +55,5 @@ ActiveRecord::Base.verbose_query_logs = true
 Rails.application.routes.default_url_options = {
   host: 'weixin.one.work'
 }
-ActionCable.server.config.logger = Logger.new(nil)
+#ActionCable.server.config.logger = Logger.new(nil)
 ENV['EDITOR'] = 'code --wait'
