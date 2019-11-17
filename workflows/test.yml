@@ -4,7 +4,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - name: Fetch project
+    - name: Fetch Project
       uses: actions/checkout@v1
       with:
         submodules: recursive
@@ -29,7 +29,7 @@ jobs:
       with:
         path: test/dummy/node_modules
         key: ${{ runner.OS }}-yarn-${{ hashFiles('test/dummy/yarn.lock') }}
-    - name: Install dependencies
+    - name: Install Dependencies
       run: |
         gem install bundler
         bundle install --path=bundle --jobs=4 --retry=3
@@ -39,6 +39,6 @@ jobs:
         bin/rails db:drop
         bin/rails db:create
         bin/rails db:migrate
-    - name: Run test
+    - name: Run Test
       run: |
         bin/rails test
