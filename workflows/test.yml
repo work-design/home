@@ -1,0 +1,44 @@
+name: Test
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Fetch project
+      uses: actions/checkout@v1
+      with:
+        submodules: recursive
+    - name: Set up System
+      run: |
+        sudo apt install libsqlite3-dev
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+    - name: Set up Nodejs
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+    - name: Cache Bundle
+      uses: actions/cache@v1
+      with:
+        path: bundle
+        key: ${{ runner.OS }}-bundle-${{ hashFiles('Gemfile.lock') }}
+    - name: Cache Node Modules
+      uses: actions/cache@v1
+      with:
+        path: test/dummy/node_modules
+        key: ${{ runner.OS }}-yarn-${{ hashFiles('test/dummy/yarn.lock') }}
+    - name: Install dependencies
+      run: |
+        gem install bundler
+        bundle install --path=bundle --jobs=4 --retry=3
+        test/dummy/bin/yarn install --check-files
+    - name: Prepare DB
+      run: |
+        bin/rails db:drop
+        bin/rails db:create
+        bin/rails db:migrate
+    - name: Run test
+      run: |
+        bin/rails test
