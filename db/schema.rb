@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_124023) do
+ActiveRecord::Schema.define(version: 2019_11_21_133949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -689,10 +689,24 @@ ActiveRecord::Schema.define(version: 2019_11_21_124023) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "log_mailers", force: :cascade do |t|
+    t.string "message_object_id"
+    t.string "mailer"
+    t.string "action_name"
+    t.string "params"
+    t.string "subject"
+    t.string "mail_to"
+    t.string "cc_to"
+    t.string "sent_status"
+    t.string "sent_string"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "log_records", id: :serial, force: :cascade do |t|
     t.string "path"
-    t.string "controller"
-    t.string "action"
+    t.string "controller_name"
+    t.string "action_name"
     t.string "params"
     t.string "headers", limit: 4096
     t.string "cookie", limit: 2048
