@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_14_110605) do
+ActiveRecord::Schema.define(version: 2019_11_21_124023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,6 +115,8 @@ ActiveRecord::Schema.define(version: 2019_11_14_110605) do
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "notifications_count"
+    t.integer "readed_count"
     t.index ["organ_id"], name: "index_annunciations_on_organ_id"
     t.index ["publisher_type", "publisher_id"], name: "index_annunciations_on_publisher_type_and_publisher_id"
   end
@@ -878,6 +880,7 @@ ActiveRecord::Schema.define(version: 2019_11_14_110605) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "archived"
+    t.boolean "official"
     t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id"
     t.index ["read_at"], name: "index_notifications_on_read_at"
     t.index ["receiver_type", "receiver_id"], name: "index_notifications_on_receiver_type_and_receiver_id"

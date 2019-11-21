@@ -2,21 +2,6 @@ defaults: &defaults
   host: http://staging.one.work/
   admin_email:
     - mingyuan0715@foxmail.com
-  weui_form:
-    :css:
-      :form: weui-cells weui-cells_form
-      :wrapper_all: weui-cell
-      :wrapper_all_error: inline field error
-      :wrapper_input: weui-cell__bd
-      :input: weui-input
-      :label: weui-label
-      :select: weui-select
-      :muilti_select: weui-select
-      :wrapper_submit: weui-btn-area
-      :submit: weui-btn weui-btn_primary
-    :on:
-      :offset: false
-
 development:
   <<: *defaults
 
