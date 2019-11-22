@@ -11,7 +11,7 @@ module SmsHelper
       project: '6aGCz3'
     }
 
-    HTTPX.post(url, body: body)
+    HTTPX.post(url, body: body.to_json)
   end
 
   def self.quota
@@ -23,7 +23,7 @@ module SmsHelper
       signature: CREDENT.dig(:sms, :signature)
     }
 
-    HTTPX.post(url, body: options)
+    HTTPX.post(url, body: options.to_json)
   end
 
 
