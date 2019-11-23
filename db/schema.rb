@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_133949) do
+ActiveRecord::Schema.define(version: 2019_11_23_154043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1631,6 +1631,24 @@ ActiveRecord::Schema.define(version: 2019_11_21_133949) do
     t.index ["data_list_id"], name: "index_table_lists_on_data_list_id"
   end
 
+  create_table "taggeds", id: :serial, force: :cascade do |t|
+    t.integer "tag_id"
+    t.string "tagging_type"
+    t.integer "tagging_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_taggeds_on_tag_id"
+    t.index ["tagging_type", "tagging_id"], name: "index_taggeds_on_tagging_type_and_tagging_id"
+  end
+
+  create_table "tags", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.integer "taggeds_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "task_hierarchies", id: false, force: :cascade do |t|
     t.integer "ancestor_id", null: false
     t.integer "descendant_id", null: false
@@ -1687,6 +1705,14 @@ ActiveRecord::Schema.define(version: 2019_11_21_133949) do
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
+  create_table "taxon_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "taxon_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "taxon_desc_idx"
+  end
+
   create_table "taxon_items", force: :cascade do |t|
     t.string "taxon_type"
     t.bigint "taxon_id"
@@ -1697,6 +1723,19 @@ ActiveRecord::Schema.define(version: 2019_11_21_133949) do
     t.index ["item_id"], name: "index_taxon_items_on_item_id"
     t.index ["list_id"], name: "index_taxon_items_on_list_id"
     t.index ["taxon_type", "taxon_id"], name: "index_taxon_items_on_taxon_type_and_taxon_id"
+  end
+
+  create_table "taxons", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.string "color"
+    t.string "description"
+    t.integer "position", default: 1
+    t.integer "entities_count", default: 0
+    t.integer "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "index_taxons_on_parent_id"
   end
 
   create_table "team_members", id: :serial, force: :cascade do |t|

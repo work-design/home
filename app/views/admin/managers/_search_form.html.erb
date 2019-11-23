@@ -1,4 +1,4 @@
-<%= search_form_with do |f| %>
+<%= form_with theme: 'search' do |f| %>
   <div class="fields">
   <%= f.text_field :name,  placeholder: "用户名：" %>
   <%= f.text_field :mobile, placeholder: "手机号：" %>

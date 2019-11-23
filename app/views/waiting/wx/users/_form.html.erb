@@ -1,4 +1,4 @@
-<%= default_form_with model: @profile, url: my_profile_path do |f| %>
+<%= form_with model: @profile, url: my_profile_path do |f| %>
   <%= f.text_field :real_name %>
   <%= f.select :gender, options_for_select(Profile.options_i18n(:gender), @profile.gender) %>
   <%= f.email_field :private_email %>
@@ -10,7 +10,7 @@
   <%= f.text_area :work_experience %>
   <%= f.file_field :resume %>
   <div class="inline fields">
-    <%= f.submit 'update info', class: 'ui green button', on: {wrapper_all: false} %>
+    <%= f.submit 'update info', class: 'ui green button', on: {wrap_all: false} %>
     <%= link_to 'back', my_profile_path, class: 'ui button' %>
   </div>
 <% end %>

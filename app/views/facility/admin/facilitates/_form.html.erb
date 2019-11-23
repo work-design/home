@@ -1,7 +1,7 @@
 <%= form_with model: [:admin, @facilitate], local: true do |f| %>
   <%= render 'shared/error_messages', target: @facilitate %>
   <div class="inline fields">
-    <%= f.select :facilitate_taxon_id, options_from_collection_for_select(@options, :id, :name, @facilitate.facilitate_taxon_id), { label: 'Taxon:', include_blank: true, on: { wrapper_all: false } }, { class: 'ui fluid dropdown' } %>
+    <%= f.select :facilitate_taxon_id, options_from_collection_for_select(@options, :id, :name, @facilitate.facilitate_taxon_id), { label: 'Taxon:', include_blank: true, on: { wrap_all: false } }, { class: 'ui fluid dropdown' } %>
     <%= link_to 'Add Taxon', new_admin_facilitate_taxon_path(return_to: request.path), class: 'ui button' %>
   </div>
   <%= f.text_field :name %>

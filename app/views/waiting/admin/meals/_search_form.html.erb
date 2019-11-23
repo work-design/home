@@ -1,4 +1,4 @@
-<%= search_form_with model: Dinner.new do |f| %>
+<%= form_with theme: 'search', model: Dinner.new do |f| %>
   <div class="fields">
     <%= f.text_field :name %>
     <%= f.submit 'Search' %>
