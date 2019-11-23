@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_audit.git
-  revision: 3dfad3b389984c00d194e00ada61b8bcbeb8ed82
+  revision: 07efc78e7eb81a6d564bf0d8ce28fdb60a6c4fa0
   specs:
     rails_audit (1.0.3)
       rails_com (~> 1.2)
@@ -119,7 +119,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: 31ca408a0be4b4dc87b2dda4dbde308db78981dd
+  revision: 6d50dcce586ed1af92063cf699c3c4665c36ce6c
   specs:
     rails_event (0.1.1)
       rails_com (~> 1.2)
@@ -159,7 +159,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 75a34f1f81c687407c7ebe6f7aa0a8985e9459c6
+  revision: 6a82061d0ef5b9013595c2b326bb88e0dad9d8ce
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -183,7 +183,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: fa721269385cb13fa608ef7cb2d5bae845aa8750
+  revision: 1f70ca1b3201e3d6289724bfc7fbaac63d3864b2
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
