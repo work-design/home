@@ -38,6 +38,7 @@ jobs:
       run: |
         bin/rails db:drop
         bin/rails db:create
+        bin/rails g rails_com:migrations
         bin/rails db:migrate
     - name: Run Test
       run: |
