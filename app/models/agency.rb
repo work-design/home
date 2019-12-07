@@ -1,4 +1,4 @@
 class Agency < ApplicationRecord
-  include RailsProfile::Agency
+  include RailsAgency::Agency
   include RailsCrm::Agency
 end

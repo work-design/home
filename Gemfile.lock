@@ -57,6 +57,13 @@ GIT
       rails (>= 5.2)
 
 GIT
+  remote: https://github.com/work-design/rails_agency.git
+  revision: eeac982925c2e3dbda6a290f9aac8d822aeaa9e6
+  specs:
+    rails_agency (0.1.0)
+      rails_com
+
+GIT
   remote: https://github.com/work-design/rails_audit.git
   revision: 9a2534c3d5c75db353f916a3e295d8124934d01b
   specs:
@@ -65,7 +72,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 830870eb38a834bf74f956791d9365785d67190d
+  revision: 854f81522c4981c4766697ffd0b7394b24f6461b
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -82,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 73aaa19b018a9767d6a1d63ce798199e27c5e573
+  revision: a1b183f32dd2539c073518422f5ce8dce3e63c00
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -91,7 +98,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: f059eea46bc96dbe9c6b33f86422c7a18f990e1b
+  revision: 9f2afd687aacfaa8f06f2dc679c649d574c1db58
   specs:
     rails_crm (0.1.0)
       rails_com (~> 1.2)
@@ -148,7 +155,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: a8a62f4ec9000ffc90a81e495e4d57d24687a71b
+  revision: e6e4145d57a526a85df2aeeeade8ca9ac1534bca
   specs:
     rails_org (0.1)
       rails_auth
@@ -203,7 +210,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 40cbf8d3c4c0525e6438aec9060c4527687c7461
+  revision: f8f0b4d10048b91fabb7e756992d20d0a53f8637
   specs:
     rails_wechat (0.1.0)
       httpx
@@ -313,7 +320,7 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    httpx (0.6.1)
+    httpx (0.6.2)
       http-2-next (>= 0.1.2)
       timers
     i18n (1.7.0)
@@ -576,6 +583,7 @@ DEPENDENCIES
   qiniu_rails!
   rack
   rails (= 6.0.1)
+  rails_agency!
   rails_audit!
   rails_auth!
   rails_bench!
