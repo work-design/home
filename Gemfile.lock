@@ -36,7 +36,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_where.git
-  revision: 89d672273370972e88cd23470b625c4da88ec4ad
+  revision: 7657ef532ee4749a6c9d2b7c7f11423dad511f33
   specs:
     default_where (2.2.3)
       activerecord (>= 4.0, <= 6.1)
@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_agency.git
-  revision: eeac982925c2e3dbda6a290f9aac8d822aeaa9e6
+  revision: 2cb35c9616840e5ea4a526a02c0446754e175cb6
   specs:
     rails_agency (0.1.0)
       rails_com
@@ -72,7 +72,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 854f81522c4981c4766697ffd0b7394b24f6461b
+  revision: 21f2575571320a95e11440f266b2e36c966f6ea6
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -140,7 +140,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_log.git
-  revision: 2a47ce2085f51109160774c80d23e4b813a26042
+  revision: 74b0da24594eb1d8c48a3fae717f6491dbc8df34
   specs:
     rails_log (2.1.6)
       rails_com (~> 1.2)
@@ -155,7 +155,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: e6e4145d57a526a85df2aeeeade8ca9ac1534bca
+  revision: 21a0ae2f300710a9eaa69ebb24a85d88da2400c2
   specs:
     rails_org (0.1)
       rails_auth
@@ -202,7 +202,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: 73bbc04699022eb26e6e6e43d58fec8f9fdbe71d
+  revision: d885b0db35e55adf301ce0f3a66f72d9011b2061
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
@@ -210,7 +210,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: f8f0b4d10048b91fabb7e756992d20d0a53f8637
+  revision: 03ae5bca99b8965560ea43c2896696634e790fae
   specs:
     rails_wechat (0.1.0)
       httpx
@@ -284,7 +284,7 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
-    builder (3.2.3)
+    builder (3.2.4)
     byebug (11.0.1)
     capybara (3.29.0)
       addressable
@@ -310,9 +310,9 @@ GEM
     factory_bot_rails (5.1.1)
       factory_bot (~> 5.1.0)
       railties (>= 4.2.0)
-    faraday (0.17.0)
+    faraday (0.17.1)
       multipart-post (>= 1.2, < 3)
-    ffi (1.11.2)
+    ffi (1.11.3)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (3.6.0)
@@ -341,10 +341,10 @@ GEM
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
     kramdown (2.1.0)
-    listen (3.2.0)
+    listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.3.1)
+    loofah (2.4.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -362,7 +362,7 @@ GEM
     minitest (5.13.0)
     monetize (1.9.2)
       money (~> 6.12)
-    money (6.13.4)
+    money (6.13.6)
       i18n (>= 0.6.4, <= 2)
     money-rails (1.13.3)
       activesupport (>= 3.0)
@@ -375,7 +375,7 @@ GEM
     multipart-post (2.1.1)
     netrc (0.11.0)
     nio4r (2.5.2)
-    nokogiri (1.10.5)
+    nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
     oauth2 (1.4.2)
       faraday (>= 0.8, < 2.0)
@@ -416,7 +416,7 @@ GEM
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
     public_suffix (4.0.1)
-    puma (4.3.0)
+    puma (4.3.1)
       nio4r (~> 2.0)
     qiniu (6.9.0)
       mime-types (~> 3.1)
@@ -530,7 +530,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webpacker (4.2.0)
+    webpacker (4.2.2)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
@@ -545,7 +545,7 @@ GEM
     xml-simple (1.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.2.1)
+    zeitwerk (2.2.2)
     zip-zip (0.3)
       rubyzip (>= 1.0.0)
 
