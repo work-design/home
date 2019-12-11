@@ -42,4 +42,4 @@ jobs:
         bin/rails db:migrate
     - name: Run Test
       run: |
-        bin/rails test
+        bin/rails test -v -b
