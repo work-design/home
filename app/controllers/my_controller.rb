@@ -1,5 +1,5 @@
 class MyController < ApplicationController
-  include RailsAuth::Wechat
+  include RailsAuth::Application
   before_action :require_login
   
 end
