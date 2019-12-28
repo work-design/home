@@ -72,7 +72,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 148a14bce1d057b0c07fc90a356203e1d273b6d3
+  revision: c18c78eb956724b7551d61f032e53377c4416133
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 90b91dc2b25310b6a8f8ddb7577b1ee2a3db5dd9
+  revision: 5fb4d682432d0069d6425d35f2e84fe47b602f18
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -140,7 +140,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_log.git
-  revision: 74b0da24594eb1d8c48a3fae717f6491dbc8df34
+  revision: 84324f81c3c97cf584305d9f7c4cbe420b560f39
   specs:
     rails_log (2.1.6)
       rails_com (~> 1.2)
@@ -210,7 +210,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: c5cb6ec1257be99d5b12bd08aca87b2f9f009536
+  revision: 9e18c4301b4c203da6ea2dbcd556fee10ce6841e
   specs:
     rails_wechat (0.1.0)
       httpx
@@ -220,56 +220,56 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    actioncable (6.0.1)
-      actionpack (= 6.0.1)
+    actioncable (6.0.2.1)
+      actionpack (= 6.0.2.1)
       nio4r (~> 2.0)
       websocket-driver (>= 0.6.1)
-    actionmailbox (6.0.1)
-      actionpack (= 6.0.1)
-      activejob (= 6.0.1)
-      activerecord (= 6.0.1)
-      activestorage (= 6.0.1)
-      activesupport (= 6.0.1)
+    actionmailbox (6.0.2.1)
+      actionpack (= 6.0.2.1)
+      activejob (= 6.0.2.1)
+      activerecord (= 6.0.2.1)
+      activestorage (= 6.0.2.1)
+      activesupport (= 6.0.2.1)
       mail (>= 2.7.1)
-    actionmailer (6.0.1)
-      actionpack (= 6.0.1)
-      actionview (= 6.0.1)
-      activejob (= 6.0.1)
+    actionmailer (6.0.2.1)
+      actionpack (= 6.0.2.1)
+      actionview (= 6.0.2.1)
+      activejob (= 6.0.2.1)
       mail (~> 2.5, >= 2.5.4)
       rails-dom-testing (~> 2.0)
-    actionpack (6.0.1)
-      actionview (= 6.0.1)
-      activesupport (= 6.0.1)
-      rack (~> 2.0)
+    actionpack (6.0.2.1)
+      actionview (= 6.0.2.1)
+      activesupport (= 6.0.2.1)
+      rack (~> 2.0, >= 2.0.8)
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.2.0)
-    actiontext (6.0.1)
-      actionpack (= 6.0.1)
-      activerecord (= 6.0.1)
-      activestorage (= 6.0.1)
-      activesupport (= 6.0.1)
+    actiontext (6.0.2.1)
+      actionpack (= 6.0.2.1)
+      activerecord (= 6.0.2.1)
+      activestorage (= 6.0.2.1)
+      activesupport (= 6.0.2.1)
       nokogiri (>= 1.8.5)
-    actionview (6.0.1)
-      activesupport (= 6.0.1)
+    actionview (6.0.2.1)
+      activesupport (= 6.0.2.1)
       builder (~> 3.1)
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
-    activejob (6.0.1)
-      activesupport (= 6.0.1)
+    activejob (6.0.2.1)
+      activesupport (= 6.0.2.1)
       globalid (>= 0.3.6)
-    activemodel (6.0.1)
-      activesupport (= 6.0.1)
-    activerecord (6.0.1)
-      activemodel (= 6.0.1)
-      activesupport (= 6.0.1)
-    activestorage (6.0.1)
-      actionpack (= 6.0.1)
-      activejob (= 6.0.1)
-      activerecord (= 6.0.1)
+    activemodel (6.0.2.1)
+      activesupport (= 6.0.2.1)
+    activerecord (6.0.2.1)
+      activemodel (= 6.0.2.1)
+      activesupport (= 6.0.2.1)
+    activestorage (6.0.2.1)
+      actionpack (= 6.0.2.1)
+      activejob (= 6.0.2.1)
+      activerecord (= 6.0.2.1)
       marcel (~> 0.3.1)
-    activesupport (6.0.1)
+    activesupport (6.0.2.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -286,7 +286,7 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.0.1)
-    capybara (3.29.0)
+    capybara (3.30.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -320,7 +320,7 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    httpx (0.6.2)
+    httpx (0.6.3)
       http-2-next (>= 0.1.2)
       timers
     i18n (1.7.0)
@@ -352,7 +352,7 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
-    mime-types (3.3)
+    mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.1009)
     mimemagic (0.3.3)
@@ -401,7 +401,7 @@ GEM
       multi_json (~> 1.0)
       xml-simple
     pdf-core (0.7.0)
-    pg (1.1.4)
+    pg (1.2.0)
     prawn (2.2.2)
       pdf-core (~> 0.7.0)
       ttfunk (~> 1.5)
@@ -421,42 +421,42 @@ GEM
     qiniu (6.9.0)
       mime-types (~> 3.1)
       rest-client (~> 2.0)
-    rack (2.0.7)
+    rack (2.0.8)
     rack-protection (2.0.7)
       rack
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rails (6.0.1)
-      actioncable (= 6.0.1)
-      actionmailbox (= 6.0.1)
-      actionmailer (= 6.0.1)
-      actionpack (= 6.0.1)
-      actiontext (= 6.0.1)
-      actionview (= 6.0.1)
-      activejob (= 6.0.1)
-      activemodel (= 6.0.1)
-      activerecord (= 6.0.1)
-      activestorage (= 6.0.1)
-      activesupport (= 6.0.1)
+    rails (6.0.2.1)
+      actioncable (= 6.0.2.1)
+      actionmailbox (= 6.0.2.1)
+      actionmailer (= 6.0.2.1)
+      actionpack (= 6.0.2.1)
+      actiontext (= 6.0.2.1)
+      actionview (= 6.0.2.1)
+      activejob (= 6.0.2.1)
+      activemodel (= 6.0.2.1)
+      activerecord (= 6.0.2.1)
+      activestorage (= 6.0.2.1)
+      activesupport (= 6.0.2.1)
       bundler (>= 1.3.0)
-      railties (= 6.0.1)
+      railties (= 6.0.2.1)
       sprockets-rails (>= 2.0.0)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.3.0)
       loofah (~> 2.3)
-    railties (6.0.1)
-      actionpack (= 6.0.1)
-      activesupport (= 6.0.1)
+    railties (6.0.2.1)
+      actionpack (= 6.0.2.1)
+      activesupport (= 6.0.2.1)
       method_source
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
     rake (13.0.1)
     rb-fsevent (0.10.3)
-    rb-inotify (0.10.0)
+    rb-inotify (0.10.1)
       ffi (~> 1.0)
     redis (4.1.3)
     regexp_parser (1.6.0)
@@ -478,7 +478,7 @@ GEM
     rqrcode_core (0.1.1)
     ruby-ole (1.2.12.2)
     rubyzip (1.3.0)
-    rucaptcha (2.5.1)
+    rucaptcha (2.5.2)
       railties (>= 3.2)
     sassc (2.2.1)
       ffi (~> 1.9)
@@ -494,7 +494,7 @@ GEM
     selenium-webdriver (3.142.6)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    sidekiq (6.0.3)
+    sidekiq (6.0.4)
       connection_pool (>= 2.2.2)
       rack (>= 2.0.0)
       rack-protection (>= 2.0.0)
@@ -520,7 +520,7 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    tzinfo (1.2.5)
+    tzinfo (1.2.6)
       thread_safe (~> 0.1)
     unf (0.1.4)
       unf_ext
@@ -582,7 +582,7 @@ DEPENDENCIES
   qiniu
   qiniu_rails!
   rack
-  rails (= 6.0.1)
+  rails (= 6.0.2.1)
   rails_agency!
   rails_audit!
   rails_auth!
