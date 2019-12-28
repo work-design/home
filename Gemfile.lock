@@ -81,7 +81,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: e761554efe9959f1fe83b8db15956cc108fca020
+  revision: a0cb55c868fbf9897d281230345f1f5e6932471e
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 5fb4d682432d0069d6425d35f2e84fe47b602f18
+  revision: 79ad64e3cd43f4770b1947bcd94907bda7c33692
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
