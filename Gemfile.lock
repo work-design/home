@@ -324,7 +324,7 @@ GEM
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (3.6.0)
-    http-2-next (0.2.0)
+    http-2-next (0.2.1)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -423,7 +423,7 @@ GEM
     pry-stack_explorer (0.4.9.3)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    public_suffix (4.0.1)
+    public_suffix (4.0.2)
     puma (4.3.1)
       nio4r (~> 2.0)
     qiniu (6.9.0)
@@ -499,7 +499,7 @@ GEM
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
-    selenium-webdriver (3.142.6)
+    selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     sidekiq (6.0.4)
@@ -513,7 +513,7 @@ GEM
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
-    sprockets (4.0.0.beta10)
+    sprockets (4.0.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.2.1)
@@ -589,7 +589,6 @@ DEPENDENCIES
   puma
   qiniu
   qiniu_rails!
-  rack
   rails (= 6.0.2.1)
   rails_agency!
   rails_audit!
@@ -620,12 +619,11 @@ DEPENDENCIES
   sidekiq
   spring
   spring-watcher-listen (~> 2.0.0)
-  sprockets (= 4.0.0.beta10)
+  sprockets
   turbolinks
   web-console
   webpacker
   wx_pay!
-  zeitwerk
 
 BUNDLED WITH
    1.17.2
