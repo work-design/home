@@ -1,8 +1,6 @@
 require_relative 'boot'
 require 'rails/all'
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module OneWork
@@ -49,8 +47,5 @@ module OneWork
 
   end
 end
-SETTING = Rails.application.config_for('setting')
 CREDENT = Rails.application.credentials.dig(Rails.env.to_sym)
-
-RailsRole.config.default_admin_accounts = SETTING['admin_email']
 ENV['EDITOR'] = 'code --wait'

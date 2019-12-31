@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 79ad64e3cd43f4770b1947bcd94907bda7c33692
+  revision: 86bf1e8301c3a4dc0737bf11b4958baac86d960f
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -140,7 +140,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_log.git
-  revision: 84324f81c3c97cf584305d9f7c4cbe420b560f39
+  revision: 92502d22b8b3cd64a0576b899a8539f633b87c95
   specs:
     rails_log (2.1.6)
       rails_com (~> 1.2)
@@ -155,7 +155,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 6514e7c9d3346b3bc0b405b39f69d79439b1ef31
+  revision: ce45e5c7c99feda45c1c30e9103c5849abb9b3bd
   specs:
     rails_org (0.1)
       rails_auth
@@ -172,8 +172,16 @@ GIT
       rails_taxon
 
 GIT
+  remote: https://github.com/work-design/rails_quip.git
+  revision: 219a02ecb9ebb04018965d50db00a58b7530e975
+  specs:
+    rails_quip (0.1.0)
+      httpx
+      rails_com (~> 1.2)
+
+GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 60da4ae3f17aa2da8728542878c950dbab1f4b4d
+  revision: eb0d862407c3120b53c917a695c60cb42aabfeae
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -597,6 +605,7 @@ DEPENDENCIES
   rails_notice!
   rails_org!
   rails_profile!
+  rails_quip!
   rails_role!
   rails_taxon!
   rails_trade!
