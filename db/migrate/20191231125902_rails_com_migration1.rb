@@ -118,7 +118,16 @@ class RailsComMigration1 < ActiveRecord::Migration[6.0]
 
 
 
+    create_table :quip_threads do |t|
+      t.references :quip_app
+      t.string :type
+      t.string :title
+      t.string :html
+      t.timestamps
+    end
+
     create_table :quip_apps do |t|
+      t.references :organ
       t.references :user
       t.string :access_token
       t.timestamps

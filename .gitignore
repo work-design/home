@@ -5,6 +5,7 @@ tmp
 !tmp/.keep
 
 .bundle
+.ruby-version
 public/assets
 public/packs
 storage

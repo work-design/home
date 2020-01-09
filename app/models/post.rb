@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
-  attribute :title, :string
-  attribute :code, :string
-  include RailsDetail::ContentModel
-
+  include RailsDetail::Post
+  include RailsWechat::Post
+  include RailsQuip::Post
+  
 end

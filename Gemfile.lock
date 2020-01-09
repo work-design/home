@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 7ce6c56a820f09850a2a7a162715b4cfddbcbb2f
+  revision: 976ae4c7fbdfca9c34a8c8abe12db63e3baa7866
   specs:
     default_form (1.5.0)
       rails_com (~> 1.2)
@@ -72,7 +72,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: c18c78eb956724b7551d61f032e53377c4416133
+  revision: 36a4403ad2339dc97a370e0881d2da79e1c939dd
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 86bf1e8301c3a4dc0737bf11b4958baac86d960f
+  revision: 4bd78d0366ada1a719514baad7c7f16fac65a71b
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -98,14 +98,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: 9f2afd687aacfaa8f06f2dc679c649d574c1db58
+  revision: 6bd35bfe4cb7fc558db5a0c9595a8ce1e5db2e27
   specs:
     rails_crm (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: 0845bbe4e9e56ccdef62303981bbfb1ed9b9a818
+  revision: e7dfb754ebb5b37885e1278e70756fd0ee724acb
   specs:
     rails_data (1.0.2)
       prawn (~> 2.2)
@@ -117,7 +117,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_detail.git
-  revision: ec7bcf4d2a01541d1407ee4644a20d3955a42ee5
+  revision: 361fa51de1c26281bf348004df08cf95f15148f2
   specs:
     rails_detail (0.0.1)
       acts_as_list (~> 0.9)
@@ -147,7 +147,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 9088a01869d1ed0367a81b3a8870e26f85cdad74
+  revision: 434e7de2b53292cbd131460d94e2b1933fb336a8
   specs:
     rails_notice (1.0.2)
       rails_auth
@@ -173,15 +173,16 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_quip.git
-  revision: 219a02ecb9ebb04018965d50db00a58b7530e975
+  revision: 05e592c1b68b6e528dec79633f41e084f55a5716
   specs:
     rails_quip (0.1.0)
       httpx
       rails_com (~> 1.2)
+      rails_detail
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: eb0d862407c3120b53c917a695c60cb42aabfeae
+  revision: b3e9ea89912deab1d958916e3cec10c969a8c9aa
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -198,7 +199,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: d57d30f840d2dbbf73fc22d58aa9689ae8416f1e
+  revision: dff9ca21ac6c14578010892b5d1ad7206049f2cc
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -218,7 +219,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 9e18c4301b4c203da6ea2dbcd556fee10ce6841e
+  revision: 78ee0c76ba31e323a1a5f8084401ab0c00fd37af
   specs:
     rails_wechat (0.1.0)
       httpx
@@ -626,4 +627,4 @@ DEPENDENCIES
   wx_pay!
 
 BUNDLED WITH
-   1.17.2
+   2.1.2

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_18_142344) do
+ActiveRecord::Schema.define(version: 2019_12_31_125902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1813,6 +1813,26 @@ ActiveRecord::Schema.define(version: 2019_12_18_142344) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["area_id"], name: "index_providers_on_area_id"
+  end
+
+  create_table "quip_apps", force: :cascade do |t|
+    t.bigint "organ_id", scale: 8
+    t.bigint "user_id", scale: 8
+    t.string "access_token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organ_id"], name: "index_quip_apps_on_organ_id"
+    t.index ["user_id"], name: "index_quip_apps_on_user_id"
+  end
+
+  create_table "quip_threads", force: :cascade do |t|
+    t.bigint "quip_app_id", scale: 8
+    t.string "type"
+    t.string "title"
+    t.string "html"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["quip_app_id"], name: "index_quip_threads_on_quip_app_id"
   end
 
   create_table "record_items", id: :serial, scale: 4, force: :cascade do |t|
