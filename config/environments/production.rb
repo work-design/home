@@ -1,10 +1,10 @@
 Rails.application.configure do
   # Verifies that versions and hashed value of the package contents in the project's package.json
-  
+
   config.hosts += [
     'one.work'
   ]
-  
+
   config.cache_classes = true
   config.eager_load = true
   config.consider_all_requests_local = false
@@ -17,11 +17,6 @@ Rails.application.configure do
   config.active_storage.service = :qiniu
 
   config.webpacker.check_yarn_integrity = false if config.respond_to?(:webpacker)
-  config.assets.css_compressor = :sass
-  config.assets.raise_runtime_errors = false
-  config.assets.compile = false
-  config.assets.digest = true
-
 
   config.log_level = :debug
   config.log_tags = [ :request_id ]

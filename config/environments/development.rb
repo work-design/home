@@ -30,7 +30,7 @@ Rails.application.configure do
     ssl: true,
     return_response: true
   }
-  
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -42,11 +42,6 @@ Rails.application.configure do
   config.active_storage.logger = nil
 
   config.webpacker.check_yarn_integrity = true if config.respond_to?(:webpacker)
-  config.assets.css_compressor = nil
-  config.assets.debug = true
-  config.assets.quiet = true
-  config.assets.digest = true
-  config.assets.raise_runtime_errors = true
   #config.action_controller.asset_host = '7u2gfi.com1.z0.glb.clouddn.com'
 
   config.action_cable.disable_request_forgery_protection = true

@@ -1,12 +1,12 @@
 require_relative 'boot'
-require 'rails/all'
+require 'rails_com/all'
 
 Bundler.require(*Rails.groups)
 
 module OneWork
   class Application < Rails::Application
     config.load_defaults 6.0
-  
+
     config.paths['config/routes.rb'].concat Dir[Rails.root.join('config/routes/*.rb')]
     config.autoload_paths += Dir[
       "#{config.root}/app/models/oauth_user",
@@ -17,8 +17,6 @@ module OneWork
     config.ssl_options = { hsts: { subdomains: true } }
     config.i18n.default_locale = :zh
     
-    config.assets.css_compressor = :sass
-
     config.generators do |g|
       g.stylesheets false
       g.javasricpts false
