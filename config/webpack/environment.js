@@ -13,6 +13,7 @@ environment.loaders.append('moment', moment)
 environment.loaders.append('remote_js_load', remote_js_load)
 
 const env = environment.toWebpackConfig()
+debugger
 env.entry = Object.assign(paths(), env.entry)
 env.resolve.modules = env.resolve.modules.concat(resolve('node_modules'))
 
