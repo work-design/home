@@ -1,4 +1,4 @@
-import 'stylesheets/application'
+import 'application'
 
 import 'rails_com/stimulus'
 import './channels'
