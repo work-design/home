@@ -1,5 +1,5 @@
 <%= link_to index_path, class: 'logo item' do %>
-  <%= image_tag 'logo.jpg', class: 'ui image' %>
+  <%= image_pack_tag 'logo.jpg', class: 'ui image' %>
 <% end %>
 <%= link_to '发现项目', projects_path, class: active_helper(controllers: ['projects', 'my/projects']) %>
 <%= link_to '就近办公', places_path, class: active_helper(controllers: ['spaces']) %>

@@ -1,3 +1,4 @@
+require.context('../images', true)
 import 'application'
 
 import 'rails_com/stimulus'
