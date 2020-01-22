@@ -81,7 +81,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: a027f4c7798b0421a0125913c4dd82da2808fdd2
+  revision: 9c288183f5bdf67bd5b63798d16b4b1c6c10621c
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 82246a68e2086e4259580cd00c01443f8b36c52c
+  revision: c5aaec79150d7862a17e9172d4bfc515992df9b5
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -286,7 +286,6 @@ GEM
       zeitwerk (~> 2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    awesome_print (1.8.0)
     bcrypt (3.1.13)
     bindex (0.8.1)
     binding_of_caller (0.8.0)
@@ -556,7 +555,6 @@ PLATFORMS
 DEPENDENCIES
   acts_as_list!
   alipay2!
-  awesome_print
   bcrypt
   bootsnap (>= 1.1.0)
   byebug

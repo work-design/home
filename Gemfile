@@ -71,7 +71,6 @@ gem 'rails_factory', github: 'work-design/rails_factory'
 gem 'rails_profile', github: 'work-design/rails_profile'
 
 # Debug
-gem 'awesome_print'
 gem 'pry-rails'
 
 group :development, :test do
