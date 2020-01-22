@@ -1,5 +1,5 @@
 require.context('../images', true)
-import 'application'
+import 'fomantic'
 
 import 'rails_com/stimulus'
 import './channels'
@@ -9,4 +9,4 @@ import 'rails_com/application'
 
 import 'jquery'
 import 'moment'
-import 'work-ui/dist/semantic'
+import 'fomantic-ui/dist/semantic'

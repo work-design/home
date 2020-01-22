@@ -21,6 +21,7 @@
     "axios": "^0.18.0",
     "core-js": "3",
     "cssnano": "^4.1.10",
+    "fomantic-ui": "^2.8.3",
     "fullcalendar": "^3.9.0",
     "jquery": "^3.3.1",
     "moment": "^2.22.1",
@@ -33,7 +34,7 @@
     "turbolinks": "^5.2.0",
     "weui": "^2.0.0",
     "weui.js": "^1.1.4",
-    "work-ui": "https://github.com/work-design/work-ui.git",
+    "work_ui": "https://github.com/work-design/work_ui.git",
     "yarn": "^1.17.3"
   },
   "devDependencies": {
