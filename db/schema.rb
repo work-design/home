@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_31_125902) do
+ActiveRecord::Schema.define(version: 2020_01_23_112649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1573,11 +1573,29 @@ ActiveRecord::Schema.define(version: 2019_12_31_125902) do
     t.index ["time_list_id"], name: "index_plans_on_time_list_id"
   end
 
+  create_table "post_syncs", force: :cascade do |t|
+    t.bigint "post_id", scale: 8
+    t.string "synced_type"
+    t.bigint "synced_id", scale: 8
+    t.datetime "synced_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "source_id"
+    t.index ["post_id"], name: "index_post_syncs_on_post_id"
+    t.index ["synced_type", "synced_id"], name: "index_post_syncs_on_synced_type_and_synced_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
+    t.string "content"
+    t.string "link"
+    t.string "html"
+    t.bigint "organ_id", scale: 8
+    t.string "thumb_media_id"
+    t.index ["organ_id"], name: "index_posts_on_organ_id"
   end
 
   create_table "produces", force: :cascade do |t|
@@ -1821,6 +1839,9 @@ ActiveRecord::Schema.define(version: 2019_12_31_125902) do
     t.string "access_token"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "private_folder_id"
+    t.string "name"
+    t.string "profile_picture_url"
     t.index ["organ_id"], name: "index_quip_apps_on_organ_id"
     t.index ["user_id"], name: "index_quip_apps_on_user_id"
   end
@@ -2158,6 +2179,31 @@ ActiveRecord::Schema.define(version: 2019_12_31_125902) do
     t.index ["organ_id"], name: "index_teams_on_organ_id"
   end
 
+  create_table "template_configs", force: :cascade do |t|
+    t.string "type"
+    t.string "title"
+    t.string "tid"
+    t.string "description"
+    t.string "notifiable_type"
+    t.string "code", default: "default"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "template_key_words", force: :cascade do |t|
+    t.bigint "template_config_id", scale: 8
+    t.integer "position", scale: 4
+    t.integer "kid", scale: 4
+    t.string "name"
+    t.string "example"
+    t.string "rule"
+    t.string "mapping"
+    t.string "color"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["template_config_id"], name: "index_template_key_words_on_template_config_id"
+  end
+
   create_table "ticket_items", force: :cascade do |t|
     t.bigint "ticket_id", scale: 8
     t.bigint "wechat_user_id", scale: 8
@@ -2409,13 +2455,17 @@ ActiveRecord::Schema.define(version: 2019_12_31_125902) do
   create_table "wechat_notices", force: :cascade do |t|
     t.bigint "wechat_template_id", scale: 8
     t.bigint "wechat_app_id", scale: 8
-    t.string "notifiable_type"
-    t.string "code", default: "default"
-    t.json "mappings", default: {}
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "notification_id", scale: 8
+    t.bigint "wechat_user_id", scale: 8
+    t.bigint "wechat_subscribed_id", scale: 8
+    t.string "link", default: "index"
+    t.index ["notification_id"], name: "index_wechat_notices_on_notification_id"
     t.index ["wechat_app_id"], name: "index_wechat_notices_on_wechat_app_id"
+    t.index ["wechat_subscribed_id"], name: "index_wechat_notices_on_wechat_subscribed_id"
     t.index ["wechat_template_id"], name: "index_wechat_notices_on_wechat_template_id"
+    t.index ["wechat_user_id"], name: "index_wechat_notices_on_wechat_user_id"
   end
 
   create_table "wechat_requests", force: :cascade do |t|
@@ -2447,13 +2497,11 @@ ActiveRecord::Schema.define(version: 2019_12_31_125902) do
 
   create_table "wechat_subscribeds", force: :cascade do |t|
     t.bigint "wechat_user_id", scale: 8
-    t.bigint "wechat_notice_id", scale: 8
     t.bigint "wechat_template_id", scale: 8
     t.datetime "sending_at"
     t.string "status", default: "accept"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["wechat_notice_id"], name: "index_wechat_subscribeds_on_wechat_notice_id"
     t.index ["wechat_template_id"], name: "index_wechat_subscribeds_on_wechat_template_id"
     t.index ["wechat_user_id"], name: "index_wechat_subscribeds_on_wechat_user_id"
   end
@@ -2490,6 +2538,8 @@ ActiveRecord::Schema.define(version: 2019_12_31_125902) do
     t.integer "template_type", scale: 4
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "template_config_id", scale: 8
+    t.index ["template_config_id"], name: "index_wechat_templates_on_template_config_id"
     t.index ["wechat_app_id"], name: "index_wechat_templates_on_wechat_app_id"
   end
 

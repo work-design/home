@@ -117,7 +117,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_detail.git
-  revision: 361fa51de1c26281bf348004df08cf95f15148f2
+  revision: 848b5f4e1de360c0e0ba66ea534774ca2294f767
   specs:
     rails_detail (0.0.1)
       acts_as_list (~> 0.9)
@@ -173,7 +173,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_quip.git
-  revision: f620ca9b62576e1610a4d8a5244aa6586c99f15c
+  revision: e27e9d7bd29b6917ce4600c03088eb15d54e26d8
   specs:
     rails_quip (0.1.0)
       httpx
@@ -219,7 +219,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 78ee0c76ba31e323a1a5f8084401ab0c00fd37af
+  revision: 6763d6e22b905c4522da68d4220c636945f8664e
   specs:
     rails_wechat (0.1.0)
       httpx
