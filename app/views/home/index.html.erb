@@ -20,19 +20,15 @@
 <div class="bg2">
 
   <div class="ui divided container items">
-    <% @post.pictures.each do |pic| %>
     <div class="item">
       <div class="center image">
-        <%= image_tag pic.file if pic.file.attached? %>
       </div>
       <div class="middle aligned content">
-        <a class="header"><%= pic.title %></a>
+        <a class="header"></a>
         <div class="description">
-          <%= simple_format(pic.body) %>
         </div>
       </div>
     </div>
-    <% end %>
   </div>
 
 </div>

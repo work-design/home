@@ -3,11 +3,6 @@ class HomeController < ApplicationController
 
   def index
     @post = Post.find_by(code: 'home/index')
-
-    respond_to do |format|
-      format.html
-      format.html.phone
-    end
   end
 
   def uptoken
