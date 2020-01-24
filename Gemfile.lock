@@ -98,7 +98,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: 67a4eb479ec2dc806f09308bc97d61ffc21c2750
+  revision: b27cc159d03977457a09aae31a3cd86df688357d
   specs:
     rails_crm (0.1.0)
       rails_com (~> 1.2)
@@ -173,7 +173,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_quip.git
-  revision: 577b004b5eb336654816e8556b94dae5698c6404
+  revision: e6a2a60b05f42815a1685ef9d2bd3ce551a392b3
   specs:
     rails_quip (0.1.0)
       httpx
@@ -219,7 +219,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 6763d6e22b905c4522da68d4220c636945f8664e
+  revision: d2165cacc088cf5f0add719e9ef618c5ad12ab49
   specs:
     rails_wechat (0.1.0)
       httpx
