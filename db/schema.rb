@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_26_101148) do
+ActiveRecord::Schema.define(version: 2020_01_26_131633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -687,8 +687,13 @@ ActiveRecord::Schema.define(version: 2020_01_26_101148) do
     t.string "matched"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "wechat_request_id", scale: 8
+    t.bigint "wechat_user_id", scale: 8
+    t.integer "serial_number", scale: 4
     t.index ["extractable_type", "extractable_id"], name: "index_extractions_on_extractable_type_and_extractable_id"
     t.index ["extractor_id"], name: "index_extractions_on_extractor_id"
+    t.index ["wechat_request_id"], name: "index_extractions_on_wechat_request_id"
+    t.index ["wechat_user_id"], name: "index_extractions_on_wechat_user_id"
   end
 
   create_table "extractors", force: :cascade do |t|
@@ -699,6 +704,12 @@ ActiveRecord::Schema.define(version: 2020_01_26_101148) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "organ_id", scale: 8
+    t.boolean "serial"
+    t.integer "serial_start", scale: 4
+    t.time "start_at"
+    t.time "finish_at"
+    t.string "valid_response"
+    t.string "invalid_response"
     t.index ["organ_id"], name: "index_extractors_on_organ_id"
   end
 
@@ -2435,21 +2446,6 @@ ActiveRecord::Schema.define(version: 2020_01_26_101148) do
     t.index ["wechat_app_id"], name: "index_wechat_menus_on_wechat_app_id"
   end
 
-  create_table "wechat_messages", force: :cascade do |t|
-    t.bigint "wechat_app_id", scale: 8
-    t.bigint "wechat_template_id", scale: 8
-    t.string "messaging_type"
-    t.bigint "messaging_id", scale: 8
-    t.string "type"
-    t.string "value"
-    t.json "body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["messaging_type", "messaging_id"], name: "index_wechat_messages_on_messaging_type_and_messaging_id"
-    t.index ["wechat_app_id"], name: "index_wechat_messages_on_wechat_app_id"
-    t.index ["wechat_template_id"], name: "index_wechat_messages_on_wechat_template_id"
-  end
-
   create_table "wechat_notices", force: :cascade do |t|
     t.bigint "wechat_template_id", scale: 8
     t.bigint "wechat_app_id", scale: 8
@@ -2464,6 +2460,19 @@ ActiveRecord::Schema.define(version: 2020_01_26_101148) do
     t.index ["wechat_subscribed_id"], name: "index_wechat_notices_on_wechat_subscribed_id"
     t.index ["wechat_template_id"], name: "index_wechat_notices_on_wechat_template_id"
     t.index ["wechat_user_id"], name: "index_wechat_notices_on_wechat_user_id"
+  end
+
+  create_table "wechat_replies", force: :cascade do |t|
+    t.bigint "wechat_app_id", scale: 8
+    t.string "messaging_type"
+    t.bigint "messaging_id", scale: 8
+    t.string "type"
+    t.string "value"
+    t.json "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["messaging_type", "messaging_id"], name: "index_wechat_replies_on_messaging_type_and_messaging_id"
+    t.index ["wechat_app_id"], name: "index_wechat_replies_on_wechat_app_id"
   end
 
   create_table "wechat_requests", force: :cascade do |t|
@@ -2491,6 +2500,8 @@ ActiveRecord::Schema.define(version: 2020_01_26_101148) do
     t.bigint "effective_id", scale: 8
     t.boolean "contain", default: true
     t.string "default_response"
+    t.string "request_type", comment: "用户发送消息类型"
+    t.string "reply_type", comment: "自动回复消息类型"
     t.index ["effective_type", "effective_id"], name: "index_wechat_responses_on_effective_type_and_effective_id"
     t.index ["wechat_app_id"], name: "index_wechat_responses_on_wechat_app_id"
   end
