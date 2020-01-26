@@ -51,7 +51,6 @@ class RailsComMigration9 < ActiveRecord::Migration[6.0]
 
 
 
-    add_column :wechat_apps, :help, :string
     remove_column :wechat_apps, :help_feedback, :string
 
 
