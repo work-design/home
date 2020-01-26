@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_23_112649) do
+ActiveRecord::Schema.define(version: 2020_01_26_101148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -2218,7 +2218,6 @@ ActiveRecord::Schema.define(version: 2020_01_23_112649) do
 
   create_table "tickets", force: :cascade do |t|
     t.bigint "organ_id", scale: 8
-    t.string "match_value"
     t.integer "serial_start", scale: 4
     t.time "start_at"
     t.time "finish_at"
@@ -2407,17 +2406,16 @@ ActiveRecord::Schema.define(version: 2020_01_23_112649) do
     t.string "jsapi_ticket"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "help", scale: 1024
     t.string "help_user_disabled"
     t.string "help_without_user"
     t.bigint "organ_id", scale: 8
-    t.string "help_feedback"
     t.string "type"
     t.datetime "access_token_expires_at"
     t.datetime "jsapi_ticket_expires_at"
     t.string "mch_id"
     t.string "key"
     t.boolean "primary"
+    t.string "help"
     t.index ["organ_id"], name: "index_wechat_apps_on_organ_id"
   end
 
@@ -2491,6 +2489,8 @@ ActiveRecord::Schema.define(version: 2020_01_23_112649) do
     t.datetime "expire_at"
     t.string "effective_type"
     t.bigint "effective_id", scale: 8
+    t.boolean "contain", default: true
+    t.string "default_response"
     t.index ["effective_type", "effective_id"], name: "index_wechat_responses_on_effective_type_and_effective_id"
     t.index ["wechat_app_id"], name: "index_wechat_responses_on_wechat_app_id"
   end
