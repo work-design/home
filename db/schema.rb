@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_26_131633) do
+ActiveRecord::Schema.define(version: 2020_01_27_082341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1098,6 +1098,17 @@ ActiveRecord::Schema.define(version: 2020_01_26_131633) do
     t.string "title"
     t.index ["money_type", "money_id"], name: "index_money_givens_on_money_type_and_money_id"
     t.index ["organ_id"], name: "index_money_givens_on_organ_id"
+  end
+
+  create_table "news_reply_items", force: :cascade do |t|
+    t.bigint "news_reply_id", scale: 8
+    t.string "title"
+    t.string "description"
+    t.string "pic_url"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["news_reply_id"], name: "index_news_reply_items_on_news_reply_id"
   end
 
   create_table "notification_sendings", force: :cascade do |t|
@@ -2471,8 +2482,12 @@ ActiveRecord::Schema.define(version: 2020_01_26_131633) do
     t.json "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "wechat_user_id", scale: 8
+    t.string "title"
+    t.string "description"
     t.index ["messaging_type", "messaging_id"], name: "index_wechat_replies_on_messaging_type_and_messaging_id"
     t.index ["wechat_app_id"], name: "index_wechat_replies_on_wechat_app_id"
+    t.index ["wechat_user_id"], name: "index_wechat_replies_on_wechat_user_id"
   end
 
   create_table "wechat_requests", force: :cascade do |t|
@@ -2501,7 +2516,6 @@ ActiveRecord::Schema.define(version: 2020_01_26_131633) do
     t.boolean "contain", default: true
     t.string "default_response"
     t.string "request_type", comment: "用户发送消息类型"
-    t.string "reply_type", comment: "自动回复消息类型"
     t.index ["effective_type", "effective_id"], name: "index_wechat_responses_on_effective_type_and_effective_id"
     t.index ["wechat_app_id"], name: "index_wechat_responses_on_wechat_app_id"
   end
