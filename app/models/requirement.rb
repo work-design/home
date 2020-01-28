@@ -1,6 +1,5 @@
 class Requirement < ApplicationRecord
   attribute :name, :string
-  attribute :mobile, :string
   attribute :from, :string
   attribute :to, :string
   attribute :pick_on, :date
@@ -12,6 +11,10 @@ class Requirement < ApplicationRecord
   has_many :volunteers, through: :requirement_volunteers
 
   has_one_attached :credential
+
+  def mobile
+    user.accounts.where(type: 'MobileAccount').pluck(:identity).join(',')
+  end
 
   def mobile_public
     "#{'*' * 7 }#{mobile[-4..-1]}"

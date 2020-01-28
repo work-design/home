@@ -54,7 +54,6 @@ class My::RequirementsController < My::BaseController
   def requirement_params
     params.fetch(:requirement, {}).permit(
       :name,
-      :mobile,
       :from,
       :to,
       :pick_on,

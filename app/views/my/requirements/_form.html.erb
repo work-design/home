@@ -1,7 +1,6 @@
 <%= form_with theme: 'weui', model: [:my, @requirement] do |f| %>
   <%= render 'shared/error_messages', target: @requirement %>
   <%= f.text_field :name %>
-  <%= f.text_field :mobile %>
   <%= f.text_field :from %>
   <%= f.text_field :to %>
   <%= f.date_select :pick_on %>
