@@ -1,6 +1,11 @@
 <div class="weui-panel">
-  <h1>湖北医护人员志愿服务平台</h1>
+  <div class="weui-panel__hd">
+    湖北医护人员志愿服务平台
+  </div>
   
-  <%= link_to '注册志愿者', my_requirements_path, class: 'weui-btn weui-btn_primary' %>
+  <div class="weui-panel__bd">
+    <%= link_to '注册志愿者', my_requirements_path, class: 'weui-btn weui-btn_primary' %>
+    <%= link_to '我是医护人员', new_my_requirement_path, class: 'weui-btn weui-btn_primary' %>
+  </div>
 </div>
 

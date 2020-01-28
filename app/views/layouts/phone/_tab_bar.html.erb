@@ -1,4 +1,8 @@
 <div class="weui-tabbar">
+  <%= link_to root_path, class: 'weui-tabbar__item' do %>
+    <i class="fas fa-home weui-tabbar__icon"></i>
+    <div class="weui-tabbar__label">首页</div>
+  <% end %>
   <%= link_to my_requirements_path, class: 'weui-tabbar__item' do %>
     <i class="fas fa-store-alt weui-tabbar__icon"></i>
     <div class="weui-tabbar__label">需求列表</div>

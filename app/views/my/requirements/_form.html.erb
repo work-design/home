@@ -1,11 +1,11 @@
-<%= form_with model: [:admin, @requirement] do |f| %>
+<%= form_with theme: 'weui', model: [:my, @requirement] do |f| %>
   <%= render 'shared/error_messages', target: @requirement %>
   <%= f.text_field :name %>
   <%= f.text_field :mobile %>
   <%= f.text_field :from %>
   <%= f.text_field :to %>
-  <%= f.text_field :pick_on %>
-  <%= f.text_field :pick_at %>
-  <%= f.text_field :note %>
+  <%= f.date_select :pickup_on %>
+  <%= f.time_select :pickup_at %>
+  <%= f.text_area :note %>
   <%= f.submit %>
 <% end %>

@@ -2,15 +2,16 @@ class My::RequirementsController < My::BaseController
   before_action :set_requirement, only: [:show, :edit, :update, :destroy]
 
   def index
-    @requirements = Requirement.page(params[:page])
+    q_params = {}
+    @requirements = Requirement.default_where(q_params).page(params[:page])
   end
 
   def new
-    @requirement = Requirement.new
+    @requirement = current_user.requirements.build
   end
 
   def create
-    @requirement = Requirement.new(requirement_params)
+    @requirement = current_user.requirements.build(requirement_params)
 
     unless @requirement.save
       render :new, locals: { model: @requirement }, status: :unprocessable_entity
