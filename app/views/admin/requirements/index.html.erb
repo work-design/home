@@ -17,7 +17,7 @@
       </th>
       <th><%= Requirement.human_attribute_name(:note) %></th>
       <th><%= Requirement.human_attribute_name(:requirement_volunteers_count) %></th>
-      <th></th>
+      <th>接送人联系方式</th>
       <th>
         <%= link_to new_admin_requirement_path, remote: true, class: 'ui mini green button' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
@@ -41,11 +41,11 @@
       <td><%= requirement.note %></td>
       <td><%= requirement.requirement_volunteers_count %></td>
       <td>
-        <table class="ui very relaxed table">
+        <table class="ui very basic table">
           <% requirement.requirement_volunteers.each do |require_volunteer| %>
             <tr>
               <td><%= require_volunteer.volunteer.name %></td>
-              <td><%= require_volunteer.volunteer.account_identities %></td>
+              <td><%= require_volunteer.volunteer.account_identities.join(',') %></td>
             </tr>
           <% end %>
         </table>
