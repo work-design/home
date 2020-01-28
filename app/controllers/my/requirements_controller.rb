@@ -3,7 +3,7 @@ class My::RequirementsController < My::BaseController
 
   def index
     q_params = {}
-    @requirements = Requirement.default_where(q_params).page(params[:page])
+    @requirements = Requirement.default_where(q_params).order(id: :desc).page(params[:page])
   end
 
   def new
@@ -13,7 +13,9 @@ class My::RequirementsController < My::BaseController
   def create
     @requirement = current_user.requirements.build(requirement_params)
 
-    unless @requirement.save
+    if @requirement.save
+      render 'create', locals: { return_to: my_requirements_url }
+    else
       render :new, locals: { model: @requirement }, status: :unprocessable_entity
     end
   end
@@ -57,7 +59,8 @@ class My::RequirementsController < My::BaseController
       :to,
       :pick_on,
       :pick_at,
-      :note
+      :note,
+      :credential
     )
   end
 

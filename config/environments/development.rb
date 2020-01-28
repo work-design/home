@@ -50,7 +50,8 @@ Rails.application.configure do
     'http://weixin.one.work'
   ]
   config.hosts += [
-    'weixin.one.work'
+    'weixin.one.work',
+    't.one.work'
   ]
 
   # Raises error for missing translations
