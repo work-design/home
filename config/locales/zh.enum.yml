@@ -24,6 +24,6 @@ zh:
           Advance: 充值
       requirement:
         state:
-          init: 正在进行
+          init: 待领取
           picked: 已委派
           done: 已完成
