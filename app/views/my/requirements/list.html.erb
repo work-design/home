@@ -1,7 +1,3 @@
-<div>
-  <%= link_to '发布需求', new_my_requirement_path, class: 'weui-btn weui-btn_primary' %>
-</div>
-
 <div class="weui-form-preview">
   <% @requirements.each do |requirement| %>
     <div class="weui-form-preview__hd">
@@ -23,7 +19,7 @@
       <% end %>
     </div>
     <div class="weui-form-preview__ft">
-      <%= link_to '修改', edit_my_requirement_path(requirement), class: 'weui-form-preview__btn weui-form-preview__btn_primary' %>
+      <%= link_to '认领任务', pickup_my_requirement_path(requirement), method: :patch, class: 'weui-form-preview__btn weui-form-preview__btn_primary' %>
     </div>
   <% end %>
 </div>

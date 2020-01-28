@@ -1,9 +1,13 @@
 class My::RequirementsController < My::BaseController
   before_action :set_requirement, only: [:show, :edit, :update, :destroy]
 
-  def index
+  def list
     q_params = {}
     @requirements = Requirement.default_where(q_params).order(id: :desc).page(params[:page])
+  end
+
+  def index
+    @requirements = current_user.requirements.order(id: :desc).page(params[:page])
   end
 
   def new
@@ -29,7 +33,9 @@ class My::RequirementsController < My::BaseController
   def update
     @requirement.assign_attributes(requirement_params)
 
-    unless @requirement.save
+    if @requirement.save
+      render 'create', locals: { return_to: my_requirements_url }
+    else
       render :edit, locals: { model: @requirement }, status: :unprocessable_entity
     end
   end

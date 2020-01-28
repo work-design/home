@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
   namespace :my do
     resources :requirements do
+      get :list, on: :collection
       patch :pickup, on: :member
     end
   end

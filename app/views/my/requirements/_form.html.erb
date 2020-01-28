@@ -1,11 +1,11 @@
 <%= form_with theme: 'weui', model: [:my, @requirement] do |f| %>
   <%= render 'shared/error_messages', target: @requirement %>
-  <%= f.text_field :name %>
-  <%= f.text_field :from %>
-  <%= f.text_field :to %>
-  <%= f.date_select :pick_on %>
+  <%= f.text_field :name, required: 'required' %>
+  <%= f.text_field :from, required: true %>
+  <%= f.text_field :to, required: true %>
+  <%= f.date_select :pick_on, required: true %>
   <%= f.time_select :pick_at, {}, class: nil %>
   <%= f.text_area :note, class: 'weui-textarea' %>
-  <%= f.file_field :credential %>
+  <%= f.file_field :credential, required: true %>
   <%= f.submit %>
 <% end %>
