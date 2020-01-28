@@ -5,6 +5,7 @@ class Requirement < ApplicationRecord
   attribute :pick_on, :date
   attribute :pick_at, :time
   attribute :note, :string
+  attribute :requirement_volunteers_count, :integer, default: 0
 
   belongs_to :user
   has_many :requirement_volunteers, dependent: :delete_all

@@ -2,7 +2,9 @@ class My::RequirementsController < My::BaseController
   before_action :set_requirement, only: [:show, :edit, :update, :destroy]
 
   def list
-    q_params = {}
+    q_params = {
+      requirement_volunteers_count: 0
+    }
     @requirements = Requirement.default_where(q_params).order(id: :desc).page(params[:page])
   end
 

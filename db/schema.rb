@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_28_064809) do
+ActiveRecord::Schema.define(version: 2020_01_28_103401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1928,7 +1928,6 @@ ActiveRecord::Schema.define(version: 2020_01_28_064809) do
 
   create_table "requirements", force: :cascade do |t|
     t.string "name"
-    t.string "mobile"
     t.string "from"
     t.string "to"
     t.date "pick_on"
@@ -1937,6 +1936,7 @@ ActiveRecord::Schema.define(version: 2020_01_28_064809) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", scale: 8
+    t.integer "requirement_volunteers_count", scale: 4, default: 0
     t.index ["user_id"], name: "index_requirements_on_user_id"
   end
 

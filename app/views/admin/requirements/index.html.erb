@@ -7,13 +7,17 @@
     <tr>
       <th><%= Requirement.human_attribute_name(:name) %></th>
       <th><%= Requirement.human_attribute_name(:mobile) %></th>
-      <th><%= Requirement.human_attribute_name(:from) %></th>
-      <th><%= Requirement.human_attribute_name(:to) %></th>
+      <th>
+        <p><%= Requirement.human_attribute_name(:from) %></p>
+        <p><%= Requirement.human_attribute_name(:to) %></p>
+      </th>
       <th>
         <p><%= Requirement.human_attribute_name(:pick_on) %></p>
         <p><%= Requirement.human_attribute_name(:pick_at) %></p>
       </th>
       <th><%= Requirement.human_attribute_name(:note) %></th>
+      <th><%= Requirement.human_attribute_name(:requirement_volunteers_count) %></th>
+      <th></th>
       <th>
         <%= link_to new_admin_requirement_path, remote: true, class: 'ui mini green button' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
@@ -26,13 +30,26 @@
     <tr>
       <td><%= requirement.name %></td>
       <td><%= requirement.mobile %></td>
-      <td><%= requirement.from %></td>
-      <td><%= requirement.to %></td>
+      <td>
+        <p><%= requirement.from %></p>
+        <p><%= requirement.to %></p>
+      </td>
       <td>
         <p><%= requirement.pick_on %></p>
         <p><%= requirement.pick_at.to_s(:time) if requirement.pick_at %></p>
       </td>
       <td><%= requirement.note %></td>
+      <td><%= requirement.requirement_volunteers_count %></td>
+      <td>
+        <table class="ui very relaxed table">
+          <% requirement.requirement_volunteers.each do |require_volunteer| %>
+            <tr>
+              <td><%= require_volunteer.volunteer.name %></td>
+              <td><%= require_volunteer.volunteer.account_identities %></td>
+            </tr>
+          <% end %>
+        </table>
+      </td>
       <td>
         <%= link_to admin_requirement_path(requirement), data: { tooltip: t('.show') }, remote: true, class: 'ui mini circular icon button' do %>
           <i class="fas fa-eye"></i>
