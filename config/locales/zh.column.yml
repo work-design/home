@@ -12,6 +12,7 @@ zh:
         from: 出发地
         to: 目的地
         pick_on: 日期
+        pick_on-gte: 日期晚于
         pick_at: 时间
         credential: 证件照片
         created_at: 提交时间
