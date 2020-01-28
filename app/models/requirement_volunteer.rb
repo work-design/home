@@ -6,4 +6,9 @@ class RequirementVolunteer < ApplicationRecord
   belongs_to :volunteer, class_name: 'User'
 
 
+  enum state: {
+    init: 'init',
+    done: 'done'
+  }
+
 end

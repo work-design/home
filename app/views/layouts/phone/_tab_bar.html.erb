@@ -7,6 +7,10 @@
     <i class="fas fa-store-alt weui-tabbar__icon"></i>
     <div class="weui-tabbar__label">需求列表</div>
   <% end %>
+  <%= link_to picked_my_requirements_path, class: 'weui-tabbar__item' do %>
+    <i class="fas fa-store-alt weui-tabbar__icon"></i>
+    <div class="weui-tabbar__label">已领任务</div>
+  <% end %>
   <%= link_to my_user_path, class: 'weui-tabbar__item' do %>
     <i class="fas fa-user-alt weui-tabbar__icon"></i>
     <div class="weui-tabbar__label">个人中心</div>

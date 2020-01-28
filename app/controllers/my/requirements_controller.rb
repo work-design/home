@@ -10,6 +10,10 @@ class My::RequirementsController < My::BaseController
     @requirements = Requirement.default_where(q_params).order(id: :desc).page(params[:page])
   end
 
+  def picked
+    @requirements = current_user.todo_requirements.order(id: :desc).page(params[:page])
+  end
+
   def index
     @requirements = current_user.requirements.order(id: :desc).page(params[:page])
   end
@@ -47,6 +51,14 @@ class My::RequirementsController < My::BaseController
   def pickup
     @rv = current_user.requirement_volunteers.find_or_initialize_by(requirement_id: params[:id])
 
+    if @rv.save
+      render 'pickup'
+    end
+  end
+
+  def done
+    @rv = current_user.requirement_volunteers.find_by(requirement_id: params[:id])
+    @rv.state = 'done'
     if @rv.save
       render 'pickup'
     end

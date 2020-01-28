@@ -18,8 +18,14 @@ Rails.application.routes.draw do
   end
   namespace :my do
     resources :requirements do
-      get :list, on: :collection
-      patch :pickup, on: :member
+      collection do
+        get :list
+        get :picked
+      end
+      member do
+        patch :pickup
+        patch :done
+      end
     end
   end
 

@@ -21,3 +21,7 @@ en:
       promote_good:
         good_type:
           Facilitate: 服务
+      requirement_volunteer:
+        state:
+          init: 正在进行
+          done: 已完成
