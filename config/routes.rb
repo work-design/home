@@ -22,9 +22,9 @@ Rails.application.routes.draw do
     end
   end
 
-  constraints ->(req) { AuthorizedToken.find_by(token: req.env['rack.session']['auth_token'])&.user if req.env['rack.session'].present? } do
-    get '' => 'bench/my/tasks#index'
-  end
+  # constraints ->(req) { AuthorizedToken.find_by(token: req.env['rack.session']['auth_token'])&.user if req.env['rack.session'].present? } do
+  #   get '' => 'bench/my/tasks#index'
+  # end
   require 'sidekiq/web'
   constraints ->(req) { AuthorizedToken.find_by(token: req.env['rack.session']['auth_token'])&.user&.admin? if req.env['rack.session'].present? } do
     mount Sidekiq::Web => '/sidekiq'
