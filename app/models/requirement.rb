@@ -18,12 +18,28 @@ class Requirement < ApplicationRecord
     done: 'done'
   }
 
+  after_save_commit :to_notice, if: -> { saved_change_to_volunteer_id? }
+  acts_as_notify(
+    :default,
+    only: [:name, :from, :to, :note],
+    methods: [:mobile]
+  )
+
   def mobile
     user.accounts.where(type: 'MobileAccount').pluck(:identity).join(',')
   end
 
   def mobile_public
     "#{'*' * 7 }#{mobile[-4..-1]}"
+  end
+
+  def to_notice
+    to_notification(
+      receiver: user,
+      title: '有人来护送天使了',
+      body: "有人已接单",
+      verbose: true
+    )
   end
 
 end

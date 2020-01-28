@@ -4,6 +4,7 @@ class User < ApplicationRecord
   include RailsAuth::User
   include RailsTrade::User
   include RailsNotice::Receiver
+  include RailsWechat::User
   include RailsOrg::User
   include RailsProfile::User
 
