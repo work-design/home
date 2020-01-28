@@ -1,0 +1,27 @@
+<div class="ui top attached segment">
+  <%= render 'filter' %>
+</div>
+
+<div class="weui-form-preview">
+  <% @requirements.each do |requirement| %>
+    <div class="weui-form-preview__hd">
+      <div class="weui-form-preview__item">
+        <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:name) %></label>
+        <em class="weui-form-preview__value"><%= requirement.name %></em>
+      </div>
+    </div>
+    <div class="weui-form-preview__bd">
+      <% requirement.attributes.slice('mobile', 'from', 'to', 'pickup_on', 'pickup_at', 'note', 'created_at').each do |name, value| %>
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(name) %></label>
+          <span class="weui-form-preview__value"><%= value %></span>
+        </div>
+      <% end %>
+    </div>
+    <div class="weui-form-preview__ft">
+      <%= link_to '认领任务', pickup_my_requirement_path(requirement), method: :patch, class: 'weui-form-preview__btn weui-form-preview__btn_primary' %>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @requirements %>

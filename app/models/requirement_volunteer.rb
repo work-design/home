@@ -3,7 +3,7 @@ class RequirementVolunteer < ApplicationRecord
 
 
   belongs_to :requirement
-  belongs_to :volunteer
+  belongs_to :volunteer, class_name: 'User'
 
 
 end

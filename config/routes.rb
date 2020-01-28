@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'home#index'
     resources :requirements
-    resources :volunteers
+  end
+  namespace :my do
+    resources :requirements do
+      patch :pickup, on: :member
+    end
   end
 
   constraints ->(req) { AuthorizedToken.find_by(token: req.env['rack.session']['auth_token'])&.user if req.env['rack.session'].present? } do
