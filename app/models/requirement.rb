@@ -5,13 +5,18 @@ class Requirement < ApplicationRecord
   attribute :pick_on, :date
   attribute :pick_at, :time
   attribute :note, :string
-  attribute :requirement_volunteers_count, :integer, default: 0
+  attribute :state, :string, default: 'init'
 
   belongs_to :user
-  has_many :requirement_volunteers, dependent: :delete_all
-  has_many :volunteers, through: :requirement_volunteers
+  belongs_to :volunteer, class_name: 'User'
 
   has_one_attached :credential
+
+  enum state: {
+    init: 'init',
+    picked: 'picked',
+    done: 'done'
+  }
 
   def mobile
     user.accounts.where(type: 'MobileAccount').pluck(:identity).join(',')

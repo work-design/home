@@ -22,3 +22,7 @@
   <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:note) %></label>
   <span class="weui-form-preview__value"><%= requirement.note %></span>
 </div>
+<div class="weui-form-preview__item">
+  <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:state) %></label>
+  <span class="weui-form-preview__value"><%= requirement.state_i18n %></span>
+</div>

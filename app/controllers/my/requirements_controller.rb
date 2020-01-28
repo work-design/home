@@ -1,9 +1,9 @@
 class My::RequirementsController < My::BaseController
-  before_action :set_requirement, only: [:show, :edit, :update, :destroy]
+  before_action :set_requirement, only: [:show, :edit, :update, :pickup, :done, :destroy]
 
   def list
     q_params = {
-      requirement_volunteers_count: 0,
+      state: 'init',
       'pick_on-gte': Date.today.to_s
     }
     q_params.merge! params.permit('pick_on-gte')
@@ -11,7 +11,7 @@ class My::RequirementsController < My::BaseController
   end
 
   def picked
-    @requirements = current_user.todo_requirements.order(id: :desc).page(params[:page])
+    @requirements = current_user.picked_requirements.order(id: :desc).page(params[:page])
   end
 
   def index
@@ -49,17 +49,18 @@ class My::RequirementsController < My::BaseController
   end
 
   def pickup
-    @rv = current_user.requirement_volunteers.find_or_initialize_by(requirement_id: params[:id])
+    @requirement.volunteer_id = current_user.id
+    @requirement.state = 'picked'
 
-    if @rv.save
+    if @requirement.save
       render 'pickup'
     end
   end
 
   def done
-    @rv = current_user.requirement_volunteers.find_by(requirement_id: params[:id])
-    @rv.state = 'done'
-    if @rv.save
+    @requirement.state = 'done'
+
+    if @requirement.save
       render 'pickup'
     end
   end

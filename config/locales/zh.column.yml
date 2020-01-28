@@ -16,4 +16,5 @@ zh:
         pick_at: 时间
         credential: 证件照片
         created_at: 提交时间
-        requirement_volunteers_count: 接送人
+        state: 状态
+        volunteer_id: 接送人

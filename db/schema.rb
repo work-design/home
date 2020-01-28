@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_28_103401) do
+ActiveRecord::Schema.define(version: 2020_01_28_120804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1936,8 +1936,10 @@ ActiveRecord::Schema.define(version: 2020_01_28_103401) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", scale: 8
-    t.integer "requirement_volunteers_count", scale: 4, default: 0
+    t.bigint "volunteer_id", scale: 8
+    t.string "state", default: "init"
     t.index ["user_id"], name: "index_requirements_on_user_id"
+    t.index ["volunteer_id"], name: "index_requirements_on_volunteer_id"
   end
 
   create_table "resign_reasons", force: :cascade do |t|

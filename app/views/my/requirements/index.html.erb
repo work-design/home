@@ -6,6 +6,10 @@
   <% @requirements.each do |requirement| %>
     <div class="weui-form-preview__bd">
       <%= render partial: 'requirement', locals: { requirement: requirement } %>
+      <div class="weui-form-preview__item">
+        <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:volunteer_id) %></label>
+        <span class="weui-form-preview__value"><%= requirement.volunteer.account_identities.join(',') if requirement.volunteer %></span>
+      </div>
     </div>
     <div class="weui-form-preview__ft">
       <%= link_to '修改', edit_my_requirement_path(requirement), class: 'weui-form-preview__btn weui-form-preview__btn_primary' %>

@@ -10,10 +10,6 @@
     </div>
     <div class="weui-form-preview__bd">
       <%= render partial: 'requirement', locals: { requirement: requirement } %>
-      <div class="weui-form-preview__item">
-        <label class="weui-form-preview__label">是否完成</label>
-        <span class="weui-form-preview__value"><%= requirement.requirement_volunteers.pluck(:state).join(',') %></span>
-      </div>
     </div>
     <div class="weui-form-preview__ft">
       <%= link_to '完成', done_my_requirement_path(requirement), method: :patch, class: 'weui-form-preview__btn weui-form-preview__btn_primary' %>
