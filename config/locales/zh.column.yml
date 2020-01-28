@@ -11,6 +11,6 @@ zh:
         mobile: 手机号
         from: 出发地
         to: 目的地
-        pickup_on: 日期
-        pickup_at: 时间
+        pick_on: 日期
+        pick_at: 时间
         created_at: 提交时间
