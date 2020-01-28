@@ -9,8 +9,10 @@
       <th><%= Requirement.human_attribute_name(:mobile) %></th>
       <th><%= Requirement.human_attribute_name(:from) %></th>
       <th><%= Requirement.human_attribute_name(:to) %></th>
-      <th><%= Requirement.human_attribute_name(:pick_on) %></th>
-      <th><%= Requirement.human_attribute_name(:pick_at) %></th>
+      <th>
+        <p><%= Requirement.human_attribute_name(:pick_on) %></p>
+        <p><%= Requirement.human_attribute_name(:pick_at) %></p>
+      </th>
       <th><%= Requirement.human_attribute_name(:note) %></th>
       <th>
         <%= link_to new_admin_requirement_path, remote: true, class: 'ui mini green button' do %>
@@ -26,8 +28,10 @@
       <td><%= requirement.mobile %></td>
       <td><%= requirement.from %></td>
       <td><%= requirement.to %></td>
-      <td><%= requirement.pick_on %></td>
-      <td><%= requirement.pick_at %></td>
+      <td>
+        <p><%= requirement.pick_on %></p>
+        <p><%= requirement.pick_at.to_s(:time) if requirement.pick_at %></p>
+      </td>
       <td><%= requirement.note %></td>
       <td>
         <%= link_to admin_requirement_path(requirement), data: { tooltip: t('.show') }, remote: true, class: 'ui mini circular icon button' do %>
