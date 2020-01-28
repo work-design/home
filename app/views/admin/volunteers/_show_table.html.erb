@@ -1,0 +1,24 @@
+<table class="ui very basic large table">
+  <thead>
+    <tr>
+      <th class="six wide">
+        <%= link_to t('.edit'), edit_admin_volunteer_path(@volunteer), class: 'ui mini blue right floated button', remote: true %>
+      </th>
+      <th class="ten wide"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="right aligned"><%= Volunteer.human_attribute_name(:name) %></td>
+      <td><%= @volunteer.name %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= Volunteer.human_attribute_name(:mobile) %></td>
+      <td><%= @volunteer.mobile %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= Volunteer.human_attribute_name(:place) %></td>
+      <td><%= @volunteer.place %></td>
+    </tr>
+  </tbody>
+</table>

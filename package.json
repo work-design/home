@@ -32,7 +32,7 @@
     "stickybits": "^3.6.7",
     "stimulus": "^1.1.0",
     "turbolinks": "^5.2.0",
-    "weui": "^2.0.0",
+    "weui": "^2.1.4",
     "weui.js": "^1.1.4",
     "work_ui": "https://github.com/work-design/work_ui.git",
     "yarn": "^1.17.3"

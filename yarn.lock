@@ -10261,7 +10261,7 @@ weui.js@^1.1.4:
     element-closest "^2.0.1"
     object-assign "^4.1.0"
 
-weui@^2.0.0:
+weui@^2.1.4:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/weui/-/weui-2.1.4.tgz#65aaf9eee93789beecbe0bbb450c4eba92e8f7ed"
   integrity sha512-TX61x4jz4ZLTRSOJRyqFUroDL3YsCzTMXDoZM7p1+yd1PZWAg5WCaYPSfLbWzmHk9L3w4X8BRGYUptPNrmu4iQ==

@@ -1,0 +1,7 @@
+<%= form_with model: [:admin, @volunteer] do |f| %>
+  <%= render 'shared/error_messages', target: @volunteer %>
+  <%= f.text_field :name %>
+  <%= f.text_field :mobile %>
+  <%= f.text_field :place %>
+  <%= f.submit %>
+<% end %>

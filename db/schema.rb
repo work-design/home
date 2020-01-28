@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_27_082341) do
+ActiveRecord::Schema.define(version: 2020_01_28_045900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1916,6 +1916,28 @@ ActiveRecord::Schema.define(version: 2020_01_27_082341) do
     t.index ["payment_id"], name: "index_refunds_on_payment_id"
   end
 
+  create_table "requirement_volunteers", force: :cascade do |t|
+    t.bigint "requirement_id", scale: 8
+    t.bigint "volunteer_id", scale: 8
+    t.string "state"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["requirement_id"], name: "index_requirement_volunteers_on_requirement_id"
+    t.index ["volunteer_id"], name: "index_requirement_volunteers_on_volunteer_id"
+  end
+
+  create_table "requirements", force: :cascade do |t|
+    t.string "name"
+    t.string "mobile"
+    t.string "from"
+    t.string "to"
+    t.date "pick_on"
+    t.time "pick_at"
+    t.string "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "resign_reasons", force: :cascade do |t|
     t.string "name"
     t.integer "position", scale: 4
@@ -2404,6 +2426,14 @@ ActiveRecord::Schema.define(version: 2020_01_27_082341) do
     t.bigint "account_id", scale: 8
     t.index ["account_id"], name: "index_verify_tokens_on_account_id"
     t.index ["user_id"], name: "index_verify_tokens_on_user_id"
+  end
+
+  create_table "volunteers", force: :cascade do |t|
+    t.string "name"
+    t.string "mobile"
+    t.string "place"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "wechat_app_extractors", force: :cascade do |t|
