@@ -4,23 +4,8 @@
 
 <div class="weui-form-preview">
   <% @requirements.each do |requirement| %>
-    <div class="weui-form-preview__hd">
-      <div class="weui-form-preview__item">
-        <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:name) %></label>
-        <em class="weui-form-preview__value"><%= requirement.name %></em>
-      </div>
-    </div>
     <div class="weui-form-preview__bd">
-      <div class="weui-form-preview__item">
-        <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:mobile) %></label>
-        <span class="weui-form-preview__value"><%= requirement.mobile_public %></span>
-      </div>
-      <% requirement.attributes.slice('from', 'to', 'pick_on', 'pick_at', 'note', 'created_at').each do |name, value| %>
-        <div class="weui-form-preview__item">
-          <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(name) %></label>
-          <span class="weui-form-preview__value"><%= value %></span>
-        </div>
-      <% end %>
+      <%= render partial: 'requirement', locals: { requirement: requirement } %>
     </div>
     <div class="weui-form-preview__ft">
       <%= link_to '修改', edit_my_requirement_path(requirement), class: 'weui-form-preview__btn weui-form-preview__btn_primary' %>

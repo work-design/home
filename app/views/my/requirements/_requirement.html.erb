@@ -1,0 +1,24 @@
+<div class="weui-form-preview__item">
+  <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:mobile) %></label>
+  <span class="weui-form-preview__value"><%= requirement.mobile_public %></span>
+</div>
+<div class="weui-form-preview__item">
+  <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:from) %></label>
+  <span class="weui-form-preview__value"><%= requirement.from %></span>
+</div>
+<div class="weui-form-preview__item">
+  <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:to) %></label>
+  <span class="weui-form-preview__value"><%= requirement.to %></span>
+</div>
+<div class="weui-form-preview__item">
+  <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:pick_on) %></label>
+  <span class="weui-form-preview__value"><%= requirement.pick_on %></span>
+</div>
+<div class="weui-form-preview__item">
+  <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:pick_at) %></label>
+  <span class="weui-form-preview__value"><%= requirement.pick_at.to_s(:time) if requirement.pick_at %></span>
+</div>
+<div class="weui-form-preview__item">
+  <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:note) %></label>
+  <span class="weui-form-preview__value"><%= requirement.note %></span>
+</div>
