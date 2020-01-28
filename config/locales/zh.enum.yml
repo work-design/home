@@ -22,3 +22,8 @@ zh:
         good_type:
           Facilitate: 服务
           Advance: 充值
+      requirement:
+        state:
+          init: 正在进行
+          picked: 已委派
+          done: 已完成
