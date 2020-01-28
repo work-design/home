@@ -11,7 +11,7 @@ module SmsHelper
       project: '6aGCz3'
     }
 
-    HTTPX.post(url, form: body)
+    HTTPX.post(url, json: body)
   end
 
   def self.quota
