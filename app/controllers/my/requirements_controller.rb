@@ -3,7 +3,8 @@ class My::RequirementsController < My::BaseController
 
   def list
     q_params = {
-      requirement_volunteers_count: 0
+      requirement_volunteers_count: 0,
+      'pick_on-gte': Date.today.to_s
     }
     @requirements = Requirement.default_where(q_params).order(id: :desc).page(params[:page])
   end
