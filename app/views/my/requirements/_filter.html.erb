@@ -1,5 +1,4 @@
 <%= form_with theme: 'weui_search', url: list_my_requirements_path, model: Requirement.new do |f| %>
-  <%= f.text_field :name %>
   <%= f.date_field 'pick_on-gte' %>
   <div class="weui-cell">
     <%= f.submit '搜索', on: { wrap_submit: false }, class: 'weui-btn weui-btn_mini weui-btn_primary' %>
