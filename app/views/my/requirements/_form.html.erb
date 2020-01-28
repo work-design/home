@@ -4,8 +4,8 @@
   <%= f.text_field :from %>
   <%= f.text_field :to %>
   <%= f.date_select :pick_on %>
-  <%= f.time_select :pick_at %>
-  <%= f.text_area :note %>
+  <%= f.time_select :pick_at, {}, class: nil %>
+  <%= f.text_area :note, class: 'weui-textarea' %>
   <%= f.file_field :credential %>
   <%= f.submit %>
 <% end %>
