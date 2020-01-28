@@ -6,6 +6,7 @@ class My::RequirementsController < My::BaseController
       requirement_volunteers_count: 0,
       'pick_on-gte': Date.today.to_s
     }
+    q_params.merge! params.permit('pick_on-gte')
     @requirements = Requirement.default_where(q_params).order(id: :desc).page(params[:page])
   end
 
