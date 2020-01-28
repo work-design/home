@@ -6,3 +6,9 @@ zh:
       pipeline_member:
         duty_id: 职位
         worker_id: 人选
+      requirement:
+        name: 姓名
+        mobile: 手机号
+        from: 出发地
+        to: 目的地
+        created_at: 提交时间

@@ -10,4 +10,9 @@ class Requirement < ApplicationRecord
   belongs_to :user
   has_many :requirement_volunteers, dependent: :delete_all
   has_many :volunteers, through: :requirement_volunteers
+
+  def mobile_public
+    "#{'*' * 7 }#{mobile[-4..-1]}"
+  end
+
 end
