@@ -219,7 +219,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: db5cae7a589c5c74ad5b27fc8f11d8890b5d90fe
+  revision: 5083571504d6851b3ec80186df0d1ee397e0e43b
   specs:
     rails_wechat (0.1.0)
       httpx
