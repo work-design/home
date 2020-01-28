@@ -8,7 +8,7 @@ class Requirement < ApplicationRecord
   attribute :state, :string, default: 'init'
 
   belongs_to :user
-  belongs_to :volunteer, class_name: 'User'
+  belongs_to :volunteer, class_name: 'User', optional: true
 
   has_one_attached :credential
 
