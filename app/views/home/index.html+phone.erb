@@ -1,23 +1,6 @@
 <div class="weui-panel">
-  <a class="weui-cell weui-cell_access weui-cell_example">
-    <div class="weui-cell__hd">
-      <%= image_tag current_user.avatar, class: 'avatar' %>
-    </div>
-    <div class="weui-cell__bd weui-cell_primary">
-      <p><%= current_user.name %></p>
-    </div>
-    <span class="weui-cell__ft"></span>
-  </a>
+  <h1>湖北医护人员志愿服务平台</h1>
+  
+  <%= link_to '注册志愿者', my_requirements_path, class: 'weui-btn weui-btn_primary' %>
 </div>
 
-<div class="weui-cells">
-  <%= link_to my_orders_path, class: 'weui-cell weui-cell_access' do %>
-    <div class="weui-cell__hd">
-      <i class="fas fa-user-alt"></i>
-    </div>
-    <div class="weui-cell__bd weui-cell_primary">
-      <p>我的订单</p>
-    </div>
-    <span class="weui-cell__ft"></span>
-  <% end %>
-</div>
