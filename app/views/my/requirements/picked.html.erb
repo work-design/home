@@ -16,7 +16,7 @@
       <%= render partial: 'requirement', locals: { requirement: requirement } %>
     </div>
     <div class="weui-form-preview__ft">
-      <%= link_to '完成', done_my_requirement_path(requirement), method: :patch, class: 'weui-form-preview__btn weui-form-preview__btn_primary' %>
+      <%= link_to '完成', done_my_requirement_path(requirement), method: :patch, data: { confirm: '请确认是否已送医务人员到达' }, class: 'weui-form-preview__btn weui-form-preview__btn_primary' %>
     </div>
   <% end %>
 </div>
