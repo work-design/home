@@ -2,7 +2,9 @@ class Admin::RequirementsController < Admin::BaseController
   before_action :set_requirement, only: [:show, :edit, :update, :destroy]
 
   def index
-    @requirements = Requirement.page(params[:page])
+    q_params = {}
+    q_params.merge! params.permit(:name)
+    @requirements = Requirement.order(id: :desc).page(params[:page])
   end
 
   def new
