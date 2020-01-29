@@ -43,12 +43,13 @@ class Admin::RequirementsController < Admin::BaseController
   def requirement_params
     params.fetch(:requirement, {}).permit(
       :name,
-      :mobile,
       :from,
       :to,
       :pick_on,
       :pick_at,
-      :note
+      :note,
+      :user_id,
+      :volunteer_id
     )
   end
 
