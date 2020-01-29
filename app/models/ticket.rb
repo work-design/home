@@ -1,2 +1,0 @@
-class Ticket < ApplicationRecord
-end
