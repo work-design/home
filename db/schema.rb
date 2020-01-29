@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_28_120804) do
+ActiveRecord::Schema.define(version: 2020_01_29_121819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -2500,6 +2500,8 @@ ActiveRecord::Schema.define(version: 2020_01_28_120804) do
     t.bigint "wechat_user_id", scale: 8
     t.bigint "wechat_subscribed_id", scale: 8
     t.string "link", default: "index"
+    t.string "msg_id"
+    t.string "status"
     t.index ["notification_id"], name: "index_wechat_notices_on_notification_id"
     t.index ["wechat_app_id"], name: "index_wechat_notices_on_wechat_app_id"
     t.index ["wechat_subscribed_id"], name: "index_wechat_notices_on_wechat_subscribed_id"
