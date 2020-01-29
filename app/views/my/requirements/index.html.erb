@@ -5,6 +5,10 @@
 <div class="weui-form-preview">
   <% @requirements.each do |requirement| %>
     <div class="weui-form-preview__bd">
+      <div class="weui-form-preview__item">
+        <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:mobile) %></label>
+        <span class="weui-form-preview__value"><%= requirement.mobile %></span>
+      </div>
       <%= render partial: 'requirement', locals: { requirement: requirement } %>
       <div class="weui-form-preview__item">
         <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:volunteer_id) %></label>
