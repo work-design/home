@@ -50,6 +50,7 @@ class Admin::RequirementsController < Admin::BaseController
       :pick_on,
       :pick_at,
       :note,
+      :state,
       :user_id,
       :volunteer_id
     )
