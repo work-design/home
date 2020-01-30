@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_29_121819) do
+ActiveRecord::Schema.define(version: 2020_01_30_033257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -688,12 +688,10 @@ ActiveRecord::Schema.define(version: 2020_01_29_121819) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "wechat_request_id", scale: 8
-    t.bigint "wechat_user_id", scale: 8
     t.integer "serial_number", scale: 4
     t.index ["extractable_type", "extractable_id"], name: "index_extractions_on_extractable_type_and_extractable_id"
     t.index ["extractor_id"], name: "index_extractions_on_extractor_id"
     t.index ["wechat_request_id"], name: "index_extractions_on_wechat_request_id"
-    t.index ["wechat_user_id"], name: "index_extractions_on_wechat_user_id"
   end
 
   create_table "extractors", force: :cascade do |t|
@@ -2250,30 +2248,6 @@ ActiveRecord::Schema.define(version: 2020_01_29_121819) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["template_config_id"], name: "index_template_key_words_on_template_config_id"
-  end
-
-  create_table "ticket_items", force: :cascade do |t|
-    t.bigint "ticket_id", scale: 8
-    t.bigint "wechat_user_id", scale: 8
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "wechat_request_id", scale: 8
-    t.integer "serial_number", scale: 4
-    t.index ["ticket_id"], name: "index_ticket_items_on_ticket_id"
-    t.index ["wechat_request_id"], name: "index_ticket_items_on_wechat_request_id"
-    t.index ["wechat_user_id"], name: "index_ticket_items_on_wechat_user_id"
-  end
-
-  create_table "tickets", force: :cascade do |t|
-    t.bigint "organ_id", scale: 8
-    t.integer "serial_start", scale: 4
-    t.time "start_at"
-    t.time "finish_at"
-    t.string "valid_response"
-    t.string "invalid_response"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["organ_id"], name: "index_tickets_on_organ_id"
   end
 
   create_table "time_items", id: :serial, scale: 4, force: :cascade do |t|
