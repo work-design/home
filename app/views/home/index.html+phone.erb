@@ -1,26 +1,36 @@
 <div class="weui-panel">
-  <div class="weui-panel__hd">
+  <div class="weui-panel__hd" style="text-align: center;">
     湖北医护人员志愿服务平台
   </div>
-  
   <div class="weui-panel__bd" style="font-size: 12px;">
-    <%= image_tag 'https://assets.one.work/weixin.jpg', height: 150 %>
-    <p>请使用者关注微信公众号以便接受系统消息</p>
-    <p>医护人员发送的需求被志愿者领取后将会收到包含志愿者联系方式的通知</p>
-    <p>志愿者组织：代表月亮消灭病毒志愿组</p>
+    <div class="weui-media-box weui-media-box_appmsg">
+      <div class="weui-media-box__hd">
+        <%= image_tag 'https://assets.one.work/weixin.jpg', height: 150, class: 'weui-media-box__thumb' %>
+      </div>
+      <div class="weui-media-box__bd">
+        <div class="weui-media-box__desc">
+          <p>请使用者关注微信公众号以便接受系统消息</p>
+          <p>医护人员发送的需求被志愿者领取后将会收到包含志愿者联系方式的通知</p>
+        </div>
+      </div>
+    </div>
+    <div class="weui-media-box weui-media-box_appmsg">
+      <div class="weui-media-box__hd" style="font-size: 12px;">
+        <%= image_tag 'https://assets.one.work/kefu1.jpg', height: 150, class: 'weui-media-box__thumb' %>
+      </div>
+      <div class="weui-media-box__bd">
+        <div>客服人员微信</div>
+        <p>客服人员电话：15671598569</p>
+      </div>
+    </div>
+  </div>
+  <div class="weui-panel__ft">
+    <div class="weui-panel__bd">
+      <%= link_to '注册志愿者', list_my_requirements_path, class: 'weui-btn weui-btn_primary' %>
+      <%= link_to '我是医护人员', my_requirements_path, class: 'weui-btn weui-btn_primary' %>
+    </div>
   </div>
 </div>
 
-<div class="weui-panel">
-  <div class="weui-panel__bd" style="font-size: 12px;">
-    <p>客服人员微信：<%= image_tag 'https://assets.one.work/kefu1.jpg', height: 150 %></p>
-    <p>客服人员电话：15671598569</p>
-  </div>
-</div>
+<p>志愿者组织：代表月亮消灭病毒志愿组</p>
 
-<div class="weui-panel">
-  <div class="weui-panel__bd">
-    <%= link_to '注册志愿者', list_my_requirements_path, class: 'weui-btn weui-btn_primary' %>
-    <%= link_to '我是医护人员', my_requirements_path, class: 'weui-btn weui-btn_primary' %>
-  </div>
-</div>
