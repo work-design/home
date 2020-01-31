@@ -34,7 +34,7 @@ class Requirement < ApplicationRecord
   end
 
   def service_content
-    "#{form} - #{to}"
+    "#{from} - #{to}"
   end
 
   def volunteer_name
