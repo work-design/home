@@ -1,11 +1,9 @@
 :concurrency: 10
 staging:
   :concurrency: 10
-  :daemon: true
   :logfile: log/sidekiq.log
 production:
   :concurrency: 20
-  :daemon: true
   :logfile: log/sidekiq.log
 :queues:
   - default
