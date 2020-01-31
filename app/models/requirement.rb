@@ -22,7 +22,7 @@ class Requirement < ApplicationRecord
   acts_as_notify(
     :default,
     only: [:name, :from, :to, :note],
-    methods: [:title, :service_type, :service_content, :volunteer_name, :volunteer_mobile]
+    methods: [:title, :service_type, :service_content, :volunteer_name, :volunteer_mobile, :remark]
   )
 
   def title
