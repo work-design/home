@@ -1,0 +1,17 @@
+<div class="weui-form-preview">
+  <div class="weui-form-preview__hd">
+    <div class="weui-form-preview__item">
+      <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:name) %></label>
+      <em class="weui-form-preview__value"><%= @requirement.name %></em>
+    </div>
+  </div>
+  <div class="weui-form-preview__bd">
+    <div class="weui-form-preview__item">
+      <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:mobile) %></label>
+      <span class="weui-form-preview__value"><%= @requirement.mobile %></span>
+    </div>
+    <%= render partial: 'requirement', locals: { requirement: @requirement } %>
+  </div>
+  <div class="weui-form-preview__ft">
+  </div>
+</div>

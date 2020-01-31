@@ -61,7 +61,8 @@ class Requirement < ApplicationRecord
     to_notification(
       receiver: user,
       title: '有人来护送天使了',
-      body: "有人已接单",
+      body: '有人已接单',
+      link: url_helpers.my_requirement_url(id),
       verbose: true
     )
   end
