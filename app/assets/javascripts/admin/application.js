@@ -5,6 +5,6 @@ import 'default_form/application'
 import 'rails_com/stimulus'
 
 import 'jquery'
-import 'fomantic-ui/dist/semantic'
+import '@work-design/ui/public/packs/js/semantic'
 import 'moment'
 import '../channels'

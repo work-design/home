@@ -9,4 +9,4 @@ import 'rails_com/application'
 
 import 'jquery'
 import 'moment'
-import 'fomantic-ui/dist/semantic'
+import '@work-design/ui/public/packs/js/semantic'
