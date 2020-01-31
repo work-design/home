@@ -93,6 +93,7 @@ GIT
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
+      http-form_data (~> 2.2)
       httpx (~> 0.5)
       rails (~> 6.0)
 
@@ -219,7 +220,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 08bc567b64444c76c346eef70554a409e8f78d59
+  revision: 8b28348108a5331c22efbeb7934ded24eaddcec7
   specs:
     rails_wechat (0.1.0)
       httpx
@@ -328,6 +329,7 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    http-form_data (2.2.0)
     httpx (0.6.4)
       http-2-next (>= 0.1.2)
       timers
