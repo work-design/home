@@ -18,19 +18,35 @@ class Requirement < ApplicationRecord
     done: 'done'
   }
 
-  after_save_commit :to_notice, if: -> { saved_change_to_volunteer_id? }
+  after_save_commit :to_notice, if: -> { saved_change_to_volunteer_id? && volunteer }
   acts_as_notify(
     :default,
     only: [:name, :from, :to, :note],
-    methods: [:mobile]
+    methods: [:title, :service_type, :service_content, :volunteer_name, :volunteer_mobile]
   )
 
   def title
     '尊敬的医护人员您好，您的用车需求已有志愿者接单'
   end
 
+  def service_type
+    '武汉医护人员志愿者接送服务'
+  end
+
+  def service_content
+    "#{form} - #{to}"
+  end
+
   def volunteer_name
     volunteer.name
+  end
+
+  def volunteer_mobile
+    volunteer.account_identities.join(',')
+  end
+
+  def remark
+    '点击此处查看详细信息'
   end
 
   def mobile

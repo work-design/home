@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   controller :home do
     get :index
-    get :uptoken
+    get :tip
   end
 
   controller :oauth do
