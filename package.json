@@ -17,6 +17,7 @@
     "@rails/activestorage": "^6.0.1",
     "@rails/ujs": "^6.0.1",
     "@rails/webpacker": "https://github.com/rails/webpacker",
+    "@work-design/ui": "https://github.com/work-design/ui.git",
     "add": "^2.0.6",
     "axios": "^0.18.0",
     "core-js": "3",
@@ -33,7 +34,6 @@
     "turbolinks": "^5.2.0",
     "weui": "^2.1.4",
     "weui.js": "^1.1.4",
-    "work_ui": "https://github.com/work-design/work_ui.git",
     "yarn": "^1.17.3"
   },
   "devDependencies": {
