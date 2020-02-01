@@ -54,12 +54,12 @@ class Escort < ApplicationRecord
     '点击此处查看详细信息'
   end
 
-  def mobile
-    user.accounts.where(type: 'MobileAccount').pluck(:identity).join(',')
+  def from_mobile_public
+    "#{'*' * 7 }#{from_mobile[-4..-1]}"
   end
 
-  def mobile_public
-    "#{'*' * 7 }#{mobile[-4..-1]}"
+  def to_mobile_public
+    "#{'*' * 7 }#{to_mobile[-4..-1]}"
   end
 
   def to_notice

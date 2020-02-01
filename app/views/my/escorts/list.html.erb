@@ -2,17 +2,7 @@
 
 <div class="weui-form-preview">
   <% @escorts.each do |escort| %>
-    <div class="weui-form-preview__hd">
-      <div class="weui-form-preview__item">
-        <label class="weui-form-preview__label"><%= Escort.human_attribute_name(:name) %></label>
-        <em class="weui-form-preview__value"><%= escort.name %></em>
-      </div>
-    </div>
     <div class="weui-form-preview__bd">
-      <div class="weui-form-preview__item">
-        <label class="weui-form-preview__label"><%= Escort.human_attribute_name(:mobile) %></label>
-        <span class="weui-form-preview__value"><%= escort.mobile_public %></span>
-      </div>
       <%= render partial: 'escort', locals: { escort: escort } %>
     </div>
     <div class="weui-form-preview__ft">
