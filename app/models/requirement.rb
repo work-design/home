@@ -14,6 +14,7 @@ class Requirement < ApplicationRecord
 
   enum state: {
     init: 'init',
+    unverified: 'unverified',
     picked: 'picked',
     done: 'done'
   }

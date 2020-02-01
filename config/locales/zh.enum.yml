@@ -25,5 +25,6 @@ zh:
       requirement:
         state:
           init: 待领取
+          unverified: 未证实
           picked: 已委派
           done: 已完成
