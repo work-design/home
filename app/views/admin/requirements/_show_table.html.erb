@@ -37,6 +37,10 @@
       <td><%= @requirement.note %></td>
     </tr>
     <tr>
+      <td class="right aligned"><%= Requirement.human_attribute_name(:created_at) %></td>
+      <td><time><%= @requirement.created_at.to_s(:rfc822) %></time></td>
+    </tr>
+    <tr>
       <td class="right aligned"><%= Requirement.human_attribute_name(:credential) %></td>
       <td><%= image_tag @requirement.credential, class: 'ui large image' if @requirement.credential.attached? %></td>
     </tr>
