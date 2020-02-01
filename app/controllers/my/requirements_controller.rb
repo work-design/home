@@ -2,6 +2,10 @@ class My::RequirementsController < My::BaseController
   before_action :set_requirement, only: [:show, :edit, :update, :pickup, :done, :destroy]
 
   def list
+    if current_user.plate_number.blank?
+      redirect_to edit_my_user_url(return_to: list_my_requirements_url)
+    end
+
     q_params = {
       state: 'init',
       'pick_on-gte': Date.today.to_s
