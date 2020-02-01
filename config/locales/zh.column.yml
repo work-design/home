@@ -3,6 +3,7 @@ zh:
     attributes:
       user:
         name: 姓名
+        plate_number: 车牌号
       pipeline_member:
         duty_id: 职位
         worker_id: 人选

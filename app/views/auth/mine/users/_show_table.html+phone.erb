@@ -1,0 +1,24 @@
+<div class="weui-cells">
+  <%= link_to edit_my_user_path(item: 'name'), class: 'weui-cell weui-cell_access' do %>
+    <div class="weui-cell__bd">
+      <%= User.human_attribute_name(:name) %>
+    </div>
+    <div class="weui-cell__ft"><%= @user.name %></div>
+  <% end %>
+  <%= link_to edit_my_user_path(item: 'name'), class: 'weui-cell weui-cell_access' do %>
+    <div class="weui-cell__bd">
+      <%= User.human_attribute_name(:plate_number) %>
+    </div>
+    <div class="weui-cell__ft"><%= @user.plate_number %></div>
+  <% end %>
+  <div class="weui-cell weui-cell_access">
+    <div class="weui-cell__bd">
+      <%= User.human_attribute_name(:accounts) %>
+    </div>
+    <div class="weui-cell__ft">
+      <% @user.accounts.each do |account| %>
+      <p><%= account.identity %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

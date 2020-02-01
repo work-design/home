@@ -1,0 +1,5 @@
+<%= form_with theme: 'weui', model: @user, url: my_user_path do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :plate_number %>
+  <%= f.submit %>
+<% end %>

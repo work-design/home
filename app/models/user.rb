@@ -8,6 +8,7 @@ class User < ApplicationRecord
   include RailsOrg::User
   include RailsProfile::User
 
+  attribute :plate_number, :string
   attribute :provider_id, :integer
 
   belongs_to :provider, inverse_of: :users, autosave: true, optional: true
