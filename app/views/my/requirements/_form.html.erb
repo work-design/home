@@ -1,6 +1,6 @@
 <%= form_with theme: 'weui', model: [:my, @requirement] do |f| %>
   <%= render 'shared/error_messages', target: @requirement %>
-  <%= f.text_field :name, required: 'required' %>
+  <%= f.text_field :name, required: true %>
   <%= f.text_field :from, required: true %>
   <%= f.text_field :to, required: true %>
   <%= f.date_select :pick_on, required: true %>
