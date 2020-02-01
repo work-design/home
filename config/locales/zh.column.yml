@@ -19,3 +19,13 @@ zh:
         created_at: 提交时间
         state: 状态
         volunteer_id: 接送人
+      escort:
+        from_name: 发货人
+        from_mobile: 发货人电话
+        from_address: 发货地址
+        to_name: 收货人
+        to_mobile: 收货人电话
+        to_address: 收货地址
+        goods: 物资明细
+        car: 需求车型
+        note: 备注

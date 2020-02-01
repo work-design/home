@@ -1,0 +1,26 @@
+<%= render 'filter' %>
+
+<div class="weui-form-preview">
+  <% @escorts.each do |escort| %>
+    <div class="weui-form-preview__hd">
+      <div class="weui-form-preview__item">
+        <label class="weui-form-preview__label"><%= Escort.human_attribute_name(:name) %></label>
+        <em class="weui-form-preview__value"><%= escort.name %></em>
+      </div>
+    </div>
+    <div class="weui-form-preview__bd">
+      <div class="weui-form-preview__item">
+        <label class="weui-form-preview__label"><%= Escort.human_attribute_name(:mobile) %></label>
+        <span class="weui-form-preview__value"><%= escort.mobile %></span>
+      </div>
+      <%= render partial: 'escort', locals: { escort: escort } %>
+    </div>
+    <% unless escort.done? %>
+    <div class="weui-form-preview__ft">
+      <%= link_to '完成', done_my_escort_path(escort), method: :patch, data: { confirm: '请确认是否已送医务人员到达' }, class: 'weui-form-preview__btn weui-form-preview__btn_primary' %>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= paginate @escorts %>

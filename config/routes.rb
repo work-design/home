@@ -15,9 +15,20 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'home#index'
     resources :requirements
+    resources :escorts
   end
   namespace :my do
     resources :requirements do
+      collection do
+        get :list
+        get :picked
+      end
+      member do
+        patch :pickup
+        patch :done
+      end
+    end
+    resources :escorts do
       collection do
         get :list
         get :picked
