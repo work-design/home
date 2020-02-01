@@ -5,8 +5,10 @@
 <table class="ui bottom attached selectable table">
   <thead>
     <tr>
-      <th><%= Requirement.human_attribute_name(:name) %></th>
-      <th><%= Requirement.human_attribute_name(:mobile) %></th>
+      <th>
+        <p><%= Requirement.human_attribute_name(:name) %></p>
+        <p><%= Requirement.human_attribute_name(:mobile) %></p>
+      </th>
       <th>
         <p><%= Requirement.human_attribute_name(:from) %></p>
         <p><%= Requirement.human_attribute_name(:to) %></p>
@@ -17,6 +19,7 @@
       </th>
       <th><%= Requirement.human_attribute_name(:note) %></th>
       <th><%= Requirement.human_attribute_name(:state) %></th>
+      <th><%= Requirement.human_attribute_name(:credential) %></th>
       <th>接送人联系方式</th>
       <th>
         <%= link_to new_admin_requirement_path, remote: true, class: 'ui mini green button' do %>
@@ -28,8 +31,10 @@
   <tbody>
   <% @requirements.each do |requirement| %>
     <tr>
-      <td><%= requirement.name %></td>
-      <td><%= requirement.mobile %></td>
+      <td>
+        <p><%= requirement.name %></p>
+        <p><%= requirement.mobile %></p>
+      </td>
       <td>
         <p><%= requirement.from %></p>
         <p><%= requirement.to %></p>
@@ -40,6 +45,7 @@
       </td>
       <td><%= requirement.note %></td>
       <td><%= requirement.state_i18n %></td>
+      <td><%= image_tag requirement.credential, class: 'ui tiny image' if requirement.credential.attached? %></td>
       <td>
         <% if requirement.volunteer %>
           <p><%= requirement.volunteer.name %></p>

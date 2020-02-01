@@ -38,7 +38,7 @@
     </tr>
     <tr>
       <td class="right aligned"><%= Requirement.human_attribute_name(:credential) %></td>
-      <td><%= image_tag @requirement.credential if @requirement.credential.attached? %></td>
+      <td><%= image_tag @requirement.credential, class: 'ui large image' if @requirement.credential.attached? %></td>
     </tr>
   </tbody>
 </table>
