@@ -1,0 +1,54 @@
+<div class="ui top attached segment">
+  <%= render 'filter' %>
+</div>
+
+<table class="ui bottom attached selectable table">
+  <thead>
+    <tr>
+      <th><%= Escort.human_attribute_name(:from_name) %></th>
+      <th><%= Escort.human_attribute_name(:from_mobile) %></th>
+      <th><%= Escort.human_attribute_name(:from_address) %></th>
+      <th><%= Escort.human_attribute_name(:to_name) %></th>
+      <th><%= Escort.human_attribute_name(:to_mobile) %></th>
+      <th><%= Escort.human_attribute_name(:to_address) %></th>
+      <th><%= Escort.human_attribute_name(:goods) %></th>
+      <th><%= Escort.human_attribute_name(:car) %></th>
+      <th><%= Escort.human_attribute_name(:note) %></th>
+      <th><%= Escort.human_attribute_name(:state) %></th>
+      <th>
+        <%= link_to new_admin_escort_path, remote: true, class: 'ui mini green button' do %>
+          <i class="fas fa-plus"></i><%= t('.new') %>
+        <% end %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @escorts.each do |escort| %>
+    <tr>
+      <td><%= escort.from_name %></td>
+      <td><%= escort.from_mobile %></td>
+      <td><%= escort.from_address %></td>
+      <td><%= escort.to_name %></td>
+      <td><%= escort.to_mobile %></td>
+      <td><%= escort.to_address %></td>
+      <td><%= escort.goods %></td>
+      <td><%= escort.car %></td>
+      <td><%= escort.note %></td>
+      <td><%= escort.state %></td>
+      <td>
+        <%= link_to admin_escort_path(escort), data: { tooltip: t('.show') }, remote: true, class: 'ui mini circular icon button' do %>
+          <i class="fas fa-eye"></i>
+        <% end %>
+        <%= link_to edit_admin_escort_path(escort), data: { tooltip: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
+          <i class="fas fa-pencil-alt"></i>
+        <% end %>
+        <%= link_to admin_escort_path(escort), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, remote: true, class: 'ui mini circular icon button' do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @escorts %>

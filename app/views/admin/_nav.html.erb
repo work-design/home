@@ -11,7 +11,8 @@
       <i class="dropdown icon"></i>
     </a>
     <div class="<%= active_helper(modules: 'admin', active_class: 'menu content active', item_class: 'menu content') %>">
-      <%= link_to '需求平台', admin_requirements_path, class: active_helper(controllers: 'admin/requirements') %>
+      <%= link_to '医护人员', admin_requirements_path, class: active_helper(controllers: 'admin/requirements') %>
+      <%= link_to '物资', admin_escorts_path, class: active_helper(controllers: 'admin/escorts') %>
     </div>
   </div>
   <%= render 'admin/org_nav' %>
