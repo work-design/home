@@ -9,6 +9,7 @@ class Requirement < ApplicationRecord
 
   belongs_to :user
   belongs_to :volunteer, class_name: 'User', optional: true
+  has_many :accounts, through: :user
 
   has_one_attached :credential
 

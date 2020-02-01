@@ -1,7 +1,18 @@
 <%= form_with theme: 'search', model: Requirement.new do |f| %>
   <div class="fields">
     <%= f.text_field :name %>
+    <%= f.text_field 'accounts.identity', placeholder: '手机号' %>
     <%= f.submit %>
     <%= link_to t('.clear'), filter_params(except: [:name]), class: 'ui button' %>
   </div>
 <% end %>
+<div class="ui divider"></div>
+<dl>
+  <dt><%= Requirement.human_attribute_name(:state) %></dt>
+  <dd>
+    <%= link_to t('.all'), filter_params(except: [:state]), class: active_params(state: '', active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <% Requirement.options_i18n(:state).each do |text, state| %>
+      <%= link_to text, filter_params(state: state), class: active_params(state: state, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <% end %>
+  </dd>
+</dl>
