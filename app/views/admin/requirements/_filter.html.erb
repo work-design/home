@@ -3,7 +3,7 @@
     <%= f.text_field :name %>
     <%= f.text_field 'accounts.identity', placeholder: '手机号' %>
     <%= f.submit %>
-    <%= link_to t('.clear'), filter_params(except: [:name]), class: 'ui button' %>
+    <%= link_to t('.clear'), filter_params(except: [:name, :state, 'accounts.identity']), class: 'ui button' %>
   </div>
 <% end %>
 <div class="ui divider"></div>
