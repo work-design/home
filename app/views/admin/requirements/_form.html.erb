@@ -7,7 +7,6 @@
   <%= f.time_field :pick_at %>
   <%= f.text_area :note %>
   <%= f.select :state, options_for_select(Requirement.options_i18n(:state), @requirement.state) %>
-  <%= f.text_field :user_id %>
   <%= f.text_field :volunteer_id %>
   <%= f.submit %>
 <% end %>
