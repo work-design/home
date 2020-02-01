@@ -4,6 +4,16 @@
   </div>
 <% end %>
 <div class="ui fluid vertical accordion bottom attached menu">
+  <div class="item">
+    <a class="<%= active_helper(modules: 'admin', active_class: 'title active', item_class: 'title') %>">
+      <i class="fas fa-users fa-fw"></i>
+      <span>湖北志愿者平台</span>
+      <i class="dropdown icon"></i>
+    </a>
+    <div class="<%= active_helper(modules: 'admin', active_class: 'menu content active', item_class: 'menu content') %>">
+      <%= link_to '需求平台', admin_requirements_path, class: active_helper(controllers: 'admin/requirements') %>
+    </div>
+  </div>
   <%= render 'admin/org_nav' %>
   <%= render 'auth_nav' %>
   <%= render 'role_nav' %>
