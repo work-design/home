@@ -191,7 +191,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: e775977047beef0138294342cbc8ba0e3dc01a29
+  revision: 9d3c12106f9f568efeca0162c0beaa13b4cd6a45
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 0.9, <= 1.0)
