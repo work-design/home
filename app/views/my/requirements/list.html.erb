@@ -1,4 +1,6 @@
-<%= render 'filter' %>
+<div style="text-align: center;">
+  <a href="javascript:;" id="datePickerBtn" class="weui-btn weui-btn_mini weui-btn_default">日期晚于</a>
+</div>
 
 <div class="weui-form-preview">
   <% @requirements.each do |requirement| %>
@@ -22,3 +24,24 @@
 </div>
 
 <%= paginate @requirements %>
+
+<script>
+  document.querySelector('#datePickerBtn').addEventListener('click', function () {
+    weui.datePicker({
+      start: '2020-02-01',
+      end: '2020-02-31',
+      cron: '* * *',
+      defaultValue: [2020, 2, 1],
+      onChange: function onChange(result) {
+        console.log(result);
+      },
+      onConfirm: function onConfirm(result) {
+        var search_url = new URL(location.origin + location.pathname)
+        search_url.searchParams.set('pick_on-gte', result)
+        location = search_url
+      },
+      id: 'datePicker',
+      title: '日期选择器'
+    })
+  })
+</script>
