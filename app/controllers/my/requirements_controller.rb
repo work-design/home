@@ -10,7 +10,7 @@ class My::RequirementsController < My::BaseController
       state: 'init',
       'pick_on-gte': Date.today.to_s
     }
-    q_params.merge! params.permit('pick_on-gte', 'from_area.parent_id')
+    q_params.merge! params.permit('pick_on-gte', 'from_area_id', 'pick_on')
     @requirements = Requirement.default_where(q_params).order(id: :desc).page(params[:page])
   end
 
