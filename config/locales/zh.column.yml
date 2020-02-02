@@ -10,7 +10,9 @@ zh:
       requirement:
         name: 姓名
         mobile: 手机号
+        from_area_id: 出发城市
         from: 出发地
+        to_area_id: 目的城市
         to: 目的地
         pick_on: 日期
         pick_on-gte: 日期晚于

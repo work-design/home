@@ -1,7 +1,9 @@
 <%= form_with theme: 'weui', model: [:my, @requirement] do |f| %>
   <%= render 'shared/error_messages', target: @requirement %>
   <%= f.text_field :name, required: true %>
+  <%= f.collection_select :from_area_id, Area.leaves, :id, :full_name %>
   <%= f.text_field :from, required: true %>
+  <%= f.collection_select :to_area_id, Area.leaves, :id, :full_name %>
   <%= f.text_field :to, required: true %>
   <%= f.date_select :pick_on, required: true %>
   <%= f.time_select :pick_at, {}, class: nil %>

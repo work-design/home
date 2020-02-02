@@ -81,7 +81,9 @@ class My::RequirementsController < My::BaseController
   def requirement_params
     params.fetch(:requirement, {}).permit(
       :name,
+      :from_area_id,
       :from,
+      :to_area_id,
       :to,
       :pick_on,
       :pick_at,

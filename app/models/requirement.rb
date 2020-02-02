@@ -9,6 +9,8 @@ class Requirement < ApplicationRecord
 
   belongs_to :user
   belongs_to :volunteer, class_name: 'User', optional: true
+  belongs_to :from_area, class_name: 'Area', optional: true
+  belongs_to :to_area, class_name: 'Area', optional: true
   has_many :accounts, through: :user
 
   has_one_attached :credential
@@ -49,6 +51,14 @@ class Requirement < ApplicationRecord
 
   def remark
     '点击此处查看详细信息'
+  end
+
+  def from_address
+    [from_area&.full_name, from].compact.join(' ')
+  end
+
+  def to_address
+    [to_area&.full_name, to].compact.join(' ')
   end
 
   def mobile
