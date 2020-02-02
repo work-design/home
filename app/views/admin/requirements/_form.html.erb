@@ -1,7 +1,9 @@
 <%= form_with model: [:admin, @requirement] do |f| %>
   <%= render 'shared/error_messages', target: @requirement %>
   <%= f.text_field :name %>
+  <%= f.collection_select :from_area_id, Area.leaves, :id, :full_name %>
   <%= f.text_field :from %>
+  <%= f.collection_select :to_area_id, Area.leaves, :id, :full_name %>
   <%= f.text_field :to %>
   <%= f.date_field :pick_on %>
   <%= f.time_field :pick_at %>

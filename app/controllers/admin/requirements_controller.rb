@@ -4,7 +4,7 @@ class Admin::RequirementsController < Admin::BaseController
   def index
     q_params = {}
     q_params.merge! params.permit(:name, :state, 'accounts.identity')
-    @requirements = Requirement.includes(user: :accounts).default_where(q_params).order(id: :desc).page(params[:page])
+    @requirements = Requirement.includes(:from_area, :to_area, user: :accounts).default_where(q_params).order(id: :desc).page(params[:page])
   end
 
   def new
@@ -45,7 +45,9 @@ class Admin::RequirementsController < Admin::BaseController
   def requirement_params
     params.fetch(:requirement, {}).permit(
       :name,
+      :from_area_id,
       :from,
+      :to_area_id,
       :to,
       :pick_on,
       :pick_at,
