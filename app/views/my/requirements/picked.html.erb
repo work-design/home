@@ -1,7 +1,7 @@
 <%= render 'filter' %>
 
-<div class="weui-form-preview">
-  <% @requirements.each do |requirement| %>
+<% @requirements.each do |requirement| %>
+  <div class="weui-form-preview">
     <div class="weui-form-preview__hd">
       <div class="weui-form-preview__item">
         <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:name) %></label>
@@ -20,7 +20,7 @@
       <%= link_to '完成', done_my_requirement_path(requirement), method: :patch, data: { confirm: '请确认是否已送医务人员到达' }, class: 'weui-form-preview__btn weui-form-preview__btn_primary' %>
     </div>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
 <%= paginate @requirements %>

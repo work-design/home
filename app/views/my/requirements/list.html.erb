@@ -1,7 +1,7 @@
 <%= render 'filter' %>
 
-<div class="weui-form-preview">
-  <% @requirements.each do |requirement| %>
+<% @requirements.each do |requirement| %>
+  <div class="weui-form-preview">
     <div class="weui-form-preview__hd">
       <div class="weui-form-preview__item">
         <label class="weui-form-preview__label"><%= Requirement.human_attribute_name(:name) %></label>
@@ -18,7 +18,7 @@
     <div class="weui-form-preview__ft">
       <%= link_to '认领任务', pickup_my_requirement_path(requirement), method: :patch, data: { confirm: '请确认是否接受此任务' }, class: 'weui-form-preview__btn weui-form-preview__btn_primary' %>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
 <%= paginate @requirements %>
