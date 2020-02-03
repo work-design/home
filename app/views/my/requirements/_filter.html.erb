@@ -18,7 +18,7 @@
       },
       onConfirm: function onConfirm(result) {
         var search_url = new URL(location.origin + location.pathname)
-        search_url.searchParams.set('pick_on', result)
+        search_url.searchParams.set('pick_on', result.join('-'))
         location = search_url
       },
       id: 'datePicker',
