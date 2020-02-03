@@ -7,7 +7,7 @@ class Stat < ApplicationRecord
 
 
   def compute(day = Date.today)
-    self.date = day
+    self.date ||= day
     self.oauth_users_count = OauthUser.default_where('created_at': date).count
     self.subscribed_requests_count = SubscribeRequest.default_where('created_at': date).count
     self.users_count = User.default_where('created_at': date).count
