@@ -53,6 +53,7 @@ class Admin::RequirementsController < Admin::BaseController
       :pick_at,
       :note,
       :state,
+      :credential,
       :user_id,
       :volunteer_id
     )
