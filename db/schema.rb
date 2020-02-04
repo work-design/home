@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_162442) do
+ActiveRecord::Schema.define(version: 2020_02_04_153800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1356,7 +1356,7 @@ ActiveRecord::Schema.define(version: 2020_02_03_162442) do
     t.bigint "organ_id", scale: 8
     t.integer "max_select", scale: 4
     t.integer "min_select", scale: 4
-    t.json "parent_ancestors"
+    t.jsonb "parent_ancestors"
     t.boolean "take_stock", comment: "可盘点"
     t.index ["organ_id"], name: "index_part_taxons_on_organ_id"
     t.index ["parent_id"], name: "index_part_taxons_on_parent_id"
@@ -1377,7 +1377,7 @@ ActiveRecord::Schema.define(version: 2020_02_03_162442) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "organ_id", scale: 8
-    t.json "part_taxon_ancestors"
+    t.jsonb "part_taxon_ancestors"
     t.index ["organ_id"], name: "index_parts_on_organ_id"
     t.index ["part_taxon_id"], name: "index_parts_on_part_taxon_id"
     t.index ["sku"], name: "index_parts_on_sku"
