@@ -133,7 +133,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 8a5bf95a2c0ed9c8fbc96b7bf0b005fcc54efbfd
+  revision: 1638a36c9736a50590498fde220a583e4dc5e0fc
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -200,7 +200,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: fb6ed1b38e842080a7a4a0177d73b668fb368dc7
+  revision: 6f202afe57c8f36dedb796bb6e204410038f3af7
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
