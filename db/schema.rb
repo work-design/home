@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_153800) do
+ActiveRecord::Schema.define(version: 2020_02_05_200412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1921,7 +1921,7 @@ ActiveRecord::Schema.define(version: 2020_02_04_153800) do
     t.decimal "total_amount", limit: 2, precision: 10
     t.string "buyer_identifier"
     t.string "comment", scale: 512
-    t.integer "state", scale: 4, default: 0
+    t.string "state", default: "0"
     t.datetime "refunded_at"
     t.string "reason", scale: 512
     t.string "currency"
