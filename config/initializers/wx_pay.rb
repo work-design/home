@@ -1,4 +1,4 @@
-WxPay.appid = CREDENT.dig(:wechat, :appid)
+WxPay.appid = CREDENT.dig(:wxpay, :appid)
 WxPay.key = CREDENT.dig(:wxpay, :key)
 WxPay.mch_id = CREDENT.dig(:wxpay, :mch_id)
 WxPay.extra_rest_client_options = {
