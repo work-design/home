@@ -15,3 +15,4 @@ node_modules
 config/master.key
 config/database.yml
 config/webpacker.yml
+config/certs
