@@ -1,7 +1,7 @@
 <div style="display: flex;align-items: center;text-align: center;">
   <%= form_with url: list_my_requirements_path, method: :get, id: 'search', local: true do |f| %><% end %>
   <%= text_field_tag :pick_on, params[:pick_on], placeholder: '日期', id: 'datePickerBtn', class: 'weui-input', style: 'width: 80px;', form: 'search' %>
-  <%= select_tag :from_area_id, options_from_collection_for_select(Area.leaves, :id, :full_name), class: 'weui-select', style: 'width: auto', form: 'search' %>
+  <%= select_tag :from_area_id, options_from_collection_for_select(Area.leaves, :id, :full_name), include_blank: '请选择地区', class: 'weui-select', style: 'width: auto', form: 'search' %>
   <%= submit_tag '搜索', class: 'weui-btn weui-btn_mini weui-btn_default', form: 'search' %>
   <%= link_to '重置', filter_params(except: ['pick_on-gte', 'from_area_id', :pick_on]), class: 'weui-btn weui-btn_mini weui-btn_default' %>
 </div>
@@ -11,12 +11,15 @@
     document.activeElement.blur()
   })
   document.querySelector('#datePickerBtn').addEventListener('click', function(e) {
+    var d = new Date()
+    var da = [d.getFullYear(), d.getMonth() + 1, d.getDate()]
     weui.datePicker({
-      start: '2020-02-01',
+      start: da.join('-'),
       end: '2020-02-31',
       cron: '* * *',
-      defaultValue: [2020, 2, 1],
+      defaultValue: da,
       onChange: function onChange(result) {
+        console.log(da)
         console.log(result)
         console.log(e.currentTarget)
         console.log(e.target)
