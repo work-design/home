@@ -1,26 +1,25 @@
 <div style="display: flex;align-items: center;text-align: center;">
   <%= form_with url: list_my_requirements_path, method: :get, id: 'search', local: true do |f| %><% end %>
-  <a href="javascript:;" id="datePickerBtn" class="weui-btn weui-btn_mini weui-btn_default">日期</a>
-  <%= hidden_field_tag :pick_on, params[:pick_on], form: 'search' %>
+  <%= text_field_tag :pick_on, params[:pick_on], placeholder: '日期', id: 'datePickerBtn', class: 'weui-input', style: 'width: 80px;', form: 'search' %>
   <%= select_tag :from_area_id, options_from_collection_for_select(Area.leaves, :id, :full_name), class: 'weui-select', style: 'width: auto', form: 'search' %>
   <%= submit_tag '搜索', class: 'weui-btn weui-btn_mini weui-btn_default', form: 'search' %>
-  <%= link_to '重置搜索', filter_params(except: ['pick_on-gte', 'from_area_id', :pick_on]), class: 'weui-btn weui-btn_mini weui-btn_default' %>
+  <%= link_to '重置', filter_params(except: ['pick_on-gte', 'from_area_id', :pick_on]), class: 'weui-btn weui-btn_mini weui-btn_default' %>
 </div>
 
 <script>
-  document.querySelector('#datePickerBtn').addEventListener('click', function () {
+  document.querySelector('#datePickerBtn').addEventListener('click', function(e) {
     weui.datePicker({
-      start: '2020-02-01',
+      start: new Date(),
       end: '2020-02-31',
       cron: '* * *',
       defaultValue: [2020, 2, 1],
       onChange: function onChange(result) {
         console.log(result)
+        console.log(e.currentTarget)
+        console.log(e.target)
       },
       onConfirm: function onConfirm(result) {
-        var search_url = new URL(location.origin + location.pathname)
-        search_url.searchParams.set('pick_on', result.join('-'))
-        location = search_url
+        e.target.value = result.join('-')
       },
       id: 'datePicker',
       title: '日期选择器'
