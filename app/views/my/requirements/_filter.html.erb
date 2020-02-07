@@ -7,9 +7,12 @@
 </div>
 
 <script>
+  document.querySelector('#datePickerBtn').addEventListener('focus', function() {
+    document.activeElement.blur()
+  })
   document.querySelector('#datePickerBtn').addEventListener('click', function(e) {
     weui.datePicker({
-      start: new Date(),
+      start: '2020-02-01',
       end: '2020-02-31',
       cron: '* * *',
       defaultValue: [2020, 2, 1],
