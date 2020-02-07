@@ -1,6 +1,7 @@
 <div style="display: flex;align-items: center;text-align: center;">
   <%= form_with url: list_my_requirements_path, method: :get, id: 'search', local: true do |f| %><% end %>
   <a href="javascript:;" id="datePickerBtn" class="weui-btn weui-btn_mini weui-btn_default">日期</a>
+  <%= hidden_field_tag :pick_on, params[:pick_on], form: 'search' %>
   <%= select_tag :from_area_id, options_from_collection_for_select(Area.leaves, :id, :full_name), class: 'weui-select', style: 'width: auto', form: 'search' %>
   <%= submit_tag '搜索', class: 'weui-btn weui-btn_mini weui-btn_default', form: 'search' %>
   <%= link_to '重置搜索', filter_params(except: ['pick_on-gte', 'from_area_id', :pick_on]), class: 'weui-btn weui-btn_mini weui-btn_default' %>
