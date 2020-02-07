@@ -2,8 +2,12 @@
   <div class="fields">
     <%= f.text_field :name %>
     <%= f.text_field 'accounts.identity', placeholder: '手机号' %>
+    <%= f.date_field :pick_on %>
+    <%= f.time_field :pick_at %>
+    <%= f.collection_select :from_area_id, Area.leaves, :id, :full_name, include_blank: true %>
+    <%= f.collection_select :to_area_id, Area.leaves, :id, :full_name, include_blank: true %>
     <%= f.submit %>
-    <%= link_to t('.clear'), filter_params(except: [:name, :state, 'accounts.identity']), class: 'ui button' %>
+    <%= link_to t('.clear'), admin_requirements_path, class: 'ui button' %>
   </div>
 <% end %>
 <div class="ui divider"></div>

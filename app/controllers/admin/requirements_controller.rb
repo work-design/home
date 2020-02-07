@@ -3,7 +3,7 @@ class Admin::RequirementsController < Admin::BaseController
 
   def index
     q_params = {}
-    q_params.merge! params.permit(:name, :state, 'accounts.identity')
+    q_params.merge! params.permit(:name, :state, 'accounts.identity', :pick_on, :pick_at, :from_area_id, :to_area_id)
     @requirements = Requirement.includes(:from_area, :to_area, user: :accounts).default_where(q_params).order(id: :desc).page(params[:page])
   end
 
