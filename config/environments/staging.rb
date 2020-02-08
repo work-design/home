@@ -22,6 +22,16 @@ Rails.application.configure do
   config.active_support.deprecation = :notify
   config.active_record.dump_schema_after_migration = false
 
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.exmail.qq.com',
+    port: 465,
+    authentication: :login,
+    user_name: 'contact@one.work',
+    password: CREDENT[:mailer_password],
+    ssl: true,
+    return_response: true
+  }
+
   config.action_cable.disable_request_forgery_protection = true
   config.action_cable.allowed_request_origins = [
     'https://one.work'
