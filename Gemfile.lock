@@ -133,7 +133,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: f8c5298ec8c6a6fd0c7bea310201b878a2d0d66b
+  revision: c6d7e9c23efa59fce8ce3c3e6e41e59dbc6f1901
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -190,6 +190,13 @@ GIT
       rails_com (~> 1.2)
 
 GIT
+  remote: https://github.com/work-design/rails_ship.git
+  revision: c32af26198b9a6485d9fdf448c43445bb50199e7
+  specs:
+    rails_ship (0.1.0)
+      rails_com (~> 1.2)
+
+GIT
   remote: https://github.com/work-design/rails_taxon.git
   revision: 9d3c12106f9f568efeca0162c0beaa13b4cd6a45
   specs:
@@ -200,7 +207,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 4ca9fed4ab6702840a58d9d174e994c8d1055415
+  revision: 37ec38a152e47f1403a5bda5c33d58afe1ad0eb8
   specs:
     rails_trade (0.0.1)
       money-rails (~> 1.12)
@@ -599,6 +606,7 @@ DEPENDENCIES
   rails_profile!
   rails_quip!
   rails_role!
+  rails_ship!
   rails_taxon!
   rails_trade!
   rails_vip!

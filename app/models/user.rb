@@ -7,17 +7,15 @@ class User < ApplicationRecord
   include RailsWechat::User
   include RailsOrg::User
   include RailsProfile::User
+  include RailsShip::User
 
   attribute :plate_number, :string
-  attribute :provider_id, :integer
 
-  belongs_to :provider, inverse_of: :users, autosave: true, optional: true
-  has_one :present_worker, -> { where(major: true) }, class_name: 'Worker'
   has_one :github_user
   has_one :wechat_user
   has_many :project_funds, dependent: :nullify
-  has_many :workers, -> { order(id: :asc) }
   has_many :projects, foreign_key: :creator_id, dependent: :nullify
+
   has_many :requirements, dependent: :destroy
   has_many :picked_requirements, class_name: 'Requirement', foreign_key: :volunteer_id
   has_many :escorts, dependent: :destroy

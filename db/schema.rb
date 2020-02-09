@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_05_200412) do
+ActiveRecord::Schema.define(version: 2020_02_09_172922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -510,8 +510,6 @@ ActiveRecord::Schema.define(version: 2020_02_05_200412) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "product_id", scale: 8
-    t.string "buyer_type"
-    t.bigint "buyer_id", scale: 8
     t.decimal "price", limit: 2, precision: 10
     t.bigint "organ_id", scale: 8
     t.bigint "cart_id", scale: 8
@@ -522,7 +520,6 @@ ActiveRecord::Schema.define(version: 2020_02_05_200412) do
     t.string "unit"
     t.decimal "quantity", default: "0.0"
     t.decimal "unified_quantity", default: "0.0"
-    t.index ["buyer_type", "buyer_id"], name: "index_customs_on_buyer_type_and_buyer_id"
     t.index ["cart_id"], name: "index_customs_on_cart_id"
     t.index ["organ_id"], name: "index_customs_on_organ_id"
     t.index ["product_id"], name: "index_customs_on_product_id"
@@ -1157,7 +1154,7 @@ ActiveRecord::Schema.define(version: 2020_02_05_200412) do
     t.string "notifiable_type"
     t.integer "notifiable_id", scale: 4
     t.string "code"
-    t.integer "state", scale: 4, default: 0
+    t.string "state", default: "0"
     t.string "title"
     t.string "body", scale: 5000
     t.string "link"
@@ -1216,7 +1213,7 @@ ActiveRecord::Schema.define(version: 2020_02_05_200412) do
 
   create_table "orders", force: :cascade do |t|
     t.string "uuid", null: false
-    t.integer "state", scale: 4, default: 0
+    t.string "state", default: "0"
     t.decimal "amount", limit: 2, precision: 10
     t.decimal "received_amount", limit: 2, precision: 10
     t.decimal "item_amount", limit: 2, precision: 10
@@ -1228,8 +1225,6 @@ ActiveRecord::Schema.define(version: 2020_02_05_200412) do
     t.boolean "myself"
     t.decimal "overall_reduced_amount", limit: 2, precision: 10
     t.decimal "overall_additional_amount", limit: 2, precision: 10
-    t.string "buyer_type"
-    t.bigint "buyer_id", scale: 8
     t.string "payment_status"
     t.bigint "user_id", scale: 8
     t.bigint "cart_id", scale: 8
@@ -1239,7 +1234,7 @@ ActiveRecord::Schema.define(version: 2020_02_05_200412) do
     t.string "note", scale: 4096
     t.datetime "expire_at"
     t.json "extra", default: {}
-    t.index ["buyer_type", "buyer_id"], name: "index_orders_on_buyer_type_and_buyer_id"
+    t.integer "trade_items_count", scale: 4, default: 0
     t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["maintain_id"], name: "index_orders_on_maintain_id"
     t.index ["organ_id"], name: "index_orders_on_organ_id"
@@ -1895,6 +1890,28 @@ ActiveRecord::Schema.define(version: 2020_02_05_200412) do
     t.index ["quip_app_id"], name: "index_quip_threads_on_quip_app_id"
   end
 
+  create_table "rallies", force: :cascade do |t|
+    t.bigint "area_id", scale: 8
+    t.string "name"
+    t.string "detail"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["area_id"], name: "index_rallies_on_area_id"
+  end
+
+  create_table "rally_users", force: :cascade do |t|
+    t.bigint "rally_id", scale: 8
+    t.bigint "user_id", scale: 8
+    t.bigint "inviter_id", scale: 8
+    t.decimal "commission_ratio", limit: 2, precision: 4, default: "0.0", comment: "佣金比例"
+    t.string "kind"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["inviter_id"], name: "index_rally_users_on_inviter_id"
+    t.index ["rally_id"], name: "index_rally_users_on_rally_id"
+    t.index ["user_id"], name: "index_rally_users_on_user_id"
+  end
+
   create_table "record_items", id: :serial, scale: 4, force: :cascade do |t|
     t.integer "record_list_id", scale: 4
     t.datetime "created_at", null: false
@@ -1928,6 +1945,7 @@ ActiveRecord::Schema.define(version: 2020_02_05_200412) do
     t.string "refund_uuid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "response"
     t.index ["operator_id"], name: "index_refunds_on_operator_id"
     t.index ["order_id"], name: "index_refunds_on_order_id"
     t.index ["payment_id"], name: "index_refunds_on_payment_id"
@@ -2055,6 +2073,15 @@ ActiveRecord::Schema.define(version: 2020_02_05_200412) do
     t.index ["serve_id"], name: "index_serve_goods_on_serve_id"
   end
 
+  create_table "shipments", force: :cascade do |t|
+    t.bigint "package_id", scale: 8
+    t.bigint "address_id", scale: 8
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["address_id"], name: "index_shipments_on_address_id"
+    t.index ["package_id"], name: "index_shipments_on_package_id"
+  end
+
   create_table "stats", force: :cascade do |t|
     t.integer "subscribed_requests_count", scale: 4
     t.integer "oauth_users_count", scale: 4
@@ -2178,8 +2205,8 @@ ActiveRecord::Schema.define(version: 2020_02_05_200412) do
     t.integer "parent_id", scale: 4
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "state", scale: 4, default: 0
-    t.integer "focus", scale: 4, default: 0
+    t.string "state", default: "0"
+    t.string "focus", default: "0"
     t.string "repeat_type"
     t.integer "repeat_days", scale: 4, array: true
     t.integer "position", scale: 4, default: 1
@@ -2422,7 +2449,6 @@ ActiveRecord::Schema.define(version: 2020_02_05_200412) do
     t.string "source"
     t.integer "cached_role_ids", scale: 4, array: true
     t.string "invited_code"
-    t.integer "provider_id", scale: 4
     t.string "plate_number"
   end
 
