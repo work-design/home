@@ -72,7 +72,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 57f62d5b7adde14545b6feece383924e2eef8218
+  revision: 2ce95a3a29c05db7afaeff6775dfe4228711f89c
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 0bdfbb817a99189d3b061587ce392e6b47a74d94
+  revision: e7c231db79efe64a54a6d4c1eb91f2eea1feac71
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -141,7 +141,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_log.git
-  revision: 92502d22b8b3cd64a0576b899a8539f633b87c95
+  revision: 1bc9b0898876491b8264f3c07951b12c4d6b2202
   specs:
     rails_log (2.1.6)
       rails_com (~> 1.2)
@@ -166,7 +166,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 942070690453fa3e316f6285b6837e4df7e5eaaa
+  revision: 03c94fa8d5991af9e4b89f9b580125daa66b337b
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -191,7 +191,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ship.git
-  revision: c32af26198b9a6485d9fdf448c43445bb50199e7
+  revision: eb8bdd130d109066b231ebb02dc257dcf3776edf
   specs:
     rails_ship (0.1.0)
       rails_com (~> 1.2)
@@ -207,9 +207,9 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 37ec38a152e47f1403a5bda5c33d58afe1ad0eb8
+  revision: d876a26890c1eec26e2f0d3b5f2abde363fb7448
   specs:
-    rails_trade (0.0.1)
+    rails_trade (0.0.2)
       money-rails (~> 1.12)
       rails_audit (~> 1.0)
       rails_auth (~> 1.0)
@@ -219,7 +219,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: a284bfbc1a4ed0197b20709969bdca9e607ff5f9
+  revision: 478596ad5837081bc51dbc38ab9b5d6177fd1817
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
@@ -337,7 +337,7 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     http-form_data (2.2.0)
-    httpx (0.6.4)
+    httpx (0.6.5)
       http-2-next (>= 0.1.2)
       timers
     i18n (1.8.2)

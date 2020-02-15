@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_09_172922) do
+ActiveRecord::Schema.define(version: 2020_02_15_045001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -950,9 +950,10 @@ ActiveRecord::Schema.define(version: 2020_02_09_172922) do
     t.string "session", scale: 2048
     t.string "exception", scale: 10240
     t.string "exception_object"
-    t.text "exception_backtrace"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "exception_backtrace", array: true
+    t.string "ip"
   end
 
   create_table "logs", id: :serial, scale: 4, force: :cascade do |t|

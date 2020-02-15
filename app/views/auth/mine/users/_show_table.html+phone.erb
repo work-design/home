@@ -21,4 +21,10 @@
       <% end %>
     </div>
   </div>
+  <%= link_to my_rallies_path, class: 'weui-cell weui-cell_access' do %>
+    <div class="weui-cell__bd">
+      <%= User.human_attribute_name(:plate_number) %>
+    </div>
+    <div class="weui-cell__ft">我的地址</div>
+  <% end %>
 </div>

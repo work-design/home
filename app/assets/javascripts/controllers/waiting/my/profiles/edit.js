@@ -14,7 +14,4 @@ attachToInput({
   onFileUploaded: function(filename) {
     $('#avatar_image').attr('src', filename);
   }
-});
-
-
-
+})
