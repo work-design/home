@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_15_045001) do
+ActiveRecord::Schema.define(version: 2020_02_16_170638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,6 +122,86 @@ ActiveRecord::Schema.define(version: 2020_02_15_045001) do
     t.string "note", comment: "备注"
     t.index ["agent_type", "agent_id"], name: "index_agencies_on_agent_type_and_agent_id"
     t.index ["client_type", "client_id"], name: "index_agencies_on_client_type_and_client_id"
+  end
+
+  create_table "aim_codes", force: :cascade do |t|
+    t.bigint "aim_id", scale: 8
+    t.string "controller_path"
+    t.string "action_name"
+    t.string "code", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["aim_id"], name: "index_aim_codes_on_aim_id"
+  end
+
+  create_table "aim_entities", force: :cascade do |t|
+    t.bigint "aim_id", scale: 8
+    t.bigint "user_id", scale: 8
+    t.string "entity_type"
+    t.bigint "entity_id", scale: 8
+    t.bigint "reward_expense_id", scale: 8
+    t.bigint "aim_user_id", scale: 8
+    t.bigint "reward_id", scale: 8
+    t.integer "present_point", scale: 4
+    t.string "state"
+    t.string "serial_number"
+    t.datetime "last_access_at"
+    t.string "ip"
+    t.decimal "reward_amount", limit: 2, precision: 10
+    t.integer "aim_logs_count", scale: 4, default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["aim_id"], name: "index_aim_entities_on_aim_id"
+    t.index ["aim_user_id"], name: "index_aim_entities_on_aim_user_id"
+    t.index ["entity_type", "entity_id"], name: "index_aim_entities_on_entity_type_and_entity_id"
+    t.index ["reward_expense_id"], name: "index_aim_entities_on_reward_expense_id"
+    t.index ["reward_id"], name: "index_aim_entities_on_reward_id"
+    t.index ["user_id"], name: "index_aim_entities_on_user_id"
+  end
+
+  create_table "aim_logs", force: :cascade do |t|
+    t.bigint "aim_id", scale: 8
+    t.bigint "user_id", scale: 8
+    t.string "entity_type"
+    t.bigint "entity_id", scale: 8
+    t.bigint "aim_entity_id", scale: 8
+    t.bigint "reward_id", scale: 8
+    t.string "serial_number"
+    t.string "ip"
+    t.string "code"
+    t.boolean "rewarded"
+    t.datetime "created_at", null: false
+    t.index ["aim_entity_id"], name: "index_aim_logs_on_aim_entity_id"
+    t.index ["aim_id"], name: "index_aim_logs_on_aim_id"
+    t.index ["entity_type", "entity_id"], name: "index_aim_logs_on_entity_type_and_entity_id"
+    t.index ["reward_id"], name: "index_aim_logs_on_reward_id"
+    t.index ["user_id"], name: "index_aim_logs_on_user_id"
+  end
+
+  create_table "aim_users", force: :cascade do |t|
+    t.bigint "aim_id", scale: 8
+    t.bigint "user_id", scale: 8
+    t.string "serial_number"
+    t.string "state", default: "task_doing"
+    t.integer "reward_amount", scale: 4, default: 0
+    t.integer "aim_entities_count", scale: 4, default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["aim_id"], name: "index_aim_users_on_aim_id"
+    t.index ["user_id"], name: "index_aim_users_on_user_id"
+  end
+
+  create_table "aims", force: :cascade do |t|
+    t.string "name"
+    t.string "unit"
+    t.string "repeat_type"
+    t.decimal "rate", limit: 2, precision: 10, default: "1.0"
+    t.integer "task_point", scale: 4, default: 0
+    t.integer "reward_point", scale: 4, default: 0
+    t.integer "reward_amount", scale: 4, default: 0
+    t.boolean "verbose"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "annunciates", force: :cascade do |t|
@@ -1633,6 +1713,41 @@ ActiveRecord::Schema.define(version: 2020_02_15_045001) do
     t.index ["organ_id"], name: "index_posts_on_organ_id"
   end
 
+  create_table "praise_incomes", force: :cascade do |t|
+    t.bigint "reward_id", scale: 8
+    t.bigint "user_id", scale: 8
+    t.bigint "earner_id", scale: 8
+    t.string "source_type"
+    t.bigint "source_id", scale: 8
+    t.bigint "praise_user_id", scale: 8
+    t.decimal "amount", limit: 2, precision: 10, default: "0.0", comment: "用户打赏"
+    t.decimal "profit_amount", limit: 2, precision: 10, default: "0.0", comment: "平台收入"
+    t.decimal "royalty_amount", limit: 2, precision: 10, default: "0.0", comment: "作者分成"
+    t.decimal "reward_amount", limit: 2, precision: 10, default: "0.0", comment: "赏金池"
+    t.string "state", default: "init"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["earner_id"], name: "index_praise_incomes_on_earner_id"
+    t.index ["praise_user_id"], name: "index_praise_incomes_on_praise_user_id"
+    t.index ["reward_id"], name: "index_praise_incomes_on_reward_id"
+    t.index ["source_type", "source_id"], name: "index_praise_incomes_on_source_type_and_source_id"
+    t.index ["user_id"], name: "index_praise_incomes_on_user_id"
+  end
+
+  create_table "praise_users", force: :cascade do |t|
+    t.bigint "user_id", scale: 8
+    t.bigint "reward_id", scale: 8
+    t.string "entity_type"
+    t.bigint "entity_id", scale: 8
+    t.decimal "amount", limit: 2, precision: 10, default: "0.0"
+    t.integer "position", scale: 4
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["entity_type", "entity_id"], name: "index_praise_users_on_entity_type_and_entity_id"
+    t.index ["reward_id"], name: "index_praise_users_on_reward_id"
+    t.index ["user_id"], name: "index_praise_users_on_user_id"
+  end
+
   create_table "produces", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -2009,6 +2124,47 @@ ActiveRecord::Schema.define(version: 2020_02_15_045001) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_resigns_on_member_id"
+  end
+
+  create_table "reward_expenses", force: :cascade do |t|
+    t.bigint "reward_id", scale: 8
+    t.bigint "user_id", scale: 8
+    t.bigint "coin_id", scale: 8
+    t.bigint "aim_id", scale: 8
+    t.decimal "amount", limit: 2, precision: 10, default: "0.0"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["aim_id"], name: "index_reward_expenses_on_aim_id"
+    t.index ["coin_id"], name: "index_reward_expenses_on_coin_id"
+    t.index ["reward_id"], name: "index_reward_expenses_on_reward_id"
+    t.index ["user_id"], name: "index_reward_expenses_on_user_id"
+  end
+
+  create_table "reward_incomes", force: :cascade do |t|
+    t.bigint "reward_id", scale: 8
+    t.bigint "user_id", scale: 8
+    t.decimal "reward_amount", limit: 2, precision: 10, default: "0.0"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reward_id"], name: "index_reward_incomes_on_reward_id"
+    t.index ["user_id"], name: "index_reward_incomes_on_user_id"
+  end
+
+  create_table "rewards", force: :cascade do |t|
+    t.string "entity_type"
+    t.bigint "entity_id", scale: 8
+    t.decimal "min_piece", limit: 2, precision: 10, default: "1.0"
+    t.decimal "max_piece", limit: 2, precision: 10, default: "10.0"
+    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "income_amount", limit: 2, precision: 10
+    t.decimal "expense_amount", limit: 2, precision: 10
+    t.datetime "start_at"
+    t.datetime "finish_at"
+    t.boolean "enabled", default: true
+    t.integer "lock_version", scale: 4
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["entity_type", "entity_id"], name: "index_rewards_on_entity_type_and_entity_id"
   end
 
   create_table "role_rules", id: :serial, scale: 4, force: :cascade do |t|
@@ -2449,8 +2605,8 @@ ActiveRecord::Schema.define(version: 2020_02_15_045001) do
     t.string "locale"
     t.string "source"
     t.integer "cached_role_ids", scale: 4, array: true
-    t.string "invited_code"
     t.string "plate_number"
+    t.string "invite_token"
   end
 
   create_table "verify_tokens", force: :cascade do |t|

@@ -72,7 +72,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 2ce95a3a29c05db7afaeff6775dfe4228711f89c
+  revision: ece5f8e1da5a79c1725f1fcdf08e999040e92171
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -140,15 +140,22 @@ GIT
       rails_taxon (~> 1.0)
 
 GIT
+  remote: https://github.com/work-design/rails_growth.git
+  revision: 3ec2c65858ecb6865d27ec0826229103494af714
+  specs:
+    rails_growth (0.1.0)
+      rails_com (~> 1.2)
+
+GIT
   remote: https://github.com/work-design/rails_log.git
-  revision: 1bc9b0898876491b8264f3c07951b12c4d6b2202
+  revision: 2a0588d08ee5b13c53e0c42ed3d55b1a0f5183d5
   specs:
     rails_log (2.1.6)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 1e89b3f07896e06558ed384b715a705a1e6918b1
+  revision: d05bdc5b3d15603a6e1fa900cf605224482a8737
   specs:
     rails_notice (1.0.2)
       rails_auth
@@ -166,7 +173,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 03c94fa8d5991af9e4b89f9b580125daa66b337b
+  revision: 569fac497c9b5d81896507a06df921a6c628b773
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -191,14 +198,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ship.git
-  revision: eb8bdd130d109066b231ebb02dc257dcf3776edf
+  revision: d14aaff53782059b9f420092f7dfff47504088ae
   specs:
     rails_ship (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 9d3c12106f9f568efeca0162c0beaa13b4cd6a45
+  revision: b3e873f243bd20b925be22d8e94e7c4736f2a728
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 0.9, <= 1.0)
@@ -207,7 +214,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: d876a26890c1eec26e2f0d3b5f2abde363fb7448
+  revision: 7825cca1a5278d1c087bd4fc4a910207dd21b9d9
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
@@ -600,6 +607,7 @@ DEPENDENCIES
   rails_detail!
   rails_event!
   rails_factory!
+  rails_growth!
   rails_log!
   rails_notice!
   rails_org!
