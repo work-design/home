@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_16_170638) do
+ActiveRecord::Schema.define(version: 2020_02_17_021109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -140,8 +140,6 @@ ActiveRecord::Schema.define(version: 2020_02_16_170638) do
     t.string "entity_type"
     t.bigint "entity_id", scale: 8
     t.bigint "reward_expense_id", scale: 8
-    t.bigint "aim_user_id", scale: 8
-    t.bigint "reward_id", scale: 8
     t.integer "present_point", scale: 4
     t.string "state"
     t.string "serial_number"
@@ -152,10 +150,8 @@ ActiveRecord::Schema.define(version: 2020_02_16_170638) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["aim_id"], name: "index_aim_entities_on_aim_id"
-    t.index ["aim_user_id"], name: "index_aim_entities_on_aim_user_id"
     t.index ["entity_type", "entity_id"], name: "index_aim_entities_on_entity_type_and_entity_id"
     t.index ["reward_expense_id"], name: "index_aim_entities_on_reward_expense_id"
-    t.index ["reward_id"], name: "index_aim_entities_on_reward_id"
     t.index ["user_id"], name: "index_aim_entities_on_user_id"
   end
 
@@ -164,17 +160,13 @@ ActiveRecord::Schema.define(version: 2020_02_16_170638) do
     t.bigint "user_id", scale: 8
     t.string "entity_type"
     t.bigint "entity_id", scale: 8
-    t.bigint "aim_entity_id", scale: 8
-    t.bigint "reward_id", scale: 8
     t.string "serial_number"
     t.string "ip"
     t.string "code"
     t.boolean "rewarded"
     t.datetime "created_at", null: false
-    t.index ["aim_entity_id"], name: "index_aim_logs_on_aim_entity_id"
     t.index ["aim_id"], name: "index_aim_logs_on_aim_id"
     t.index ["entity_type", "entity_id"], name: "index_aim_logs_on_entity_type_and_entity_id"
-    t.index ["reward_id"], name: "index_aim_logs_on_reward_id"
     t.index ["user_id"], name: "index_aim_logs_on_user_id"
   end
 
@@ -1719,7 +1711,6 @@ ActiveRecord::Schema.define(version: 2020_02_16_170638) do
     t.bigint "earner_id", scale: 8
     t.string "source_type"
     t.bigint "source_id", scale: 8
-    t.bigint "praise_user_id", scale: 8
     t.decimal "amount", limit: 2, precision: 10, default: "0.0", comment: "用户打赏"
     t.decimal "profit_amount", limit: 2, precision: 10, default: "0.0", comment: "平台收入"
     t.decimal "royalty_amount", limit: 2, precision: 10, default: "0.0", comment: "作者分成"
@@ -1728,7 +1719,6 @@ ActiveRecord::Schema.define(version: 2020_02_16_170638) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["earner_id"], name: "index_praise_incomes_on_earner_id"
-    t.index ["praise_user_id"], name: "index_praise_incomes_on_praise_user_id"
     t.index ["reward_id"], name: "index_praise_incomes_on_reward_id"
     t.index ["source_type", "source_id"], name: "index_praise_incomes_on_source_type_and_source_id"
     t.index ["user_id"], name: "index_praise_incomes_on_user_id"
@@ -2129,13 +2119,11 @@ ActiveRecord::Schema.define(version: 2020_02_16_170638) do
   create_table "reward_expenses", force: :cascade do |t|
     t.bigint "reward_id", scale: 8
     t.bigint "user_id", scale: 8
-    t.bigint "coin_id", scale: 8
     t.bigint "aim_id", scale: 8
     t.decimal "amount", limit: 2, precision: 10, default: "0.0"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["aim_id"], name: "index_reward_expenses_on_aim_id"
-    t.index ["coin_id"], name: "index_reward_expenses_on_coin_id"
     t.index ["reward_id"], name: "index_reward_expenses_on_reward_id"
     t.index ["user_id"], name: "index_reward_expenses_on_user_id"
   end
@@ -2606,7 +2594,7 @@ ActiveRecord::Schema.define(version: 2020_02_16_170638) do
     t.string "source"
     t.integer "cached_role_ids", scale: 4, array: true
     t.string "plate_number"
-    t.string "invite_token"
+    t.string "invited_code"
   end
 
   create_table "verify_tokens", force: :cascade do |t|
