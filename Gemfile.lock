@@ -198,7 +198,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ship.git
-  revision: d14aaff53782059b9f420092f7dfff47504088ae
+  revision: ddc8d1aa522f503a55de18ee50ec183228a07baa
   specs:
     rails_ship (0.1.0)
       rails_com (~> 1.2)
@@ -234,7 +234,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 00cc0f3fa6ba5b581afe1e884fc022a9beceacf6
+  revision: a0f31d7f844dc16e4aae34d08c02d854660941c7
   specs:
     rails_wechat (0.1.0)
       httpx
