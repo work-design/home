@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_20_163012) do
+ActiveRecord::Schema.define(version: 2020_02_21_170828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,9 @@ ActiveRecord::Schema.define(version: 2020_02_20_163012) do
     t.string "name"
     t.string "contact"
     t.string "tel"
+    t.string "post_code"
+    t.string "source"
+    t.string "cached_key"
     t.index ["area_id"], name: "index_addresses_on_area_id"
   end
 
@@ -470,6 +473,8 @@ ActiveRecord::Schema.define(version: 2020_02_20_163012) do
     t.decimal "item_amount", default: "0.0"
     t.decimal "overall_additional_amount", default: "0.0"
     t.decimal "overall_reduced_amount", default: "0.0"
+    t.bigint "address_id", scale: 8
+    t.index ["address_id"], name: "index_carts_on_address_id"
     t.index ["buyer_type", "buyer_id"], name: "index_carts_on_buyer_type_and_buyer_id"
     t.index ["organ_id"], name: "index_carts_on_organ_id"
     t.index ["payment_strategy_id"], name: "index_carts_on_payment_strategy_id"
@@ -1327,6 +1332,8 @@ ActiveRecord::Schema.define(version: 2020_02_20_163012) do
     t.datetime "expire_at"
     t.json "extra", default: {}
     t.integer "trade_items_count", scale: 4, default: 0
+    t.bigint "address_id", scale: 8
+    t.index ["address_id"], name: "index_orders_on_address_id"
     t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["maintain_id"], name: "index_orders_on_maintain_id"
     t.index ["organ_id"], name: "index_orders_on_organ_id"

@@ -106,7 +106,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: f2e6575c96130f5351f50b25d4cdc552cd1e0884
+  revision: 18bff163174d13c6c7321f1f3cf26687685b4eed
   specs:
     rails_data (1.0.2)
       prawn (~> 2.2)
@@ -173,7 +173,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 0e6224b5a0af3db84bfa5101dde42d484e34fc84
+  revision: 8327bdebe9fe9ec19b173bd77b3c474103440e3c
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -214,7 +214,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: eb536d6df75e821d5f0936bc0f1d50feab67b120
+  revision: a55d12bf522452a3c114d0c904e8326d55effd12
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
