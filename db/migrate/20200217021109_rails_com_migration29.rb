@@ -1,4 +1,4 @@
-class RailsComMigration < ActiveRecord::Migration[6.0]
+class RailsComMigration29 < ActiveRecord::Migration[6.0]
 
   def change
 

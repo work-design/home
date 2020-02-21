@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_021109) do
+ActiveRecord::Schema.define(version: 2020_02_20_163012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,15 +81,27 @@ ActiveRecord::Schema.define(version: 2020_02_17_021109) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "address_users", force: :cascade do |t|
+    t.bigint "address_id", scale: 8
+    t.bigint "user_id", scale: 8
+    t.bigint "inviter_id", scale: 8
+    t.decimal "commission_ratio", limit: 2, precision: 4, default: "0.0", comment: "佣金比例"
+    t.string "kind"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["address_id"], name: "index_address_users_on_address_id"
+    t.index ["inviter_id"], name: "index_address_users_on_inviter_id"
+    t.index ["user_id"], name: "index_address_users_on_user_id"
+  end
+
   create_table "addresses", force: :cascade do |t|
     t.bigint "area_id", scale: 8
-    t.string "addressing_type"
-    t.bigint "addressing_id", scale: 8
-    t.string "address"
-    t.string "kind"
+    t.string "detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["addressing_type", "addressing_id"], name: "index_addresses_on_addressing_type_and_addressing_id"
+    t.string "name"
+    t.string "contact"
+    t.string "tel"
     t.index ["area_id"], name: "index_addresses_on_area_id"
   end
 
@@ -564,6 +576,15 @@ ActiveRecord::Schema.define(version: 2020_02_17_021109) do
     t.index ["organ_id"], name: "index_crowds_on_organ_id"
   end
 
+  create_table "custom_carts", force: :cascade do |t|
+    t.bigint "cart_id", scale: 8
+    t.bigint "custom_id", scale: 8
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_custom_carts_on_cart_id"
+    t.index ["custom_id"], name: "index_custom_carts_on_custom_id"
+  end
+
   create_table "custom_parts", force: :cascade do |t|
     t.bigint "custom_id", scale: 8
     t.bigint "part_id", scale: 8
@@ -578,13 +599,11 @@ ActiveRecord::Schema.define(version: 2020_02_17_021109) do
   create_table "customs", force: :cascade do |t|
     t.string "state"
     t.string "qr_code"
-    t.datetime "ordered_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "product_id", scale: 8
     t.decimal "price", limit: 2, precision: 10
     t.bigint "organ_id", scale: 8
-    t.bigint "cart_id", scale: 8
     t.string "name"
     t.string "sku"
     t.decimal "advance_price", default: "0.0"
@@ -592,7 +611,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_021109) do
     t.string "unit"
     t.decimal "quantity", default: "0.0"
     t.decimal "unified_quantity", default: "0.0"
-    t.index ["cart_id"], name: "index_customs_on_cart_id"
+    t.string "str_part_ids"
     t.index ["organ_id"], name: "index_customs_on_organ_id"
     t.index ["product_id"], name: "index_customs_on_product_id"
   end
@@ -1016,16 +1035,16 @@ ActiveRecord::Schema.define(version: 2020_02_17_021109) do
     t.string "path"
     t.string "controller_name"
     t.string "action_name"
-    t.string "params"
-    t.string "headers", scale: 4096
-    t.string "cookie", scale: 2048
-    t.string "session", scale: 2048
     t.string "exception", scale: 10240
     t.string "exception_object"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "exception_backtrace", array: true
     t.string "ip"
+    t.jsonb "headers"
+    t.jsonb "params"
+    t.jsonb "cookie"
+    t.jsonb "session"
   end
 
   create_table "logs", id: :serial, scale: 4, force: :cascade do |t|
@@ -2220,11 +2239,12 @@ ActiveRecord::Schema.define(version: 2020_02_17_021109) do
 
   create_table "shipments", force: :cascade do |t|
     t.bigint "package_id", scale: 8
-    t.bigint "address_id", scale: 8
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["address_id"], name: "index_shipments_on_address_id"
+    t.string "shipping_type"
+    t.bigint "shipping_id", scale: 8
     t.index ["package_id"], name: "index_shipments_on_package_id"
+    t.index ["shipping_type", "shipping_id"], name: "index_shipments_on_shipping_type_and_shipping_id"
   end
 
   create_table "stats", force: :cascade do |t|

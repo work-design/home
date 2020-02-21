@@ -7,7 +7,6 @@ class User < ApplicationRecord
   include RailsWechat::User
   include RailsOrg::User
   include RailsProfile::User
-  include RailsShip::User
 
   attribute :plate_number, :string
 

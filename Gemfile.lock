@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 7958a123127221461cc960960f541b9b4dda0c60
+  revision: a34ebf569deb21ddad0538819618315261ad0288
   specs:
     default_form (1.5.0)
       rails_com (~> 1.2)
@@ -72,7 +72,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 0b4f8c33e4b6185a39f18b0fc5a5889b27ca3daa
+  revision: 758e2b34ca3c068d3fa23360aafc70521cb4db06
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -106,7 +106,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: e7dfb754ebb5b37885e1278e70756fd0ee724acb
+  revision: f2e6575c96130f5351f50b25d4cdc552cd1e0884
   specs:
     rails_data (1.0.2)
       prawn (~> 2.2)
@@ -133,7 +133,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: c6d7e9c23efa59fce8ce3c3e6e41e59dbc6f1901
+  revision: 796575046bf65b8b696c6544f5cfe02ef6bc65df
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -173,7 +173,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 569fac497c9b5d81896507a06df921a6c628b773
+  revision: 0e6224b5a0af3db84bfa5101dde42d484e34fc84
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -190,7 +190,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: e2f70c2efb3a8c2a0178479ee5a5be255ed3a716
+  revision: 9ef5face27918feb80f2973d84a3bdb4333b07c9
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -198,7 +198,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ship.git
-  revision: ddc8d1aa522f503a55de18ee50ec183228a07baa
+  revision: 546b6c33116b09421f7b1f9e5887ac12aca572a3
   specs:
     rails_ship (0.1.0)
       rails_com (~> 1.2)
@@ -214,7 +214,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 7825cca1a5278d1c087bd4fc4a910207dd21b9d9
+  revision: eb536d6df75e821d5f0936bc0f1d50feab67b120
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
@@ -234,7 +234,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: a0f31d7f844dc16e4aae34d08c02d854660941c7
+  revision: 6192cc7f48324a752c38902dd0a7d5c63eb2eda7
   specs:
     rails_wechat (0.1.0)
       httpx
