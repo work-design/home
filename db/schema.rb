@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_21_170828) do
+ActiveRecord::Schema.define(version: 2020_02_22_175559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2020_02_21_170828) do
     t.string "kind"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "role", default: "ordinary"
     t.index ["address_id"], name: "index_address_users_on_address_id"
     t.index ["inviter_id"], name: "index_address_users_on_inviter_id"
     t.index ["user_id"], name: "index_address_users_on_user_id"
@@ -1407,6 +1408,23 @@ ActiveRecord::Schema.define(version: 2020_02_21_170828) do
     t.index ["parent_id"], name: "index_organs_on_parent_id"
   end
 
+  create_table "packageds", force: :cascade do |t|
+    t.bigint "package_id", scale: 8
+    t.bigint "trade_item_id", scale: 8
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["package_id"], name: "index_packageds_on_package_id"
+    t.index ["trade_item_id"], name: "index_packageds_on_trade_item_id"
+  end
+
+  create_table "packages", force: :cascade do |t|
+    t.bigint "shipment_id", scale: 8
+    t.string "state"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["shipment_id"], name: "index_packages_on_shipment_id"
+  end
+
   create_table "part_items", force: :cascade do |t|
     t.bigint "part_id", scale: 8
     t.bigint "product_item_id", scale: 8
@@ -2529,6 +2547,8 @@ ActiveRecord::Schema.define(version: 2020_02_21_170828) do
     t.string "note"
     t.decimal "advance_amount", default: "0.0"
     t.json "extra", default: {}
+    t.bigint "address_id", scale: 8
+    t.index ["address_id"], name: "index_trade_items_on_address_id"
     t.index ["good_type", "good_id"], name: "index_trade_items_on_good_type_and_good_id"
     t.index ["trade_type", "trade_id"], name: "index_trade_items_on_trade_type_and_trade_id"
   end

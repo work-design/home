@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 8bdf3ed3ed11c722268a72e8447030adb6322e4a
+  revision: 38f7457ddb8a43fd1e4b2d50bc82d368954524f0
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -133,7 +133,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 796575046bf65b8b696c6544f5cfe02ef6bc65df
+  revision: 36a5a12a0b57ff68b15b48b7a117a5cb668eab06
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -173,7 +173,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 8327bdebe9fe9ec19b173bd77b3c474103440e3c
+  revision: 8788f4beb269de3ae462d3413a440b397bffe7f7
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -198,10 +198,11 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ship.git
-  revision: 546b6c33116b09421f7b1f9e5887ac12aca572a3
+  revision: d715369935efcd9020a7f41a0ab300e6394ac274
   specs:
     rails_ship (0.1.0)
       rails_com (~> 1.2)
+      rails_trade
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
