@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_22_175559) do
+ActiveRecord::Schema.define(version: 2020_02_23_181308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -618,8 +618,10 @@ ActiveRecord::Schema.define(version: 2020_02_22_175559) do
     t.decimal "quantity", default: "0.0"
     t.decimal "unified_quantity", default: "0.0"
     t.string "str_part_ids"
+    t.bigint "product_plan_id", scale: 8
     t.index ["organ_id"], name: "index_customs_on_organ_id"
     t.index ["product_id"], name: "index_customs_on_product_id"
+    t.index ["product_plan_id"], name: "index_customs_on_product_plan_id"
   end
 
   create_table "data_lists", id: :serial, scale: 4, force: :cascade do |t|
@@ -1334,11 +1336,13 @@ ActiveRecord::Schema.define(version: 2020_02_22_175559) do
     t.json "extra", default: {}
     t.integer "trade_items_count", scale: 4, default: 0
     t.bigint "address_id", scale: 8
+    t.bigint "produce_plan_id", scale: 8
     t.index ["address_id"], name: "index_orders_on_address_id"
     t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["maintain_id"], name: "index_orders_on_maintain_id"
     t.index ["organ_id"], name: "index_orders_on_organ_id"
     t.index ["payment_strategy_id"], name: "index_orders_on_payment_strategy_id"
+    t.index ["produce_plan_id"], name: "index_orders_on_produce_plan_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -1418,11 +1422,11 @@ ActiveRecord::Schema.define(version: 2020_02_22_175559) do
   end
 
   create_table "packages", force: :cascade do |t|
-    t.bigint "shipment_id", scale: 8
     t.string "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["shipment_id"], name: "index_packages_on_shipment_id"
+    t.date "expected_on"
+    t.string "pick_mode"
   end
 
   create_table "part_items", force: :cascade do |t|
@@ -1782,6 +1786,17 @@ ActiveRecord::Schema.define(version: 2020_02_22_175559) do
     t.index ["user_id"], name: "index_praise_users_on_user_id"
   end
 
+  create_table "produce_plans", force: :cascade do |t|
+    t.string "title"
+    t.datetime "start_at"
+    t.datetime "finish_at"
+    t.string "state"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "organ_id", scale: 8
+    t.index ["organ_id"], name: "index_produce_plans_on_organ_id"
+  end
+
   create_table "produces", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -1817,6 +1832,8 @@ ActiveRecord::Schema.define(version: 2020_02_22_175559) do
     t.integer "produced_count", scale: 4, default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "produce_plan_id", scale: 8
+    t.index ["produce_plan_id"], name: "index_product_plans_on_produce_plan_id"
     t.index ["product_id"], name: "index_product_plans_on_product_id"
   end
 
@@ -2268,6 +2285,9 @@ ActiveRecord::Schema.define(version: 2020_02_22_175559) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "shipping_type"
     t.bigint "shipping_id", scale: 8
+    t.bigint "address_id", scale: 8
+    t.string "state"
+    t.index ["address_id"], name: "index_shipments_on_address_id"
     t.index ["package_id"], name: "index_shipments_on_package_id"
     t.index ["shipping_type", "shipping_id"], name: "index_shipments_on_shipping_type_and_shipping_id"
   end
@@ -2548,8 +2568,10 @@ ActiveRecord::Schema.define(version: 2020_02_22_175559) do
     t.decimal "advance_amount", default: "0.0"
     t.json "extra", default: {}
     t.bigint "address_id", scale: 8
+    t.bigint "product_plan_id", scale: 8
     t.index ["address_id"], name: "index_trade_items_on_address_id"
     t.index ["good_type", "good_id"], name: "index_trade_items_on_good_type_and_good_id"
+    t.index ["product_plan_id"], name: "index_trade_items_on_product_plan_id"
     t.index ["trade_type", "trade_id"], name: "index_trade_items_on_trade_type_and_trade_id"
   end
 
