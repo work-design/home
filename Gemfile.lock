@@ -72,7 +72,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 758e2b34ca3c068d3fa23360aafc70521cb4db06
+  revision: 865f3f74c6d7303bf018aae3e9115045c9bcecfb
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 304cb22a266b0d6f11e20e8e31d90d7bdcc687fa
+  revision: 8025efecfbfc02dc72646a658edde70d644209ba
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -106,7 +106,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: 18bff163174d13c6c7321f1f3cf26687685b4eed
+  revision: 59746ea7126328872baddd2c84afc4aef14c0b7b
   specs:
     rails_data (1.0.2)
       prawn (~> 2.2)
@@ -133,11 +133,18 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: b69a48f81a2a41da2d2e7772594983caf3e8f7d6
+  revision: 4d82012c2ae39453908febc3bda9dd2488aca929
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
       rails_taxon (~> 1.0)
+
+GIT
+  remote: https://github.com/work-design/rails_finance.git
+  revision: a73a0c3db0d187cc341e72a754a14c9dfb84b54a
+  specs:
+    rails_finance (0.1.0)
+      rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_growth.git
@@ -198,7 +205,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ship.git
-  revision: d715369935efcd9020a7f41a0ab300e6394ac274
+  revision: a91ad340e863b20d47e7828a87c6de71d06bf6be
   specs:
     rails_ship (0.1.0)
       rails_com (~> 1.2)
@@ -608,6 +615,7 @@ DEPENDENCIES
   rails_detail!
   rails_event!
   rails_factory!
+  rails_finance!
   rails_growth!
   rails_log!
   rails_notice!

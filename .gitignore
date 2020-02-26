@@ -8,6 +8,7 @@ tmp
 .ruby-version
 public/assets
 public/packs
+public/fonts
 storage
 node_modules
 

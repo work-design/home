@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_23_181308) do
+ActiveRecord::Schema.define(version: 2020_02_25_091019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_02_23_181308) do
     t.boolean "primary", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "source"
     t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
@@ -794,6 +795,74 @@ ActiveRecord::Schema.define(version: 2020_02_23_181308) do
     t.index ["organ_id"], name: "index_events_on_organ_id"
   end
 
+  create_table "expense_items", force: :cascade do |t|
+    t.bigint "expense_id", scale: 8
+    t.bigint "member_id", scale: 8
+    t.bigint "financial_taxon_id", scale: 8
+    t.decimal "budget", limit: 2, precision: 10
+    t.decimal "amount", limit: 2, precision: 10
+    t.string "note"
+    t.string "state"
+    t.integer "quantity", scale: 4, default: 1
+    t.decimal "price", limit: 2, precision: 10
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["expense_id"], name: "index_expense_items_on_expense_id"
+    t.index ["financial_taxon_id"], name: "index_expense_items_on_financial_taxon_id"
+    t.index ["member_id"], name: "index_expense_items_on_member_id"
+  end
+
+  create_table "expense_members", force: :cascade do |t|
+    t.bigint "expense_id", scale: 8
+    t.bigint "member_id", scale: 8
+    t.bigint "payment_method_id", scale: 8
+    t.bigint "cash_id", scale: 8
+    t.bigint "operator_id", scale: 8
+    t.string "payable_type"
+    t.bigint "payable_id", scale: 8
+    t.decimal "amount", limit: 2, precision: 10
+    t.boolean "advance"
+    t.string "state", default: "pending"
+    t.string "note"
+    t.string "type"
+    t.string "payout_uuid"
+    t.decimal "requested_amount", limit: 2, precision: 10
+    t.decimal "actual_amount", limit: 2, precision: 10
+    t.datetime "paid_at"
+    t.string "account_bank"
+    t.string "account_name"
+    t.string "account_num"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cash_id"], name: "index_expense_members_on_cash_id"
+    t.index ["expense_id"], name: "index_expense_members_on_expense_id"
+    t.index ["member_id"], name: "index_expense_members_on_member_id"
+    t.index ["operator_id"], name: "index_expense_members_on_operator_id"
+    t.index ["payable_type", "payable_id"], name: "index_expense_members_on_payable_type_and_payable_id"
+    t.index ["payment_method_id"], name: "index_expense_members_on_payment_method_id"
+  end
+
+  create_table "expenses", force: :cascade do |t|
+    t.bigint "payout_id", scale: 8
+    t.bigint "creator_id", scale: 8
+    t.bigint "financial_taxon_id", scale: 8
+    t.bigint "payment_method_id", scale: 8
+    t.bigint "verifier_id", scale: 8
+    t.string "type"
+    t.string "state", default: "init"
+    t.string "subject"
+    t.decimal "amount", limit: 2, precision: 10
+    t.string "note", scale: 4096
+    t.integer "invoices_count", scale: 4
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["creator_id"], name: "index_expenses_on_creator_id"
+    t.index ["financial_taxon_id"], name: "index_expenses_on_financial_taxon_id"
+    t.index ["payment_method_id"], name: "index_expenses_on_payment_method_id"
+    t.index ["payout_id"], name: "index_expenses_on_payout_id"
+    t.index ["verifier_id"], name: "index_expenses_on_verifier_id"
+  end
+
   create_table "extractions", force: :cascade do |t|
     t.bigint "extractor_id", scale: 8
     t.string "extractable_type"
@@ -859,6 +928,30 @@ ActiveRecord::Schema.define(version: 2020_02_23_181308) do
     t.string "buyer_type"
     t.integer "buyer_id", scale: 4
     t.index ["facilitate_taxon_id"], name: "index_facilitates_on_facilitate_taxon_id"
+  end
+
+  create_table "financial_taxon_hierarchies", force: :cascade do |t|
+    t.integer "ancestor_id", scale: 4, null: false
+    t.integer "descendant_id", scale: 4, null: false
+    t.integer "generations", scale: 4, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "financial_taxon_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "financial_taxon_desc_idx"
+  end
+
+  create_table "financial_taxons", force: :cascade do |t|
+    t.bigint "parent_id", scale: 8
+    t.bigint "verifier_id", scale: 8
+    t.jsonb "parent_ancestors"
+    t.string "name"
+    t.integer "position", scale: 4
+    t.boolean "take_stock", comment: "是否有库存"
+    t.boolean "individual", comment: "是否可盘点"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["parent_id"], name: "index_financial_taxons_on_parent_id"
+    t.index ["verifier_id"], name: "index_financial_taxons_on_verifier_id"
   end
 
   create_table "good_partners", force: :cascade do |t|
