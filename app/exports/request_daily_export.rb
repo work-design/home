@@ -15,7 +15,7 @@ class RequestDailyExport
     column :s_person, header: '工作负责人', field: -> (o){ o.extractions.pluck(:name, :matched).to_h['工作负责人'] }
     column :s_time, header: '计划工作时间', field: -> (o){ o.extractions.pluck(:name, :matched).to_h['计划工作时间'] }
     column :feedback_on, header: '日期', field: -> (o){ o.created_at.to_s(:date) }
-    column :month, header: '月度', field: -> (o){ o.created_at.to_s(:month) }
+    x_column :month, header: '月度', field: -> (o){ o.created_at.to_s(:month) }
   end
 
 end

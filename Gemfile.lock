@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: a34ebf569deb21ddad0538819618315261ad0288
+  revision: e4600e93de120cc2d3a49970f6f1606179f8aa06
   specs:
     default_form (1.5.0)
       rails_com (~> 1.2)
@@ -58,21 +58,21 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_agency.git
-  revision: 320ac08e1e9b8a3e19b69801e03695d9aa194129
+  revision: cb4e2731a39e39c4bfa74c8b6b46c15c94f76c71
   specs:
     rails_agency (0.1.0)
       rails_com
 
 GIT
   remote: https://github.com/work-design/rails_audit.git
-  revision: d7394de7165e11bde62ea80cc34eb9fe06b25d21
+  revision: 9e508af20628231ca2cf4762eb6eed278313aa01
   specs:
     rails_audit (1.0.3)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 865f3f74c6d7303bf018aae3e9115045c9bcecfb
+  revision: fb200bf291bee5bb31d479c36705edc2b8b46074
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -81,7 +81,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 9c288183f5bdf67bd5b63798d16b4b1c6c10621c
+  revision: 6282637c3c379f7c0afcdd2d948aea5f7a86cb3a
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 8025efecfbfc02dc72646a658edde70d644209ba
+  revision: 9bab932ab26c9c0566afeb1180e8410fb5fa8944
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -99,14 +99,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: b27cc159d03977457a09aae31a3cd86df688357d
+  revision: b6ea5a6abe305dc2e06734b4a56c2c0d5d32381a
   specs:
     rails_crm (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: 59746ea7126328872baddd2c84afc4aef14c0b7b
+  revision: bdba1f1ca0f9981e21e7a138d2ae30cd6f184a3e
   specs:
     rails_data (1.0.2)
       prawn (~> 2.2)
@@ -118,7 +118,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_detail.git
-  revision: 848b5f4e1de360c0e0ba66ea534774ca2294f767
+  revision: a8bfe4bfd5c497936bfcf1c9194927e8da5cbf9c
   specs:
     rails_detail (0.0.1)
       acts_as_list (~> 0.9)
@@ -126,14 +126,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: f616a5c999f254c2996d412489e7c9c2adb8f185
+  revision: 0644d1ee273f2db6826783dbd93bc529d92b680a
   specs:
     rails_event (0.1.1)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 4d82012c2ae39453908febc3bda9dd2488aca929
+  revision: c32e196bc9cd3dc02ba6cb144cadd80e3a839f0e
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -141,28 +141,28 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: a73a0c3db0d187cc341e72a754a14c9dfb84b54a
+  revision: 5f4053f657242a08b52397e14d9d2ecec1bf32c5
   specs:
     rails_finance (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_growth.git
-  revision: 3ec2c65858ecb6865d27ec0826229103494af714
+  revision: 8873360861795af75da527ce2ef090ea745b9ac1
   specs:
     rails_growth (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_log.git
-  revision: 156bb2bdc1841005cd3b2f129e90f1d05a4249b1
+  revision: 9a6eb32c92875804470e3a9fc892afe1281b0da4
   specs:
     rails_log (2.1.6)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: c692db946be85dc91709984b1e59b4f9c2b31bd2
+  revision: 6c8c0bed9d3b7e00bca744183fb1e2c263ce3bcb
   specs:
     rails_notice (1.0.2)
       rails_auth
@@ -170,7 +170,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: a838ad2710798cbaeedc40eadba92d81e2f668ed
+  revision: 2b37fe0b55cded37e57276d1a513ef2023e6e799
   specs:
     rails_org (0.1)
       rails_auth
@@ -180,7 +180,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 8788f4beb269de3ae462d3413a440b397bffe7f7
+  revision: ae02d5c68d0f679c77febfeb9190c5b343bf831a
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -197,7 +197,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 9ef5face27918feb80f2973d84a3bdb4333b07c9
+  revision: 086a0e0c5de422189301be31e433accc6aab09e5
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -205,7 +205,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ship.git
-  revision: a91ad340e863b20d47e7828a87c6de71d06bf6be
+  revision: 381c77f3fa593142497d01594a883f26beeb3f62
   specs:
     rails_ship (0.1.0)
       rails_com (~> 1.2)
@@ -213,7 +213,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: b3e873f243bd20b925be22d8e94e7c4736f2a728
+  revision: f7df11bd219fea3c8d8a0eac951e9faca3c72d0a
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 0.9, <= 1.0)
@@ -222,7 +222,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: df82195b245405b8234f98ff16cd9b977593df5b
+  revision: 3bb95ef7d694416ff6b017027b131d71ddd49302
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
@@ -234,7 +234,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: 478596ad5837081bc51dbc38ab9b5d6177fd1817
+  revision: d45e791bfea0638834d2ca9e9264c5fb45554800
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
@@ -242,7 +242,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 6192cc7f48324a752c38902dd0a7d5c63eb2eda7
+  revision: 9df5d0aa84953aa3aae04e1efb8fd74d3b92e6ce
   specs:
     rails_wechat (0.1.0)
       httpx
@@ -524,7 +524,7 @@ GEM
       rack (>= 2.0.0)
       rack-protection (>= 2.0.0)
       redis (>= 4.1.0)
-    spreadsheet (1.2.5)
+    spreadsheet (1.2.6)
       ruby-ole (>= 1.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
@@ -540,7 +540,7 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     timers (4.3.0)
-    ttfunk (1.6.1)
+    ttfunk (1.6.2.1)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
