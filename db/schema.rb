@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_051042) do
+ActiveRecord::Schema.define(version: 2020_02_27_135130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -636,7 +636,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_051042) do
     t.datetime "updated_at", null: false
     t.jsonb "parameters"
     t.jsonb "columns"
-    t.string "x_field"
+    t.integer "x_position", scale: 4
   end
 
   create_table "department_grants", force: :cascade do |t|
@@ -2430,7 +2430,6 @@ ActiveRecord::Schema.define(version: 2020_02_26_051042) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "fields", array: true
-    t.json "keyed_fields", default: {}
     t.index ["table_list_id"], name: "index_table_items_on_table_list_id"
   end
 
@@ -2445,8 +2444,6 @@ ActiveRecord::Schema.define(version: 2020_02_26_051042) do
     t.string "headers", array: true
     t.string "footers", array: true
     t.jsonb "parameters"
-    t.json "keyed_headers", default: {}
-    t.json "keyed_footers", default: {}
     t.index ["data_list_id"], name: "index_table_lists_on_data_list_id"
   end
 
