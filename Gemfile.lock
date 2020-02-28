@@ -154,6 +154,15 @@ GIT
       rails_com (~> 1.2)
 
 GIT
+  remote: https://github.com/work-design/rails_interact.git
+  revision: ebeb08a0661450c760022f43713c52918ef3413a
+  specs:
+    rails_interact (0.1.0)
+      rails_com (~> 1.2)
+      rails_notice (>= 0.1)
+      rails_taxon (>= 0.1)
+
+GIT
   remote: https://github.com/work-design/rails_log.git
   revision: 817e6f037a83fe1f7818f13610a029d4bc6ece23
   specs:
@@ -205,7 +214,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ship.git
-  revision: 381c77f3fa593142497d01594a883f26beeb3f62
+  revision: f6e02e5b6be74a4e5048b1b9d921dfe2eb2eaef4
   specs:
     rails_ship (0.1.0)
       rails_com (~> 1.2)
@@ -222,7 +231,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 3bb95ef7d694416ff6b017027b131d71ddd49302
+  revision: 22d6f4b1dccbbb9560f05d7fdd4255d6f95116fb
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
@@ -242,7 +251,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 797fb00fdfda43e9cab41b5ff033795d0c546f9b
+  revision: b02d0624383b0cfedc9977223c6a2d03f5df542a
   specs:
     rails_wechat (0.1.0)
       httpx
@@ -617,6 +626,7 @@ DEPENDENCIES
   rails_factory!
   rails_finance!
   rails_growth!
+  rails_interact!
   rails_log!
   rails_notice!
   rails_org!
