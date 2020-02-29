@@ -5,12 +5,6 @@ gem 'rails', '6.0.2.1'
 gem 'puma'
 gem 'sidekiq'
 
-# Third Part
-gem 'octokit'
-gem 'omniauth-github'
-gem 'omniauth-wechat-oauth2', github: 'qinmingyuan/omniauth-wechat-oauth2'
-gem 'wx_pay', github: 'jasl/wx_pay'
-
 # Store
 gem 'pg'
 gem 'redis'
@@ -32,17 +26,20 @@ gem 'closure_tree', github: 'qinmingyuan/closure_tree'
 gem 'rucaptcha'
 gem 'mini_magick'
 gem 'rqrcode'
+
+# Third party
+gem 'octokit'
+gem 'omniauth-github'
+gem 'omniauth-wechat-oauth2', github: 'qinmingyuan/omniauth-wechat-oauth2'
+
+# Payment method
+gem 'wx_pay', github: 'jasl/wx_pay'
 gem 'alipay2', github: 'qinmingyuan/alipay2'
-#gem 'chartkick'
-#gem 'groupdate'
-
-# Files & Data
-gem 'qiniu'
-gem 'roo'
-gem 'qiniu_rails', github: 'qinmingyuan/qiniu_rails'
-
 gem 'paypal-sdk-core', '0.3.4'
 gem 'paypal-sdk-rest', '1.6.0'
+
+# Files
+gem 'qiniu_rails', github: 'qinmingyuan/qiniu_rails'
 
 # Rails Helpers
 gem 'default_form', github: 'qinmingyuan/default_form'

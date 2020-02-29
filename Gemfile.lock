@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 70e0ad52e892696aa9ea49eceecd93e82deda450
+  revision: 56312b47fd52b15b39871e4d2a5a3ae7cb5f1176
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -99,7 +99,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: b6ea5a6abe305dc2e06734b4a56c2c0d5d32381a
+  revision: 6a31e879ec6c3e26c492e10a04f1642ee690b960
   specs:
     rails_crm (0.1.0)
       rails_com (~> 1.2)
@@ -214,7 +214,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ship.git
-  revision: f6e02e5b6be74a4e5048b1b9d921dfe2eb2eaef4
+  revision: f169effcc3050683555e40c37d7e1dd253cd9c4a
   specs:
     rails_ship (0.1.0)
       rails_com (~> 1.2)
@@ -611,7 +611,6 @@ DEPENDENCIES
   pry-rails
   pry-stack_explorer
   puma
-  qiniu
   qiniu_rails!
   rails (= 6.0.2.1)
   rails_agency!
@@ -639,7 +638,6 @@ DEPENDENCIES
   rails_vip!
   rails_wechat!
   redis
-  roo
   rqrcode
   rucaptcha
   selenium-webdriver
