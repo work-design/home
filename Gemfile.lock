@@ -214,7 +214,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ship.git
-  revision: f169effcc3050683555e40c37d7e1dd253cd9c4a
+  revision: 8deca0a81745f38c9edfaa835000e10244a37508
   specs:
     rails_ship (0.1.0)
       rails_com (~> 1.2)
