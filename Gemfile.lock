@@ -189,7 +189,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 83c243a0c8de03ab1bcd03402f8a560cfa9ec853
+  revision: e46cca111bce9b0afa8af19472e52a57efd2d932
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -251,7 +251,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: aad36f3703b8ef69a418422d59fae1fc07119bdd
+  revision: 380f74c44da4f9fff34860eb499d874cce1c573a
   specs:
     rails_wechat (0.1.0)
       httpx
