@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_27_135130) do
+ActiveRecord::Schema.define(version: 2020_02_29_154435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abuses", force: :cascade do |t|
+    t.bigint "user_id", scale: 8
+    t.string "abusement_type"
+    t.bigint "abusement_id", scale: 8
+    t.string "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["abusement_type", "abusement_id"], name: "index_abuses_on_abusement_type_and_abusement_id"
+    t.index ["user_id"], name: "index_abuses_on_user_id"
+  end
 
   create_table "accessories", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -281,6 +292,17 @@ ActiveRecord::Schema.define(version: 2020_02_27_135130) do
     t.index ["parent_id"], name: "index_areas_on_parent_id"
   end
 
+  create_table "attitudes", force: :cascade do |t|
+    t.bigint "user_id", scale: 8
+    t.string "attitudinal_type"
+    t.bigint "attitudinal_id", scale: 8
+    t.string "opinion"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["attitudinal_type", "attitudinal_id"], name: "index_attitudes_on_attitudinal_type_and_attitudinal_id"
+    t.index ["user_id"], name: "index_attitudes_on_user_id"
+  end
+
   create_table "audits", force: :cascade do |t|
     t.string "audited_type"
     t.bigint "audited_id", scale: 8
@@ -543,6 +565,24 @@ ActiveRecord::Schema.define(version: 2020_02_27_135130) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["checking_type", "checking_id"], name: "index_checks_on_checking_type_and_checking_id"
     t.index ["operator_type", "operator_id"], name: "index_checks_on_operator_type_and_operator_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id", scale: 8
+    t.bigint "parent_id", scale: 8
+    t.string "commentable_type"
+    t.bigint "commentable_id", scale: 8
+    t.string "title"
+    t.string "content"
+    t.string "state"
+    t.float "score", default: 0.0
+    t.integer "liked_count", scale: 4, default: 0
+    t.integer "star_count", scale: 4, default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["parent_id"], name: "index_comments_on_parent_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "contents", force: :cascade do |t|
@@ -1521,6 +1561,8 @@ ActiveRecord::Schema.define(version: 2020_02_27_135130) do
     t.datetime "updated_at", precision: 6, null: false
     t.date "expected_on"
     t.string "pick_mode"
+    t.bigint "address_id", scale: 8
+    t.index ["address_id"], name: "index_packages_on_address_id"
   end
 
   create_table "part_items", force: :cascade do |t|
@@ -2384,6 +2426,16 @@ ActiveRecord::Schema.define(version: 2020_02_27_135130) do
     t.index ["address_id"], name: "index_shipments_on_address_id"
     t.index ["package_id"], name: "index_shipments_on_package_id"
     t.index ["shipping_type", "shipping_id"], name: "index_shipments_on_shipping_type_and_shipping_id"
+  end
+
+  create_table "stars", force: :cascade do |t|
+    t.string "starred_type"
+    t.bigint "starred_id", scale: 8
+    t.bigint "user_id", scale: 8
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["starred_type", "starred_id"], name: "index_stars_on_starred_type_and_starred_id"
+    t.index ["user_id"], name: "index_stars_on_user_id"
   end
 
   create_table "stats", force: :cascade do |t|
