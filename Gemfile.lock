@@ -189,7 +189,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: ae02d5c68d0f679c77febfeb9190c5b343bf831a
+  revision: 83c243a0c8de03ab1bcd03402f8a560cfa9ec853
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
