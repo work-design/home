@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_29_154435) do
+ActiveRecord::Schema.define(version: 2020_03_07_194452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1551,6 +1551,7 @@ ActiveRecord::Schema.define(version: 2020_02_29_154435) do
     t.bigint "trade_item_id", scale: 8
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "trade_item_status"
     t.index ["package_id"], name: "index_packageds_on_package_id"
     t.index ["trade_item_id"], name: "index_packageds_on_trade_item_id"
   end
@@ -1562,7 +1563,13 @@ ActiveRecord::Schema.define(version: 2020_02_29_154435) do
     t.date "expected_on"
     t.string "pick_mode"
     t.bigint "address_id", scale: 8
+    t.bigint "wait_item_id", scale: 8
+    t.bigint "user_id", scale: 8
+    t.bigint "produce_plan_id", scale: 8
     t.index ["address_id"], name: "index_packages_on_address_id"
+    t.index ["produce_plan_id"], name: "index_packages_on_produce_plan_id"
+    t.index ["user_id"], name: "index_packages_on_user_id"
+    t.index ["wait_item_id"], name: "index_packages_on_wait_item_id"
   end
 
   create_table "part_items", force: :cascade do |t|
@@ -2402,6 +2409,8 @@ ActiveRecord::Schema.define(version: 2020_02_29_154435) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "min_members", scale: 4, default: 1
+    t.integer "max_members", scale: 4
     t.index ["place_id"], name: "index_seats_on_place_id"
   end
 
@@ -2714,11 +2723,13 @@ ActiveRecord::Schema.define(version: 2020_02_29_154435) do
     t.decimal "advance_amount", default: "0.0"
     t.json "extra", default: {}
     t.bigint "address_id", scale: 8
-    t.bigint "product_plan_id", scale: 8
+    t.bigint "user_id", scale: 8
+    t.bigint "produce_plan_id", scale: 8
     t.index ["address_id"], name: "index_trade_items_on_address_id"
     t.index ["good_type", "good_id"], name: "index_trade_items_on_good_type_and_good_id"
-    t.index ["product_plan_id"], name: "index_trade_items_on_product_plan_id"
+    t.index ["produce_plan_id"], name: "index_trade_items_on_produce_plan_id"
     t.index ["trade_type", "trade_id"], name: "index_trade_items_on_trade_type_and_trade_id"
+    t.index ["user_id"], name: "index_trade_items_on_user_id"
   end
 
   create_table "trade_promotes", force: :cascade do |t|
@@ -2832,6 +2843,43 @@ ActiveRecord::Schema.define(version: 2020_02_29_154435) do
     t.string "place"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "wait_items", force: :cascade do |t|
+    t.bigint "user_id", scale: 8
+    t.bigint "wait_list_id", scale: 8
+    t.string "state"
+    t.integer "position", scale: 4
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_wait_items_on_user_id"
+    t.index ["wait_list_id"], name: "index_wait_items_on_wait_list_id"
+  end
+
+  create_table "wait_lists", force: :cascade do |t|
+    t.bigint "address_id", scale: 8
+    t.bigint "wait_taxon_id", scale: 8
+    t.bigint "organ_id", scale: 8
+    t.string "state"
+    t.datetime "start_at"
+    t.datetime "finish_at"
+    t.integer "wait_items_count", scale: 4, default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "wait_for_type"
+    t.bigint "wait_for_id", scale: 8
+    t.index ["address_id"], name: "index_wait_lists_on_address_id"
+    t.index ["organ_id"], name: "index_wait_lists_on_organ_id"
+    t.index ["wait_for_type", "wait_for_id"], name: "index_wait_lists_on_wait_for_type_and_wait_for_id"
+    t.index ["wait_taxon_id"], name: "index_wait_lists_on_wait_taxon_id"
+  end
+
+  create_table "wait_taxons", force: :cascade do |t|
+    t.bigint "organ_id", scale: 8
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organ_id"], name: "index_wait_taxons_on_organ_id"
   end
 
   create_table "wechat_app_extractors", force: :cascade do |t|
