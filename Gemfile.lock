@@ -106,7 +106,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: 4486a6750bcdb1a89c5ae3a308f195012a60b454
+  revision: abc00805f0e574b4674f47a5a0a12e18dc8b4e39
   specs:
     rails_data (1.0.2)
       prawn (~> 2.2)
@@ -171,7 +171,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 6c8c0bed9d3b7e00bca744183fb1e2c263ce3bcb
+  revision: 21992ce0d73121b49d2a28b06a6fd2f197762000
   specs:
     rails_notice (1.0.2)
       rails_auth
@@ -214,7 +214,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ship.git
-  revision: ea58b197bbf2154773d8e72f5da9289b1f344080
+  revision: d10b5660a12f8b82f15cb78d07e6f5285bfc396b
   specs:
     rails_ship (0.1.0)
       rails_com (~> 1.2)
@@ -251,14 +251,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wait.git
-  revision: 9eab0c27c03fab0e98c95854ff5a6e90f8d4aa74
+  revision: a96cb89bf3c847219df91498f1870e3363c8f84e
   specs:
     rails_wait (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 93b6dc4869cde88c05f6fbd33bbed4600f6208cf
+  revision: 1c0fb08650808db99a644cd06bc375754d9d3d27
   specs:
     rails_wechat (0.1.0)
       httpx
