@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 7496bf3a495fc2f1dd30caa61675a0306a080eed
+  revision: 2cceb52a6d47ec2bfa87475fc81244f3dd1cba92
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -189,7 +189,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 5d6bd8dffa2bb8a938c50f0ed4dc2d719d97a43e
+  revision: eb23b99ed012b21a2f37acffd0b0bfae0f26d06e
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -214,7 +214,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ship.git
-  revision: 9173b22263daa973bb3f301f64fcc1e39d314b53
+  revision: ea58b197bbf2154773d8e72f5da9289b1f344080
   specs:
     rails_ship (0.1.0)
       rails_com (~> 1.2)
@@ -231,7 +231,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 33cef35e99d2e496fdfc7869a2d4c51f5854b89c
+  revision: acf29b5f370ef02e3b9902752c3aa271d81de2ca
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
@@ -251,7 +251,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wait.git
-  revision: af719eaa2277cbac7f080cc2f24a27f43d6bcf65
+  revision: 9eab0c27c03fab0e98c95854ff5a6e90f8d4aa74
   specs:
     rails_wait (0.1.0)
       rails_com (~> 1.2)
