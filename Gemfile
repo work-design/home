@@ -35,8 +35,8 @@ gem 'omniauth-wechat-oauth2', github: 'qinmingyuan/omniauth-wechat-oauth2'
 # Payment method
 gem 'wx_pay', github: 'jasl/wx_pay'
 gem 'alipay2', github: 'qinmingyuan/alipay2'
-gem 'paypal-sdk-core', '0.3.4'
-gem 'paypal-sdk-rest', '1.6.0'
+gem 'paypal-sdk-core'
+gem 'paypal-sdk-rest'
 
 # Files
 gem 'qiniu_rails', github: 'qinmingyuan/qiniu_rails'

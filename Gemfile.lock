@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/alipay2.git
-  revision: 3d79048b068ba42620a60e60bccade33af16ede9
+  revision: a7f831ca48465a094febea0cf6a7362f921a0473
   specs:
     alipay2 (2.0)
 
@@ -72,7 +72,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: bd11de895f9620807ffef23638b21434ed49fc12
+  revision: cac5e110ac2bf48c919d0e97144a8235cd29f1ca
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 2cceb52a6d47ec2bfa87475fc81244f3dd1cba92
+  revision: 2f9fd5a7bdbda5fbdf28b7d3726cb7b31c214522
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -231,7 +231,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: acf29b5f370ef02e3b9902752c3aa271d81de2ca
+  revision: 8f07332e679c9f3da5b79dfc4f763d6d36c34cf0
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
@@ -367,7 +367,7 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    http-form_data (2.2.0)
+    http-form_data (2.3.0)
     httpx (0.6.7)
       http-2-next (>= 0.1.2)
       timers
@@ -612,8 +612,8 @@ DEPENDENCIES
   octokit
   omniauth-github
   omniauth-wechat-oauth2!
-  paypal-sdk-core (= 0.3.4)
-  paypal-sdk-rest (= 1.6.0)
+  paypal-sdk-core
+  paypal-sdk-rest
   pg
   pry-rails
   pry-stack_explorer
