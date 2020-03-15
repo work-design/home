@@ -6,10 +6,10 @@
   <meta name="description" content="<%= yield(:meta_description) %>">
   <meta name="keywords" content="<%= yield(:meta_keywords) %>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true %>
-  <%= css_load media: 'all', 'data-turbolinks-track': true %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': true %>
-  <%= js_ready 'data-turbolinks-track': true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= css_load media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= js_ready 'data-turbolinks-track': 'reload' %>
   <%= csrf_meta_tags %>
   <%= action_cable_meta_tag %>
 </head>
