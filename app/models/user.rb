@@ -7,9 +7,7 @@ class User < ApplicationRecord
   include RailsWechat::User
   include RailsOrg::User
   include RailsProfile::User
-
-  attribute :plate_number, :string
-
+  
   has_one :github_user
   has_one :wechat_user
   has_many :project_funds, dependent: :nullify
