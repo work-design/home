@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_165958) do
+ActiveRecord::Schema.define(version: 2020_03_17_173122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1022,6 +1022,16 @@ ActiveRecord::Schema.define(version: 2020_03_08_165958) do
     t.index ["provider_id"], name: "index_good_providers_on_provider_id"
   end
 
+  create_table "govern_taxon_hierarchies", force: :cascade do |t|
+    t.integer "ancestor_id", scale: 4, null: false
+    t.integer "descendant_id", scale: 4, null: false
+    t.integer "generations", scale: 4, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "govern_taxon_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "govern_taxon_desc_idx"
+  end
+
   create_table "govern_taxons", force: :cascade do |t|
     t.string "name"
     t.integer "position", scale: 4, default: 0
@@ -1029,6 +1039,9 @@ ActiveRecord::Schema.define(version: 2020_03_08_165958) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "code"
+    t.bigint "parent_id", scale: 8
+    t.jsonb "parent_ancestors"
+    t.index ["parent_id"], name: "index_govern_taxons_on_parent_id"
   end
 
   create_table "governs", id: :serial, scale: 4, force: :cascade do |t|
@@ -2820,7 +2833,6 @@ ActiveRecord::Schema.define(version: 2020_03_08_165958) do
     t.string "locale"
     t.string "source"
     t.integer "cached_role_ids", scale: 4, array: true
-    t.string "plate_number"
     t.string "invited_code"
   end
 

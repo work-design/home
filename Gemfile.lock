@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/alipay2.git
-  revision: a7f831ca48465a094febea0cf6a7362f921a0473
+  revision: cb4827ab516d064458c40ebaef4aa796bedbb157
   specs:
     alipay2 (2.0)
 
@@ -81,7 +81,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: e11d1ff3573012f542fa2fb86684ab87971b85dd
+  revision: b69380f5bd7c781ffd58a80be47171eba3217ef7
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
@@ -89,7 +89,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 7b5ef652462bec4542630e06fd13b8072ef9e6b7
+  revision: 24b0b583771ed87bcd9bcce616d1f54bb3e3aa54
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -206,7 +206,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 4cb5ea07a3edd7dd9a0f647b504fa1938bb89c2b
+  revision: 2bfccc53e492a50f81a290a6ea487e9da8706cbf
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -222,7 +222,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: f7df11bd219fea3c8d8a0eac951e9faca3c72d0a
+  revision: 2e43a72043b3970a51e62e502bbd7d0ef2aaf738
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 0.9, <= 1.0)
@@ -231,7 +231,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 89a58520be19d36b1e3e721f736671ec9a1fe165
+  revision: 59f6737c3af28cce9ef18a0358935858dfba3eef
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
