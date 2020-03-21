@@ -4,9 +4,9 @@ class AdminController < ApplicationController
 
   def rails_role_user
     if current_member
-      [current_member, defined?(current_organ) && current_organ]
+      current_member
     else
-      [current_user, defined?(current_organ) && current_organ]
+      current_user
     end
   end
 
