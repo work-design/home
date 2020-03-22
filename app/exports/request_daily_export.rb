@@ -6,7 +6,7 @@ class RequestDailyExport
       if params[:'created_at-lte']
         params[:'created_at-lte'] = params[:'created_at-lte'].to_time.end_of_day
       end
-      WechatRequest.default_where(params)
+      TextRequest.default_where(params)
     }
     column header: '姓名', field: ->(o) { o.wechat_user.user&.name }
     column header: '项目名称', field: ->(o) { o.extractions.pluck(:name, :matched).to_h['项目名称'] }
