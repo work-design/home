@@ -206,7 +206,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 25bff9c305c174f18c242bb5caa1bd33d8b41ec2
+  revision: 0d719919fb2c2cf0b432333041ef88ed2c6bb8d5
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
