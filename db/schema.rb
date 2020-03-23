@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_23_091528) do
+ActiveRecord::Schema.define(version: 2020_03_23_112137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -902,38 +902,6 @@ ActiveRecord::Schema.define(version: 2020_03_23_091528) do
     t.index ["payment_method_id"], name: "index_expenses_on_payment_method_id"
     t.index ["payout_id"], name: "index_expenses_on_payout_id"
     t.index ["verifier_id"], name: "index_expenses_on_verifier_id"
-  end
-
-  create_table "extractions", force: :cascade do |t|
-    t.bigint "extractor_id", scale: 8
-    t.string "extractable_type"
-    t.bigint "extractable_id", scale: 8
-    t.string "name"
-    t.string "matched"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "wechat_request_id", scale: 8
-    t.integer "serial_number", scale: 4
-    t.index ["extractable_type", "extractable_id"], name: "index_extractions_on_extractable_type_and_extractable_id"
-    t.index ["extractor_id"], name: "index_extractions_on_extractor_id"
-    t.index ["wechat_request_id"], name: "index_extractions_on_wechat_request_id"
-  end
-
-  create_table "extractors", force: :cascade do |t|
-    t.string "name"
-    t.string "prefix"
-    t.string "suffix"
-    t.boolean "more"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "organ_id", scale: 8
-    t.boolean "serial"
-    t.integer "serial_start", scale: 4
-    t.time "start_at"
-    t.time "finish_at"
-    t.string "valid_response"
-    t.string "invalid_response"
-    t.index ["organ_id"], name: "index_extractors_on_organ_id"
   end
 
   create_table "facilitate_providers", force: :cascade do |t|
@@ -2896,15 +2864,6 @@ ActiveRecord::Schema.define(version: 2020_03_23_091528) do
     t.index ["organ_id"], name: "index_wait_taxons_on_organ_id"
   end
 
-  create_table "wechat_app_extractors", force: :cascade do |t|
-    t.bigint "extractor_id", scale: 8
-    t.bigint "wechat_app_id", scale: 8
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["extractor_id"], name: "index_wechat_app_extractors_on_extractor_id"
-    t.index ["wechat_app_id"], name: "index_wechat_app_extractors_on_wechat_app_id"
-  end
-
   create_table "wechat_apps", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "enabled", default: true
@@ -2929,6 +2888,35 @@ ActiveRecord::Schema.define(version: 2020_03_23_091528) do
     t.boolean "primary"
     t.string "help"
     t.index ["organ_id"], name: "index_wechat_apps_on_organ_id"
+  end
+
+  create_table "wechat_extractions", force: :cascade do |t|
+    t.bigint "wechat_extractor_id", scale: 8
+    t.string "name"
+    t.string "matched"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "wechat_request_id", scale: 8
+    t.integer "serial_number", scale: 4
+    t.index ["wechat_extractor_id"], name: "index_wechat_extractions_on_wechat_extractor_id"
+    t.index ["wechat_request_id"], name: "index_wechat_extractions_on_wechat_request_id"
+  end
+
+  create_table "wechat_extractors", force: :cascade do |t|
+    t.string "name"
+    t.string "prefix"
+    t.string "suffix"
+    t.boolean "more"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "serial"
+    t.integer "serial_start", scale: 4
+    t.time "start_at"
+    t.time "finish_at"
+    t.string "valid_response"
+    t.string "invalid_response"
+    t.bigint "wechat_response_id", scale: 8
+    t.index ["wechat_response_id"], name: "index_wechat_extractors_on_wechat_response_id"
   end
 
   create_table "wechat_menus", force: :cascade do |t|
