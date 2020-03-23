@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_17_173122) do
+ActiveRecord::Schema.define(version: 2020_03_23_091528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1555,6 +1555,7 @@ ActiveRecord::Schema.define(version: 2020_03_17_173122) do
     t.json "area_ancestors"
     t.integer "limit_wechat_menu", scale: 4, default: 1
     t.json "parent_ancestors"
+    t.integer "cached_role_ids", scale: 4, array: true
     t.index ["area_id"], name: "index_organs_on_area_id"
     t.index ["parent_id"], name: "index_organs_on_parent_id"
   end
@@ -2981,6 +2982,16 @@ ActiveRecord::Schema.define(version: 2020_03_17_173122) do
     t.index ["wechat_user_id"], name: "index_wechat_replies_on_wechat_user_id"
   end
 
+  create_table "wechat_request_replies", force: :cascade do |t|
+    t.bigint "wechat_request_id", scale: 8
+    t.bigint "wechat_reply_id", scale: 8
+    t.jsonb "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["wechat_reply_id"], name: "index_wechat_request_replies_on_wechat_reply_id"
+    t.index ["wechat_request_id"], name: "index_wechat_request_replies_on_wechat_request_id"
+  end
+
   create_table "wechat_requests", force: :cascade do |t|
     t.bigint "wechat_user_id", scale: 8
     t.text "body"
@@ -2988,6 +2999,10 @@ ActiveRecord::Schema.define(version: 2020_03_17_173122) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "wechat_app_id", scale: 8
     t.string "type"
+    t.string "msg_type"
+    t.string "event"
+    t.string "event_key"
+    t.jsonb "raw_body"
     t.index ["wechat_app_id"], name: "index_wechat_requests_on_wechat_app_id"
     t.index ["wechat_user_id"], name: "index_wechat_requests_on_wechat_user_id"
   end
@@ -2998,14 +3013,12 @@ ActiveRecord::Schema.define(version: 2020_03_17_173122) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "expire_seconds", scale: 4
-    t.string "type"
     t.string "qrcode_ticket"
     t.string "qrcode_url"
     t.datetime "expire_at"
     t.string "effective_type"
     t.bigint "effective_id", scale: 8
     t.boolean "contain", default: true
-    t.string "default_response"
     t.string "request_type", comment: "用户发送消息类型"
     t.index ["effective_type", "effective_id"], name: "index_wechat_responses_on_effective_type_and_effective_id"
     t.index ["wechat_app_id"], name: "index_wechat_responses_on_wechat_app_id"

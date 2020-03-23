@@ -51,7 +51,8 @@ Rails.application.configure do
   ]
   config.hosts += [
     'weixin.one.work',
-    't.one.work'
+    't.one.work',
+    'workdesign.free.qydev.com'
   ]
 
   # Raises error for missing translations

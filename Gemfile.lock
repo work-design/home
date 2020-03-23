@@ -126,7 +126,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: 691d11ccba3988f59577144ad9a601304dc1dfd4
+  revision: acedb02ef9ee82e6bf1a661794325a2beca0f524
   specs:
     rails_event (0.1.1)
       rails_com (~> 1.2)
@@ -171,7 +171,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: d6650d4edba7a0311ab4564c6fa23fbf7c1235b2
+  revision: 8c1121218ceed8c616c546a74a77fe6033d6e840
   specs:
     rails_notice (1.0.2)
       rails_auth
@@ -214,7 +214,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ship.git
-  revision: f0cb082fad1b9ea9b728c394eb1c05bf426be2fa
+  revision: 88924314d8707f2ef7860abaeab2925c121b187e
   specs:
     rails_ship (0.1.0)
       rails_com (~> 1.2)
@@ -231,15 +231,11 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 45752f9bba5557eeeff1bd50d52b784b391c8077
+  revision: 1e4a5d3c57b7851c6a85e93fbb953c6d18ff641a
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
-      rails_audit (~> 1.0)
-      rails_auth (~> 1.0)
       rails_com (~> 1.2)
-      rails_data (~> 1.0)
-      rails_role (~> 1.0)
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
@@ -258,7 +254,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 4c98d1edeaf2b86aefd28189b3f7896372885924
+  revision: 011fef5dd6c1f066d0843242666bfc5027df557f
   specs:
     rails_wechat (0.1.0)
       httpx (~> 0.7)
