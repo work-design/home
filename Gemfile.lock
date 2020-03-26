@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_agency.git
-  revision: 98b52d33b784c597c42c59cb3179dfee9f973f52
+  revision: e92b817f17893fc50b86ef9ed4427b6301d1d2a2
   specs:
     rails_agency (0.1.0)
       rails_com (~> 1.2)
