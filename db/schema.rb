@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_23_112137) do
+ActiveRecord::Schema.define(version: 2020_03_26_081919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -2877,8 +2877,6 @@ ActiveRecord::Schema.define(version: 2020_03_23_112137) do
     t.string "jsapi_ticket"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "help_user_disabled"
-    t.string "help_without_user"
     t.bigint "organ_id", scale: 8
     t.string "type"
     t.datetime "access_token_expires_at"
@@ -2886,7 +2884,6 @@ ActiveRecord::Schema.define(version: 2020_03_23_112137) do
     t.string "mch_id"
     t.string "key"
     t.boolean "primary"
-    t.string "help"
     t.index ["organ_id"], name: "index_wechat_apps_on_organ_id"
   end
 
