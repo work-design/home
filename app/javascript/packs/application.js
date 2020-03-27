@@ -1,4 +1,5 @@
 require.context('../images', true)
+import 'bulma'
 import 'fomantic'
 import './channels'
 

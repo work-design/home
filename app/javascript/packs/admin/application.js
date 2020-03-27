@@ -1,3 +1,4 @@
+import 'bulma'
 import 'fomantic'
 
 import 'rails_com/application'
