@@ -1,12 +1,16 @@
-<header class="ui borderless menu">
-  <div class="ui container">
-    <% if current_user %>
-      <%= render 'nav_with_login' %>
-    <% else %>
-      <%= render 'nav_without_login' %>
-    <% end %>
-    <%= render 'right_menu' %>
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-start">
+      <% if current_user %>
+        <%= render 'nav_with_login' %>
+      <% else %>
+        <%= render 'nav_without_login' %>
+      <% end %>
+    </div>
+    <div class="navbar-end">
+      <%= render 'right_menu' %>
+    </div>
   </div>
-</header>
+</nav>
 
 

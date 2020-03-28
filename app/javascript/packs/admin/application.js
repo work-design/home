@@ -1,5 +1,5 @@
 import 'bulma'
-import 'fomantic'
+import 'expand'
 
 import 'rails_com/application'
 import 'rails_com/fontawesome'
