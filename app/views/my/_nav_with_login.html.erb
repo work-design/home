@@ -1,10 +1,10 @@
 <% if current_organ %>
-  <div class="header item">
+  <div class="navbar-item">
     <%= image_tag current_organ.logo, class: 'ui avatar image' %>
     <span><%= current_organ.name %></span>
   </div>
 <% else %>
-  <%= link_to index_path, class: 'logo item' do %>
+  <%= link_to index_path, class: 'navbar-item' do %>
     <%= image_pack_tag 'logo.jpg', class: 'ui image' %>
   <% end %>
 <% end %>

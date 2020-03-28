@@ -1,6 +1,6 @@
 require.context('../images', true)
 import 'bulma'
-import 'fomantic'
+import 'expand'
 import './channels'
 
 import 'rails_com/application'
