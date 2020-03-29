@@ -1,5 +1,6 @@
-import 'rails_com/bulma_ext'
-import 'rails_com/fontawesome'
+import 'bulma_ext'
+import 'font_ext'
+import 'tooltip'
 
 import 'rails_com/application'
 import 'stimulus_com/all'

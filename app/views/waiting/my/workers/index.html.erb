@@ -23,13 +23,13 @@
         <% end %>
       </td>
       <td>
-        <%= link_to my_worker_path(worker), data: { tooltip: 'show' }, class: 'ui blue mini icon button' do %>
+        <%= link_to my_worker_path(worker), aria: { label: 'show' }, class: 'ui blue mini icon button' do %>
           <i class="location arrow icon"></i>
         <% end %>
-        <%= link_to edit_my_worker_path(worker), data: { tooltip: t('.edit') }, class: 'ui red mini icon button' do %>
+        <%= link_to edit_my_worker_path(worker), aria: { label: t('.edit') }, class: 'ui red mini icon button' do %>
           <i class="pencil icon"></i>
         <% end %>
-        <%= link_to my_worker_path(worker), method: :delete, data: { tooltip: t('.destroy'), confirm: 'are you sure?' }, class: 'ui red mini icon button' do %>
+        <%= link_to my_worker_path(worker), method: :delete, aria: { label: t('.destroy') }, data: { confrim: t('.confirm') }, class: 'ui red mini icon button' do %>
           <i class="times icon"></i>
         <% end %>
       </td>

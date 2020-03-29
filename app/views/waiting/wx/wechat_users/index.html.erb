@@ -23,13 +23,13 @@
     <tr>
       <td><%= wechat_user.id %></td>
       <td class="ui labels">
-        <%= link_to wechat_user_path(wechat_user), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
+        <%= link_to wechat_user_path(wechat_user), aria: { label: t('.show') }, class: 'ui blue mini icon button' do %>
           <i class="location arrow icon"></i>
         <% end %>
-        <%= link_to edit_wechat_user_path(wechat_user), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
+        <%= link_to edit_wechat_user_path(wechat_user), aria: { label: t('.edit') }, class: 'ui pink mini icon button' do %>
           <i class="pencil alternate icon"></i>
         <% end %>
-        <%= link_to wechat_user_path(wechat_user), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+        <%= link_to wechat_user_path(wechat_user), method: :delete, aria: { label: t('.destroy') }, data: { confrim: t('.confirm') }, class: 'ui red mini icon button' do %>
           <i class="times icon"></i>
         <% end %>
       </td>
