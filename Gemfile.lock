@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: f4e1e04100e7fe41d5384f24eaf99ce6fef338fa
+  revision: cd01cb958728534b17878a5dc3bce572bd1ce807
   specs:
     default_form (1.5.0)
       rails_com (~> 1.2)
@@ -72,7 +72,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 1583acc85be5109f6240da1180a66bfd68177499
+  revision: 7edc9c31eedd335057098ea999d3f9ee499a944a
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -88,7 +88,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: b7a658759540c2215f3a599d8a73d94a3041ccb9
+  revision: a5eb01f1c1fd530450300d7a8472f0c8a73750a6
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -347,7 +347,7 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.9.0)
-    factory_bot (5.1.1)
+    factory_bot (5.1.2)
       activesupport (>= 4.2.0)
     factory_bot_rails (5.1.1)
       factory_bot (~> 5.1.0)
@@ -426,7 +426,7 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
-    octokit (4.17.0)
+    octokit (4.18.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
     omniauth (1.9.1)
@@ -530,7 +530,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    sidekiq (6.0.5)
+    semantic_range (2.3.0)
+    sidekiq (6.0.6)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       rack-protection (>= 2.0.0)
@@ -565,10 +566,11 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webpacker (4.2.2)
-      activesupport (>= 4.2)
+    webpacker (5.0.1)
+      activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
-      railties (>= 4.2)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)

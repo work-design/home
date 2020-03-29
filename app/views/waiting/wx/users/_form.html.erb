@@ -10,7 +10,7 @@
   <%= f.text_area :work_experience %>
   <%= f.file_field :resume %>
   <div class="inline fields">
-    <%= f.submit 'update info', class: 'ui green button', on: {wrap_all: false} %>
+    <%= f.submit 'update info', class: 'ui green button', can: { wrap_all: false } %>
     <%= link_to 'back', my_profile_path, class: 'ui button' %>
   </div>
 <% end %>

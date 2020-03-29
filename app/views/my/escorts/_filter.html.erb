@@ -1,7 +1,7 @@
 <%= form_with theme: 'weui_search', url: list_my_requirements_path, model: Requirement.new do |f| %>
   <%= f.date_field 'pick_on-gte' %>
   <div class="weui-cell">
-    <%= f.submit '搜索', on: { wrap_submit: false }, class: 'weui-btn weui-btn_mini weui-btn_primary' %>
+    <%= f.submit '搜索', can: { wrap_submit: false }, class: 'weui-btn weui-btn_mini weui-btn_primary' %>
     <%= link_to t('.clear'), filter_params(except: [:name, 'pick_on-gte']), class: 'weui-btn weui-btn_mini weui-btn_default' %>
   </div>
 <% end %>

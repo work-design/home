@@ -1,13 +1,9 @@
-import 'bulma'
-import 'expand'
+import 'rails_com/bulma_ext'
+import 'rails_com/fontawesome'
 
 import 'rails_com/application'
-import 'rails_com/fontawesome'
-import 'rails_com/stimulus'
-import 'rails_com/menu'
+import 'stimulus_com/all'
 import 'default_form/application'
-import 'jquery'
 import 'moment'
-import '@work-design/ui/public/packs/js/semantic'
 
 import '../channels'
