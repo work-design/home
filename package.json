@@ -19,6 +19,7 @@
     "@work-design/ui": "https://github.com/work-design/ui.git",
     "axios": "^0.18.0",
     "bulma": "^0.8.1",
+    "choices.js": "^9.0.1",
     "core-js": "3",
     "cssnano": "^4.1.10",
     "fullcalendar": "^3.9.0",
