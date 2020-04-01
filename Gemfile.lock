@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 65bd46c13f845f8cc4912669d3eee056b093fdcf
+  revision: b114638c85a98e5c32dcacff3fbfff5c462d6b62
   specs:
     default_form (1.5.0)
       rails_com (~> 1.2)
@@ -64,6 +64,13 @@ GIT
       rails_com (~> 1.2)
 
 GIT
+  remote: https://github.com/work-design/rails_attend.git
+  revision: 1a1e87709ad2ef80717173083aae4104bd825baf
+  specs:
+    rails_attend (0.1.0)
+      rails_com (~> 1.2)
+
+GIT
   remote: https://github.com/work-design/rails_audit.git
   revision: 77047bf81769e809ee18e2852fbf57e7ffe0a82b
   specs:
@@ -72,7 +79,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: be594a54660ed5ed75d48fa0fe8e2ae4d552daba
+  revision: 1ae70c8c9bc955fba7dd12a0d707f200ad093634
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -88,7 +95,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 3e9f58975112bb9a27ca0f4e10272c67b631129e
+  revision: e53cc78e272bb1e08af68eca28e28c03bccb5718
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -98,7 +105,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: d96811a95b47159025bc0c638a13b2e7bd6f2247
+  revision: 6e19a346cb4bc36d5ac8c9575931af61c3e46771
   specs:
     rails_crm (0.1.0)
       rails_com (~> 1.2)
@@ -125,7 +132,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: 720c7b8bf9245837de654e55c0a6c56f54fb74fd
+  revision: c7b1105d67d8be5b4cb1bca1705e71df46272ebf
   specs:
     rails_event (0.1.1)
       rails_com (~> 1.2)
@@ -178,7 +185,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: a4fa88efd33d2d382c0d5e3550373550a0f28509
+  revision: 748d03b041fbf2f32ccf7d3e31466134e5cd06c4
   specs:
     rails_org (0.1)
       rails_auth
@@ -188,7 +195,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 7171d3977a53f851b398dd6d387b5b1659002817
+  revision: 5fac8d58d9d93d6f20a83abdc8ee87558e30d5ef
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -618,6 +625,7 @@ DEPENDENCIES
   qiniu_rails!
   rails (= 6.0.2.2)
   rails_agency!
+  rails_attend!
   rails_audit!
   rails_auth!
   rails_bench!

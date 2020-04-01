@@ -6,13 +6,13 @@
   <td><%= facilitate.price %></td>
   <td>
     <%= link_to '供应商管理', admin_good_providers_path('Facilitate', facilitate), class: 'ui orange label' %>
-    <%= link_to admin_facilitate_path(facilitate), aria: { label: t('.show') }, class: 'ui mini circular icon button' do %>
+    <%= link_to admin_facilitate_path(facilitate), aria: { label: t('.show') }, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-eye"></i>
     <% end %>
-    <%= link_to edit_admin_facilitate_path(facilitate), aria: { label: t('.edit') }, class: 'ui mini circular icon button' do %>
+    <%= link_to edit_admin_facilitate_path(facilitate), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
-    <%= link_to admin_facilitate_path(facilitate), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'ui mini circular icon button' do %>
+    <%= link_to admin_facilitate_path(facilitate), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-trash-alt"></i>
     <% end %>
   </td>

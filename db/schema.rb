@@ -10,10 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_26_081919) do
+ActiveRecord::Schema.define(version: 2020_04_01_152216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "absence_stats", force: :cascade do |t|
+    t.string "year"
+    t.float "annual_days"
+    t.float "annual_add"
+    t.float "left_annual_days"
+    t.float "vacation_days"
+    t.string "details", scale: 1024
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "absences", force: :cascade do |t|
+    t.bigint "member_id", scale: 8
+    t.bigint "merged_id", scale: 8
+    t.string "type"
+    t.string "state", default: "init"
+    t.float "hours", default: 0.0
+    t.string "kind"
+    t.datetime "start_at"
+    t.datetime "finish_at"
+    t.string "note", scale: 2048
+    t.string "comment", scale: 2048
+    t.boolean "redeeming"
+    t.string "redeeming_days", array: true
+    t.boolean "processed"
+    t.boolean "divided"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_absences_on_member_id"
+    t.index ["merged_id"], name: "index_absences_on_merged_id"
+  end
 
   create_table "abuses", force: :cascade do |t|
     t.bigint "user_id", scale: 8
@@ -290,6 +322,86 @@ ActiveRecord::Schema.define(version: 2020_03_26_081919) do
     t.datetime "updated_at", null: false
     t.json "parent_ancestors"
     t.index ["parent_id"], name: "index_areas_on_parent_id"
+  end
+
+  create_table "attendance_logs", force: :cascade do |t|
+    t.bigint "unsure_member_id", scale: 8
+    t.bigint "member_id", scale: 8
+    t.bigint "attendance_id", scale: 8
+    t.string "source", default: "machine"
+    t.string "state", default: "init"
+    t.string "name"
+    t.datetime "record_at"
+    t.boolean "processed"
+    t.string "kind"
+    t.string "note"
+    t.string "record_at_str"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["attendance_id"], name: "index_attendance_logs_on_attendance_id"
+    t.index ["member_id"], name: "index_attendance_logs_on_member_id"
+    t.index ["unsure_member_id"], name: "index_attendance_logs_on_unsure_member_id"
+  end
+
+  create_table "attendance_settings", force: :cascade do |t|
+    t.bigint "member_id", scale: 8
+    t.bigint "financial_month_id", scale: 8
+    t.string "state", default: "init"
+    t.string "on_time", default: "08:30"
+    t.string "off_time"
+    t.string "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["financial_month_id"], name: "index_attendance_settings_on_financial_month_id"
+    t.index ["member_id"], name: "index_attendance_settings_on_member_id"
+  end
+
+  create_table "attendance_stats", force: :cascade do |t|
+    t.bigint "member_id", scale: 8
+    t.bigint "financial_month_id", scale: 8
+    t.string "costed_absence", scale: 1024
+    t.string "redeeming_absence", scale: 1024
+    t.string "free_absence", scale: 1024
+    t.integer "allowance_days", scale: 4
+    t.integer "late_days", scale: 4
+    t.float "absence_redeeming_hours"
+    t.float "cost_absence_hours"
+    t.float "holiday_redeeming_hours"
+    t.boolean "processed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["financial_month_id"], name: "index_attendance_stats_on_financial_month_id"
+    t.index ["member_id"], name: "index_attendance_stats_on_member_id"
+  end
+
+  create_table "attendances", force: :cascade do |t|
+    t.bigint "member_id", scale: 8
+    t.bigint "interval_absence_id", scale: 8
+    t.bigint "late_absence_id", scale: 8
+    t.bigint "leave_absence_id", scale: 8
+    t.integer "late_minutes", scale: 4
+    t.integer "leave_minutes", scale: 4
+    t.float "overtime_hours"
+    t.float "attend_hours"
+    t.float "interval_hours"
+    t.float "total_hours"
+    t.date "attend_on"
+    t.datetime "start_at"
+    t.datetime "finish_at"
+    t.datetime "interval_start_at"
+    t.datetime "interval_finish_at"
+    t.string "kind"
+    t.integer "absence_minutes", scale: 4
+    t.boolean "absence_redeeming"
+    t.string "lost_logs", array: true
+    t.boolean "workday", default: true
+    t.boolean "processed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["interval_absence_id"], name: "index_attendances_on_interval_absence_id"
+    t.index ["late_absence_id"], name: "index_attendances_on_late_absence_id"
+    t.index ["leave_absence_id"], name: "index_attendances_on_leave_absence_id"
+    t.index ["member_id"], name: "index_attendances_on_member_id"
   end
 
   create_table "attitudes", force: :cascade do |t|
@@ -904,6 +1016,17 @@ ActiveRecord::Schema.define(version: 2020_03_26_081919) do
     t.index ["verifier_id"], name: "index_expenses_on_verifier_id"
   end
 
+  create_table "extra_days", force: :cascade do |t|
+    t.bigint "organ_id", scale: 8
+    t.date "the_day"
+    t.string "name"
+    t.string "kind", comment: "holiday, workday"
+    t.string "scope"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organ_id"], name: "index_extra_days_on_organ_id"
+  end
+
   create_table "facilitate_providers", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -937,6 +1060,17 @@ ActiveRecord::Schema.define(version: 2020_03_26_081919) do
     t.string "buyer_type"
     t.integer "buyer_id", scale: 4
     t.index ["facilitate_taxon_id"], name: "index_facilitates_on_facilitate_taxon_id"
+  end
+
+  create_table "financial_months", force: :cascade do |t|
+    t.bigint "organ_id", scale: 8
+    t.date "begin_date"
+    t.date "end_date"
+    t.string "working_days"
+    t.string "color", default: "#8fdf82"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organ_id"], name: "index_financial_months_on_organ_id"
   end
 
   create_table "financial_taxon_hierarchies", force: :cascade do |t|
@@ -1526,6 +1660,19 @@ ActiveRecord::Schema.define(version: 2020_03_26_081919) do
     t.integer "cached_role_ids", scale: 4, array: true
     t.index ["area_id"], name: "index_organs_on_area_id"
     t.index ["parent_id"], name: "index_organs_on_parent_id"
+  end
+
+  create_table "overtimes", force: :cascade do |t|
+    t.bigint "member_id", scale: 8
+    t.datetime "start_at"
+    t.datetime "finish_at"
+    t.string "note", scale: 1024
+    t.string "comment", scale: 1024
+    t.float "hours"
+    t.string "state", default: "init"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_overtimes_on_member_id"
   end
 
   create_table "packageds", force: :cascade do |t|
