@@ -1,18 +1,19 @@
-<div class="ui segment top attached">
+<div class="box">
   <%= render 'taxon' %>
 </div>
 
-<div class="ui segment bottom attached items">
+<div style="width: 800px">
   <% @facilitates.each do |facilitate| %>
-    <div class="item">
-      <div class="avatar image">
-        <%= image_tag facilitate.logo if facilitate.logo_attachment %>
+    <div class="media">
+      <div class="media-left">
+        <%= image_tag facilitate.logo, class: 'image is-48x48' if facilitate.logo_attachment %>
       </div>
-
-      <div class="content">
+      <div class="media-content">
         <%= link_to facilitate.name, facilitate_path(facilitate) %>
         <p><%= facilitate.description %></p>
-        <%= link_to '加入购物车', my_trade_items_path(good_id: facilitate.id, good_type: 'Facilitate'), method: :post, class: 'ui mini button' %>
+      </div>
+      <div class="media-right">
+        <%= link_to '加入购物车', my_trade_items_path(good_id: facilitate.id, good_type: 'Facilitate'), method: :post, class: 'button' %>
       </div>
     </div>
   <% end %>

@@ -14,9 +14,9 @@
 <dl>
   <dt><%= Requirement.human_attribute_name(:state) %></dt>
   <dd>
-    <%= link_to t('.all'), filter_params(except: [:state]), class: active_params(state: '', active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <%= link_to t('.all'), filter_params(except: [:state]), class: active_params(state: '', active_class: 'button is-info', item_class: 'button is-light') %>
     <% Requirement.options_i18n(:state).each do |text, state| %>
-      <%= link_to text, filter_params(state: state), class: active_params(state: state, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+      <%= link_to text, filter_params(state: state), class: active_params(state: state, active_class: 'button is-info', item_class: 'button is-light') %>
     <% end %>
   </dd>
 </dl>
