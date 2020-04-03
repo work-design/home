@@ -1,42 +1,41 @@
 <% content_for :title, @facilitate.name %>
 <% content_for :meta_description, @facilitate.description %>
 
-<div class="ui grid">
-  <div class="sixteen wide column">
-
-    <div class="ui segment breadcrumb">
-      <%= link_to '服务列表', facilitates_path, class: 'section' %>
-      <i class="right chevron icon divider"></i>
-      <%= link_to @facilitate.facilitate_taxon.name, facilitates_path(facilitate_taxon_id: @facilitate.facilitate_taxon_id), class: 'section' %>
-      <i class="right chevron icon divider"></i>
-      <div class="active section"><%= @facilitate.name %></div>
-    </div>
-
-    <h1 class="ui dividing header center aligned">
-      <%= @facilitate.name %>
-    </h1>
-
+<div>
+  <div class="breadcrumb">
+    <ul>
+      <li><%= link_to '服务列表', facilitates_path %></li>
+      <li><%= link_to @facilitate.facilitate_taxon.name, facilitates_path(facilitate_taxon_id: @facilitate.facilitate_taxon_id) %></li>
+      <li class="is-active"><%= @facilitate.name %></li>
+    </ul>
   </div>
+
+  <h1 class="has-text-centered">
+    <%= @facilitate.name %>
+  </h1>
 </div>
 
 
-<div class="ui grid">
-  <div class="twelve wide column">
+<div class="columns">
+  <div class="column">
 
-    <div class="ui menu fluid three item">
-      <%= link_to facilitate_path(@facilitate), class: 'item' do %>
-        <i class="home icon"></i>商品信息
-      <% end %>
-      <%= link_to '服务商信息', facilitate_path(@facilitate), class: 'item' %>
-      <a class="item"></a>
+    <div class="tabs">
+      <ul>
+        <li>
+          <%= link_to facilitate_path(@facilitate), class: 'item' do %>
+            <i class="home icon"></i>商品信息
+          <% end %>
+        </li>
+        <li><%= link_to '服务商信息', facilitate_path(@facilitate), class: 'item' %></li>
+      </ul>
     </div>
     <div class="ui segment">
-      <%= ex_simple_format @facilitate.description %>
+      <%= simple_format @facilitate.description %>
     </div>
     <%# render partial: 'store/goods/show/items', locals: { good: @good } %>
   </div>
 
-  <div class="four wide column">
+  <div class="column is-narrow">
     <%= render partial: 'show_side', locals: { good: @good } %>
   </div>
 
