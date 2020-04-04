@@ -1,7 +1,9 @@
 <%= form_with theme: 'search', model: Facilitate.new do |f| %>
-  <div class="fields">
+  <div class="field-body">
     <%= f.text_field :name %>
-    <%= f.submit 'Search' %>
+    <div class="field is-narrow">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>
 

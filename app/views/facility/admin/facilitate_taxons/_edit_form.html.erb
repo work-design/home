@@ -1,0 +1,3 @@
+<%= form_with model: @facilitate_taxon, as: :facilitate_taxon, url: admin_facilitate_taxon_path(@facilitate_taxon, return_to: params[:return_to]) do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+<% end %>

@@ -5,7 +5,9 @@
   <td><time><%= facilitate.created_at.to_s(:rfc822) %></time></td>
   <td><%= facilitate.price %></td>
   <td>
-    <%= link_to '供应商管理', admin_good_providers_path('Facilitate', facilitate), class: 'ui orange label' %>
+    <%= link_to admin_good_providers_path('Facilitate', facilitate), class: 'button is-small is-rounded is-light' do %>
+      <i class="fas fa-eye"></i><%= '供应商管理' %>
+    <% end %>
     <%= link_to admin_facilitate_path(facilitate), aria: { label: t('.show') }, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-eye"></i>
     <% end %>

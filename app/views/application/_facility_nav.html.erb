@@ -1,0 +1,10 @@
+<div class="<%= active_helper(modules: 'facility/admin', active_class: 'menu ex-accordion is-active', item_class: 'menu ex-accordion') %>" data-controller="menu">
+  <a class="menu-label" data-action="menu#toggle">
+    <i class="fas fa-coffee"></i>
+    <span>空间管理</span>
+    <i class="fas dropdown"></i>
+  </a>
+  <div class="menu-list">
+    <%= link_to '空间分类', admin_facilitates_path, class: active_helper(controllers: ['facilitates'], active_class: 'is-active', item_class: nil) %>
+  </div>
+</div>

@@ -1,15 +1,6 @@
-<div class="ui top attached borderless menu">
-  <div class="item header">服务列表</div>
-  <div class="right menu">
-    <div class="item"><%= link_to '新建', new_admin_facilitate_path, class: 'button is-link is-small' %></div>
-  </div>
-</div>
+<%= render 'filter' %>
 
-<div class="ui attached segment">
-  <%= render 'search_form' %>
-</div>
-
-<table class="ui selectable structured celled bottom attached table">
+<table class="table is-hoverable is-fullwidth">
   <thead>
     <tr>
       <th><%= Facilitate.human_attribute_name(:taxon) %></th>
@@ -18,7 +9,11 @@
       <th><%= Facilitate.human_attribute_name(:description) %></th>
       <th><%= Facilitate.human_attribute_name(:created_at) %></th>
       <th><%= Facilitate.human_attribute_name(:price) %></th>
-      <th></th>
+      <th>
+        <%= link_to new_admin_facilitate_path, remote: true, class: 'button is-link is-small' do %>
+          <i class="fas fa-plus"></i><%= t('.new') %>
+        <% end %>
+      </th>
     </tr>
   </thead>
 

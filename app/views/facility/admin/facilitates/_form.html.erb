@@ -1,4 +1,4 @@
-<%= form_with model: [:admin, @facilitate], local: true do |f| %>
+<%= form_with model: [:admin, @facilitate] do |f| %>
   <%= render 'shared/error_messages', target: @facilitate %>
   <div class="inline fields">
     <%= f.select :facilitate_taxon_id, options_from_collection_for_select(@options, :id, :name, @facilitate.facilitate_taxon_id), { label: 'Taxon:', include_blank: true, on: { wrap_all: false } }, { class: 'ui fluid dropdown' } %>
@@ -9,7 +9,3 @@
   <%= f.file_field :logo %>
   <%= f.submit %>
 <% end %>
-
-<script>
-  $('#facilitate_facilitate_taxon_id').dropdown();
-</script>
