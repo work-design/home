@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 294988c9a5928abd16bdd9a6c045932e8f5b109c
+  revision: 73fcec02ace864fa99d315f4425793c1bc700e8e
   specs:
     default_form (1.5.0)
       rails_com (~> 1.2)
@@ -95,7 +95,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: f5362d0f18d8266d0cc5a9dd2ab101b9a9a5472c
+  revision: 3c5bd14be46be83bab840a52b77e5afe429d08ab
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -132,14 +132,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: 114330c0e76183f3b690ceb7a5aa82e9c9bd5ed1
+  revision: c845f475a29c2e822c6903bea2653d4d243c7be0
   specs:
     rails_event (0.1.1)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 63999a8602e4c3140c227432a2860059ca6a7a2e
+  revision: 9f2a194e280e1e8fdf13d8c1617b4e4e8a6f8c2f
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -195,7 +195,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 5fac8d58d9d93d6f20a83abdc8ee87558e30d5ef
+  revision: 519dcd9e0229a0722d4bb67f01d774c9c82456eb
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -237,7 +237,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: a132f54b3cc82201feb89fc67f0f8dd5037a4d66
+  revision: 40220f2442ea5e9a0e160364e8aadc8a0c8ad9eb
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)

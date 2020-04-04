@@ -5,7 +5,8 @@
     <%= link_to 'Add Taxon', new_admin_facilitate_taxon_path(return_to: request.path), class: 'ui button' %>
   </div>
   <%= f.text_field :name %>
-  <%= f.text_area :desc %>
+  <%= f.text_area :description %>
   <%= f.file_field :logo %>
+  <%= f.number_field :price %>
   <%= f.submit %>
 <% end %>

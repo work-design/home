@@ -20,37 +20,21 @@ class Facility::Admin::FacilitatesController < Facility::Admin::BaseController
   def create
     @facilitate = Facilitate.new(facilitate_params)
 
-    respond_to do |format|
-      if @facilitate.save
-        @facilitate.logo.attach(logo_params) if logo_params.present?
-        format.html { redirect_to admin_facilitates_url, notice: 'Facilitate was successfully created.' }
-        format.json { render :show, status: :created, location: @facilitate }
-      else
-        format.html { render :new }
-        format.json { render json: @facilitate.errors, status: :unprocessable_entity }
-      end
+    unless @facilitate.save
+      render :new, locals: { model: @facilitate }, status: :unprocessable_entity
     end
   end
 
   def update
-    @facilitate.logo.attach(logo_params) if logo_params.present?
-    respond_to do |format|
-      if @facilitate.update(facilitate_params)
-        format.html { redirect_to admin_facilitates_url, notice: 'Facilitate was successfully updated.' }
-        format.json { render :show, status: :ok, location: @facilitate }
-      else
-        format.html { render :edit }
-        format.json { render json: @facilitate.errors, status: :unprocessable_entity }
-      end
+    @facilitate.assign_attributes facilitate_params
+
+    unless @facilitate.save
+      render :edit, locals: { model: @facilitate }, status: :unprocessable_entity
     end
   end
 
   def destroy
     @facilitate.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_facilitates_url, notice: 'Facilitate was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
@@ -59,11 +43,13 @@ class Facility::Admin::FacilitatesController < Facility::Admin::BaseController
   end
 
   def facilitate_params
-    params.fetch(:facilitate, {}).permit(:name, :desc, :facilitate_taxon_id)
-  end
-
-  def logo_params
-    params.fetch(:facilitate, {}).permit(:logo).fetch(:logo, {})
+    params.fetch(:facilitate, {}).permit(
+      :name,
+      :description,
+      :price,
+      :logo,
+      :facilitate_taxon_id
+    )
   end
 
 end
