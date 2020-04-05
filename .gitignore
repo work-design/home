@@ -18,3 +18,5 @@ config/database.yml
 config/webpacker.yml
 config/certs
 config/alipay_rsa2.pem
+
+vender/bundle

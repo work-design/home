@@ -9,8 +9,4 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-if ARGV.include? 'enable_precompile'
-  Deploy.works(options[:env], skip_precompile: false)
-else
-  Deploy.works(options[:env], skip_precompile: true)
-end
+Deploy.exec_cmds(options[:env], skip_precompile: !ARGV.include?('enable_precompile'))
