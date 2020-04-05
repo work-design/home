@@ -88,14 +88,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: d7ca02349a2149380809f2c9efaeea8dab8317f0
+  revision: e01120d48cc9e405a10c380d1779ef087c7150a4
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 3c5bd14be46be83bab840a52b77e5afe429d08ab
+  revision: e8d38b843a5b42af9aea9a20cdf1d2ea532a63c7
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)

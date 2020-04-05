@@ -1,0 +1,10 @@
+<%= render layout: 'layouts/application_layout' do %>
+  <body class="as-body">
+    <%= render 'nav_bar' %>
+    <main class="as-main">
+      <%= yield %>
+    </main>
+    <%= render 'footer' %>
+    <%= js_load %>
+  </body>
+<% end %>>
