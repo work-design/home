@@ -1,16 +1,18 @@
 # README
 
-## Install Step
+## 项目初始化
 
-* install ui
+* 安装 ruby gems：`bundle install`;
 
-```
-# install
-yarn install
+* 安装 ui: `yarn install`;
 
-# upgrade
-yarn upgrade yougexiangfa_ui
-```
+* config 目录
+  * `cp database.yml.example database.yml`;
+  * 获得：`master.key`
+
+* 数据库准备：`bin/rails rails_com:migrations`
+* 数据库迁移：`bin/rails db:migrate`
+
 
 ## 设置sidekiq
 
