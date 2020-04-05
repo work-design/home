@@ -1,0 +1,17 @@
+[Unit]
+Description=sidekiq
+After=syslog.target network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/var/www/one_work/current
+ExecStart=/bin/bash -lc '/home/webuser/.rbenv/shims/bundle exec sidekiq -e staging'
+
+Environment=MALLOC_ARENA_MAX=2
+
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=sidekiq
+
+[Install]
+WantedBy=multi-user.target
