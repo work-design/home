@@ -185,7 +185,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 5fec5aee6539068e23bf86d21cd9354c137e501c
+  revision: 03d2aeeed2c0a1c890ca403a839b9672fd44e6e4
   specs:
     rails_org (0.1)
       rails_auth
@@ -203,7 +203,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_quip.git
-  revision: 299f2bccb71b99d8993ba319827ec05391994a89
+  revision: bb0f87997af9f155b1bee787b578cdbc355714fa
   specs:
     rails_quip (0.1.0)
       httpx
