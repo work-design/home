@@ -105,7 +105,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: b28a64ce4ce2300d09620df5086d6b723c60e7df
+  revision: 48db496a10a6f281c53a87e54dad725bc4ef3eb2
   specs:
     rails_crm (0.1.0)
       rails_com (~> 1.2)
