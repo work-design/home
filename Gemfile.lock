@@ -105,7 +105,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: 48db496a10a6f281c53a87e54dad725bc4ef3eb2
+  revision: bf774726ef4d24430c635513f265982a8ad22cdf
   specs:
     rails_crm (0.1.0)
       rails_com (~> 1.2)
@@ -185,7 +185,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 23d9cbbc01495b8a960705f5188b72acd24cd081
+  revision: 5fec5aee6539068e23bf86d21cd9354c137e501c
   specs:
     rails_org (0.1)
       rails_auth
@@ -220,7 +220,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ship.git
-  revision: 3f24a2fb999fb9a4cb637ffaee70a1e753373ec4
+  revision: ef15451bb23f28fb6d24ad884711c9e123968d91
   specs:
     rails_ship (0.1.0)
       rails_com (~> 1.2)
@@ -237,7 +237,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: a681be7c3ae9c5bd1cb1811220b3b21fdfe6dc58
+  revision: eeb90abd78a02e2822b883bd920d9f3328b45856
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
@@ -260,7 +260,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 11df13d1e137803189408fc06db60516a6d3ae19
+  revision: 9c2d9783889413bca83eb82fb41ccf9e8b5ae00a
   specs:
     rails_wechat (0.1.0)
       httpx (~> 0.7)
