@@ -27,13 +27,13 @@ jobs:
     - name: Cache Node Modules
       uses: actions/cache@v1
       with:
-        path: test/dummy/node_modules
-        key: ${{ runner.OS }}-yarn-${{ hashFiles('test/dummy/yarn.lock') }}
+        path: node_modules
+        key: ${{ runner.OS }}-yarn-${{ hashFiles('yarn.lock') }}
     - name: Install Dependencies
       run: |
         gem install bundler
         bundle install --path=bundle --jobs=4 --retry=3
-        test/dummy/bin/yarn install --check-files
+        bin/yarn install --check-files
     - name: Prepare DB
       run: |
         bin/rails db:drop
