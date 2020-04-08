@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 73fcec02ace864fa99d315f4425793c1bc700e8e
+  revision: 3047bd73f40ca63b22e4a7a0ca01fa982c389dc7
   specs:
     default_form (1.5.0)
       rails_com (~> 1.2)
@@ -95,7 +95,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 08e9dee8e3e9ab2d87daca07e82357a9a20f67da
+  revision: 2a96aa1a667a5a9128ff48f94913b8789989e7c0
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -195,7 +195,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 7e0d02678979c70232ca0743dba7068e59e09a27
+  revision: 9d5e5c955c58fb579934b426a846d77cddeee530
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -228,7 +228,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: e13a2e158f69f779af545c27d13390b41aaf2326
+  revision: 3f004ef6c568c9e150e6388f7b875c9e3712dbff
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 0.9, <= 1.0)
