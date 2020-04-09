@@ -1,22 +1,25 @@
 <%= form_with theme: 'search', model: Requirement.new do |f| %>
-  <div class="fields">
+  <div class="field-body">
     <%= f.text_field :name %>
     <%= f.text_field 'accounts.identity', placeholder: '手机号' %>
     <%= f.date_field :pick_on %>
     <%= f.time_field :pick_at %>
     <%= f.collection_select :from_area_id, Area.leaves, :id, :full_name, include_blank: true %>
     <%= f.collection_select :to_area_id, Area.leaves, :id, :full_name, include_blank: true %>
-    <%= f.submit %>
-    <%= link_to t('.clear'), admin_requirements_path, class: 'ui button' %>
+    <div class="field is-narrow">
+      <%= f.submit %>
+      <%= link_to t('.clear'), admin_requirements_path, class: 'button is-light' %>
+    </div>
   </div>
 <% end %>
-<div class="ui divider"></div>
-<dl>
-  <dt><%= Requirement.human_attribute_name(:state) %></dt>
-  <dd>
-    <%= link_to t('.all'), filter_params(except: [:state]), class: active_params(state: '', active_class: 'button is-info', item_class: 'button is-light') %>
-    <% Requirement.options_i18n(:state).each do |text, state| %>
-      <%= link_to text, filter_params(state: state), class: active_params(state: state, active_class: 'button is-info', item_class: 'button is-light') %>
-    <% end %>
-  </dd>
-</dl>
+<table class="as-search">
+  <tr>
+    <th><%= Requirement.human_attribute_name(:state) %></th>
+    <td>
+      <%= link_to t('.all'), filter_params(except: [:state]), class: active_params(state: '', active_class: 'button is-info', item_class: 'button is-light') %>
+      <% Requirement.options_i18n(:state).each do |text, state| %>
+        <%= link_to text, filter_params(state: state), class: active_params(state: state, active_class: 'button is-info', item_class: 'button is-light') %>
+      <% end %>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,4 @@
+<%= form_with model: [:admin, @requirement] do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+  <%= f.submit %>
+<% end %>

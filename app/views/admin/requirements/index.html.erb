@@ -1,6 +1,4 @@
-<div class="ui top attached segment">
-  <%= render 'filter' %>
-</div>
+<%= render 'filter' %>
 
 <table class="table is-hoverable is-fullwidth">
   <thead>
@@ -45,7 +43,7 @@
       </td>
       <td><%= requirement.note %></td>
       <td><%= requirement.state_i18n %></td>
-      <td><%= image_tag requirement.credential, class: 'ui tiny image' if requirement.credential.attached? %></td>
+      <td><%= image_tag requirement.credential, class: 'image is-24x24' if requirement.credential.attached? %></td>
       <td>
         <% if requirement.volunteer %>
           <p><%= requirement.volunteer.name %></p>

@@ -5,7 +5,7 @@ class HomeController < ApplicationController
     @post = Post.find_by(code: 'home/index')
   end
 
-  def tip
+  def yh
   end
 
   def uptoken
