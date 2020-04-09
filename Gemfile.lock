@@ -95,7 +95,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 2a96aa1a667a5a9128ff48f94913b8789989e7c0
+  revision: 6f5dbe88167cbf69f836853c288db5cce74d6470
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -185,7 +185,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 7f6a6ad0e957a08c6793936ae8d7ca1491e0582a
+  revision: a7ff72ac233dccb4bd8ef6ed04ceb5aa7c5f7a40
   specs:
     rails_org (0.1)
       rails_auth
