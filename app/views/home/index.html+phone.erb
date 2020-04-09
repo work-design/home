@@ -1,4 +1,6 @@
+
 <div class="weui-panel">
+  <% if current_user %>
   <a class="weui-cell weui-cell_access weui-cell_example">
     <div class="weui-cell__hd">
       <%= image_tag current_user.avatar, class: 'avatar' %>
@@ -8,6 +10,7 @@
     </div>
     <span class="weui-cell__ft"></span>
   </a>
+  <% end %>
 </div>
 
 <div class="weui-cells">
