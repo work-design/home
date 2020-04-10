@@ -7,6 +7,14 @@ GIT
       rest-client (>= 2.0.0)
 
 GIT
+  remote: https://github.com/qinmingyuan/activestorage_upyun.git
+  revision: 25838a5fc076826f735037afacda3a851bf94ab0
+  specs:
+    activestorage_upyun (0.6.0)
+      activestorage
+      upyun (~> 1.0.8)
+
+GIT
   remote: https://github.com/qinmingyuan/acts_as_list.git
   revision: 63cc2c9687cf0fa534e3a33077b470a7c984a354
   specs:
@@ -95,7 +103,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 6f5dbe88167cbf69f836853c288db5cce74d6470
+  revision: 25aad604bd418e09a169a43b59b1f4c49b291282
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -568,6 +576,9 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
+    upyun (1.0.9)
+      activesupport (>= 3.2.8)
+      rest-client (>= 1.6.7)
     web-console (4.0.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -597,6 +608,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activestorage_upyun!
   acts_as_list!
   alipay2!
   bcrypt

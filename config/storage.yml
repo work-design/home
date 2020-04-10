@@ -13,6 +13,14 @@ qiniu_dev:
   secret_key: 9XPOxEu1vzWRD0HiDtkjt6qJqGpBEVGuLrzQmXw0
   bucket: yigenongfu
   protocol: http
+  
+upyun_dev:
+  service: Upyun
+  bucket: <%= CREDENT.dig(:upyun, :bucket) %>
+  operator: <%= CREDENT.dig(:upyun, :operator) %>
+  password: <%= CREDENT.dig(:upyun, :password) %>
+  host: <%= CREDENT.dig(:upyun, :host) %>
+  folder: <%= CREDENT.dig(:upyun, :folder) %>
 
 qiniu:
   service: Qiniu
