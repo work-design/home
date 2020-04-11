@@ -24,7 +24,7 @@ gem 'kaminari'
 gem 'acts_as_list', github: 'qinmingyuan/acts_as_list'
 gem 'closure_tree', github: 'qinmingyuan/closure_tree'
 gem 'rucaptcha'
-gem 'mini_magick'
+gem 'image_processing'
 gem 'rqrcode'
 
 # Third party

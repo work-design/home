@@ -103,7 +103,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 25aad604bd418e09a169a43b59b1f4c49b291282
+  revision: d1f8d2b07be7ac7c761793cb7cbc25f7638f509c
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -383,6 +383,9 @@ GEM
       timers
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
+    image_processing (1.10.3)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     jwt (2.2.1)
@@ -536,6 +539,8 @@ GEM
       rqrcode_core (~> 0.1)
     rqrcode_core (0.1.2)
     ruby-ole (1.2.12.2)
+    ruby-vips (2.0.17)
+      ffi (~> 1.9)
     rubyzip (2.3.0)
     rucaptcha (2.5.3)
       railties (>= 3.2)
@@ -620,11 +625,11 @@ DEPENDENCIES
   default_form!
   default_where!
   factory_bot_rails
+  image_processing
   jbuilder
   kaminari
   kramdown
   listen
-  mini_magick
   octokit
   omniauth-github
   omniauth-wechat-oauth2!
