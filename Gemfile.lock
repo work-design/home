@@ -57,14 +57,6 @@ GIT
       omniauth-oauth2 (~> 1.5)
 
 GIT
-  remote: https://github.com/qinmingyuan/qiniu_rails.git
-  revision: 5d77f520d4202b280af41975b8d3f8740c225bf6
-  specs:
-    qiniu_rails (1.0.0)
-      qiniu (~> 6.9)
-      rails (>= 5.2)
-
-GIT
   remote: https://github.com/work-design/rails_agency.git
   revision: 8f22a3d5dc6f108c95bcd142db2001fe1e4b2934
   specs:
@@ -103,7 +95,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: d1f8d2b07be7ac7c761793cb7cbc25f7638f509c
+  revision: abae5bc0be649f0999a71c88a55c5caff8209cf3
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -480,9 +472,6 @@ GEM
     public_suffix (4.0.4)
     puma (4.3.3)
       nio4r (~> 2.0)
-    qiniu (6.9.0)
-      mime-types (~> 3.1)
-      rest-client (~> 2.0)
     rack (2.2.2)
     rack-protection (2.0.8.1)
       rack
@@ -639,7 +628,6 @@ DEPENDENCIES
   pry-rails
   pry-stack_explorer
   puma
-  qiniu_rails!
   rails (= 6.0.2.2)
   rails_agency!
   rails_attend!

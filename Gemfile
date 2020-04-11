@@ -39,7 +39,6 @@ gem 'paypal-sdk-core'
 gem 'paypal-sdk-rest'
 
 # Files
-gem 'qiniu_rails', github: 'qinmingyuan/qiniu_rails'
 gem 'activestorage_upyun', github: 'qinmingyuan/activestorage_upyun'
 
 # Rails Helpers
