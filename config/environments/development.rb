@@ -50,8 +50,7 @@ Rails.application.configure do
     'http://weixin.one.work'
   ]
   config.hosts += [
-    'weixin.one.work',
-    't.one.work',
+    '.lvh.me',
     'workdesign.free.qydev.com'
   ]
 
