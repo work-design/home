@@ -1,11 +1,10 @@
-class RailsComMigration62 < ActiveRecord::Migration[6.0]
+class RailsComMigration63 < ActiveRecord::Migration[6.0]
 
   def change
 
 
 
 
-    add_column :organs, :code, :string
 
 
 
@@ -177,6 +176,7 @@ class RailsComMigration62 < ActiveRecord::Migration[6.0]
 
 
 
+    remove_column :organ_grants, :session_organ_id, :integer, scale: 8
 
 
 

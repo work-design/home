@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_140950) do
+ActiveRecord::Schema.define(version: 2020_04_12_151809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1602,11 +1602,11 @@ ActiveRecord::Schema.define(version: 2020_04_12_140950) do
     t.datetime "expire_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "session_organ_id", scale: 8
     t.boolean "mock"
+    t.bigint "user_id", scale: 8
     t.index ["member_id"], name: "index_organ_grants_on_member_id"
     t.index ["organ_id"], name: "index_organ_grants_on_organ_id"
-    t.index ["session_organ_id"], name: "index_organ_grants_on_session_organ_id"
+    t.index ["user_id"], name: "index_organ_grants_on_user_id"
   end
 
   create_table "organ_handles", force: :cascade do |t|
