@@ -11,7 +11,7 @@ Rails.application.configure do
 
   config.webpacker.check_yarn_integrity = false if config.respond_to?(:webpacker)
 
-  config.active_storage.service = :qiniu
+  config.active_storage.service = :upyun
   config.active_storage.logger = nil
 
   config.log_level = :debug

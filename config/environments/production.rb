@@ -14,7 +14,7 @@ Rails.application.configure do
 
   config.public_file_server.enabled = false
 
-  config.active_storage.service = :qiniu
+  config.active_storage.service = :upyun
 
   config.webpacker.check_yarn_integrity = false if config.respond_to?(:webpacker)
 

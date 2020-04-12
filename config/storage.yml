@@ -14,7 +14,7 @@ qiniu_dev:
   bucket: yigenongfu
   protocol: http
   
-upyun_dev:
+upyun:
   service: Upyun
   bucket: <%= CREDENT.dig(:upyun, :bucket) %>
   operator: <%= CREDENT.dig(:upyun, :operator) %>
