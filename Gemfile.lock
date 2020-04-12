@@ -37,7 +37,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 3047bd73f40ca63b22e4a7a0ca01fa982c389dc7
+  revision: c1d3ee9ed47c72c0f3bf76cc35b0ea09da95fb42
   specs:
     default_form (1.5.0)
       rails_com (~> 1.2)
@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_attend.git
-  revision: c98dc54005bebfa5522f1a19a999d5cc26433531
+  revision: ed01e3e96b5936aa7864fa90395c3b706d9ce93b
   specs:
     rails_attend (0.1.0)
       rails_com (~> 1.2)
@@ -79,7 +79,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: df105d0e899840d0b808ac467a1422db4551828c
+  revision: e2871f38711beaa2bfaf982629ed188a2823a364
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -95,7 +95,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: abae5bc0be649f0999a71c88a55c5caff8209cf3
+  revision: f92ab03b16568ab1ead454d9cbd36f0decaf1ce3
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -112,7 +112,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: e492e66e0478a35095f52ba0f80442d86210231e
+  revision: 9861fd540c0f5dc4f08d5194c7dcc4940185f144
   specs:
     rails_data (1.0.2)
       prawn (~> 2.2)
@@ -132,7 +132,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: 68c114145e53aad93ddc1a51144b6a13b4c88c05
+  revision: 916c6bd68065c6f6ea72590a3de737354d4ec6a5
   specs:
     rails_event (0.1.1)
       rails_com (~> 1.2)
@@ -237,7 +237,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 474fcea9953bb6afb7a6574b9beebcbfdeed3777
+  revision: 963ec14b0ca315e941dc96a417f71e7642293fbd
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
@@ -245,7 +245,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: 4325c65683b4c1f5011fb7202331cf289e97bc13
+  revision: de1b1d7fb1a1c4819c42ec8bc4758429783cf3e9
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
