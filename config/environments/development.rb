@@ -63,7 +63,7 @@ Rails.application.configure do
 end
 ActiveRecord::Base.verbose_query_logs = true
 Rails.application.routes.default_url_options = {
-  host: 'weixin.one.work'
+  host: 'lvh.me'
 }
 #ActionCable.server.config.logger = Logger.new(nil)
 ENV['EDITOR'] = 'code --wait'
