@@ -42,7 +42,7 @@ Rails.application.configure do
 end
 
 Rails.application.routes.default_url_options = {
-  host: 'https://one.work'
+  host: 'one.work'
 }
 
 Sidekiq.configure_client do |config|
