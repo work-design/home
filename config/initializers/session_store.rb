@@ -4,5 +4,5 @@ Rails.application.config.session_store(
   :cookie_store,
   key: '_one_work_session',
   domain: :all,
-  tld_length: 3
+  tld_length: 2
 )
