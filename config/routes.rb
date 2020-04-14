@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     resources :requirements
     resources :escorts
   end
+  namespace :panel do
+    root 'home#index'
+  end
   namespace :my do
     resources :requirements do
       collection do

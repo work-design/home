@@ -6,5 +6,6 @@ import './channels'
 
 import 'moment'
 import 'rails_com/application'
+import 'stimulus_com/all'
 import 'default_form/application'
 import 'weui.js'
