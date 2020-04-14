@@ -95,7 +95,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 59c2e9ec610339c126e4a443e9817a266edb756d
+  revision: c57d245374530601775b1b93d5a9468e5370a14e
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -105,7 +105,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: 0e1752eacbe4ff40eed99fa702c5975e9f86498a
+  revision: 715cba9217641179ddfbaf93415e63322919cf10
   specs:
     rails_crm (0.1.0)
       rails_com (~> 1.2)
@@ -132,14 +132,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: 916c6bd68065c6f6ea72590a3de737354d4ec6a5
+  revision: 5d8fedcb747d84eafe779b19dc6047311b5f745c
   specs:
     rails_event (0.1.1)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: a489cf24e7fb1242064a87687705db4fe89ff7bc
+  revision: bb243ab07f2d3fadbb49da9c6aaa6ad360d2f788
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -147,7 +147,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: ebd257d7ac690eef2a1c08bfb49a9055fc63dae7
+  revision: 55252b56805db5b61322970e32018e7c48a35d44
   specs:
     rails_finance (0.1.0)
       rails_com (~> 1.2)
@@ -170,7 +170,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_log.git
-  revision: 088412e154ef978d52371e48dc055175ba22f68a
+  revision: 4b425ae7386c81b0c99a9ba0bba225bffd287118
   specs:
     rails_log (2.1.6)
       rails_com (~> 1.2)
@@ -212,7 +212,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: c20d8e9a2aaeeda5eb42306c5abb61c941a2f10e
+  revision: 7df8af9116924fa9af397f44c3e647265def9293
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -237,7 +237,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: cda2c1ee3f712bb951f34041f2d83d8246887220
+  revision: 52b555c3846d75113909120a6b332e81bb1cce44
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
@@ -245,7 +245,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: de1b1d7fb1a1c4819c42ec8bc4758429783cf3e9
+  revision: a1558a92620ae880feb3ddba6137a453e99ea0a5
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
@@ -260,7 +260,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 8d58657aaab8008ab890f4e63cee337acd71285b
+  revision: 2dcb705ace2ca95dfae58f044b71095945d8d02c
   specs:
     rails_wechat (0.1.0)
       httpx (~> 0.7)
