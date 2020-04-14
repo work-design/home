@@ -95,7 +95,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 4b489a4de57ea49565841c4d8c680c0e26daa987
+  revision: 59c2e9ec610339c126e4a443e9817a266edb756d
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -124,7 +124,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_detail.git
-  revision: cdf2d84913dd40cb5331c764fd81c9a7fa622dc7
+  revision: 51099b496f85b956b14cb2ca8d20e9660074d12a
   specs:
     rails_detail (0.0.1)
       acts_as_list (~> 0.9)
