@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_151809) do
+ActiveRecord::Schema.define(version: 2020_04_17_123945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1441,7 +1441,6 @@ ActiveRecord::Schema.define(version: 2020_04_12_151809) do
     t.json "department_ancestors"
     t.string "experience"
     t.string "attendance_number"
-    t.boolean "owner"
     t.integer "cached_role_ids", scale: 4, array: true
     t.index ["organ_id"], name: "index_members_on_organ_id"
     t.index ["organ_root_id"], name: "index_members_on_organ_root_id"

@@ -7,4 +7,8 @@ class Member < ApplicationRecord
   include RailsTrade::User
   include RailsNotice::Receiver
   include RailsFinance::User
+
+  def admin?
+    owned?
+  end
 end
