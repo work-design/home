@@ -1,2 +1,2 @@
-require 'awesome_print'
-AwesomePrint.pry!
+require 'amazing_print'
+AmazingPrint.pry!

@@ -1,4 +1,6 @@
-class AdminController < OurController
+class AdminController < ApplicationController
+  include RailsOrg::Application
+
   before_action :require_login
   before_action :require_role
 

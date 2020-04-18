@@ -75,6 +75,7 @@ gem 'rails_interact', github: 'work-design/rails_interact'
 
 # Debug
 gem 'pry-rails'
+gem 'amazing_print'
 
 group :development, :test do
   gem 'byebug'

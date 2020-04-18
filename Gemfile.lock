@@ -88,7 +88,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 147414e82f48711abfdf05f9ad7b1d8936371e82
+  revision: 11003ee856ecffc880370b928d870194b289d2e5
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
@@ -139,7 +139,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: b1141346476c769091928c6b27bd575a2433f271
+  revision: cfc784c85e639960895c81a5ada670d2a666b45d
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -185,7 +185,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 27774c7363d27cdd8cfde84fcb36e9063af68401
+  revision: ae82004ab200d942cb07136d0cd31e51c9ef80ab
   specs:
     rails_org (0.1)
       rails_auth
@@ -327,6 +327,7 @@ GEM
       zeitwerk (~> 2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    amazing_print (1.0.0)
     bcrypt (3.1.13)
     bindex (0.8.1)
     binding_of_caller (0.8.0)
@@ -605,6 +606,7 @@ DEPENDENCIES
   activestorage_upyun!
   acts_as_list!
   alipay2!
+  amazing_print
   bcrypt
   bootsnap (>= 1.1.0)
   byebug
