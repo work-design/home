@@ -170,7 +170,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_log.git
-  revision: 4b425ae7386c81b0c99a9ba0bba225bffd287118
+  revision: 8b9f6db3bc860e46c1ce8595aecbef1e8e7f7b47
   specs:
     rails_log (2.1.6)
       rails_com (~> 1.2)
@@ -185,7 +185,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: ae82004ab200d942cb07136d0cd31e51c9ef80ab
+  revision: 57ed2e077ebcf231c98a0dc08fe990746aa353d7
   specs:
     rails_org (0.1)
       rails_auth
