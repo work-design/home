@@ -1,6 +1,6 @@
 <% if current_session_organ %>
   <div class="navbar-item">
-    <%= image_tag current_session_organ.logo, class: 'image' %>
+    <%= image_tag current_session_organ.logo, class: 'image' if current_session_organ.logo.attached? %>
     <span><%= current_session_organ.name %></span>
   </div>
 <% else %>
