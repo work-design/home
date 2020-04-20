@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
   include RailsRole::Application
   include RailsTrade::MyCart
   include RailsOrg::Application
-
   protect_from_forgery with: :exception, unless: -> { json_format? }
-  content_security_policy false
 
 end

@@ -6,9 +6,6 @@ Rails.application.configure do
 
   config.action_controller.asset_host = 'lvh.me:3000'
   config.action_controller.perform_caching = false
-  config.public_file_server.headers = {
-    'Cache-Control' => "public, max-age=#{2.days.to_i}"
-  }
   config.cache_store = :file_store, 'tmp/cache/store'
 
   config.log_level = :debug

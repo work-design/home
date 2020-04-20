@@ -5,9 +5,10 @@ Rails.application.config.content_security_policy do |policy|
   policy.style_src :self, :https, :http, :unsafe_inline
   policy.script_src :self, :https, :http, :unsafe_inline
   if Rails.env.development?
-    policy.connect_src :self, :ws, 'localhost:3035'
+    policy.connect_src :self, :ws, 'localhost:3100', 'lvh.me:3000'
   end
   policy.report_uri '/csp_violation_report'
 end
 
-Rails.application.config.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
+Rails.configuration.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
+Rails.configuration.content_security_policy_nonce_directives = ['script-src']

@@ -16,7 +16,7 @@ module OneWork
     config.time_zone = 'Beijing'
     config.ssl_options = { hsts: { subdomains: true } }
     config.i18n.default_locale = :zh
-    
+
     config.generators do |g|
       g.stylesheets false
       g.javasricpts false

@@ -37,7 +37,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: c1d3ee9ed47c72c0f3bf76cc35b0ea09da95fb42
+  revision: d67c11d5f4488ce2181d4828513ec3bc1ba7d147
   specs:
     default_form (1.5.0)
       rails_com (~> 1.2)
@@ -95,7 +95,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 99fefad3dfb97018f1a2db18e3f08e2ffb4f3aa3
+  revision: 43f186a092bd95d3a2a653744305da5d002d3d88
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -220,7 +220,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ship.git
-  revision: 941a0d75aaa18e1af3f5740c20d8edd389c5bdb9
+  revision: 6650573f0171bd530d73a35e5bafa90fcc22a31a
   specs:
     rails_ship (0.1.0)
       rails_com (~> 1.2)
