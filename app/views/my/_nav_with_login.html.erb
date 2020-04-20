@@ -1,3 +1,4 @@
+<div class="navbar-brand">
 <% if current_session_organ %>
   <div class="navbar-item">
     <%= image_tag current_session_organ.logo, class: 'image' if current_session_organ.logo.attached? %>
@@ -5,11 +6,14 @@
   </div>
 <% else %>
   <%= link_to index_path, class: 'navbar-item' do %>
-    <%= image_pack_tag 'logo.jpg', class: 'ui image' %>
+    <%= image_pack_tag 'logo.jpg', class: 'image' %>
   <% end %>
 <% end %>
-<%= link_to '我的任务', root_path, class: active_helper(controllers: ['tasks', 'task_timers']) %>
-<%= link_to '组织列表', organs_path, class: active_helper(controllers: 'organs') %>
-<%= link_to '我的项目', my_projects_path, class: active_helper(controllers: ['projects', 'my/projects']) %>
-<%= link_to '就近办公', places_path, class: active_helper(controllers: ['places']) %>
-<%= link_to '标准化服务', facilitates_path, class: active_helper(controllers: ['facilitates']) %>
+</div>
+<div class="navbar-start">
+  <%= link_to '我的任务', root_path, class: active_helper(controllers: ['tasks', 'task_timers']) %>
+  <%= link_to '组织列表', organs_path, class: active_helper(controllers: 'organs') %>
+  <%= link_to '我的项目', my_projects_path, class: active_helper(controllers: ['projects', 'my/projects']) %>
+  <%= link_to '就近办公', places_path, class: active_helper(controllers: ['places']) %>
+  <%= link_to '标准化服务', facilitates_path, class: active_helper(controllers: ['facilitates']) %>
+</div>

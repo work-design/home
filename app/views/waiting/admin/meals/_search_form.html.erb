@@ -8,9 +8,9 @@
 <dl>
   <dt>Office:</dt>
   <dd>
-    <%= link_to t('.all'), filter_params(except: [:office_id]), class: active_params(office_id: '', active_class: 'button is-info', item_class: 'button is-light') %>
+    <%= link_to t('.all'), filter_params(except: [:office_id]), class: active_params(office_id: '', active: 'button is-info', item: 'button is-light') %>
     <% Office.all.each do |office| %>
-      <%= link_to office.name, filter_params(office_id: office.id), class: active_params(office_id: office.id, active_class: 'button is-info', item_class: 'button is-light') %>
+      <%= link_to office.name, filter_params(office_id: office.id), class: active_params(office_id: office.id, active: 'button is-info', item: 'button is-light') %>
     <% end %>
   </dd>
 </dl>
@@ -18,9 +18,9 @@
 <dl>
   <dt>Provider:</dt>
   <dd>
-    <%= link_to t('.all'), filter_params(except: [:provider_id]), class: active_params(provider_id: '', active_class: 'button is-info', item_class: 'button is-light') %>
+    <%= link_to t('.all'), filter_params(except: [:provider_id]), class: active_params(provider_id: '', active: 'button is-info', item: 'button is-light') %>
     <% Provider.all.each do |provider| %>
-      <%= link_to provider.name, filter_params(provider_id: provider.id), class: active_params(provider_id: provider.id, active_class: 'button is-info', item_class: 'button is-light') %>
+      <%= link_to provider.name, filter_params(provider_id: provider.id), class: active_params(provider_id: provider.id, active: 'button is-info', item: 'button is-light') %>
     <% end %>
   </dd>
 </dl>

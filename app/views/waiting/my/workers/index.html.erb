@@ -16,7 +16,7 @@
       <td>🍅 <%= worker.pomodoro %>分钟</td>
       <td>
         <%= form_tag present_my_worker_path(worker.id), method: :patch do %>
-          <span class="<%= active_assert(worker.present, expected: 'ui toggle disabled checkbox', unexpected: 'ui toggle checkbox') %>">
+          <span class="<%= worker.present ? 'ui toggle disabled checkbox' : 'ui toggle checkbox' %>">
             <label></label>
             <%= check_box_tag :present, nil, worker.present %>
           </span>

@@ -16,9 +16,9 @@
   <tr>
     <th><%= Requirement.human_attribute_name(:state) %></th>
     <td>
-      <%= link_to t('.all'), filter_params(except: [:state]), class: active_params(state: '', active_class: 'button is-info', item_class: 'button is-light') %>
+      <%= link_to t('.all'), filter_params(except: [:state]), class: active_params(state: '', active: 'button is-info', item: 'button is-light') %>
       <% Requirement.options_i18n(:state).each do |text, state| %>
-        <%= link_to text, filter_params(state: state), class: active_params(state: state, active_class: 'button is-info', item_class: 'button is-light') %>
+        <%= link_to text, filter_params(state: state), class: active_params(state: state, active: 'button is-info', item: 'button is-light') %>
       <% end %>
     </td>
   </tr>
