@@ -4,6 +4,7 @@ Rails.application.configure do
   config.eager_load = false
   config.consider_all_requests_local = true
 
+  config.action_controller.asset_host = 'lvh.me:3000'
   config.action_controller.perform_caching = false
   config.public_file_server.headers = {
     'Cache-Control' => "public, max-age=#{2.days.to_i}"

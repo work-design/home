@@ -185,7 +185,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 57ed2e077ebcf231c98a0dc08fe990746aa353d7
+  revision: 46fa07b55f69ab84d40816faeba0737de8843b1b
   specs:
     rails_org (0.1)
       rails_auth
@@ -195,7 +195,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 89d41f9d907274e4efb6c34216f645d374a54b45
+  revision: 94cc08c366a51d47607260b4bce7b31fd362a377
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
