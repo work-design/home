@@ -1,7 +1,7 @@
-<% if current_organ %>
+<% if current_session_organ %>
   <div class="navbar-item">
-    <%= image_tag current_organ.logo, class: 'ui avatar image' %>
-    <span><%= current_organ.name %></span>
+    <%= image_tag current_session_organ.logo, class: 'image' %>
+    <span><%= current_session_organ.name %></span>
   </div>
 <% else %>
   <%= link_to index_path, class: 'navbar-item' do %>
