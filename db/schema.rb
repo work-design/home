@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_17_123945) do
+ActiveRecord::Schema.define(version: 2020_04_21_170158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1901,6 +1901,30 @@ ActiveRecord::Schema.define(version: 2020_04_17_123945) do
     t.bigint "organ_id", scale: 8
     t.index ["organ_id"], name: "index_pipelines_on_organ_id"
     t.index ["piping_type", "piping_id"], name: "index_pipelines_on_piping_type_and_piping_id"
+  end
+
+  create_table "place_taxon_hierarchies", force: :cascade do |t|
+    t.integer "ancestor_id", scale: 4, null: false
+    t.integer "descendant_id", scale: 4, null: false
+    t.integer "generations", scale: 4, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "place_taxon_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "place_taxon_desc_idx"
+  end
+
+  create_table "place_taxons", force: :cascade do |t|
+    t.bigint "organ_id", scale: 8
+    t.bigint "parent_id", scale: 8
+    t.string "name"
+    t.integer "position", scale: 4
+    t.decimal "profit_margin", limit: 2, precision: 4
+    t.jsonb "parent_ancestors"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "places_count", scale: 4
+    t.index ["organ_id"], name: "index_place_taxons_on_organ_id"
+    t.index ["parent_id"], name: "index_place_taxons_on_parent_id"
   end
 
   create_table "places", force: :cascade do |t|
