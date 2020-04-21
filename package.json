@@ -16,7 +16,6 @@
     "@rails/activestorage": "^6.0.1",
     "@rails/ujs": "^6.0.1",
     "@rails/webpacker": "https://github.com/rails/webpacker",
-    "@work-design/ui": "https://github.com/work-design/ui.git",
     "axios": "^0.18.0",
     "bulma": "^0.8.1",
     "choices.js": "^9.0.1",
