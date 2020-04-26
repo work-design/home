@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_21_170158) do
+ActiveRecord::Schema.define(version: 2020_04_24_150905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1255,6 +1255,8 @@ ActiveRecord::Schema.define(version: 2020_04_21_170158) do
     t.integer "status", scale: 4, default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "organ_id", scale: 8
+    t.index ["organ_id"], name: "index_lists_on_organ_id"
   end
 
   create_table "log_csps", force: :cascade do |t|
@@ -1938,6 +1940,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_170158) do
     t.bigint "area_id", scale: 8
     t.integer "seats_count", scale: 4, default: 0
     t.integer "plans_count", scale: 4, default: 0
+    t.jsonb "place_taxon_ancestors"
     t.index ["area_id"], name: "index_places_on_area_id"
     t.index ["organ_id"], name: "index_places_on_organ_id"
     t.index ["place_taxon_id"], name: "index_places_on_place_taxon_id"
@@ -2760,6 +2763,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_170158) do
     t.bigint "item_id", scale: 8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "default_value"
     t.index ["item_id"], name: "index_taxon_items_on_item_id"
     t.index ["list_id"], name: "index_taxon_items_on_list_id"
     t.index ["taxon_type", "taxon_id"], name: "index_taxon_items_on_taxon_type_and_taxon_id"
