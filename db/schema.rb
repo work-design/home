@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_150905) do
+ActiveRecord::Schema.define(version: 2020_04_29_165153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -603,13 +603,14 @@ ActiveRecord::Schema.define(version: 2020_04_24_150905) do
     t.decimal "retail_price", default: "0.0", comment: "商品汇总的原价"
     t.decimal "discount_price", default: "0.0"
     t.decimal "bulk_price", default: "0.0"
-    t.decimal "reduced_amount", default: "0.0", comment: "汇总的减少价格"
-    t.decimal "additional_amount", default: "0.0"
+    t.decimal "total_reduced_amount", default: "0.0", comment: "汇总的减少价格"
+    t.decimal "total_additional_amount", default: "0.0"
     t.decimal "total_quantity", default: "0.0"
     t.decimal "item_amount", default: "0.0"
     t.decimal "overall_additional_amount", default: "0.0"
     t.decimal "overall_reduced_amount", default: "0.0"
     t.bigint "address_id", scale: 8
+    t.integer "lock_version", scale: 4
     t.index ["address_id"], name: "index_carts_on_address_id"
     t.index ["buyer_type", "buyer_id"], name: "index_carts_on_buyer_type_and_buyer_id"
     t.index ["organ_id"], name: "index_carts_on_organ_id"
@@ -1587,6 +1588,8 @@ ActiveRecord::Schema.define(version: 2020_04_24_150905) do
     t.integer "trade_items_count", scale: 4, default: 0
     t.bigint "address_id", scale: 8
     t.bigint "produce_plan_id", scale: 8
+    t.decimal "total_additional_amount", default: "0.0"
+    t.decimal "total_reduced_amount", default: "0.0"
     t.index ["address_id"], name: "index_orders_on_address_id"
     t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["maintain_id"], name: "index_orders_on_maintain_id"
@@ -2243,21 +2246,20 @@ ActiveRecord::Schema.define(version: 2020_04_24_150905) do
     t.index ["creator_id"], name: "index_projects_on_creator_id"
   end
 
-  create_table "promote_buyers", force: :cascade do |t|
+  create_table "promote_carts", force: :cascade do |t|
     t.bigint "promote_id", scale: 8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "buyer_type"
-    t.bigint "buyer_id", scale: 8
     t.string "state"
     t.string "status"
     t.integer "trade_promotes_count", scale: 4, default: 0
     t.bigint "promote_good_id", scale: 8
     t.datetime "effect_at"
     t.datetime "expire_at"
-    t.index ["buyer_type", "buyer_id"], name: "index_promote_buyers_on_buyer_type_and_buyer_id"
-    t.index ["promote_good_id"], name: "index_promote_buyers_on_promote_good_id"
-    t.index ["promote_id"], name: "index_promote_buyers_on_promote_id"
+    t.bigint "cart_id", scale: 8
+    t.index ["cart_id"], name: "index_promote_carts_on_cart_id"
+    t.index ["promote_good_id"], name: "index_promote_carts_on_promote_good_id"
+    t.index ["promote_id"], name: "index_promote_carts_on_promote_id"
   end
 
   create_table "promote_charges", force: :cascade do |t|
@@ -2894,18 +2896,17 @@ ActiveRecord::Schema.define(version: 2020_04_24_150905) do
     t.decimal "amount", limit: 2, precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "promote_buyer_id", scale: 8
     t.string "trade_type"
     t.bigint "trade_id", scale: 8
     t.bigint "trade_item_id", scale: 8
     t.bigint "promote_good_id", scale: 8
-    t.string "scope"
     t.integer "sequence", scale: 4
     t.decimal "based_amount", limit: 2, precision: 10
     t.decimal "original_amount", limit: 2, precision: 10
     t.decimal "computed_amount", limit: 2, precision: 10
     t.string "note"
-    t.index ["promote_buyer_id"], name: "index_trade_promotes_on_promote_buyer_id"
+    t.bigint "promote_cart_id", scale: 8
+    t.index ["promote_cart_id"], name: "index_trade_promotes_on_promote_cart_id"
     t.index ["promote_charge_id"], name: "index_trade_promotes_on_promote_charge_id"
     t.index ["promote_good_id"], name: "index_trade_promotes_on_promote_good_id"
     t.index ["promote_id"], name: "index_trade_promotes_on_promote_id"
