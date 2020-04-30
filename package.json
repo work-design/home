@@ -30,7 +30,7 @@
     "sortablejs": "^1.7.0",
     "stickybits": "^3.6.7",
     "stimulus": "^1.1.0",
-    "turbolinks": "^5.2.0",
+    "@qinmingyuan/turbolinks": "5.3.0-beta.2",
     "weui": "^2.1.4",
     "weui.js": "^1.1.4",
     "yarn": "^1.17.3"

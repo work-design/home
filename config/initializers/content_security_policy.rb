@@ -10,5 +10,4 @@ Rails.application.config.content_security_policy do |policy|
   policy.report_uri '/csp_violation_report'
 end
 
-Rails.configuration.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
 Rails.configuration.content_security_policy_nonce_directives = ['script-src']
