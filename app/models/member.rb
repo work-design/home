@@ -11,4 +11,5 @@ class Member < ApplicationRecord
   def admin?
     owned?
   end
+
 end

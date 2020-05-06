@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_29_165153) do
+ActiveRecord::Schema.define(version: 2020_05_06_155749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -444,8 +444,13 @@ ActiveRecord::Schema.define(version: 2020_04_29_165153) do
     t.integer "access_counter", scale: 4, default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "organ_id", scale: 8
+    t.bigint "member_id", scale: 8
+    t.boolean "mock"
     t.index ["account_id"], name: "index_authorized_tokens_on_account_id"
+    t.index ["member_id"], name: "index_authorized_tokens_on_member_id"
     t.index ["oauth_user_id"], name: "index_authorized_tokens_on_oauth_user_id"
+    t.index ["organ_id"], name: "index_authorized_tokens_on_organ_id"
     t.index ["user_id", "oauth_user_id", "account_id", "token"], name: "index_authorized_tokens_on_unique_token", unique: true
     t.index ["user_id"], name: "index_authorized_tokens_on_user_id"
   end
@@ -611,6 +616,7 @@ ActiveRecord::Schema.define(version: 2020_04_29_165153) do
     t.decimal "overall_reduced_amount", default: "0.0"
     t.bigint "address_id", scale: 8
     t.integer "lock_version", scale: 4
+    t.decimal "original_amount", default: "0.0", comment: "原价，应用优惠之前的价格"
     t.index ["address_id"], name: "index_carts_on_address_id"
     t.index ["buyer_type", "buyer_id"], name: "index_carts_on_buyer_type_and_buyer_id"
     t.index ["organ_id"], name: "index_carts_on_organ_id"
@@ -1590,6 +1596,7 @@ ActiveRecord::Schema.define(version: 2020_04_29_165153) do
     t.bigint "produce_plan_id", scale: 8
     t.decimal "total_additional_amount", default: "0.0"
     t.decimal "total_reduced_amount", default: "0.0"
+    t.decimal "original_amount", default: "0.0", comment: "原价，应用优惠之前的价格"
     t.index ["address_id"], name: "index_orders_on_address_id"
     t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["maintain_id"], name: "index_orders_on_maintain_id"
@@ -1597,20 +1604,6 @@ ActiveRecord::Schema.define(version: 2020_04_29_165153) do
     t.index ["payment_strategy_id"], name: "index_orders_on_payment_strategy_id"
     t.index ["produce_plan_id"], name: "index_orders_on_produce_plan_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
-  create_table "organ_grants", force: :cascade do |t|
-    t.bigint "organ_id", scale: 8
-    t.bigint "member_id", scale: 8
-    t.string "token", null: false
-    t.datetime "expire_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.boolean "mock"
-    t.bigint "user_id", scale: 8
-    t.index ["member_id"], name: "index_organ_grants_on_member_id"
-    t.index ["organ_id"], name: "index_organ_grants_on_organ_id"
-    t.index ["user_id"], name: "index_organ_grants_on_user_id"
   end
 
   create_table "organ_handles", force: :cascade do |t|
@@ -2222,6 +2215,7 @@ ActiveRecord::Schema.define(version: 2020_04_29_165153) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "project_id", scale: 4
+    t.boolean "owned"
     t.index ["job_title_id"], name: "index_project_members_on_job_title_id"
     t.index ["member_id"], name: "index_project_members_on_member_id"
     t.index ["project_id"], name: "index_project_members_on_project_id"
@@ -2241,9 +2235,7 @@ ActiveRecord::Schema.define(version: 2020_04_29_165153) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "creator_id", scale: 4
     t.string "github_repo"
-    t.index ["creator_id"], name: "index_projects_on_creator_id"
   end
 
   create_table "promote_carts", force: :cascade do |t|
@@ -2906,6 +2898,7 @@ ActiveRecord::Schema.define(version: 2020_04_29_165153) do
     t.decimal "computed_amount", limit: 2, precision: 10
     t.string "note"
     t.bigint "promote_cart_id", scale: 8
+    t.boolean "edited", comment: "是否被客服改过价"
     t.index ["promote_cart_id"], name: "index_trade_promotes_on_promote_cart_id"
     t.index ["promote_charge_id"], name: "index_trade_promotes_on_promote_charge_id"
     t.index ["promote_good_id"], name: "index_trade_promotes_on_promote_good_id"

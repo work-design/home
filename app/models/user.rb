@@ -11,7 +11,6 @@ class User < ApplicationRecord
   has_one :github_user
   has_one :wechat_user
   has_many :project_funds, dependent: :nullify
-  has_many :projects, foreign_key: :creator_id, dependent: :nullify
 
   has_many :requirements, dependent: :destroy
   has_many :picked_requirements, class_name: 'Requirement', foreign_key: :volunteer_id
