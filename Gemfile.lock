@@ -88,7 +88,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 7d34a3e77070d9e503a37d0220d950155031137d
+  revision: c2f4c0d615127752e8799ce9477eedd6dc160784
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
