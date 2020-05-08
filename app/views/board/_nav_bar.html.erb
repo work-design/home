@@ -1,0 +1,12 @@
+<nav class="navbar is-dark as-header">
+  <div class="navbar-start">
+    <% if current_user %>
+      <%= render 'nav_with_login' %>
+    <% else %>
+      <%= render 'nav_without_login' %>
+    <% end %>
+  </div>
+  <div class="navbar-end">
+    <%= render 'right_menu' %>
+  </div>
+</nav>

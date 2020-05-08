@@ -2,18 +2,7 @@ Rails.application.routes.draw do
 
 
 
-  scope :my, module: 'waiting/my', as: :my do
-    root to: '/auth/my/users#show', as: :root
 
-    resource :roles
-    resources :logs
-    resources :duties
-    resources :order_items
-    resources :workers do
-      post 'current', on: :collection
-      patch 'present', on: :member
-    end
-  end
 
 
 
