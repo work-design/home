@@ -20,10 +20,14 @@ Rails.application.routes.draw do
   namespace :panel do
     root 'home#index'
   end
+  namespace :board do
+    root '/auth/board/users#show'
+  end
+  namespace :my do
+    root 'home#index'
+  end
 
   scope :my, module: 'waiting/my', as: :my do
-    root to: '/auth/board/users#show', as: :root
-
     resource :roles
     resources :logs
     resources :duties

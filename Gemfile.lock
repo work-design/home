@@ -88,14 +88,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: c2f4c0d615127752e8799ce9477eedd6dc160784
+  revision: c7cfad1e592df779c672daf7692d1a3013dfa9c0
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: fcbfa1d02df878131da2142c8fe8bfed68ba352c
+  revision: 4cf46488351e20a11dd400badef8419f6b60d54c
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -185,7 +185,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 5ef46595490f5fd6b5de2f1627fe5864340735f6
+  revision: 24fc67c5ad2a38191fac93fbb428c665bafe6d9b
   specs:
     rails_org (0.1)
       rails_auth

@@ -1,7 +1,6 @@
-class My::HomeController < ApplicationController
+class My::HomeController < My::BaseController
 
   def index
   end
-
 
 end
