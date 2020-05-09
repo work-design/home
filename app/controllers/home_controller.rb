@@ -5,9 +5,6 @@ class HomeController < ApplicationController
     @post = Post.find_by(code: 'home/index')
   end
 
-  def yh
-  end
-
   def uptoken
     uptoken = QiniuHelper.generate_uptoken(nil)
     render json: { uptoken: uptoken, key: nil }
