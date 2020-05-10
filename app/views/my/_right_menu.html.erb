@@ -1,0 +1,13 @@
+<%= render partial: 'shared/locales' %>
+<%= render partial: 'notice_link' %>
+<div class="navbar-item has-dropdown is-hoverable">
+  <div class="navbar-link">
+    <%= image_tag current_user.avatar, class: 'image is-24x24' if current_user.avatar.attached? %>
+    <%= current_user.name %>
+  </div>
+  <div class="navbar-dropdown is-right">
+    <%= link_to '个人中心', '/my', class: active_helper(controllers: ['users']) %>
+    <%= link_to '管理', '/admin', class: 'navbar-item' %>
+    <%= link_to '退出', logout_path, data: { confirm: '确认退出' }, remote: true, class: 'navbar-item' %>
+  </div>
+</div>

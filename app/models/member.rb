@@ -6,6 +6,7 @@ class Member < ApplicationRecord
   include RailsTrade::Buyer
   include RailsNotice::Receiver
   include RailsFinance::User
+  include RailsAttend::Member
 
   def admin?
     owned?
