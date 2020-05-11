@@ -12,7 +12,7 @@
     "@fullcalendar/resource-daygrid": "^4.1.0",
     "@fullcalendar/resource-timegrid": "^4.1.0",
     "@fullcalendar/timegrid": "^4.1.0",
-    "@qinmingyuan/turbolinks": "5.3.0-beta.2",
+    "qinmingyuan_turbolinks": "5.3.0-beta.2",
     "@rails/actioncable": "^6.0.1",
     "@rails/activestorage": "^6.0.1",
     "@rails/ujs": "^6.0.1",

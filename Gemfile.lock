@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_attend.git
-  revision: 723b9fba44b84970269cb53fc73784e6cc53aa68
+  revision: e26eabae545ab85b5bf28dbeb8defe1665862d49
   specs:
     rails_attend (0.1.0)
       rails_com (~> 1.2)
@@ -95,7 +95,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 85b1ecb10fde7d76850bda7ebe1546d64f01b016
+  revision: 4e64aa32bc8fc01832d1f3c770a46d109892cef6
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -147,7 +147,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: 4986f585ccb259f50728464faad50d9ef6c7b8c0
+  revision: 307ac14a132a1423b74ade0f12747e11f95512ec
   specs:
     rails_finance (0.1.0)
       rails_com (~> 1.2)
@@ -185,7 +185,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 9139864e10a24bc0f6142fc888527813e5607934
+  revision: 16bf27d90aa4f1c0faa5e8c85dad8bc007ad216b
   specs:
     rails_org (0.1)
       rails_auth
@@ -260,7 +260,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 2442ed3cae306059ca2688d65dacc5a995a2fe55
+  revision: 6eacf2ba2ec415ea609309c88836abc84e76e123
   specs:
     rails_wechat (0.1.0)
       httpx (~> 0.7)

@@ -987,11 +987,6 @@
   dependencies:
     "@fullcalendar/daygrid" "~4.4.0"
 
-"@qinmingyuan/turbolinks@5.3.0-beta.2":
-  version "5.3.0-beta.2"
-  resolved "https://npm.pkg.github.com/download/@qinmingyuan/turbolinks/5.3.0-beta.2/e2e9646446341a558087a37bbe6d32ac5daa527b1f87bc5fb692daf64fb2a98b#d1866ba5cd3fad309cc1942183d6fdb7a3af289c"
-  integrity sha512-Tj833gPQwbPkUCroDXjK8Jqt0U+Z604Z43MTjgJNWGEh4ezYgfP7fAtqeuoC/L+n2rGpna9zsyLRgNEF4htkjg==
-
 "@rails/actioncable@^6.0.1":
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.0.2.tgz#bcba9bcd6ee09a47c6628336e07399a68ca87814"
@@ -6278,6 +6273,11 @@ q@^1.1.2:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
+
+qinmingyuan_turbolinks@5.3.0-beta.2:
+  version "5.3.0-beta.2"
+  resolved "https://registry.yarnpkg.com/qinmingyuan_turbolinks/-/qinmingyuan_turbolinks-5.3.0-beta.2.tgz#2df906db410697f0b80b6eba662888c893829d75"
+  integrity sha512-6oQSkb3vbOem88C1hMxyuJ2cF4ontws4RGqnsUIzd/0QTfyXWuC5ita3o8ZjUKmQK/tzAAnigZlakKBMYXXSBQ==
 
 qs@6.7.0:
   version "6.7.0"
