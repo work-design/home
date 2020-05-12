@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_155749) do
+ActiveRecord::Schema.define(version: 2020_05_12_142841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2020_05_06_155749) do
     t.string "details", scale: 1024
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "member_id", scale: 8
+    t.index ["member_id"], name: "index_absence_stats_on_member_id"
   end
 
   create_table "absences", force: :cascade do |t|
@@ -597,12 +599,10 @@ ActiveRecord::Schema.define(version: 2020_05_06_155749) do
   create_table "carts", force: :cascade do |t|
     t.string "buyer_type"
     t.bigint "buyer_id", scale: 8
-    t.string "session_id", scale: 128
     t.decimal "amount", limit: 2, precision: 10
     t.bigint "user_id", scale: 8
     t.bigint "payment_strategy_id", scale: 8
     t.integer "deposit_ratio", scale: 4
-    t.boolean "default"
     t.bigint "organ_id", scale: 8
     t.integer "trade_items_count", scale: 4, default: 0
     t.decimal "retail_price", default: "0.0", comment: "商品汇总的原价"
@@ -1045,6 +1045,8 @@ ActiveRecord::Schema.define(version: 2020_05_06_155749) do
     t.integer "facilitates_count", scale: 4, default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "organ_id", scale: 8
+    t.index ["organ_id"], name: "index_facilitate_taxons_on_organ_id"
   end
 
   create_table "facilitates", force: :cascade do |t|
@@ -1066,7 +1068,9 @@ ActiveRecord::Schema.define(version: 2020_05_06_155749) do
     t.integer "unified_quantity", scale: 4, default: 1
     t.string "buyer_type"
     t.integer "buyer_id", scale: 4
+    t.bigint "organ_id", scale: 8
     t.index ["facilitate_taxon_id"], name: "index_facilitates_on_facilitate_taxon_id"
+    t.index ["organ_id"], name: "index_facilitates_on_organ_id"
   end
 
   create_table "financial_months", force: :cascade do |t|
@@ -1654,6 +1658,7 @@ ActiveRecord::Schema.define(version: 2020_05_06_155749) do
     t.json "parent_ancestors"
     t.integer "cached_role_ids", scale: 4, array: true
     t.string "code"
+    t.boolean "official", comment: "是否官方"
     t.index ["area_id"], name: "index_organs_on_area_id"
     t.index ["parent_id"], name: "index_organs_on_parent_id"
   end

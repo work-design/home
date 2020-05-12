@@ -2,8 +2,10 @@ class Facility::FacilitatesController < ApplicationController
   before_action :set_facilitate, only: [:show]
 
   def index
-    @facilitate_taxons = FacilitateTaxon.all
-    @facilitates = Facilitate.default_where(params.permit!).page(params[:page])
+    q_params = {}
+    q_params.merge! default_params
+    @facilitate_taxons = FacilitateTaxon.default_where(q_params)
+    @facilitates = Facilitate.default_where(q_params).page(params[:page])
   end
 
   def show

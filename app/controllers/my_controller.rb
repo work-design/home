@@ -1,5 +1,4 @@
 class MyController < ApplicationController
-  include RailsAuth::Application
   include RailsOrg::Admin
 
   before_action :require_login
