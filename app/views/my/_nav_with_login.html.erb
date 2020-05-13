@@ -1,5 +1,8 @@
 <div class="navbar-brand">
 <% if current_session_organ %>
+  <%= link_to index_url(subdomain: nil), class: 'navbar-item' do %>
+    <%= image_pack_tag 'logo.png', class: 'image' %>
+  <% end %>
   <div class="navbar-item">
     <%= image_tag current_session_organ.logo, class: 'image' if current_session_organ.logo.attached? %>
     <span><%= current_session_organ.name %></span>
