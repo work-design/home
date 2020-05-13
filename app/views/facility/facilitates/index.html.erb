@@ -13,7 +13,7 @@
         <p><%= facilitate.description %></p>
       </div>
       <div class="media-right">
-        <%= link_to '加入购物车', my_trade_items_path(good_id: facilitate.id, good_type: 'Facilitate', organ_id: facilitate.id), method: :post, class: 'button' %>
+        <%= link_to '加入购物车', my_trade_items_path(good_id: facilitate.id, good_type: 'Facilitate', organ_id: facilitate.organ_id), method: :post, class: 'button' %>
       </div>
     </div>
   <% end %>
