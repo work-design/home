@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_125251) do
+ActiveRecord::Schema.define(version: 2020_05_13_160745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -859,25 +859,6 @@ ActiveRecord::Schema.define(version: 2020_05_13_125251) do
     t.index ["item_id"], name: "index_entity_items_on_item_id"
     t.index ["list_id"], name: "index_entity_items_on_list_id"
     t.index ["taxon_item_id"], name: "index_entity_items_on_taxon_item_id"
-  end
-
-  create_table "escorts", force: :cascade do |t|
-    t.bigint "user_id", scale: 8
-    t.bigint "volunteer_id", scale: 8
-    t.string "from_name"
-    t.string "from_mobile"
-    t.string "from_address"
-    t.string "to_name"
-    t.string "to_mobile"
-    t.string "to_address"
-    t.string "goods"
-    t.string "car"
-    t.string "note"
-    t.string "state", default: "init"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_escorts_on_user_id"
-    t.index ["volunteer_id"], name: "index_escorts_on_volunteer_id"
   end
 
   create_table "event_crowds", force: :cascade do |t|
