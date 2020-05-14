@@ -88,7 +88,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 7b2fd3123160e804bd6ec7e53db5530e1c0a424c
+  revision: 454e8cfa5717cfdcb00fe2b8379c33bd7f081a7e
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
@@ -105,7 +105,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: e1b808f21770ed15187fca1cd84d146c73b68afc
+  revision: 8fdbec91fb46399d14b2359e37fb329c25747386
   specs:
     rails_crm (0.1.0)
       rails_com (~> 1.2)
