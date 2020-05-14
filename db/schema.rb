@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_160745) do
+ActiveRecord::Schema.define(version: 2020_05_14_082726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -2201,8 +2201,10 @@ ActiveRecord::Schema.define(version: 2020_05_13_160745) do
     t.datetime "updated_at", null: false
     t.integer "project_id", scale: 4
     t.boolean "owned"
+    t.bigint "organ_id", scale: 8
     t.index ["job_title_id"], name: "index_project_members_on_job_title_id"
     t.index ["member_id"], name: "index_project_members_on_member_id"
+    t.index ["organ_id"], name: "index_project_members_on_organ_id"
     t.index ["project_id"], name: "index_project_members_on_project_id"
   end
 
@@ -2718,8 +2720,10 @@ ActiveRecord::Schema.define(version: 2020_05_13_160745) do
     t.bigint "user_id", scale: 8
     t.datetime "start_at"
     t.json "parent_ancestors"
+    t.bigint "organ_id", scale: 8
     t.index ["detail_id"], name: "index_tasks_on_detail_id"
     t.index ["member_id"], name: "index_tasks_on_member_id"
+    t.index ["organ_id"], name: "index_tasks_on_organ_id"
     t.index ["pipeline_id"], name: "index_tasks_on_pipeline_id"
     t.index ["project_id"], name: "index_tasks_on_project_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"

@@ -88,14 +88,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 25b962e33514f52c2b69317768067435bad55926
+  revision: 3dcc44a9fe7368895e03c3827e1ffe48a1474d83
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 883158bc59c3d16b5a24b067e776ce790d914137
+  revision: 697a4e6efd04d06976aba48c0253404635e7b9d2
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -185,7 +185,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 9b5f968041c894791fde1d412d8a75b46408cbb3
+  revision: 6760843ae492d07c098558db99da77f5f8dba8ea
   specs:
     rails_org (0.1)
       rails_auth
@@ -228,7 +228,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 00011608ee39ac7705b71b29225d1b83892d513b
+  revision: dcfc07fddb66304f83be21fd4ef7db940be312ef
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 0.9, <= 1.0)
