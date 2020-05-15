@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_14_082726) do
+ActiveRecord::Schema.define(version: 2020_05_15_104938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -746,8 +746,10 @@ ActiveRecord::Schema.define(version: 2020_05_14_082726) do
     t.bigint "custom_id", scale: 8
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "total_cart_id", scale: 8
     t.index ["cart_id"], name: "index_custom_carts_on_cart_id"
     t.index ["custom_id"], name: "index_custom_carts_on_custom_id"
+    t.index ["total_cart_id"], name: "index_custom_carts_on_total_cart_id"
   end
 
   create_table "custom_parts", force: :cascade do |t|
