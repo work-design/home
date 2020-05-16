@@ -6,7 +6,7 @@
     <%= current_user.name %>
   </div>
   <div class="navbar-dropdown is-right">
-    <%= link_to '个人中心', '/my', class: active_helper(controllers: ['users']) %>
+    <%= link_to '个人中心', '/my', class: active_helper(controllers: ['users'], active: 'navbar-item is-active', item: 'navbar-item') %>
     <%= link_to '管理', '/admin', class: 'navbar-item' %>
     <%= link_to '退出', logout_path, data: { confirm: '确认退出' }, remote: true, class: 'navbar-item' %>
   </div>
