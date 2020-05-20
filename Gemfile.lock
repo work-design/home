@@ -95,7 +95,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: abf22a589b9f717bac08d2857d53873d8968b89b
+  revision: 48a73a389e72ca5114edb87a178f15df1dcbea9b
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -260,10 +260,9 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 666745b095072ea202ff233a933ab41ffca9e61a
+  revision: 25268de6d41d1ce9c7477b1e7467a09314d3734b
   specs:
     rails_wechat (0.1.0)
-      httpx (~> 0.7)
       rails_auth
       rails_com (~> 1.2)
 
