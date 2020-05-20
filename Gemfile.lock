@@ -37,7 +37,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 3b9b815d9b33d79431390ed3fa251fba5699bdc1
+  revision: daad2730788b5ecd813070fe931d013fe5cef76b
   specs:
     default_form (1.5.1)
       rails_com (~> 1.2)
@@ -95,12 +95,12 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 1c8604d0f7cc2c1542b7fa9997997b66bd9f72e1
+  revision: abf22a589b9f717bac08d2857d53873d8968b89b
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
       http-form_data (~> 2.2)
-      httpx (~> 0.5)
+      httpx (~> 0.8)
       rails (~> 6.0)
 
 GIT
@@ -327,7 +327,7 @@ GEM
       zeitwerk (~> 2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    amazing_print (1.0.0)
+    amazing_print (1.1.0)
     bcrypt (3.1.13)
     bindex (0.8.1)
     binding_of_caller (0.8.0)
@@ -335,8 +335,8 @@ GEM
     bootsnap (1.4.6)
       msgpack (~> 1.0)
     builder (3.2.4)
-    byebug (11.1.2)
-    capybara (3.32.1)
+    byebug (11.1.3)
+    capybara (3.32.2)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -355,10 +355,10 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.9.0)
-    factory_bot (5.1.2)
+    factory_bot (5.2.0)
       activesupport (>= 4.2.0)
-    factory_bot_rails (5.1.1)
-      factory_bot (~> 5.1.0)
+    factory_bot_rails (5.2.0)
+      factory_bot (~> 5.2.0)
       railties (>= 4.2.0)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
@@ -371,12 +371,12 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     http-form_data (2.3.0)
-    httpx (0.7.0)
+    httpx (0.8.2)
       http-2-next (>= 0.1.2)
       timers
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
-    image_processing (1.10.3)
+    image_processing (1.11.0)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.10.0)
@@ -394,7 +394,8 @@ GEM
       activerecord
       kaminari-core (= 1.2.0)
     kaminari-core (1.2.0)
-    kramdown (2.1.0)
+    kramdown (2.2.1)
+      rexml
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -408,12 +409,12 @@ GEM
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2019.1009)
-    mimemagic (0.3.4)
+    mime-types-data (3.2020.0512)
+    mimemagic (0.3.5)
     mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.14.0)
+    minitest (5.14.1)
     monetize (1.9.4)
       money (~> 6.12)
     money (6.13.7)
@@ -470,8 +471,8 @@ GEM
     pry-stack_explorer (0.4.9.3)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    public_suffix (4.0.4)
-    puma (4.3.3)
+    public_suffix (4.0.5)
+    puma (4.3.5)
       nio4r (~> 2.0)
     rack (2.2.2)
     rack-protection (2.0.8.1)
@@ -507,16 +508,17 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
     rake (13.0.1)
-    rb-fsevent (0.10.3)
+    rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redis (4.1.3)
+    redis (4.1.4)
     regexp_parser (1.7.0)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rexml (3.2.4)
     roo (2.8.3)
       nokogiri (~> 1)
       rubyzip (>= 1.3.0, < 3.0.0)
@@ -574,7 +576,7 @@ GEM
     upyun (1.0.9)
       activesupport (>= 3.2.8)
       rest-client (>= 1.6.7)
-    web-console (4.0.1)
+    web-console (4.0.2)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
