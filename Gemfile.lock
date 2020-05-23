@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_attend.git
-  revision: 5b579bdaf3dfdf88685fe388d57d95c5617a3167
+  revision: 7229644c4eb5e3decec5decb22194efffb13c164
   specs:
     rails_attend (0.1.0)
       rails_com (~> 1.2)
@@ -95,7 +95,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 7f18a195abc5857a72e033d34e95d1bccd7ff5f9
+  revision: c00c5e691d4507edc941fcf7fedde3de36dd03ad
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
