@@ -28,7 +28,7 @@ Rails.application.configure do
     port: 465,
     authentication: :login,
     user_name: 'contact@one.work',
-    password: CREDENT[:mailer_password],
+    password: Rails.application.credentials[:mailer_password],
     ssl: true,
     return_response: true
   }

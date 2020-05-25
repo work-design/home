@@ -1,11 +1,13 @@
 module SmsHelper
+  APPID = Rails.application.credentials.dig(:sms, :appid)
+  SIGNATURE = Rails.application.credentials.dig(:sms, :signature)
 
   def self.send(mobile, vars = {})
     url = 'https://api.mysubmail.com/message/xsend'
     body = {
-      appid: CREDENT.dig(:sms, :appid),
+      appid: APPID,
       sign_type: 'normal',
-      signature: CREDENT.dig(:sms, :signature),
+      signature: SIGNATURE,
       to: mobile,
       vars: vars,
       project: '6aGCz3'
@@ -18,9 +20,9 @@ module SmsHelper
     host = 'https://api.mysubmail.com/'
     url = "#{host}balance/sms"
     options = {
-      appid: CREDENT.dig(:sms, :appid),
+      appid: APPID,
       sign_type: 'normal',
-      signature: CREDENT.dig(:sms, :signature)
+      signature: SIGNATURE
     }
 
     HTTPX.post(url, form: options)

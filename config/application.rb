@@ -45,5 +45,5 @@ module OneWork
 
   end
 end
-CREDENT = Rails.application.credentials.dig(Rails.env.to_sym)
+
 ENV['EDITOR'] = 'code --wait'

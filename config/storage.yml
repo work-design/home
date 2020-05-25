@@ -8,8 +8,8 @@ local:
   
 upyun:
   service: Upyun
-  bucket: <%= CREDENT.dig(:upyun, :bucket) %>
-  operator: <%= CREDENT.dig(:upyun, :operator) %>
-  password: <%= CREDENT.dig(:upyun, :password) %>
-  host: <%= CREDENT.dig(:upyun, :host) %>
-  folder: <%= CREDENT.dig(:upyun, :folder) %>
+  bucket: <%= Rails.application.credentials.dig(:upyun, :bucket) %>
+  operator: <%= Rails.application.credentials.dig(:upyun, :operator) %>
+  password: <%= Rails.application.credentials.dig(:upyun, :password) %>
+  host: <%= Rails.application.credentials.dig(:upyun, :host) %>
+  folder: <%= Rails.application.credentials.dig(:upyun, :folder) %>

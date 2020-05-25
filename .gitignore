@@ -14,6 +14,8 @@ node_modules
 
 # Ignore master key for decrypting credentials and more.
 config/master.key
+config/credentials/staging.key
+config/credentials/production.key
 config/database.yml
 config/webpacker.yml
 config/certs
