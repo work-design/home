@@ -49,16 +49,6 @@ Rails.application.routes.draw do
         patch :done
       end
     end
-    resources :escorts do
-      collection do
-        get :list
-        get :picked
-      end
-      member do
-        patch :pickup
-        patch :done
-      end
-    end
   end
 
   constraints ->(req) { AuthorizedToken.find_by(token: req.env['rack.session']['auth_token'])&.user if req.env['rack.session'].present? } do

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :facilitates, only: [:index, :show]
   end
 
-  scope :admin, module: 'facility/admin', as: 'admin' do
+  scope :admin, module: 'facility/admin', as: :admin do
     resources :facilitate_taxons, except: [:index, :show]
     resources :facilitates
   end
