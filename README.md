@@ -16,10 +16,7 @@ One Work 将尝试一切均开源的模式进行运作，包括：
 当然，没有万金油。以上各种现代管理方式，并非适合所有性质的岗位，如服务行业就不大适用于弹性工作制。
 
 ## 安装及使用
-1. `bundle install`
-2. `yarn install`
-3. `cp config/database.yml.example config/database.yml`
-4. `rake db:schema:load`
+* [开始开发](docs/install.md)
 
 ## 依赖及配置
 

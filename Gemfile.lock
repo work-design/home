@@ -170,7 +170,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_log.git
-  revision: fbbaba5930ffa950d0be92e9895f86405a38fcd0
+  revision: 9c74426f99769dac1d7dfea6a7b5903f6fe3f7a0
   specs:
     rails_log (2.1.6)
       rails_com (~> 1.2)
