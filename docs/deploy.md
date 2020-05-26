@@ -1,10 +1,12 @@
 # 部署
 
-## 编译
+## 编译静态资源
 由于 webpack 的编译比较销售资源，在服务端编译很容易引起内存消耗，故在本地编译完成之后上传服务端
 
 * 编译：`env RAILS_ENV=staging rake webpacker:compile`
 * 上传编译后的静态文件：`scp -rv public/packs webuser@one.work:/var/www/one_work/shared/public`
+
+
 
 ## 设置sidekiq
 
