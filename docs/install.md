@@ -2,8 +2,8 @@
 
 ## 项目初始化
 
-* 安装 ruby gems：`bundle install`;
-* 安装 ui: `yarn install`;
+* 安装 ruby gems：`bundle install`
+* 安装 ui: `yarn install`
 * 初始化配置文件，复制以 `.example` 结尾的文件，并重新命名，新文件名去除 `.example`
   * `config/database.yml`
   * `config/credentials/development.yml.enc`
