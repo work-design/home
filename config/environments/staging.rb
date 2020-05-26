@@ -27,8 +27,8 @@ Rails.application.configure do
     address: 'smtp.exmail.qq.com',
     port: 465,
     authentication: :login,
-    user_name: 'contact@one.work',
-    password: Rails.application.credentials[:mailer_password],
+    user_name: Rails.application.credentials.dig(:mailer, :user_name),
+    password: Rails.application.credentials.dig(:mailer, :password),
     ssl: true,
     return_response: true
   }
