@@ -21,6 +21,9 @@ One Work 将尝试一切均开源的模式进行运作，包括：
 3. `cp config/database.yml.example config/database.yml`
 4. `rake db:schema:load`
 
+## 依赖及配置
+
+
 ## 项目发展
 
 ### 资金
