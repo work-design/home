@@ -17,6 +17,7 @@ One Work 将尝试一切均开源的模式进行运作，包括：
 
 ## 安装及使用
 * [开始开发](docs/install.md)
+* [部署](docs/deploy.md)
 
 ## 依赖及配置
 
