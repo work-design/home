@@ -13,18 +13,15 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_options = {
-    from: 'contact@one.work'
-  }
   config.action_mailer.default_url_options = {
-    host: 'http://localhost:3000/'
+    host: 'http://lvh.me:3000'
   }
   config.action_mailer.smtp_settings = {
     address: 'smtp.exmail.qq.com',
     port: 465,
     authentication: :login,
-    user_name: 'contact@one.work',
-    password: Rails.application.credentials[:mailer_password],
+    user_name: Rails.application.credentials.dig(:mailer, :user_name),
+    password: Rails.application.credentials.dig(:mailer, :password),
     ssl: true,
     return_response: true
   }
@@ -45,7 +42,7 @@ Rails.application.configure do
   config.action_cable.disable_request_forgery_protection = true
   config.action_cable.allowed_request_origins = [
     'http://localhost:3000',
-    'http://weixin.one.work'
+    'http://lvh.me:3000'
   ]
   config.hosts += [
     '.lvh.me',
