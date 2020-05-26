@@ -16,6 +16,8 @@ node_modules
 config/master.key
 config/credentials/staging.key
 config/credentials/production.key
+config/credentials/development.yml.enc
+config/credentials/test.yml.enc
 config/database.yml
 config/webpacker.yml
 config/certs
