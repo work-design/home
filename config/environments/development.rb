@@ -33,7 +33,7 @@ Rails.application.configure do
   config.active_record.migration_error = :page_load
   config.active_record.verbose_query_logs = true
 
-  config.active_storage.service = :upyun
+  config.active_storage.service = :local
   config.active_storage.logger = nil
 
   config.webpacker.check_yarn_integrity = true if config.respond_to?(:webpacker)

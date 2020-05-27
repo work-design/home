@@ -1,11 +1,11 @@
+local:
+  service: Disk
+  root: <%= Rails.root.join('storage') %>
+
 test:
   service: Disk
   root: <%= Rails.root.join('tmp/storage') %>
 
-local:
-  service: Disk
-  root: <%= Rails.root.join('storage') %>
-  
 upyun:
   service: Upyun
   bucket: <%= Rails.application.credentials.dig(:upyun, :bucket) %>
