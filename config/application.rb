@@ -10,6 +10,7 @@ module OneWork
     config.paths['config/routes.rb'].concat Dir[Rails.root.join('config/routes/*.rb')]
     config.autoload_paths += Dir[
       "#{config.root}/app/models/oauth_user",
+      "#{config.root}/app/models/verify_token",
       "#{config.root}/app/models/provider"
     ]
 

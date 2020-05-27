@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_agency.git
-  revision: 3bde84ebf86abbeee86c18343cf508189ced0215
+  revision: 6ef8cd46025ce5ca42b0669f60350d063028b71d
   specs:
     rails_agency (0.1.0)
       rails_com (~> 1.2)
@@ -132,7 +132,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: b02ac0f48d1f89a4608157742c103777f2aaff2e
+  revision: 0073e76bbb6cc8b17edeafae5e6609543e839427
   specs:
     rails_event (0.1.1)
       rails_com (~> 1.2)
@@ -237,7 +237,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: a10d582ad969fb0302fc8e9a935a08a9c2cec04b
+  revision: 7e0d415b858b9221a670c67630326ab7939198f7
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
