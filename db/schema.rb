@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_15_104938) do
+ActiveRecord::Schema.define(version: 2020_05_27_044735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -327,7 +327,6 @@ ActiveRecord::Schema.define(version: 2020_05_15_104938) do
   end
 
   create_table "attendance_logs", force: :cascade do |t|
-    t.bigint "unsure_member_id", scale: 8
     t.bigint "member_id", scale: 8
     t.bigint "attendance_id", scale: 8
     t.string "source", default: "machine"
@@ -340,9 +339,9 @@ ActiveRecord::Schema.define(version: 2020_05_15_104938) do
     t.string "record_at_str"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "number"
     t.index ["attendance_id"], name: "index_attendance_logs_on_attendance_id"
     t.index ["member_id"], name: "index_attendance_logs_on_member_id"
-    t.index ["unsure_member_id"], name: "index_attendance_logs_on_unsure_member_id"
   end
 
   create_table "attendance_settings", force: :cascade do |t|
@@ -616,10 +615,12 @@ ActiveRecord::Schema.define(version: 2020_05_15_104938) do
     t.integer "lock_version", scale: 4
     t.decimal "original_amount", default: "0.0", comment: "原价，应用优惠之前的价格"
     t.bigint "member_id", scale: 8
+    t.bigint "total_cart_id", scale: 8
     t.index ["address_id"], name: "index_carts_on_address_id"
     t.index ["member_id"], name: "index_carts_on_member_id"
     t.index ["organ_id"], name: "index_carts_on_organ_id"
     t.index ["payment_strategy_id"], name: "index_carts_on_payment_strategy_id"
+    t.index ["total_cart_id"], name: "index_carts_on_total_cart_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -2171,7 +2172,6 @@ ActiveRecord::Schema.define(version: 2020_05_15_104938) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "organ_id", scale: 8
-    t.string "name"
     t.index ["organ_id"], name: "index_profiles_on_organ_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
