@@ -79,7 +79,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: dc3a004ce85164556cd4369d5aa3e8877e07f7e3
+  revision: 08195d4ecad11b2fa7da0964ae50d1b53459b1f5
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -112,7 +112,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: cb105d9df1ac6ab5f1c156af1b1bff60772df414
+  revision: 13d03d18681912b851cb716e22bd770e31e1e63c
   specs:
     rails_data (1.0.2)
       prawn (~> 2.2)
@@ -177,7 +177,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: c523caab68487af3639c928ef222ff27884639da
+  revision: c9654ad1ba358d27adefaae7348b1e38e3e4c08c
   specs:
     rails_notice (1.0.2)
       rails_auth
@@ -185,7 +185,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 4f5cc0f24b9247232fde1b1c71e1c674767d26be
+  revision: 49c2d933db3054f463a906bc7857f4ded1aebde2
   specs:
     rails_org (0.1)
       rails_auth
@@ -212,7 +212,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 4deda9696aa0bc6135113af6bb360584f56bdfe2
+  revision: 47f7f6e42fde05bd994066d4b5f2103e8208f202
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
