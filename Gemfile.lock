@@ -95,7 +95,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 49ee0b595a0cb66a4a90b21b56836060ee16488e
+  revision: 6caef1c18a8cdaf348281f4a496d50f1c558658f
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -345,9 +345,9 @@ GEM
       xpath (~> 3.2)
     childprocess (3.0.0)
     chunky_png (1.3.11)
-    coderay (1.1.2)
+    coderay (1.1.3)
     concurrent-ruby (1.1.6)
-    connection_pool (2.2.2)
+    connection_pool (2.2.3)
     crass (1.0.6)
     dalli (2.7.10)
     debug_inspector (0.0.3)
@@ -361,7 +361,7 @@ GEM
       railties (>= 4.2.0)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
-    ffi (1.12.2)
+    ffi (1.13.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (4.1.0)
@@ -587,7 +587,7 @@ GEM
       semantic_range (>= 2.3.0)
     websocket-driver (0.7.2)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.4)
+    websocket-extensions (0.1.5)
     with_advisory_lock (4.6.0)
       activerecord (>= 4.2)
     write_xlsx (0.83.0)
