@@ -1,33 +1,36 @@
-<section class="hero is-info is-medium is-bold bg_banner">
+<section class="hero is-medium" style="background-image: url(<%= asset_pack_path('media/images/background.png') %>);">
   <div class="hero-body container has-text-centered">
-    <h1 class="title is-spaced">One Work</h1>
-    <h2 class="subtitle">
+    <h1 class="title is-spaced has-text-white">One Work</h1>
+    <h2 class="subtitle has-text-white">
       Any<span class="has-text-warning">One</span>, Anywhere, Anytime, Any <span class="has-text-warning">Work</span>
     </h2>
-    <h2 class="subtitle">你的工作方式，一个就好</h2>
-    <h2 class="subtitle">拥抱未来的中小企业综合服务平台</h2>
+    <h2 class="subtitle has-text-white">你的工作方式，一个就好</h2>
+    <h2 class="subtitle has-text-white">拥抱未来的中小企业综合服务平台</h2>
   </div>
 </section>
-<section class="hero is-success is-bold">
+<section class="hero">
   <div class="container tile is-parent">
-    <div class="tile is-vertical is-8 is-info">
+    <div class="tile is-vertical is-8" style="align-items: center;">
       <h3 class="title">灵活办公</h3>
-      <div class="content has-text-light">
+      <div class="content">
         <p>One Work 致力于连接任何地区、任何时区的办公成员。</p>
         <p>我们提供全国各地的办公空间供您选择，不必预租多余的办公空间，不再局限于人才的地域，让员工就近选择办公地点，减少企业的通勤成本（增加员工的有效工时），有效节约企业及社会成本。</p>
         <p>远程、多地协作办公已是不可逆转的趋势，One Work 将无缝衔接企业微信、飞书、Quip等办公工具，协助您全方位协作办公。</p>
       </div>
     </div>
-    <div class="tile is-4 is-primary">
+    <div class="tile is-4">
+      <%= image_pack_tag 'smart.png', class: 'image' %>
     </div>
   </div>
 </section>
-<section class="hero is-primary is-bold">
+<section class="hero">
   <div class="container tile is-parent">
-    <div class="tile is-4"></div>
-    <div class="tile is-vertical is-8 is-warning">
+    <div class="tile is-4">
+      <%= image_pack_tag 'required.png', class: 'image' %>
+    </div>
+    <div class="tile is-vertical is-8">
       <h3 class="title">按需雇佣</h3>
-      <div class="content has-text-light">
+      <div class="content">
         <p>One Work 入驻了大量团队，也是个超级人才库，我们相信团队的组合更能凸显人才的价值。One Work 的入驻团队和项目管理将形成强大的生态（逐步形成中）。</p>
         <p>如果您的项目正缺人手，不必从 0 开始陷入繁重的招聘漩涡中，只需发布项目和团队需求，One.Work 会协助您找到最佳的团队组合。</p>
         <p>如果您是优秀的人才，在 One Work 组建团队吧，您可以在不同的团队中扮演不同的角色，最大化释放生产力，并获得更多的回报，让 One Work 成为您创业的起点。</p>
@@ -36,17 +39,18 @@
     </div>
   </div>
 </section>
-<section class="hero is-link">
+<section class="hero">
   <div class="container tile is-parent">
     <div class="tile is-vertical is-8 is-info">
       <h3 class="title is-bold">好用的办公管理系统，免费提供并且开源</h3>
-      <div class="content has-text-light">
+      <div class="content">
         <p>One Work 内置了整套办公功能，包括：项目管理、人力资源管理、出勤、财务报销、客户关系管理、活动会议管理、电商、微信公众号等，这些功能将免费开放，并且开源。</p>
         <p>如果 One Work 提供的功能不能很好地满足您的需求，我们鼓励您在尊重我们开源协议的前提下二次开发并私有部署，当然您也可以以很低的价格获得开源代码的商业授权（999元/年/每组件）。</p>
         <p>只有全链条的办公系统才能避免数据孤岛的出现，免费使用或是自己开发，尽请注册体验。</p>
       </div>
     </div>
-    <div class="tile is-4 is-primary">
+    <div class="tile is-4">
+      <%= image_pack_tag 'open.png', class: 'image' %>
     </div>
   </div>
 </section>
