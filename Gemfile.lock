@@ -37,7 +37,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 4c14ed2916dc8ac50b357752a8aba4adaa9e5a6f
+  revision: 2f56f33a823bf5689e84478aee7595d0d8a5b64b
   specs:
     default_form (1.5.1)
       rails_com (~> 1.2)
@@ -79,7 +79,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 08195d4ecad11b2fa7da0964ae50d1b53459b1f5
+  revision: 2fb3b938860c42ffebbaa62d7b2594b535b83f48
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -95,7 +95,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 2ebe98d94e02f814a9ec8387a3d39dc7cc47c503
+  revision: 49ee0b595a0cb66a4a90b21b56836060ee16488e
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -212,7 +212,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 47f7f6e42fde05bd994066d4b5f2103e8208f202
+  revision: 09ba2a20640a843358bba59924ba629b16bc0ff2
   specs:
     rails_role (1.0.3)
       acts_as_list (~> 0.9)
@@ -260,7 +260,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: fc6360fdd021f73bba0e2558b2c146cdaf345a33
+  revision: 5ec66e386488c9c07b3bc85c7c1c06785862c499
   specs:
     rails_wechat (0.1.0)
       rails_auth
