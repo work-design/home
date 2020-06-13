@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_044735) do
+ActiveRecord::Schema.define(version: 2020_06_12_150826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1410,13 +1410,21 @@ ActiveRecord::Schema.define(version: 2020_05_27_044735) do
     t.datetime "updated_at", precision: 6, null: false
     t.jsonb "department_ancestors"
     t.bigint "superior_id", scale: 8
-    t.bigint "super_job_title_id", scale: 8
     t.index ["department_id"], name: "index_member_departments_on_department_id"
     t.index ["department_root_id"], name: "index_member_departments_on_department_root_id"
     t.index ["job_title_id"], name: "index_member_departments_on_job_title_id"
     t.index ["member_id"], name: "index_member_departments_on_member_id"
-    t.index ["super_job_title_id"], name: "index_member_departments_on_super_job_title_id"
     t.index ["superior_id"], name: "index_member_departments_on_superior_id"
+  end
+
+  create_table "member_supers", force: :cascade do |t|
+    t.bigint "member_id", scale: 8
+    t.bigint "super_job_title_id", scale: 8
+    t.integer "grade", scale: 4, default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_member_supers_on_member_id"
+    t.index ["super_job_title_id"], name: "index_member_supers_on_super_job_title_id"
   end
 
   create_table "members", force: :cascade do |t|
