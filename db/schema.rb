@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_150826) do
+ActiveRecord::Schema.define(version: 2020_06_17_025254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1185,18 +1185,6 @@ ActiveRecord::Schema.define(version: 2020_06_12_150826) do
     t.index ["department_id"], name: "index_job_descriptions_on_department_id"
   end
 
-  create_table "job_title_references", force: :cascade do |t|
-    t.bigint "super_job_title_id", scale: 8
-    t.bigint "department_root_id", scale: 8
-    t.bigint "department_id", scale: 8
-    t.integer "grade", scale: 4
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["department_id"], name: "index_job_title_references_on_department_id"
-    t.index ["department_root_id"], name: "index_job_title_references_on_department_root_id"
-    t.index ["super_job_title_id"], name: "index_job_title_references_on_super_job_title_id"
-  end
-
   create_table "job_titles", force: :cascade do |t|
     t.bigint "department_id", scale: 8
     t.bigint "department_root_id", scale: 8
@@ -1207,8 +1195,11 @@ ActiveRecord::Schema.define(version: 2020_06_12_150826) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "description"
     t.integer "cached_role_ids", scale: 4, array: true
+    t.bigint "super_job_title_id", scale: 8
+    t.integer "super_grade", scale: 4
     t.index ["department_id"], name: "index_job_titles_on_department_id"
     t.index ["department_root_id"], name: "index_job_titles_on_department_root_id"
+    t.index ["super_job_title_id"], name: "index_job_titles_on_super_job_title_id"
   end
 
   create_table "job_transfers", force: :cascade do |t|
@@ -1415,16 +1406,6 @@ ActiveRecord::Schema.define(version: 2020_06_12_150826) do
     t.index ["job_title_id"], name: "index_member_departments_on_job_title_id"
     t.index ["member_id"], name: "index_member_departments_on_member_id"
     t.index ["superior_id"], name: "index_member_departments_on_superior_id"
-  end
-
-  create_table "member_supers", force: :cascade do |t|
-    t.bigint "member_id", scale: 8
-    t.bigint "super_job_title_id", scale: 8
-    t.integer "grade", scale: 4, default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["member_id"], name: "index_member_supers_on_member_id"
-    t.index ["super_job_title_id"], name: "index_member_supers_on_super_job_title_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -2607,7 +2588,6 @@ ActiveRecord::Schema.define(version: 2020_06_12_150826) do
     t.string "name"
     t.string "description"
     t.integer "grade", scale: 4
-    t.integer "limit_member", scale: 4
     t.integer "cached_role_ids", scale: 4, array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

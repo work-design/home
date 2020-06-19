@@ -30,7 +30,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 9cfe8dbc837a9463f62ba119bba6fadeede68618
+  revision: 75589c49090a44120d5206011b717f28cc25757c
   specs:
     default_form (1.5.1)
       rails_com (~> 1.2)
@@ -131,7 +131,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 9b9dd90dcc138d0cf73c2e907055f70068e22906
+  revision: 0eaecd87408c9927a5d24382e7c70964304ee58c
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -177,7 +177,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 05a5da7fd68466394eb4ad37fab6fb776edf8e91
+  revision: 5cc5623f9ffcf30576efbd6775a214ac0b94aaeb
   specs:
     rails_org (0.1)
       rails_auth
@@ -204,7 +204,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 1dc3bc1d1fc0bf08526dd5d06e35230f25af04d9
+  revision: b07f6b1901518a239b2b8af8429966ecbb2193f4
   specs:
     rails_role (1.0.3)
       rails_com (~> 1.2)
@@ -219,7 +219,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 52ea4b98099d0dffac1b5447a89c12e2537ce0b1
+  revision: e60fe7af7c2e8f8ef9726728877ed37cd1b73e37
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 1.0)
