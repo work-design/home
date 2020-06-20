@@ -1,6 +1,5 @@
 import 'style_com/application'
-
-import 'choices.js/src/styles/choices'
+import 'choices_ext'
 
 import 'moment'
 import 'choices.js'

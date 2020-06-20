@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_025254) do
+ActiveRecord::Schema.define(version: 2020_06_20_084728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -748,6 +748,8 @@ ActiveRecord::Schema.define(version: 2020_06_17_025254) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "total_cart_id", scale: 8
+    t.string "state", default: "init"
+    t.datetime "customized_at"
     t.index ["cart_id"], name: "index_custom_carts_on_cart_id"
     t.index ["custom_id"], name: "index_custom_carts_on_custom_id"
     t.index ["total_cart_id"], name: "index_custom_carts_on_total_cart_id"
@@ -2857,8 +2859,6 @@ ActiveRecord::Schema.define(version: 2020_06_17_025254) do
     t.integer "number", scale: 4
     t.decimal "reduced_amount", limit: 2, precision: 10
     t.decimal "additional_amount", limit: 2, precision: 10
-    t.string "trade_type"
-    t.bigint "trade_id", scale: 8
     t.decimal "single_price", limit: 2, precision: 10
     t.boolean "myself"
     t.boolean "starred"
@@ -2875,10 +2875,13 @@ ActiveRecord::Schema.define(version: 2020_06_17_025254) do
     t.bigint "address_id", scale: 8
     t.bigint "user_id", scale: 8
     t.bigint "produce_plan_id", scale: 8
+    t.bigint "cart_id", scale: 8
+    t.bigint "order_id", scale: 8
     t.index ["address_id"], name: "index_trade_items_on_address_id"
+    t.index ["cart_id"], name: "index_trade_items_on_cart_id"
     t.index ["good_type", "good_id"], name: "index_trade_items_on_good_type_and_good_id"
+    t.index ["order_id"], name: "index_trade_items_on_order_id"
     t.index ["produce_plan_id"], name: "index_trade_items_on_produce_plan_id"
-    t.index ["trade_type", "trade_id"], name: "index_trade_items_on_trade_type_and_trade_id"
     t.index ["user_id"], name: "index_trade_items_on_user_id"
   end
 
@@ -2888,8 +2891,6 @@ ActiveRecord::Schema.define(version: 2020_06_17_025254) do
     t.decimal "amount", limit: 2, precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "trade_type"
-    t.bigint "trade_id", scale: 8
     t.bigint "trade_item_id", scale: 8
     t.bigint "promote_good_id", scale: 8
     t.integer "sequence", scale: 4
@@ -2899,12 +2900,15 @@ ActiveRecord::Schema.define(version: 2020_06_17_025254) do
     t.string "note"
     t.bigint "promote_cart_id", scale: 8
     t.boolean "edited", comment: "是否被客服改过价"
+    t.bigint "cart_id", scale: 8
+    t.bigint "order_id", scale: 8
+    t.index ["cart_id"], name: "index_trade_promotes_on_cart_id"
+    t.index ["order_id"], name: "index_trade_promotes_on_order_id"
     t.index ["promote_cart_id"], name: "index_trade_promotes_on_promote_cart_id"
     t.index ["promote_charge_id"], name: "index_trade_promotes_on_promote_charge_id"
     t.index ["promote_good_id"], name: "index_trade_promotes_on_promote_good_id"
     t.index ["promote_id"], name: "index_trade_promotes_on_promote_id"
     t.index ["trade_item_id"], name: "index_trade_promotes_on_trade_item_id"
-    t.index ["trade_type", "trade_id"], name: "index_trade_promotes_on_trade_type_and_trade_id"
   end
 
   create_table "tutorials", force: :cascade do |t|
