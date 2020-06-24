@@ -88,7 +88,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: cb2893df63e71a121f804808892c0e3340212939
+  revision: 6cf73643e7b1d51369bb481bc0c7a8161de35a57
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -228,7 +228,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: faa19d5613f4ccb6978f9d6407097ed1243c87a9
+  revision: bfcc69c6306317dbb2e3149d2a9ec9f547c660a3
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
