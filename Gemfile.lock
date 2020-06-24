@@ -72,7 +72,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: e684847634b71a9f3f6f7d48f2818a45e07449a4
+  revision: f7df1f742aa1b20cd68754f7f9d7adc54b61492c
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -81,14 +81,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 94c3966c18204d56ab0dbcc6a53519ee32f790cf
+  revision: aea80e940f9c3216f3e4a9e77b8f8b20287a2f47
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 2c60f1b2ff9cb5f50b4cb4853d8668787b19dd54
+  revision: cb2893df63e71a121f804808892c0e3340212939
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -98,14 +98,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: 9d845169d0e57c0048086b93ffe56c891377fcb7
+  revision: 23941ff5e6cc388075c9b33f260ff584e31547bc
   specs:
     rails_crm (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: 13d03d18681912b851cb716e22bd770e31e1e63c
+  revision: 84ce1d33e444565a42569c2903de0cbe33fe7186
   specs:
     rails_data (1.0.2)
       prawn (~> 2.2)
@@ -124,14 +124,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: 30bb42690c1ca320a45c806ccacca6d8d5502a2a
+  revision: 089f2720a563d13d9f036c7e8ac14fbad744c8e2
   specs:
     rails_event (0.1.1)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 553cead9c4ab9e1d93a61499379497ed588e2218
+  revision: 5041f9691aa2d7050af3a3fe8d31d08436ccffd3
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -139,21 +139,21 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: 5f37cec3ac2a461eebef7b0069e347b94c358105
+  revision: 423bfa2921a207bac1d025603ce321782f1274a9
   specs:
     rails_finance (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_growth.git
-  revision: 6daa48792acc7d88a4c680d2646d09a96b608d50
+  revision: d1018541a6c9e0e5834e684f00ec917b73dc4e62
   specs:
     rails_growth (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_interact.git
-  revision: e5760d0d295934f94cad668ad5345d9d9ca3e117
+  revision: 047199f5017d80a2b25c0034c61e142771673172
   specs:
     rails_interact (0.1.0)
       rails_com (~> 1.2)
@@ -162,14 +162,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_log.git
-  revision: d7bdcdd48cb3cd4c8bc51b58133e86f5ea95fea7
+  revision: 8df45abbd961e51288f5e18a0f4dac79cd649f62
   specs:
     rails_log (2.1.6)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 49b53f5ea5a9a9888cc01fd994afb543906461f2
+  revision: 530e562c5c94b20996e80eca19e78f498a34e6e1
   specs:
     rails_notice (1.0.2)
       rails_auth
@@ -211,7 +211,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ship.git
-  revision: ad861447c7b9f7dfba9433b634bc86e7671b9f14
+  revision: 6dcf2b48b8c00b99e4e98e2cd4723cd8b293616c
   specs:
     rails_ship (0.1.0)
       rails_com (~> 1.2)
@@ -228,7 +228,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 2cfce2a84d715aaf892ee2b2bb1f16d7ee3b4c3d
+  revision: faa19d5613f4ccb6978f9d6407097ed1243c87a9
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
@@ -236,7 +236,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: bfde05f863eadef992981a37ece2e2fbe2e7ede4
+  revision: 90a26fcd0251a6bd14ce6922c8db50d28102753d
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
@@ -244,14 +244,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wait.git
-  revision: 63b3b44e4d322013760038afb1fae87bbbf0b272
+  revision: fc42df97fe051c0482d3b82a990a275220e680b1
   specs:
     rails_wait (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 5ec66e386488c9c07b3bc85c7c1c06785862c499
+  revision: aa3e24f9e2531da087b5e4a365b28d2c36c27f45
   specs:
     rails_wechat (0.1.0)
       rails_auth

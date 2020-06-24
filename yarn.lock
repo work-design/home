@@ -7854,16 +7854,16 @@ websocket-extensions@>=0.1.1:
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
   integrity sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==
 
-weui.js@^1.1.4:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/weui.js/-/weui.js-1.2.1.tgz#f0403a67657dce876a26f6dad1f27f178b36a272"
-  integrity sha512-l6oPe1PS7GIyUQ+uiCXNa9p+R3y8D11cYnADi7MCpHXJpffZEAPkg+rDjM63P055lAdNFd9feHDT8ltBm0dqEQ==
+weui.js@^1.2.1:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/weui.js/-/weui.js-1.2.2.tgz#bb8e37dce53b3132a2cc1a44d046f5e501df3530"
+  integrity sha512-Ii2YL6PKv+nF8fS7NdDQXmkSoqTLem/y5AQReHpQjKSY44DjGMKJ/9yEEoQiNaTEuArfh2omKfXM8LoU2/WRMw==
   dependencies:
     balajs "^0.1.9"
     element-closest "^2.0.1"
     object-assign "^4.1.0"
 
-weui@^2.1.4:
+weui@^2.4.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/weui/-/weui-2.3.0.tgz#b6a0280c54a1072eaccb05eb69c2dabfa000cf64"
   integrity sha512-0/oGhN866Pe5OKzzzsghazOyn742sobytJSSKv8oF8XVuwEMFPdCKVNr0Z8Taaue1DxTwX0OVxAxcbLX3qYgRQ==

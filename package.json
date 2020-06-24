@@ -30,8 +30,8 @@
     "sortablejs": "^1.10.2",
     "stickybits": "^3.6.7",
     "stimulus": "^1.1.0",
-    "weui": "^2.1.4",
-    "weui.js": "^1.1.4",
+    "weui": "^2.4.0",
+    "weui.js": "^1.2.1",
     "yarn": "^1.17.3"
   },
   "devDependencies": {
