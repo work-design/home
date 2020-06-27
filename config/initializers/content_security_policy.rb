@@ -1,7 +1,7 @@
 Rails.application.config.content_security_policy do |policy|
   policy.default_src :self, :https, :http, :wss, :ws
   policy.font_src :self, :https, :http, :data
-  policy.img_src :http, :https, :data
+  policy.img_src :http, :https, :data, :blob
   policy.style_src :self, :https, :http, :unsafe_inline
   policy.script_src :self, :https, :http, :unsafe_inline
   if Rails.env.development?
