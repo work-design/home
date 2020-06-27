@@ -51,14 +51,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_agency.git
-  revision: 6ef8cd46025ce5ca42b0669f60350d063028b71d
+  revision: 8f187b2784308bba874f8de539a56aeeb19e7906
   specs:
     rails_agency (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_attend.git
-  revision: ecd4f851d9ba8d2f64d9578fd8c2d4b68eba427d
+  revision: 4fa758755fd55107f07bb96402b598f5a41c888e
   specs:
     rails_attend (0.1.0)
       rails_com (~> 1.2)
@@ -88,7 +88,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 33d4d309652f3b54733e4c3dd921e7381585f14a
+  revision: ffe04c364f249ab2081b8d39ed0e9c3da2d724a7
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -131,7 +131,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 359458ac069d2f2aa6b5ec3d8742c9c05a997532
+  revision: a0eeb6b1b5aa381aa001030c3c4e788d265ef56f
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
