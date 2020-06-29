@@ -28,7 +28,7 @@
     "rails_com": "https://github.com/work-design/rails_com.git",
     "sortablejs": "^1.10.2",
     "stickybits": "^3.7.7",
-    "stimulus": "^1.1.0",
+    "stimulus": "https://github.com/qinmingyuan/stimulus/tree/values/packages/stimulus",
     "weui": "^2.4.0",
     "weui.js": "^1.2.1",
     "yarn": "^1.17.3"

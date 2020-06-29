@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_154628) do
+ActiveRecord::Schema.define(version: 2020_06_28_105344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -2846,6 +2846,8 @@ ActiveRecord::Schema.define(version: 2020_06_22_154628) do
     t.integer "lock_version", scale: 4
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "address_id", scale: 8
+    t.index ["address_id"], name: "index_total_carts_on_address_id"
     t.index ["user_id"], name: "index_total_carts_on_user_id"
   end
 
@@ -2902,6 +2904,7 @@ ActiveRecord::Schema.define(version: 2020_06_22_154628) do
     t.bigint "cart_id", scale: 8
     t.bigint "order_id", scale: 8
     t.bigint "user_id", scale: 8
+    t.string "status", default: "init"
     t.index ["cart_id"], name: "index_trade_promotes_on_cart_id"
     t.index ["order_id"], name: "index_trade_promotes_on_order_id"
     t.index ["promote_cart_id"], name: "index_trade_promotes_on_promote_cart_id"

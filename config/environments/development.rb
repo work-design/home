@@ -4,7 +4,6 @@ Rails.application.configure do
   config.eager_load = false
   config.consider_all_requests_local = true
 
-  config.action_controller.asset_host = 'lvh.me:3000'
   config.action_controller.perform_caching = false
   config.cache_store = :file_store, 'tmp/cache/store'
 

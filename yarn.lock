@@ -7065,10 +7065,9 @@ stickybits@^3.7.7:
   resolved "https://registry.yarnpkg.com/stickybits/-/stickybits-3.7.7.tgz#4e644022e7e7ce924d34fbbf7eff7d2f5d8c5dd3"
   integrity sha512-w8slCLqIESiIl8sP3v9wXNWfzrPHPOg2W6tsCfTkStrtfMoFnk0LSHpUJC7xx1yhNEKpljZJYL9T8RkZkSdqpQ==
 
-stimulus@^1.1.0:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/stimulus/-/stimulus-1.1.1.tgz#53c2fded6849e7b85eed3ed8dd76e33abd74bec5"
-  integrity sha512-R0mBqKp48YnRDZOxZ8hiOH4Ilph3Yj78CIFTBkCwyHs4iGCpe7xlEdQ7cjIxb+7qVCSxFKgxO+mAQbsNgt/5XQ==
+"stimulus@https://github.com/qinmingyuan/stimulus.git":
+  version "2.0.0"
+  resolved "https://github.com/qinmingyuan/stimulus.git#8f0f3223ec0b71b218bc90b41a0ec8f1f2e75a6e"
   dependencies:
     "@stimulus/core" "^1.1.1"
     "@stimulus/webpack-helpers" "^1.1.1"
