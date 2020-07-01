@@ -88,7 +88,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 65a5bc1df9a99dabb623d5d87c7bb6efb42f0ad9
+  revision: a3f19d86786ca7dd2833a51892c88b94d03b8704
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -228,7 +228,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 16264ba2d450079944b8d364d53704356ba5126f
+  revision: 47f8a3b7199755d654905ba59a9deb38e8b86307
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
@@ -251,7 +251,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 333d915908ea5e92b4be38ad592b72f7940b6c6d
+  revision: 005b4b061219185532eb5bdae7354cf371f4f748
   specs:
     rails_wechat (0.1.0)
       rails_auth

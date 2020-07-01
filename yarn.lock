@@ -1047,29 +1047,21 @@
     webpack-cli "^3.3.10"
     webpack-sources "^1.4.3"
 
-"@stimulus/core@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@stimulus/core/-/core-1.1.1.tgz#42b0cfe5b73ca492f41de64b77a03980bae92c82"
-  integrity sha512-PVJv7IpuQx0MVPCBblXc6O2zbCmU8dlxXNH4bC9KK6LsvGaE+PCXXrXQfXUwAsse1/CmRu/iQG7Ov58himjiGg==
-  dependencies:
-    "@stimulus/mutation-observers" "^1.1.1"
+"@stimulus/core@https://github.com/qinmingyuan/stimulus/releases/download/v1.4/core.tar.gz":
+  version "1.2.0"
+  resolved "https://github.com/qinmingyuan/stimulus/releases/download/v1.4/core.tar.gz#c300a2da2b1c845648c2bf6351c61a5a6123b7d4"
 
-"@stimulus/multimap@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@stimulus/multimap/-/multimap-1.1.1.tgz#b95e3fd607345ab36e5d5b55486ee1a12d56b331"
-  integrity sha512-26R1fI3a8uUj0WlMmta4qcfIQGlagegdP4PTz6lz852q/dXlG6r+uPS/bx+H8GtfyS+OOXVr3SkZ0Zg0iRqRfQ==
+"@stimulus/multimap@https://github.com/qinmingyuan/stimulus/releases/download/v1.4/multimap.tar.gz":
+  version "1.2.0"
+  resolved "https://github.com/qinmingyuan/stimulus/releases/download/v1.4/multimap.tar.gz#dfab8f871b1ecfd6b1372d3c9bfb8f328400ede3"
 
-"@stimulus/mutation-observers@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@stimulus/mutation-observers/-/mutation-observers-1.1.1.tgz#0f6c6f081308427fed2a26360dda0c173b79cfc0"
-  integrity sha512-/zCnnw1KJlWO2mrx0yxYaRFZWMGnDMdOgSnI4hxDLxdWVuL2HMROU8FpHWVBLjKY3T9A+lGkcrmPGDHF3pfS9w==
-  dependencies:
-    "@stimulus/multimap" "^1.1.1"
+"@stimulus/mutation-observers@https://github.com/qinmingyuan/stimulus/releases/download/v1.4/mutation-observers.tar.gz":
+  version "1.2.0"
+  resolved "https://github.com/qinmingyuan/stimulus/releases/download/v1.4/mutation-observers.tar.gz#0b574ba9bb92e1432300974839cdb9981a964d5e"
 
-"@stimulus/webpack-helpers@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@stimulus/webpack-helpers/-/webpack-helpers-1.1.1.tgz#eff60cd4e58b921d1a2764dc5215f5141510f2c2"
-  integrity sha512-XOkqSw53N9072FLHvpLM25PIwy+ndkSSbnTtjKuyzsv8K5yfkFB2rv68jU1pzqYa9FZLcvZWP4yazC0V38dx9A==
+"@stimulus/webpack-helpers@https://github.com/qinmingyuan/stimulus/releases/download/v1.4/webpack-helpers.tar.gz":
+  version "1.2.0"
+  resolved "https://github.com/qinmingyuan/stimulus/releases/download/v1.4/webpack-helpers.tar.gz#0168f73601a37f80653b8b0724ffcd2228f3e9b4"
 
 "@types/d3-timer@^1.0.9":
   version "1.0.9"
@@ -7065,12 +7057,9 @@ stickybits@^3.7.7:
   resolved "https://registry.yarnpkg.com/stickybits/-/stickybits-3.7.7.tgz#4e644022e7e7ce924d34fbbf7eff7d2f5d8c5dd3"
   integrity sha512-w8slCLqIESiIl8sP3v9wXNWfzrPHPOg2W6tsCfTkStrtfMoFnk0LSHpUJC7xx1yhNEKpljZJYL9T8RkZkSdqpQ==
 
-"stimulus@https://github.com/qinmingyuan/stimulus.git":
-  version "2.0.0"
-  resolved "https://github.com/qinmingyuan/stimulus.git#8f0f3223ec0b71b218bc90b41a0ec8f1f2e75a6e"
-  dependencies:
-    "@stimulus/core" "^1.1.1"
-    "@stimulus/webpack-helpers" "^1.1.1"
+"stimulus@https://github.com/qinmingyuan/stimulus/releases/download/v1.4/stimulus.tar.gz":
+  version "1.2.0"
+  resolved "https://github.com/qinmingyuan/stimulus/releases/download/v1.4/stimulus.tar.gz#6ff1f989f66ed35d95b739014f56864bbddf9770"
 
 stream-browserify@^2.0.1:
   version "2.0.2"
