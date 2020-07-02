@@ -25,6 +25,8 @@ Rails.application.configure do
     return_response: true
   }
 
+  config.action_mailbox.ingress = :relay
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
