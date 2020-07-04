@@ -7,28 +7,5 @@
 </div>
 
 <script>
-  document.querySelector('#datePickerBtn').addEventListener('focus', function() {
-    document.activeElement.blur()
-  })
-  document.querySelector('#datePickerBtn').addEventListener('click', function(e) {
-    var d = new Date()
-    var da = [d.getFullYear(), d.getMonth() + 1, d.getDate()]
-    weui.datePicker({
-      start: da.join('-'),
-      end: '2020-02-31',
-      cron: '* * *',
-      defaultValue: da,
-      onChange: function onChange(result) {
-        console.log(da)
-        console.log(result)
-        console.log(e.currentTarget)
-        console.log(e.target)
-      },
-      onConfirm: function onConfirm(result) {
-        e.target.value = result.join('-')
-      },
-      id: 'datePicker',
-      title: '日期选择器'
-    })
-  })
+
 </script>
