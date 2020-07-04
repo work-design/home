@@ -13,8 +13,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'home#index'
-    resources :requirements
-    resources :escorts
   end
   namespace :panel do
     root 'home#index'
@@ -29,25 +27,7 @@ Rails.application.routes.draw do
   scope :my, module: 'waiting/my', as: :my do
     resource :roles
     resources :logs
-    resources :duties
     resources :order_items
-    resources :workers do
-      post 'current', on: :collection
-      patch 'present', on: :member
-    end
-  end
-
-  namespace :my do
-    resources :requirements do
-      collection do
-        get :list
-        get :picked
-      end
-      member do
-        patch :pickup
-        patch :done
-      end
-    end
   end
 
   scope module: 'facility' do
