@@ -7,7 +7,6 @@ module OneWork
   class Application < Rails::Application
     config.load_defaults 6.0
 
-    config.paths['config/routes.rb'].concat Dir[Rails.root.join('config/routes/*.rb')]
     config.autoload_paths += Dir[
       "#{config.root}/app/models/oauth_user",
       "#{config.root}/app/models/verify_token",
