@@ -30,7 +30,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: a9cf6256492aa6d897a3e2b98271c302690941a1
+  revision: 99aded6b6ccf3a323eb361b9e23bb8c848e39bed
   specs:
     default_form (1.5.1)
       rails_com (~> 1.2)
@@ -72,7 +72,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 35df07798808507a483f9c629c36ce63dafc5403
+  revision: 185310022755f3ca0601ab5fb98f586cab616e2b
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -88,17 +88,18 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: da70d723dd5a584012ff782caae4a6e368ded46a
+  revision: 86e6bf5c0129626c9bf9eaef02e41819f25bcf10
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
       http-form_data (~> 2.2)
       httpx (~> 0.8)
+      kaminari
       rails (~> 6.0)
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: 23941ff5e6cc388075c9b33f260ff584e31547bc
+  revision: 1ae66ee8eeb8c071615ea9f64952ce1d4f0b80d8
   specs:
     rails_crm (0.1.0)
       rails_com (~> 1.2)
@@ -177,7 +178,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 85a768c915900288d7a267163e0c764dd7c75d73
+  revision: dfadaaa923c6e0c628d5377feb20d7f05d44074d
   specs:
     rails_org (0.1)
       rails_auth
@@ -187,7 +188,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 0fa6f7d39efb731c7dd08700e1d57410fa7b241c
+  revision: 0e9f0204c966e55c0c1e8946f7d75ea465897818
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -204,7 +205,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 8f265705ab1a08faec42586612bc0009c779b9f5
+  revision: 661d8ef37a963297d25af8c4f240de7347f1d81b
   specs:
     rails_role (1.0.3)
       rails_com (~> 1.2)
@@ -219,7 +220,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 3ab48a264d1d9f6d3f55d682b312af105386fd0c
+  revision: b96312b49d75a3989216c61a057523a3c3d14fe8
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 1.0)
@@ -251,7 +252,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 431ae3c5141502cc4897cafdb8ea32ca8eb4fff2
+  revision: 2c096277e66deaaf956f8d31c9305cb9e00eb52b
   specs:
     rails_wechat (0.1.0)
       rails_auth

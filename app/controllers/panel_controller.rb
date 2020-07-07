@@ -7,4 +7,4 @@ class PanelController < ApplicationController
     current_user
   end
 
-end unless defined? PanelController
+end
