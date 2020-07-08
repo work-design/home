@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_01_075716) do
+ActiveRecord::Schema.define(version: 2020_07_08_094302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -176,14 +176,10 @@ ActiveRecord::Schema.define(version: 2020_07_01_075716) do
     t.string "relation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "client_type"
     t.bigint "client_id", scale: 8
-    t.string "agent_type"
     t.bigint "agent_id", scale: 8
     t.decimal "commission_ratio", limit: 2, precision: 4, comment: "交易时抽成比例"
     t.string "note", comment: "备注"
-    t.index ["agent_type", "agent_id"], name: "index_agencies_on_agent_type_and_agent_id"
-    t.index ["client_type", "client_id"], name: "index_agencies_on_client_type_and_client_id"
   end
 
   create_table "aim_codes", force: :cascade do |t|
@@ -1364,9 +1360,7 @@ ActiveRecord::Schema.define(version: 2020_07_01_075716) do
 
   create_table "maintains", force: :cascade do |t|
     t.bigint "member_id", scale: 8
-    t.string "client_type"
     t.bigint "client_id", scale: 8
-    t.string "agent_type"
     t.bigint "agent_id", scale: 8
     t.bigint "agency_id", scale: 8
     t.bigint "maintain_source_id", scale: 8
@@ -1381,8 +1375,6 @@ ActiveRecord::Schema.define(version: 2020_07_01_075716) do
     t.bigint "source_id", scale: 8
     t.integer "position", scale: 4
     t.index ["agency_id"], name: "index_maintains_on_agency_id"
-    t.index ["agent_type", "agent_id"], name: "index_maintains_on_agent_type_and_agent_id"
-    t.index ["client_type", "client_id"], name: "index_maintains_on_client_type_and_client_id"
     t.index ["maintain_source_id"], name: "index_maintains_on_maintain_source_id"
     t.index ["member_id"], name: "index_maintains_on_member_id"
     t.index ["organ_id"], name: "index_maintains_on_organ_id"
@@ -1634,6 +1626,7 @@ ActiveRecord::Schema.define(version: 2020_07_01_075716) do
     t.string "code"
     t.boolean "official", comment: "是否官方"
     t.string "domain"
+    t.boolean "joinable", comment: "是否可搜索并加入"
     t.index ["area_id"], name: "index_organs_on_area_id"
     t.index ["parent_id"], name: "index_organs_on_parent_id"
   end
@@ -2164,6 +2157,8 @@ ActiveRecord::Schema.define(version: 2020_07_01_075716) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "organ_id", scale: 8
+    t.string "real_name"
+    t.string "nick_name"
     t.index ["organ_id"], name: "index_profiles_on_organ_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
@@ -3125,6 +3120,15 @@ ActiveRecord::Schema.define(version: 2020_07_01_075716) do
     t.index ["wechat_subscribed_id"], name: "index_wechat_notices_on_wechat_subscribed_id"
     t.index ["wechat_template_id"], name: "index_wechat_notices_on_wechat_template_id"
     t.index ["wechat_user_id"], name: "index_wechat_notices_on_wechat_user_id"
+  end
+
+  create_table "wechat_registers", force: :cascade do |t|
+    t.bigint "member_id", scale: 8
+    t.string "id_name"
+    t.string "id_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_wechat_registers_on_member_id"
   end
 
   create_table "wechat_replies", force: :cascade do |t|

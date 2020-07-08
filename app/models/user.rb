@@ -7,6 +7,7 @@ class User < ApplicationRecord
   include RailsWechat::User
   include RailsOrg::User
   include RailsProfile::User
+  include RailsAgency::User
 
   has_one :github_user
   has_one :wechat_user
