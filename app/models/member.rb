@@ -8,8 +8,4 @@ class Member < ApplicationRecord
   include RailsFinance::User
   include RailsAttend::Member
 
-  def admin?
-    owned?
-  end
-
 end
