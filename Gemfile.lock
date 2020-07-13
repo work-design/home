@@ -119,7 +119,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_detail.git
-  revision: ef88f6ed9cd4ef8d0c5054ba86b54edb37b2de99
+  revision: b6176d9e5b7dd73fcb1b0236346b7d48d272c475
   specs:
     rails_detail (0.0.1)
       rails_com (~> 1.2)
