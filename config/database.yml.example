@@ -22,7 +22,7 @@ staging:
   database: one_work_staging
   username:
   password:
-  host:
+  host: /tmp  # socket dir
 
 production:
   <<: *default
