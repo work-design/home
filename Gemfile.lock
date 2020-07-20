@@ -222,7 +222,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 78ef6e3e1685fdf34787bc8a52dda6fb9c80264d
+  revision: d1ae3491595bbdce085e996c81715389bb51a430
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 1.0)
@@ -231,7 +231,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 1da95b64707eedb57743600279c47c190b0606a2
+  revision: 15ea0e9eeef41d39cafcaea6e2a1a29b987afbca
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)

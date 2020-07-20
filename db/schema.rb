@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_094302) do
+ActiveRecord::Schema.define(version: 2020_07_20_065905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,26 @@ ActiveRecord::Schema.define(version: 2020_07_08_094302) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "source"
     t.index ["user_id"], name: "index_accounts_on_user_id"
+  end
+
+  create_table "acme_accounts", force: :cascade do |t|
+    t.string "email"
+    t.string "kid"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "acme_orders", force: :cascade do |t|
+    t.bigint "acme_account_id", scale: 8
+    t.string "identifier"
+    t.string "file_name"
+    t.string "file_content"
+    t.string "record_name"
+    t.string "record_content"
+    t.string "domain"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["acme_account_id"], name: "index_acme_orders_on_acme_account_id"
   end
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
@@ -1221,6 +1241,38 @@ ActiveRecord::Schema.define(version: 2020_07_08_094302) do
     t.index ["to_office_id"], name: "index_job_transfers_on_to_office_id"
   end
 
+  create_table "knowings", force: :cascade do |t|
+    t.string "knowable_type"
+    t.bigint "knowable_id", scale: 8
+    t.bigint "knowledge_id", scale: 8
+    t.boolean "primary"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["knowable_type", "knowable_id"], name: "index_knowings_on_knowable_type_and_knowable_id"
+    t.index ["knowledge_id"], name: "index_knowings_on_knowledge_id"
+  end
+
+  create_table "knowledge_hierarchies", force: :cascade do |t|
+    t.integer "ancestor_id", scale: 4, null: false
+    t.integer "descendant_id", scale: 4, null: false
+    t.integer "generations", scale: 4, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "knowledge_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "knowledge_desc_idx"
+  end
+
+  create_table "knowledges", force: :cascade do |t|
+    t.bigint "parent_id", scale: 8
+    t.string "title"
+    t.text "body"
+    t.integer "position", scale: 4
+    t.json "parent_ancestors"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["parent_id"], name: "index_knowledges_on_parent_id"
+  end
+
   create_table "links", id: :serial, scale: 4, force: :cascade do |t|
     t.string "title"
     t.string "url"
@@ -1625,8 +1677,8 @@ ActiveRecord::Schema.define(version: 2020_07_08_094302) do
     t.integer "cached_role_ids", scale: 4, array: true
     t.string "code"
     t.boolean "official", comment: "是否官方"
-    t.string "domain"
     t.boolean "joinable", comment: "是否可搜索并加入"
+    t.jsonb "auth_domain"
     t.index ["area_id"], name: "index_organs_on_area_id"
     t.index ["parent_id"], name: "index_organs_on_parent_id"
   end
@@ -3128,6 +3180,8 @@ ActiveRecord::Schema.define(version: 2020_07_08_094302) do
     t.string "id_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "state", default: "init"
+    t.string "appid"
     t.index ["member_id"], name: "index_wechat_registers_on_member_id"
   end
 
