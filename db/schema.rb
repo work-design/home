@@ -2,8 +2,8 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
@@ -15,20 +15,20 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "absence_stats", force: :cascade do |t|
+  create_table "absence_stats", id: { scale: 8 }, force: :cascade do |t|
     t.string "year"
     t.float "annual_days"
     t.float "annual_add"
     t.float "left_annual_days"
     t.float "vacation_days"
-    t.string "details", scale: 1024
+    t.string "details"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "member_id", scale: 8
     t.index ["member_id"], name: "index_absence_stats_on_member_id"
   end
 
-  create_table "absences", force: :cascade do |t|
+  create_table "absences", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "member_id", scale: 8
     t.bigint "merged_id", scale: 8
     t.string "type"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.string "kind"
     t.datetime "start_at"
     t.datetime "finish_at"
-    t.string "note", scale: 2048
-    t.string "comment", scale: 2048
+    t.string "note"
+    t.string "comment"
     t.boolean "redeeming"
     t.string "redeeming_days", array: true
     t.boolean "processed"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["merged_id"], name: "index_absences_on_merged_id"
   end
 
-  create_table "abuses", force: :cascade do |t|
+  create_table "abuses", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
     t.string "abusement_type"
     t.bigint "abusement_id", scale: 8
@@ -60,12 +60,12 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_abuses_on_user_id"
   end
 
-  create_table "accessories", force: :cascade do |t|
+  create_table "accessories", id: { scale: 8 }, force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "accounts", force: :cascade do |t|
+  create_table "accounts", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
     t.string "type"
     t.string "identity"
@@ -77,14 +77,14 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
-  create_table "acme_accounts", force: :cascade do |t|
+  create_table "acme_accounts", id: { scale: 8 }, force: :cascade do |t|
     t.string "email"
     t.string "kid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "acme_orders", force: :cascade do |t|
+  create_table "acme_orders", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "acme_account_id", scale: 8
     t.string "identifier"
     t.string "file_name"
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["acme_account_id"], name: "index_acme_orders_on_acme_account_id"
   end
 
-  create_table "action_mailbox_inbound_emails", force: :cascade do |t|
+  create_table "action_mailbox_inbound_emails", id: { scale: 8 }, force: :cascade do |t|
     t.integer "status", scale: 4, default: 0, null: false
     t.string "message_id", null: false
     t.string "message_checksum", null: false
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["message_id", "message_checksum"], name: "index_action_mailbox_inbound_emails_uniqueness", unique: true
   end
 
-  create_table "action_text_rich_texts", force: :cascade do |t|
+  create_table "action_text_rich_texts", id: { scale: 8 }, force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
     t.string "record_type", null: false
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
 
-  create_table "active_storage_attachments", force: :cascade do |t|
+  create_table "active_storage_attachments", id: { scale: 8 }, force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", scale: 8, null: false
@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blob_defaults", force: :cascade do |t|
+  create_table "active_storage_blob_defaults", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "blob_id", scale: 8
     t.string "record_class"
     t.string "name"
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["blob_id"], name: "index_active_storage_blob_defaults_on_blob_id"
   end
 
-  create_table "active_storage_blobs", force: :cascade do |t|
+  create_table "active_storage_blobs", id: { scale: 8 }, force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -147,11 +147,11 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "address_users", force: :cascade do |t|
+  create_table "address_users", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "address_id", scale: 8
     t.bigint "user_id", scale: 8
     t.bigint "inviter_id", scale: 8
-    t.decimal "commission_ratio", limit: 2, precision: 4, default: "0.0", comment: "佣金比例"
+    t.decimal "commission_ratio", precision: 4, default: "0", comment: "佣金比例"
     t.string "kind"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -161,7 +161,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_address_users_on_user_id"
   end
 
-  create_table "addresses", force: :cascade do |t|
+  create_table "addresses", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "area_id", scale: 8
     t.string "detail"
     t.datetime "created_at", null: false
@@ -175,10 +175,10 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["area_id"], name: "index_addresses_on_area_id"
   end
 
-  create_table "advances", force: :cascade do |t|
-    t.decimal "price", limit: 2, precision: 10
+  create_table "advances", id: { scale: 8 }, force: :cascade do |t|
+    t.decimal "price", precision: 10
     t.string "apple_product_id"
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "card_template_id", scale: 8
@@ -192,17 +192,17 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["card_template_id"], name: "index_advances_on_card_template_id"
   end
 
-  create_table "agencies", force: :cascade do |t|
+  create_table "agencies", id: { scale: 8 }, force: :cascade do |t|
     t.string "relation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "client_id", scale: 8
     t.bigint "agent_id", scale: 8
-    t.decimal "commission_ratio", limit: 2, precision: 4, comment: "交易时抽成比例"
+    t.decimal "commission_ratio", precision: 4, comment: "交易时抽成比例"
     t.string "note", comment: "备注"
   end
 
-  create_table "aim_codes", force: :cascade do |t|
+  create_table "aim_codes", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "aim_id", scale: 8
     t.string "controller_path"
     t.string "action_name"
@@ -212,7 +212,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["aim_id"], name: "index_aim_codes_on_aim_id"
   end
 
-  create_table "aim_entities", force: :cascade do |t|
+  create_table "aim_entities", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "aim_id", scale: 8
     t.bigint "user_id", scale: 8
     t.string "entity_type"
@@ -223,7 +223,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.string "serial_number"
     t.datetime "last_access_at"
     t.string "ip"
-    t.decimal "reward_amount", limit: 2, precision: 10
+    t.decimal "reward_amount", precision: 10
     t.integer "aim_logs_count", scale: 4, default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -233,7 +233,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_aim_entities_on_user_id"
   end
 
-  create_table "aim_logs", force: :cascade do |t|
+  create_table "aim_logs", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "aim_id", scale: 8
     t.bigint "user_id", scale: 8
     t.string "entity_type"
@@ -248,7 +248,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_aim_logs_on_user_id"
   end
 
-  create_table "aim_users", force: :cascade do |t|
+  create_table "aim_users", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "aim_id", scale: 8
     t.bigint "user_id", scale: 8
     t.string "serial_number"
@@ -261,11 +261,11 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_aim_users_on_user_id"
   end
 
-  create_table "aims", force: :cascade do |t|
+  create_table "aims", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.string "unit"
     t.string "repeat_type"
-    t.decimal "rate", limit: 2, precision: 10, default: "1.0"
+    t.decimal "rate", precision: 10, default: "1"
     t.integer "task_point", scale: 4, default: 0
     t.integer "reward_point", scale: 4, default: 0
     t.integer "reward_amount", scale: 4, default: 0
@@ -274,7 +274,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "annunciates", force: :cascade do |t|
+  create_table "annunciates", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "annunciation_id", scale: 8
     t.bigint "user_tag_id", scale: 8
     t.string "receiver_type"
@@ -287,7 +287,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_tag_id"], name: "index_annunciates_on_user_tag_id"
   end
 
-  create_table "annunciations", force: :cascade do |t|
+  create_table "annunciations", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.string "publisher_type"
     t.bigint "publisher_id", scale: 8
@@ -302,7 +302,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["publisher_type", "publisher_id"], name: "index_annunciations_on_publisher_type_and_publisher_id"
   end
 
-  create_table "approvals", force: :cascade do |t|
+  create_table "approvals", id: { scale: 8 }, force: :cascade do |t|
     t.string "approving_type"
     t.bigint "approving_id", scale: 8
     t.string "operator_type"
@@ -330,7 +330,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["descendant_id"], name: "area_desc_idx"
   end
 
-  create_table "areas", force: :cascade do |t|
+  create_table "areas", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.string "names", array: true
     t.bigint "parent_id", scale: 8
@@ -342,7 +342,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["parent_id"], name: "index_areas_on_parent_id"
   end
 
-  create_table "attendance_logs", force: :cascade do |t|
+  create_table "attendance_logs", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "member_id", scale: 8
     t.bigint "attendance_id", scale: 8
     t.string "source", default: "machine"
@@ -360,7 +360,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["member_id"], name: "index_attendance_logs_on_member_id"
   end
 
-  create_table "attendance_settings", force: :cascade do |t|
+  create_table "attendance_settings", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "member_id", scale: 8
     t.bigint "financial_month_id", scale: 8
     t.string "state", default: "init"
@@ -373,12 +373,12 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["member_id"], name: "index_attendance_settings_on_member_id"
   end
 
-  create_table "attendance_stats", force: :cascade do |t|
+  create_table "attendance_stats", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "member_id", scale: 8
     t.bigint "financial_month_id", scale: 8
-    t.string "costed_absence", scale: 1024
-    t.string "redeeming_absence", scale: 1024
-    t.string "free_absence", scale: 1024
+    t.string "costed_absence"
+    t.string "redeeming_absence"
+    t.string "free_absence"
     t.integer "allowance_days", scale: 4
     t.integer "late_days", scale: 4
     t.float "absence_redeeming_hours"
@@ -391,7 +391,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["member_id"], name: "index_attendance_stats_on_member_id"
   end
 
-  create_table "attendances", force: :cascade do |t|
+  create_table "attendances", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "member_id", scale: 8
     t.bigint "interval_absence_id", scale: 8
     t.bigint "late_absence_id", scale: 8
@@ -421,7 +421,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["member_id"], name: "index_attendances_on_member_id"
   end
 
-  create_table "attitudes", force: :cascade do |t|
+  create_table "attitudes", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
     t.string "attitudinal_type"
     t.bigint "attitudinal_id", scale: 8
@@ -432,7 +432,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_attitudes_on_user_id"
   end
 
-  create_table "audits", force: :cascade do |t|
+  create_table "audits", id: { scale: 8 }, force: :cascade do |t|
     t.string "audited_type"
     t.bigint "audited_id", scale: 8
     t.string "operator_type"
@@ -441,7 +441,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.json "audited_changes", default: {}
     t.json "related_changes", default: {}
     t.json "extra", default: {}
-    t.string "note", scale: 1024
+    t.string "note"
     t.string "remote_ip"
     t.string "controller_path"
     t.string "action_name"
@@ -451,7 +451,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["operator_type", "operator_id"], name: "index_audits_on_operator_type_and_operator_id"
   end
 
-  create_table "authorized_tokens", force: :cascade do |t|
+  create_table "authorized_tokens", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
     t.bigint "oauth_user_id", scale: 8
     t.bigint "account_id", scale: 8
@@ -472,7 +472,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_authorized_tokens_on_user_id"
   end
 
-  create_table "blob_defaults", force: :cascade do |t|
+  create_table "blob_defaults", id: { scale: 8 }, force: :cascade do |t|
     t.string "record_class", comment: "AR 类名，如 User"
     t.string "name", comment: "名称, attach 名称，如：avatar"
     t.boolean "private", comment: "是否私有"
@@ -480,7 +480,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "bookings", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "bookings", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "booker_type"
     t.integer "booker_id", scale: 4
     t.string "booked_type"
@@ -500,19 +500,19 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["time_item_id"], name: "index_bookings_on_time_item_id"
   end
 
-  create_table "cache_lists", force: :cascade do |t|
+  create_table "cache_lists", id: { scale: 8 }, force: :cascade do |t|
     t.string "path"
     t.string "key"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "card_advances", force: :cascade do |t|
+  create_table "card_advances", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "card_id", scale: 8
     t.bigint "advance_id", scale: 8
     t.bigint "trade_item_id", scale: 8
-    t.decimal "price", limit: 2, precision: 10
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "price", precision: 10
+    t.decimal "amount", precision: 10
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -521,22 +521,22 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["trade_item_id"], name: "index_card_advances_on_trade_item_id"
   end
 
-  create_table "card_expenses", force: :cascade do |t|
+  create_table "card_expenses", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "card_id", scale: 8
     t.string "consumable_type"
     t.bigint "consumable_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["card_id"], name: "index_card_expenses_on_card_id"
     t.index ["consumable_type", "consumable_id"], name: "index_card_expenses_on_consumable_type_and_consumable_id"
   end
 
-  create_table "card_logs", force: :cascade do |t|
+  create_table "card_logs", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "card_id", scale: 8
     t.string "source_type"
     t.bigint "source_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.string "title"
     t.string "tag_str"
     t.datetime "created_at", null: false
@@ -545,12 +545,12 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["source_type", "source_id"], name: "index_card_logs_on_source_type_and_source_id"
   end
 
-  create_table "card_returns", force: :cascade do |t|
+  create_table "card_returns", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "card_id", scale: 8
     t.string "consumable_type"
     t.bigint "consumable_id", scale: 8
     t.bigint "card_expense_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["card_expense_id"], name: "index_card_returns_on_card_expense_id"
@@ -558,7 +558,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["consumable_type", "consumable_id"], name: "index_card_returns_on_consumable_type_and_consumable_id"
   end
 
-  create_table "card_templates", force: :cascade do |t|
+  create_table "card_templates", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.string "name"
     t.integer "valid_days", scale: 4
@@ -568,16 +568,16 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_card_templates_on_organ_id"
   end
 
-  create_table "cards", force: :cascade do |t|
+  create_table "cards", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.bigint "card_template_id", scale: 8
     t.bigint "trade_item_id", scale: 8
     t.string "client_type"
     t.bigint "client_id", scale: 8
     t.string "card_uuid"
-    t.decimal "amount", limit: 2, precision: 10
-    t.decimal "expense_amount", limit: 2, precision: 10
-    t.decimal "income_amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
+    t.decimal "expense_amount", precision: 10
+    t.decimal "income_amount", precision: 10
     t.integer "lock_version", scale: 4
     t.datetime "effect_at"
     t.datetime "expire_at"
@@ -594,11 +594,11 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["trade_item_id"], name: "index_cards_on_trade_item_id"
   end
 
-  create_table "cart_promotes", force: :cascade do |t|
+  create_table "cart_promotes", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "cart_id", scale: 8
     t.bigint "cart_item_id", scale: 8
     t.bigint "promote_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -611,8 +611,8 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["promote_id"], name: "index_cart_promotes_on_promote_id"
   end
 
-  create_table "carts", force: :cascade do |t|
-    t.decimal "amount", limit: 2, precision: 10
+  create_table "carts", id: { scale: 8 }, force: :cascade do |t|
+    t.decimal "amount", precision: 10
     t.bigint "user_id", scale: 8
     t.bigint "payment_strategy_id", scale: 8
     t.integer "deposit_ratio", scale: 4
@@ -640,12 +640,12 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
-  create_table "cash_logs", force: :cascade do |t|
+  create_table "cash_logs", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "cash_id", scale: 8
     t.bigint "user_id", scale: 8
     t.string "source_type"
     t.bigint "source_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.string "title"
     t.string "tag_str"
     t.datetime "created_at", null: false
@@ -655,11 +655,11 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_cash_logs_on_user_id"
   end
 
-  create_table "cashes", force: :cascade do |t|
+  create_table "cashes", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10, default: "0.0"
-    t.decimal "income_amount", limit: 2, precision: 10, default: "0.0"
-    t.decimal "expense_amount", limit: 2, precision: 10, default: "0.0"
+    t.decimal "amount", precision: 10, default: "0"
+    t.decimal "income_amount", precision: 10, default: "0"
+    t.decimal "expense_amount", precision: 10, default: "0"
     t.integer "lock_version", scale: 4
     t.string "account_bank"
     t.string "account_name"
@@ -669,17 +669,17 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_cashes_on_user_id"
   end
 
-  create_table "charges", force: :cascade do |t|
+  create_table "charges", id: { scale: 8 }, force: :cascade do |t|
     t.string "unit"
-    t.decimal "min", limit: 2, precision: 10
-    t.decimal "max", limit: 2, precision: 10
-    t.decimal "price", limit: 2, precision: 10
+    t.decimal "min", precision: 10
+    t.decimal "max", precision: 10
+    t.decimal "price", precision: 10
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "check_settings", force: :cascade do |t|
+  create_table "check_settings", id: { scale: 8 }, force: :cascade do |t|
     t.string "checking_type"
     t.bigint "checking_id", scale: 8
     t.string "code"
@@ -688,7 +688,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["checking_type", "checking_id"], name: "index_check_settings_on_checking_type_and_checking_id"
   end
 
-  create_table "checks", force: :cascade do |t|
+  create_table "checks", id: { scale: 8 }, force: :cascade do |t|
     t.string "checking_type"
     t.bigint "checking_id", scale: 8
     t.string "operator_type"
@@ -702,7 +702,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["operator_type", "operator_id"], name: "index_checks_on_operator_type_and_operator_id"
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
     t.bigint "parent_id", scale: 8
     t.string "commentable_type"
@@ -720,12 +720,12 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "contents", force: :cascade do |t|
+  create_table "contents", id: { scale: 8 }, force: :cascade do |t|
     t.string "type"
     t.string "title"
     t.text "body"
     t.integer "position", scale: 4, default: 0
-    t.string "list", scale: 50
+    t.string "list"
     t.bigint "detail_id", scale: 8
     t.bigint "author_id", scale: 8
     t.datetime "created_at", null: false
@@ -735,7 +735,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["detail_id"], name: "index_contents_on_detail_id"
   end
 
-  create_table "crowd_members", force: :cascade do |t|
+  create_table "crowd_members", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "crowd_id", scale: 8
     t.string "member_type"
     t.bigint "member_id", scale: 8
@@ -748,7 +748,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["member_type", "member_id"], name: "index_crowd_members_on_member_type_and_member_id"
   end
 
-  create_table "crowds", force: :cascade do |t|
+  create_table "crowds", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.string "name"
     t.string "member_type"
@@ -758,7 +758,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_crowds_on_organ_id"
   end
 
-  create_table "custom_carts", force: :cascade do |t|
+  create_table "custom_carts", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "cart_id", scale: 8
     t.bigint "custom_id", scale: 8
     t.datetime "created_at", precision: 6, null: false
@@ -771,24 +771,24 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["total_cart_id"], name: "index_custom_carts_on_total_cart_id"
   end
 
-  create_table "custom_parts", force: :cascade do |t|
+  create_table "custom_parts", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "custom_id", scale: 8
     t.bigint "part_id", scale: 8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "original_price", limit: 2, precision: 10
-    t.decimal "price", limit: 2, precision: 10
+    t.decimal "original_price", precision: 10
+    t.decimal "price", precision: 10
     t.index ["custom_id"], name: "index_custom_parts_on_custom_id"
     t.index ["part_id"], name: "index_custom_parts_on_part_id"
   end
 
-  create_table "customs", force: :cascade do |t|
+  create_table "customs", id: { scale: 8 }, force: :cascade do |t|
     t.string "state"
     t.string "qr_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "product_id", scale: 8
-    t.decimal "price", limit: 2, precision: 10
+    t.decimal "price", precision: 10
     t.bigint "organ_id", scale: 8
     t.string "name"
     t.string "sku"
@@ -804,9 +804,9 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["product_plan_id"], name: "index_customs_on_product_plan_id"
   end
 
-  create_table "data_lists", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "data_lists", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "title"
-    t.string "comment", scale: 4096
+    t.string "comment"
     t.string "type"
     t.string "data_table"
     t.string "export_excel"
@@ -818,7 +818,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.integer "x_position", scale: 4
   end
 
-  create_table "department_grants", force: :cascade do |t|
+  create_table "department_grants", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.bigint "organ_handle_id", scale: 8
     t.bigint "department_id", scale: 8
@@ -841,7 +841,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["descendant_id"], name: "department_desc_idx"
   end
 
-  create_table "departments", force: :cascade do |t|
+  create_table "departments", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.bigint "parent_id", scale: 8
     t.string "name"
@@ -858,7 +858,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["superior_id"], name: "index_departments_on_superior_id"
   end
 
-  create_table "details", force: :cascade do |t|
+  create_table "details", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.integer "contents_count", scale: 4, default: 0
     t.integer "pictures_count", scale: 4, default: 0
@@ -867,7 +867,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "entity_items", force: :cascade do |t|
+  create_table "entity_items", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "list_id", scale: 8
     t.bigint "item_id", scale: 8
     t.datetime "created_at", null: false
@@ -882,7 +882,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["taxon_item_id"], name: "index_entity_items_on_taxon_item_id"
   end
 
-  create_table "event_crowds", force: :cascade do |t|
+  create_table "event_crowds", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "event_id", scale: 8
     t.bigint "crowd_id", scale: 8
     t.integer "present_number", scale: 4, default: 0
@@ -892,7 +892,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["event_id"], name: "index_event_crowds_on_event_id"
   end
 
-  create_table "event_grants", force: :cascade do |t|
+  create_table "event_grants", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "event_id", scale: 8
     t.string "grant_kind"
     t.string "grant_column"
@@ -902,7 +902,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["event_id"], name: "index_event_grants_on_event_id"
   end
 
-  create_table "event_items", force: :cascade do |t|
+  create_table "event_items", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "event_id", scale: 8
     t.string "name"
     t.bigint "author_id", scale: 8
@@ -912,13 +912,13 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["event_id"], name: "index_event_items_on_event_id"
   end
 
-  create_table "event_participants", force: :cascade do |t|
+  create_table "event_participants", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "event_id", scale: 8
     t.string "participant_type"
     t.bigint "participant_id", scale: 8
     t.string "state"
     t.integer "score", scale: 4
-    t.string "comment", scale: 4096
+    t.string "comment"
     t.string "quit_note"
     t.string "assigned_status"
     t.string "job_id"
@@ -931,7 +931,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["participant_type", "participant_id"], name: "index_event_participants_on_participant_type_and_participant_id"
   end
 
-  create_table "event_taxons", force: :cascade do |t|
+  create_table "event_taxons", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -939,32 +939,32 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_event_taxons_on_organ_id"
   end
 
-  create_table "events", force: :cascade do |t|
+  create_table "events", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "event_taxon_id", scale: 8
     t.string "name"
-    t.string "description", scale: 4096
+    t.string "description"
     t.integer "position", scale: 4
     t.integer "event_items_count", scale: 4, default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "organ_id", scale: 8
-    t.decimal "price", limit: 2, precision: 10
+    t.decimal "price", precision: 10
     t.integer "event_participants_count", scale: 4, default: 0
     t.integer "members_count", scale: 4, default: 0
     t.index ["event_taxon_id"], name: "index_events_on_event_taxon_id"
     t.index ["organ_id"], name: "index_events_on_organ_id"
   end
 
-  create_table "expense_items", force: :cascade do |t|
+  create_table "expense_items", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "expense_id", scale: 8
     t.bigint "member_id", scale: 8
     t.bigint "financial_taxon_id", scale: 8
-    t.decimal "budget", limit: 2, precision: 10
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "budget", precision: 10
+    t.decimal "amount", precision: 10
     t.string "note"
     t.string "state"
     t.integer "quantity", scale: 4, default: 1
-    t.decimal "price", limit: 2, precision: 10
+    t.decimal "price", precision: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["expense_id"], name: "index_expense_items_on_expense_id"
@@ -972,7 +972,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["member_id"], name: "index_expense_items_on_member_id"
   end
 
-  create_table "expense_members", force: :cascade do |t|
+  create_table "expense_members", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "expense_id", scale: 8
     t.bigint "member_id", scale: 8
     t.bigint "payment_method_id", scale: 8
@@ -980,14 +980,14 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.bigint "operator_id", scale: 8
     t.string "payable_type"
     t.bigint "payable_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.boolean "advance"
     t.string "state", default: "pending"
     t.string "note"
     t.string "type"
     t.string "payout_uuid"
-    t.decimal "requested_amount", limit: 2, precision: 10
-    t.decimal "actual_amount", limit: 2, precision: 10
+    t.decimal "requested_amount", precision: 10
+    t.decimal "actual_amount", precision: 10
     t.datetime "paid_at"
     t.string "account_bank"
     t.string "account_name"
@@ -1002,7 +1002,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["payment_method_id"], name: "index_expense_members_on_payment_method_id"
   end
 
-  create_table "expenses", force: :cascade do |t|
+  create_table "expenses", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "payout_id", scale: 8
     t.bigint "creator_id", scale: 8
     t.bigint "financial_taxon_id", scale: 8
@@ -1011,8 +1011,8 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.string "type"
     t.string "state", default: "init"
     t.string "subject"
-    t.decimal "amount", limit: 2, precision: 10
-    t.string "note", scale: 4096
+    t.decimal "amount", precision: 10
+    t.string "note"
     t.integer "invoices_count", scale: 4
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -1023,7 +1023,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["verifier_id"], name: "index_expenses_on_verifier_id"
   end
 
-  create_table "extra_days", force: :cascade do |t|
+  create_table "extra_days", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.date "the_day"
     t.string "name"
@@ -1034,12 +1034,12 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_extra_days_on_organ_id"
   end
 
-  create_table "facilitate_providers", force: :cascade do |t|
+  create_table "facilitate_providers", id: { scale: 8 }, force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "facilitate_taxons", force: :cascade do |t|
+  create_table "facilitate_taxons", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.integer "position", scale: 4, default: 0
     t.integer "facilitates_count", scale: 4, default: 0
@@ -1049,16 +1049,16 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_facilitate_taxons_on_organ_id"
   end
 
-  create_table "facilitates", force: :cascade do |t|
+  create_table "facilitates", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "facilitate_taxon_id", scale: 8
-    t.decimal "price", limit: 2, precision: 10
+    t.decimal "price", precision: 10
     t.string "sku"
-    t.decimal "import_price", limit: 2, precision: 10
-    t.decimal "profit_price", limit: 2, precision: 10
+    t.decimal "import_price", precision: 10
+    t.decimal "profit_price", precision: 10
     t.string "qr_prefix"
     t.decimal "quantity"
     t.string "unit"
@@ -1073,7 +1073,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_facilitates_on_organ_id"
   end
 
-  create_table "financial_months", force: :cascade do |t|
+  create_table "financial_months", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.date "begin_date"
     t.date "end_date"
@@ -1084,7 +1084,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_financial_months_on_organ_id"
   end
 
-  create_table "financial_taxon_hierarchies", force: :cascade do |t|
+  create_table "financial_taxon_hierarchies", id: { scale: 8 }, force: :cascade do |t|
     t.integer "ancestor_id", scale: 4, null: false
     t.integer "descendant_id", scale: 4, null: false
     t.integer "generations", scale: 4, null: false
@@ -1094,7 +1094,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["descendant_id"], name: "financial_taxon_desc_idx"
   end
 
-  create_table "financial_taxons", force: :cascade do |t|
+  create_table "financial_taxons", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "parent_id", scale: 8
     t.bigint "verifier_id", scale: 8
     t.jsonb "parent_ancestors"
@@ -1108,12 +1108,12 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["verifier_id"], name: "index_financial_taxons_on_verifier_id"
   end
 
-  create_table "good_partners", force: :cascade do |t|
+  create_table "good_partners", id: { scale: 8 }, force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "good_produces", force: :cascade do |t|
+  create_table "good_produces", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "good_id", scale: 8
     t.bigint "produce_id", scale: 8
     t.datetime "created_at", precision: 6, null: false
@@ -1122,11 +1122,11 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["produce_id"], name: "index_good_produces_on_produce_id"
   end
 
-  create_table "good_providers", force: :cascade do |t|
+  create_table "good_providers", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "provider_id", scale: 8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "export_price", limit: 2, precision: 10
+    t.decimal "export_price", precision: 10
     t.boolean "verified", default: false
     t.boolean "selected"
     t.string "good_type"
@@ -1135,7 +1135,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["provider_id"], name: "index_good_providers_on_provider_id"
   end
 
-  create_table "govern_taxon_hierarchies", force: :cascade do |t|
+  create_table "govern_taxon_hierarchies", id: { scale: 8 }, force: :cascade do |t|
     t.integer "ancestor_id", scale: 4, null: false
     t.integer "descendant_id", scale: 4, null: false
     t.integer "generations", scale: 4, null: false
@@ -1145,7 +1145,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["descendant_id"], name: "govern_taxon_desc_idx"
   end
 
-  create_table "govern_taxons", force: :cascade do |t|
+  create_table "govern_taxons", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.integer "position", scale: 4, default: 0
     t.integer "governs_count", scale: 4, default: 0
@@ -1157,7 +1157,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["parent_id"], name: "index_govern_taxons_on_parent_id"
   end
 
-  create_table "governs", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "governs", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "name"
     t.string "code"
     t.integer "position", scale: 4, default: 0
@@ -1168,7 +1168,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["govern_taxon_id"], name: "index_governs_on_govern_taxon_id"
   end
 
-  create_table "infos", force: :cascade do |t|
+  create_table "infos", id: { scale: 8 }, force: :cascade do |t|
     t.string "code"
     t.string "value"
     t.string "version"
@@ -1177,18 +1177,18 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "items", force: :cascade do |t|
+  create_table "items", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.string "type"
     t.string "key"
-    t.string "description", scale: 1024
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "list_id", scale: 8
     t.index ["list_id"], name: "index_items_on_list_id"
   end
 
-  create_table "job_descriptions", force: :cascade do |t|
+  create_table "job_descriptions", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "department_id", scale: 8
     t.text "requirements"
     t.text "advanced_requirements"
@@ -1202,7 +1202,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["department_id"], name: "index_job_descriptions_on_department_id"
   end
 
-  create_table "job_titles", force: :cascade do |t|
+  create_table "job_titles", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "department_id", scale: 8
     t.bigint "department_root_id", scale: 8
     t.string "name"
@@ -1219,7 +1219,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["super_job_title_id"], name: "index_job_titles_on_super_job_title_id"
   end
 
-  create_table "job_transfers", force: :cascade do |t|
+  create_table "job_transfers", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "member_id", scale: 8
     t.bigint "to_office_id", scale: 8
     t.bigint "to_department_id", scale: 8
@@ -1229,7 +1229,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.bigint "from_job_title_id", scale: 8
     t.string "state", default: "init"
     t.date "transfer_on"
-    t.string "reason_note", scale: 4096
+    t.string "reason_note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["from_department_id"], name: "index_job_transfers_on_from_department_id"
@@ -1241,7 +1241,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["to_office_id"], name: "index_job_transfers_on_to_office_id"
   end
 
-  create_table "knowings", force: :cascade do |t|
+  create_table "knowings", id: { scale: 8 }, force: :cascade do |t|
     t.string "knowable_type"
     t.bigint "knowable_id", scale: 8
     t.bigint "knowledge_id", scale: 8
@@ -1252,7 +1252,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["knowledge_id"], name: "index_knowings_on_knowledge_id"
   end
 
-  create_table "knowledge_hierarchies", force: :cascade do |t|
+  create_table "knowledge_hierarchies", id: { scale: 8 }, force: :cascade do |t|
     t.integer "ancestor_id", scale: 4, null: false
     t.integer "descendant_id", scale: 4, null: false
     t.integer "generations", scale: 4, null: false
@@ -1262,7 +1262,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["descendant_id"], name: "knowledge_desc_idx"
   end
 
-  create_table "knowledges", force: :cascade do |t|
+  create_table "knowledges", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "parent_id", scale: 8
     t.string "title"
     t.text "body"
@@ -1273,7 +1273,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["parent_id"], name: "index_knowledges_on_parent_id"
   end
 
-  create_table "links", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "links", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "title"
     t.string "url"
     t.integer "content_id", scale: 4
@@ -1282,7 +1282,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["content_id"], name: "index_links_on_content_id"
   end
 
-  create_table "lists", force: :cascade do |t|
+  create_table "lists", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.integer "position", scale: 4
     t.integer "items_count", scale: 4, default: 0
@@ -1293,12 +1293,12 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_lists_on_organ_id"
   end
 
-  create_table "log_csps", force: :cascade do |t|
+  create_table "log_csps", id: { scale: 8 }, force: :cascade do |t|
     t.string "document_uri"
     t.string "referrer"
     t.string "violated_directive"
     t.string "effective_directive"
-    t.string "original_policy", scale: 1024
+    t.string "original_policy"
     t.string "disposition"
     t.string "blocked_uri"
     t.string "line_number"
@@ -1310,7 +1310,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "log_mailers", force: :cascade do |t|
+  create_table "log_mailers", id: { scale: 8 }, force: :cascade do |t|
     t.string "message_object_id"
     t.string "mailer"
     t.string "action_name"
@@ -1324,11 +1324,11 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "log_records", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "log_records", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "path"
     t.string "controller_name"
     t.string "action_name"
-    t.string "exception", scale: 10240
+    t.string "exception"
     t.string "exception_object"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -1340,7 +1340,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.jsonb "session"
   end
 
-  create_table "logs", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "logs", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "task_id", scale: 4
     t.datetime "started_at"
     t.datetime "stopped_at"
@@ -1349,7 +1349,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["task_id"], name: "index_logs_on_task_id"
   end
 
-  create_table "maintain_logs", force: :cascade do |t|
+  create_table "maintain_logs", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "maintain_id", scale: 8
     t.bigint "member_id", scale: 8
     t.string "logged_type"
@@ -1367,13 +1367,13 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["member_id"], name: "index_maintain_logs_on_member_id"
   end
 
-  create_table "maintain_source_templates", force: :cascade do |t|
+  create_table "maintain_source_templates", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "maintain_sources", force: :cascade do |t|
+  create_table "maintain_sources", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.bigint "maintain_source_template_id", scale: 8
     t.string "name"
@@ -1382,7 +1382,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_maintain_sources_on_organ_id"
   end
 
-  create_table "maintain_tag_templates", force: :cascade do |t|
+  create_table "maintain_tag_templates", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.string "logged_type"
     t.string "entity_column"
@@ -1393,7 +1393,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "maintain_tags", force: :cascade do |t|
+  create_table "maintain_tags", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "maintain_tag_template_id", scale: 8
     t.bigint "organ_id", scale: 8
     t.string "name"
@@ -1410,7 +1410,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_maintain_tags_on_organ_id"
   end
 
-  create_table "maintains", force: :cascade do |t|
+  create_table "maintains", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "member_id", scale: 8
     t.bigint "client_id", scale: 8
     t.bigint "agent_id", scale: 8
@@ -1436,7 +1436,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["upstream_id"], name: "index_maintains_on_upstream_id"
   end
 
-  create_table "member_departments", force: :cascade do |t|
+  create_table "member_departments", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "member_id", scale: 8
     t.bigint "job_title_id", scale: 8
     t.bigint "department_root_id", scale: 8
@@ -1453,7 +1453,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["superior_id"], name: "index_member_departments_on_superior_id"
   end
 
-  create_table "members", force: :cascade do |t|
+  create_table "members", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
     t.bigint "organ_id", scale: 8
     t.string "name"
@@ -1478,9 +1478,9 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_members_on_user_id"
   end
 
-  create_table "money_givens", force: :cascade do |t|
+  create_table "money_givens", id: { scale: 8 }, force: :cascade do |t|
     t.string "type"
-    t.decimal "amount", limit: 2, precision: 10, default: "0.0"
+    t.decimal "amount", precision: 10, default: "0"
     t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -1492,7 +1492,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_money_givens_on_organ_id"
   end
 
-  create_table "news_reply_items", force: :cascade do |t|
+  create_table "news_reply_items", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "news_reply_id", scale: 8
     t.string "title"
     t.string "description"
@@ -1503,7 +1503,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["news_reply_id"], name: "index_news_reply_items_on_news_reply_id"
   end
 
-  create_table "notification_sendings", force: :cascade do |t|
+  create_table "notification_sendings", id: { scale: 8 }, force: :cascade do |t|
     t.string "way"
     t.string "sent_to"
     t.datetime "sent_at"
@@ -1514,7 +1514,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["notification_id"], name: "index_notification_sendings_on_notification_id"
   end
 
-  create_table "notification_settings", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "notification_settings", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "receiver_type"
     t.integer "receiver_id", scale: 4
     t.string "notifiable_types"
@@ -1526,7 +1526,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["receiver_type", "receiver_id"], name: "index_notification_settings_on_receiver_type_and_receiver_id"
   end
 
-  create_table "notifications", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "notifications", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "receiver_type"
     t.integer "receiver_id", scale: 4
     t.string "notifiable_type"
@@ -1534,7 +1534,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.string "code"
     t.string "state", default: "0"
     t.string "title"
-    t.string "body", scale: 5000
+    t.string "body"
     t.string "link"
     t.datetime "sending_at"
     t.datetime "read_at"
@@ -1556,7 +1556,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["sender_type", "sender_id"], name: "index_notifications_on_sender_type_and_sender_id"
   end
 
-  create_table "notify_settings", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "notify_settings", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "notifiable_type"
     t.string "code"
     t.string "notify_mailer"
@@ -1568,7 +1568,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "oauth_users", force: :cascade do |t|
+  create_table "oauth_users", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
     t.string "provider"
     t.string "uid"
@@ -1590,27 +1590,27 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_oauth_users_on_user_id"
   end
 
-  create_table "orders", force: :cascade do |t|
+  create_table "orders", id: { scale: 8 }, force: :cascade do |t|
     t.string "uuid", null: false
     t.string "state", default: "0"
-    t.decimal "amount", limit: 2, precision: 10
-    t.decimal "received_amount", limit: 2, precision: 10
-    t.decimal "item_amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
+    t.decimal "received_amount", precision: 10
+    t.decimal "item_amount", precision: 10
     t.string "currency"
     t.integer "payment_id", scale: 4
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "payment_strategy_id", scale: 8
     t.boolean "myself"
-    t.decimal "overall_reduced_amount", limit: 2, precision: 10
-    t.decimal "overall_additional_amount", limit: 2, precision: 10
+    t.decimal "overall_reduced_amount", precision: 10
+    t.decimal "overall_additional_amount", precision: 10
     t.string "payment_status"
     t.bigint "user_id", scale: 8
     t.bigint "cart_id", scale: 8
     t.bigint "maintain_id", scale: 8
     t.bigint "organ_id", scale: 8
     t.integer "lock_version", scale: 4
-    t.string "note", scale: 4096
+    t.string "note"
     t.datetime "expire_at"
     t.json "extra", default: {}
     t.integer "trade_items_count", scale: 4, default: 0
@@ -1628,7 +1628,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "organ_handles", force: :cascade do |t|
+  create_table "organ_handles", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.string "record_class"
@@ -1647,7 +1647,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["descendant_id"], name: "organ_desc_idx"
   end
 
-  create_table "organ_tokens", force: :cascade do |t|
+  create_table "organ_tokens", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.bigint "user_id", scale: 8
     t.string "token"
@@ -1658,7 +1658,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_organ_tokens_on_user_id"
   end
 
-  create_table "organs", force: :cascade do |t|
+  create_table "organs", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.string "organ_uuid"
     t.integer "limit_wechat", scale: 4
@@ -1683,12 +1683,12 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["parent_id"], name: "index_organs_on_parent_id"
   end
 
-  create_table "overtimes", force: :cascade do |t|
+  create_table "overtimes", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "member_id", scale: 8
     t.datetime "start_at"
     t.datetime "finish_at"
-    t.string "note", scale: 1024
-    t.string "comment", scale: 1024
+    t.string "note"
+    t.string "comment"
     t.float "hours"
     t.string "state", default: "init"
     t.datetime "created_at", precision: 6, null: false
@@ -1696,7 +1696,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["member_id"], name: "index_overtimes_on_member_id"
   end
 
-  create_table "packageds", force: :cascade do |t|
+  create_table "packageds", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "package_id", scale: 8
     t.bigint "trade_item_id", scale: 8
     t.datetime "created_at", precision: 6, null: false
@@ -1706,7 +1706,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["trade_item_id"], name: "index_packageds_on_trade_item_id"
   end
 
-  create_table "packages", force: :cascade do |t|
+  create_table "packages", id: { scale: 8 }, force: :cascade do |t|
     t.string "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -1722,7 +1722,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["wait_item_id"], name: "index_packages_on_wait_item_id"
   end
 
-  create_table "part_items", force: :cascade do |t|
+  create_table "part_items", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "part_id", scale: 8
     t.bigint "product_item_id", scale: 8
     t.string "qr_code"
@@ -1734,7 +1734,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["product_item_id"], name: "index_part_items_on_product_item_id"
   end
 
-  create_table "part_plans", force: :cascade do |t|
+  create_table "part_plans", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "part_id", scale: 8
     t.datetime "start_at"
     t.datetime "finish_at"
@@ -1756,7 +1756,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["descendant_id"], name: "part_taxon_desc_idx"
   end
 
-  create_table "part_taxons", force: :cascade do |t|
+  create_table "part_taxons", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.integer "position", scale: 4, default: 1
     t.bigint "parent_id", scale: 8
@@ -1771,7 +1771,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["parent_id"], name: "index_part_taxons_on_parent_id"
   end
 
-  create_table "parts", force: :cascade do |t|
+  create_table "parts", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "part_taxon_id", scale: 8
     t.string "name"
     t.string "description"
@@ -1780,9 +1780,9 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.string "type"
     t.integer "order_items_count", scale: 4, default: 0
     t.boolean "published", default: true
-    t.decimal "price", limit: 2, precision: 10
-    t.decimal "import_price", limit: 2, precision: 10
-    t.decimal "profit_price", limit: 2, precision: 10
+    t.decimal "price", precision: 10
+    t.decimal "import_price", precision: 10
+    t.decimal "profit_price", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "organ_id", scale: 8
@@ -1792,7 +1792,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["sku"], name: "index_parts_on_sku"
   end
 
-  create_table "payment_methods", force: :cascade do |t|
+  create_table "payment_methods", id: { scale: 8 }, force: :cascade do |t|
     t.string "type"
     t.string "account_name"
     t.string "account_num"
@@ -1806,10 +1806,10 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["creator_id"], name: "index_payment_methods_on_creator_id"
   end
 
-  create_table "payment_orders", force: :cascade do |t|
+  create_table "payment_orders", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "payment_id", scale: 8
     t.bigint "order_id", scale: 8
-    t.decimal "check_amount", limit: 2, precision: 10
+    t.decimal "check_amount", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "state"
@@ -1817,7 +1817,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["payment_id"], name: "index_payment_orders_on_payment_id"
   end
 
-  create_table "payment_references", force: :cascade do |t|
+  create_table "payment_references", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "payment_method_id", scale: 8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -1828,7 +1828,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["payment_method_id"], name: "index_payment_references_on_payment_method_id"
   end
 
-  create_table "payment_strategies", force: :cascade do |t|
+  create_table "payment_strategies", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.string "strategy"
     t.integer "period", scale: 4, default: 0
@@ -1836,28 +1836,28 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "payment_types", force: :cascade do |t|
+  create_table "payment_types", id: { scale: 8 }, force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "payments", force: :cascade do |t|
-    t.string "type", scale: 255
-    t.decimal "total_amount", limit: 2, precision: 10
-    t.decimal "fee_amount", limit: 2, precision: 10
-    t.decimal "income_amount", limit: 2, precision: 10
-    t.decimal "checked_amount", limit: 2, precision: 10
-    t.decimal "adjust_amount", limit: 2, precision: 10, default: "0.0"
-    t.string "payment_uuid", scale: 255
-    t.string "notify_type", scale: 255
+  create_table "payments", id: { scale: 8 }, force: :cascade do |t|
+    t.string "type"
+    t.decimal "total_amount", precision: 10
+    t.decimal "fee_amount", precision: 10
+    t.decimal "income_amount", precision: 10
+    t.decimal "checked_amount", precision: 10
+    t.decimal "adjust_amount", precision: 10, default: "0"
+    t.string "payment_uuid"
+    t.string "notify_type"
     t.datetime "notified_at"
-    t.string "pay_status", scale: 255
-    t.string "seller_identifier", scale: 255
-    t.string "buyer_name", scale: 255
-    t.string "buyer_identifier", scale: 255
+    t.string "pay_status"
+    t.string "seller_identifier"
+    t.string "buyer_name"
+    t.string "buyer_identifier"
     t.string "buyer_bank"
     t.integer "user_id", scale: 4
-    t.string "currency", scale: 255
+    t.string "currency"
     t.string "comment"
     t.bigint "payment_method_id", scale: 8
     t.datetime "created_at", null: false
@@ -1872,15 +1872,15 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["payment_method_id"], name: "index_payments_on_payment_method_id"
   end
 
-  create_table "payouts", force: :cascade do |t|
+  create_table "payouts", id: { scale: 8 }, force: :cascade do |t|
     t.string "type"
     t.string "payable_type"
     t.bigint "payable_id", scale: 8
     t.bigint "operator_id", scale: 8
     t.bigint "cash_id", scale: 8
     t.string "payout_uuid"
-    t.decimal "requested_amount", limit: 2, precision: 10
-    t.decimal "actual_amount", limit: 2, precision: 10
+    t.decimal "requested_amount", precision: 10
+    t.decimal "actual_amount", precision: 10
     t.string "state"
     t.datetime "paid_at"
     t.boolean "advance", default: false
@@ -1894,13 +1894,13 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["payable_type", "payable_id"], name: "index_payouts_on_payable_type_and_payable_id"
   end
 
-  create_table "pictures", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "pictures", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "pipeline_members", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "pipeline_members", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "job_title_id", scale: 4
     t.integer "member_id", scale: 4
     t.datetime "created_at", null: false
@@ -1914,7 +1914,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["pipeline_id"], name: "index_pipeline_members_on_pipeline_id"
   end
 
-  create_table "pipelines", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "pipelines", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
@@ -1926,7 +1926,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["piping_type", "piping_id"], name: "index_pipelines_on_piping_type_and_piping_id"
   end
 
-  create_table "place_taxon_hierarchies", force: :cascade do |t|
+  create_table "place_taxon_hierarchies", id: { scale: 8 }, force: :cascade do |t|
     t.integer "ancestor_id", scale: 4, null: false
     t.integer "descendant_id", scale: 4, null: false
     t.integer "generations", scale: 4, null: false
@@ -1936,12 +1936,12 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["descendant_id"], name: "place_taxon_desc_idx"
   end
 
-  create_table "place_taxons", force: :cascade do |t|
+  create_table "place_taxons", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.bigint "parent_id", scale: 8
     t.string "name"
     t.integer "position", scale: 4
-    t.decimal "profit_margin", limit: 2, precision: 4
+    t.decimal "profit_margin", precision: 4
     t.jsonb "parent_ancestors"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -1950,7 +1950,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["parent_id"], name: "index_place_taxons_on_parent_id"
   end
 
-  create_table "places", force: :cascade do |t|
+  create_table "places", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.string "name"
     t.string "color"
@@ -1967,7 +1967,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["place_taxon_id"], name: "index_places_on_place_taxon_id"
   end
 
-  create_table "plan_attenders", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "plan_attenders", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "plan_item_id", scale: 4
     t.string "attender_type"
     t.integer "attender_id", scale: 4
@@ -1986,7 +1986,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["plan_participant_id"], name: "index_plan_attenders_on_plan_participant_id"
   end
 
-  create_table "plan_items", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "plan_items", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "plan_id", scale: 4
     t.integer "time_item_id", scale: 4
     t.integer "place_id", scale: 4
@@ -2010,7 +2010,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["time_list_id"], name: "index_plan_items_on_time_list_id"
   end
 
-  create_table "plan_participants", force: :cascade do |t|
+  create_table "plan_participants", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "event_participant_id", scale: 8
     t.string "participant_type"
     t.bigint "participant_id", scale: 8
@@ -2025,7 +2025,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["planning_type", "planning_id"], name: "index_plan_participants_on_planning_type_and_planning_id"
   end
 
-  create_table "plans", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "plans", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "time_list_id", scale: 4
     t.string "planned_type"
     t.integer "planned_id", scale: 4
@@ -2046,7 +2046,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["time_list_id"], name: "index_plans_on_time_list_id"
   end
 
-  create_table "post_syncs", force: :cascade do |t|
+  create_table "post_syncs", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "post_id", scale: 8
     t.string "synced_type"
     t.bigint "synced_id", scale: 8
@@ -2058,7 +2058,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["synced_type", "synced_id"], name: "index_post_syncs_on_synced_type_and_synced_id"
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "posts", id: { scale: 8 }, force: :cascade do |t|
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -2071,16 +2071,16 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_posts_on_organ_id"
   end
 
-  create_table "praise_incomes", force: :cascade do |t|
+  create_table "praise_incomes", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "reward_id", scale: 8
     t.bigint "user_id", scale: 8
     t.bigint "earner_id", scale: 8
     t.string "source_type"
     t.bigint "source_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10, default: "0.0", comment: "用户打赏"
-    t.decimal "profit_amount", limit: 2, precision: 10, default: "0.0", comment: "平台收入"
-    t.decimal "royalty_amount", limit: 2, precision: 10, default: "0.0", comment: "作者分成"
-    t.decimal "reward_amount", limit: 2, precision: 10, default: "0.0", comment: "赏金池"
+    t.decimal "amount", precision: 10, default: "0", comment: "用户打赏"
+    t.decimal "profit_amount", precision: 10, default: "0", comment: "平台收入"
+    t.decimal "royalty_amount", precision: 10, default: "0", comment: "作者分成"
+    t.decimal "reward_amount", precision: 10, default: "0", comment: "赏金池"
     t.string "state", default: "init"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -2090,12 +2090,12 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_praise_incomes_on_user_id"
   end
 
-  create_table "praise_users", force: :cascade do |t|
+  create_table "praise_users", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
     t.bigint "reward_id", scale: 8
     t.string "entity_type"
     t.bigint "entity_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10, default: "0.0"
+    t.decimal "amount", precision: 10, default: "0"
     t.integer "position", scale: 4
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -2104,7 +2104,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_praise_users_on_user_id"
   end
 
-  create_table "produce_plans", force: :cascade do |t|
+  create_table "produce_plans", id: { scale: 8 }, force: :cascade do |t|
     t.string "title"
     t.datetime "start_at"
     t.datetime "finish_at"
@@ -2115,12 +2115,12 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_produce_plans_on_organ_id"
   end
 
-  create_table "produces", force: :cascade do |t|
+  create_table "produces", id: { scale: 8 }, force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "product_items", force: :cascade do |t|
+  create_table "product_items", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "product_id", scale: 8
     t.string "qr_code"
     t.string "state"
@@ -2130,7 +2130,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["product_id"], name: "index_product_items_on_product_id"
   end
 
-  create_table "product_parts", force: :cascade do |t|
+  create_table "product_parts", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "product_id", scale: 8
     t.bigint "part_id", scale: 8
     t.datetime "created_at", null: false
@@ -2141,7 +2141,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["product_id"], name: "index_product_parts_on_product_id"
   end
 
-  create_table "product_plans", force: :cascade do |t|
+  create_table "product_plans", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "product_id", scale: 8
     t.datetime "start_at"
     t.datetime "finish_at"
@@ -2165,20 +2165,20 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["descendant_id"], name: "product_taxon_desc_idx"
   end
 
-  create_table "product_taxons", force: :cascade do |t|
+  create_table "product_taxons", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.integer "position", scale: 4, default: 1
     t.bigint "parent_id", scale: 8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "profit_margin", limit: 2, precision: 4
+    t.decimal "profit_margin", precision: 4
     t.bigint "organ_id", scale: 8
     t.json "parent_ancestors"
     t.index ["organ_id"], name: "index_product_taxons_on_organ_id"
     t.index ["parent_id"], name: "index_product_taxons_on_parent_id"
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "product_taxon_id", scale: 8
     t.string "name"
     t.string "description"
@@ -2187,20 +2187,20 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.string "type"
     t.integer "order_items_count", scale: 4, default: 0
     t.boolean "published", default: true
-    t.decimal "price", limit: 2, precision: 10
-    t.decimal "profit_price", limit: 2, precision: 10
+    t.decimal "price", precision: 10
+    t.decimal "profit_price", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "reference_price", limit: 2, precision: 10
+    t.decimal "reference_price", precision: 10
     t.bigint "organ_id", scale: 8
-    t.decimal "cost_price", limit: 2, precision: 10
+    t.decimal "cost_price", precision: 10
     t.json "product_taxon_ancestors"
     t.index ["organ_id"], name: "index_products_on_organ_id"
     t.index ["product_taxon_id"], name: "index_products_on_product_taxon_id"
     t.index ["sku"], name: "index_products_on_sku"
   end
 
-  create_table "profiles", force: :cascade do |t|
+  create_table "profiles", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
     t.string "gender"
     t.string "birthday_type"
@@ -2215,9 +2215,9 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
-  create_table "project_funds", force: :cascade do |t|
+  create_table "project_funds", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "project_id", scale: 8
-    t.decimal "price", limit: 2, precision: 10
+    t.decimal "price", precision: 10
     t.boolean "visible", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -2235,7 +2235,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_project_funds_on_user_id"
   end
 
-  create_table "project_members", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "project_members", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "job_title_id", scale: 4
     t.integer "member_id", scale: 4
     t.datetime "created_at", null: false
@@ -2249,7 +2249,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["project_id"], name: "index_project_members_on_project_id"
   end
 
-  create_table "project_webhooks", force: :cascade do |t|
+  create_table "project_webhooks", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "project_id", scale: 8
     t.json "origin_data"
     t.json "valuable_data"
@@ -2258,7 +2258,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["project_id"], name: "index_project_webhooks_on_project_id"
   end
 
-  create_table "projects", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "projects", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
@@ -2266,7 +2266,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.string "github_repo"
   end
 
-  create_table "promote_carts", force: :cascade do |t|
+  create_table "promote_carts", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "promote_id", scale: 8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -2282,24 +2282,24 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["promote_id"], name: "index_promote_carts_on_promote_id"
   end
 
-  create_table "promote_charges", force: :cascade do |t|
+  create_table "promote_charges", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "promote_id", scale: 8
-    t.decimal "min", limit: 2, precision: 10, default: "0.0"
-    t.decimal "max", limit: 2, precision: 10, default: "99999999.99"
-    t.decimal "parameter", limit: 2, precision: 10
+    t.decimal "min", precision: 10, default: "0"
+    t.decimal "max", precision: 10, default: "99999999"
+    t.decimal "parameter", precision: 10
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "contain_max"
     t.boolean "contain_min"
-    t.decimal "base_price", limit: 2, precision: 10
+    t.decimal "base_price", precision: 10
     t.string "unit"
-    t.decimal "filter_min", limit: 2, precision: 10
-    t.decimal "filter_max", limit: 2, precision: 10
+    t.decimal "filter_min", precision: 10
+    t.decimal "filter_max", precision: 10
     t.index ["promote_id"], name: "index_promote_charges_on_promote_id"
   end
 
-  create_table "promote_extras", force: :cascade do |t|
+  create_table "promote_extras", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "promote_id", scale: 8
     t.string "extra_name"
     t.string "column_name"
@@ -2308,7 +2308,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["promote_id"], name: "index_promote_extras_on_promote_id"
   end
 
-  create_table "promote_goods", force: :cascade do |t|
+  create_table "promote_goods", id: { scale: 8 }, force: :cascade do |t|
     t.string "good_type"
     t.bigint "good_id", scale: 8
     t.bigint "promote_id", scale: 8
@@ -2319,7 +2319,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["promote_id"], name: "index_promote_goods_on_promote_id"
   end
 
-  create_table "promotes", force: :cascade do |t|
+  create_table "promotes", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -2341,7 +2341,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_promotes_on_organ_id"
   end
 
-  create_table "providers", force: :cascade do |t|
+  create_table "providers", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "area_id", scale: 8
     t.string "type"
     t.string "name"
@@ -2353,7 +2353,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["area_id"], name: "index_providers_on_area_id"
   end
 
-  create_table "quip_apps", force: :cascade do |t|
+  create_table "quip_apps", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.bigint "user_id", scale: 8
     t.string "access_token"
@@ -2366,7 +2366,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_quip_apps_on_user_id"
   end
 
-  create_table "quip_threads", force: :cascade do |t|
+  create_table "quip_threads", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "quip_app_id", scale: 8
     t.string "type"
     t.string "title"
@@ -2376,7 +2376,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["quip_app_id"], name: "index_quip_threads_on_quip_app_id"
   end
 
-  create_table "rallies", force: :cascade do |t|
+  create_table "rallies", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "area_id", scale: 8
     t.string "name"
     t.string "detail"
@@ -2385,11 +2385,11 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["area_id"], name: "index_rallies_on_area_id"
   end
 
-  create_table "rally_users", force: :cascade do |t|
+  create_table "rally_users", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "rally_id", scale: 8
     t.bigint "user_id", scale: 8
     t.bigint "inviter_id", scale: 8
-    t.decimal "commission_ratio", limit: 2, precision: 4, default: "0.0", comment: "佣金比例"
+    t.decimal "commission_ratio", precision: 4, default: "0", comment: "佣金比例"
     t.string "kind"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -2398,7 +2398,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_rally_users_on_user_id"
   end
 
-  create_table "record_items", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "record_items", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "record_list_id", scale: 4
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -2406,7 +2406,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["record_list_id"], name: "index_record_items_on_record_list_id"
   end
 
-  create_table "record_lists", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "record_lists", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "data_list_id", scale: 4
     t.boolean "done"
     t.datetime "created_at", null: false
@@ -2416,17 +2416,17 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["data_list_id"], name: "index_record_lists_on_data_list_id"
   end
 
-  create_table "refunds", force: :cascade do |t|
+  create_table "refunds", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "order_id", scale: 8
     t.bigint "payment_id", scale: 8
     t.bigint "operator_id", scale: 8
     t.string "type"
-    t.decimal "total_amount", limit: 2, precision: 10
+    t.decimal "total_amount", precision: 10
     t.string "buyer_identifier"
-    t.string "comment", scale: 512
+    t.string "comment"
     t.string "state", default: "0"
     t.datetime "refunded_at"
-    t.string "reason", scale: 512
+    t.string "reason"
     t.string "currency"
     t.string "refund_uuid"
     t.datetime "created_at", null: false
@@ -2437,7 +2437,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["payment_id"], name: "index_refunds_on_payment_id"
   end
 
-  create_table "requirement_volunteers", force: :cascade do |t|
+  create_table "requirement_volunteers", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "requirement_id", scale: 8
     t.bigint "volunteer_id", scale: 8
     t.string "state"
@@ -2447,7 +2447,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["volunteer_id"], name: "index_requirement_volunteers_on_volunteer_id"
   end
 
-  create_table "requirements", force: :cascade do |t|
+  create_table "requirements", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.string "from"
     t.string "to"
@@ -2467,7 +2467,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["volunteer_id"], name: "index_requirements_on_volunteer_id"
   end
 
-  create_table "resign_reasons", force: :cascade do |t|
+  create_table "resign_reasons", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.integer "position", scale: 4
     t.integer "resigns_count", scale: 4, default: 0
@@ -2475,7 +2475,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "resign_references", force: :cascade do |t|
+  create_table "resign_references", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "resign_id", scale: 8
     t.bigint "resign_reason_id", scale: 8
     t.datetime "created_at", precision: 6, null: false
@@ -2484,23 +2484,23 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["resign_reason_id"], name: "index_resign_references_on_resign_reason_id"
   end
 
-  create_table "resigns", force: :cascade do |t|
+  create_table "resigns", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "member_id", scale: 8
     t.string "state", default: "init"
     t.date "leave_on"
-    t.string "reason_note", scale: 4096
-    t.string "handover_note", scale: 4096
-    t.string "comment", scale: 4096
+    t.string "reason_note"
+    t.string "handover_note"
+    t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_resigns_on_member_id"
   end
 
-  create_table "reward_expenses", force: :cascade do |t|
+  create_table "reward_expenses", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "reward_id", scale: 8
     t.bigint "user_id", scale: 8
     t.bigint "aim_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10, default: "0.0"
+    t.decimal "amount", precision: 10, default: "0"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["aim_id"], name: "index_reward_expenses_on_aim_id"
@@ -2508,24 +2508,24 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_reward_expenses_on_user_id"
   end
 
-  create_table "reward_incomes", force: :cascade do |t|
+  create_table "reward_incomes", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "reward_id", scale: 8
     t.bigint "user_id", scale: 8
-    t.decimal "reward_amount", limit: 2, precision: 10, default: "0.0"
+    t.decimal "reward_amount", precision: 10, default: "0"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["reward_id"], name: "index_reward_incomes_on_reward_id"
     t.index ["user_id"], name: "index_reward_incomes_on_user_id"
   end
 
-  create_table "rewards", force: :cascade do |t|
+  create_table "rewards", id: { scale: 8 }, force: :cascade do |t|
     t.string "entity_type"
     t.bigint "entity_id", scale: 8
-    t.decimal "min_piece", limit: 2, precision: 10, default: "1.0"
-    t.decimal "max_piece", limit: 2, precision: 10, default: "10.0"
-    t.decimal "amount", limit: 2, precision: 10
-    t.decimal "income_amount", limit: 2, precision: 10
-    t.decimal "expense_amount", limit: 2, precision: 10
+    t.decimal "min_piece", precision: 10, default: "1"
+    t.decimal "max_piece", precision: 10, default: "10"
+    t.decimal "amount", precision: 10
+    t.decimal "income_amount", precision: 10
+    t.decimal "expense_amount", precision: 10
     t.datetime "start_at"
     t.datetime "finish_at"
     t.boolean "enabled", default: true
@@ -2535,7 +2535,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["entity_type", "entity_id"], name: "index_rewards_on_entity_type_and_entity_id"
   end
 
-  create_table "role_rules", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "role_rules", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "role_id", scale: 4
     t.integer "rule_id", scale: 4
     t.datetime "created_at"
@@ -2547,7 +2547,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["govern_taxon_id"], name: "index_role_rules_on_govern_taxon_id"
   end
 
-  create_table "role_types", force: :cascade do |t|
+  create_table "role_types", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "role_id", scale: 8
     t.string "who_type"
     t.datetime "created_at", precision: 6, null: false
@@ -2555,7 +2555,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["role_id"], name: "index_role_types_on_role_id"
   end
 
-  create_table "roles", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "roles", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
     t.datetime "created_at"
@@ -2565,7 +2565,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.string "who_types", array: true
   end
 
-  create_table "rules", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "rules", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "name"
     t.string "code"
     t.integer "govern_id", scale: 4
@@ -2575,12 +2575,12 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.string "params"
   end
 
-  create_table "schedules", force: :cascade do |t|
+  create_table "schedules", id: { scale: 8 }, force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "seats", force: :cascade do |t|
+  create_table "seats", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "place_id", scale: 8
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -2590,7 +2590,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["place_id"], name: "index_seats_on_place_id"
   end
 
-  create_table "serve_goods", force: :cascade do |t|
+  create_table "serve_goods", id: { scale: 8 }, force: :cascade do |t|
     t.string "good_type"
     t.bigint "good_id", scale: 8
     t.bigint "serve_id", scale: 8
@@ -2600,7 +2600,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["serve_id"], name: "index_serve_goods_on_serve_id"
   end
 
-  create_table "shipments", force: :cascade do |t|
+  create_table "shipments", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "package_id", scale: 8
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -2613,7 +2613,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["shipping_type", "shipping_id"], name: "index_shipments_on_shipping_type_and_shipping_id"
   end
 
-  create_table "stars", force: :cascade do |t|
+  create_table "stars", id: { scale: 8 }, force: :cascade do |t|
     t.string "starred_type"
     t.bigint "starred_id", scale: 8
     t.bigint "user_id", scale: 8
@@ -2623,7 +2623,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_stars_on_user_id"
   end
 
-  create_table "stats", force: :cascade do |t|
+  create_table "stats", id: { scale: 8 }, force: :cascade do |t|
     t.integer "subscribed_requests_count", scale: 4
     t.integer "oauth_users_count", scale: 4
     t.integer "users_count", scale: 4
@@ -2633,7 +2633,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.date "date"
   end
 
-  create_table "super_job_titles", force: :cascade do |t|
+  create_table "super_job_titles", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.string "name"
     t.string "description"
@@ -2644,7 +2644,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_super_job_titles_on_organ_id"
   end
 
-  create_table "supports", force: :cascade do |t|
+  create_table "supports", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "department_id", scale: 8
     t.bigint "organ_id", scale: 8
     t.bigint "member_id", scale: 8
@@ -2661,7 +2661,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["supporter_id"], name: "index_supports_on_supporter_id"
   end
 
-  create_table "table_items", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "table_items", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "table_list_id", scale: 4
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -2669,7 +2669,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["table_list_id"], name: "index_table_items_on_table_list_id"
   end
 
-  create_table "table_lists", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "table_lists", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "data_list_id", scale: 4
     t.integer "table_items_count", scale: 4, default: 0
     t.string "timestamp"
@@ -2683,7 +2683,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["data_list_id"], name: "index_table_lists_on_data_list_id"
   end
 
-  create_table "taggeds", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "taggeds", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "tag_id", scale: 4
     t.string "tagging_type"
     t.integer "tagging_id", scale: 4
@@ -2693,7 +2693,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["tagging_type", "tagging_id"], name: "index_taggeds_on_tagging_type_and_tagging_id"
   end
 
-  create_table "tags", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "tags", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "name"
     t.string "type"
     t.integer "taggeds_count", scale: 4, default: 0
@@ -2701,7 +2701,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "task_contents", force: :cascade do |t|
+  create_table "task_contents", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "task_id", scale: 8
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -2718,7 +2718,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["descendant_id"], name: "task_desc_idx"
   end
 
-  create_table "task_templates", force: :cascade do |t|
+  create_table "task_templates", id: { scale: 8 }, force: :cascade do |t|
     t.string "title"
     t.integer "parent_id", scale: 4
     t.integer "position", scale: 4, default: 1
@@ -2730,7 +2730,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["tasking_type", "tasking_id"], name: "index_task_templates_on_tasking_type_and_tasking_id"
   end
 
-  create_table "task_timers", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "task_timers", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "task_id", scale: 4
     t.integer "duration", scale: 4
     t.datetime "finish_at"
@@ -2739,7 +2739,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["task_id"], name: "index_task_timers_on_task_id"
   end
 
-  create_table "tasks", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "tasks", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "project_id", scale: 4
     t.string "title"
     t.integer "parent_id", scale: 4
@@ -2779,7 +2779,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["descendant_id"], name: "taxon_desc_idx"
   end
 
-  create_table "taxon_items", force: :cascade do |t|
+  create_table "taxon_items", id: { scale: 8 }, force: :cascade do |t|
     t.string "taxon_type"
     t.bigint "taxon_id", scale: 8
     t.bigint "list_id", scale: 8
@@ -2792,7 +2792,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["taxon_type", "taxon_id"], name: "index_taxon_items_on_taxon_type_and_taxon_id"
   end
 
-  create_table "taxons", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "taxons", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "name"
     t.string "type"
     t.string "color"
@@ -2806,7 +2806,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["parent_id"], name: "index_taxons_on_parent_id"
   end
 
-  create_table "team_members", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "team_members", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "team_id", scale: 4
     t.integer "job_title_id", scale: 4
     t.integer "member_id", scale: 4
@@ -2817,18 +2817,18 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["team_id"], name: "index_team_members_on_team_id"
   end
 
-  create_table "teams", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "teams", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "name"
     t.string "teaming_type"
     t.integer "teaming_id", scale: 4
-    t.string "description", scale: 1024
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "organ_id", scale: 8
     t.index ["organ_id"], name: "index_teams_on_organ_id"
   end
 
-  create_table "template_configs", force: :cascade do |t|
+  create_table "template_configs", id: { scale: 8 }, force: :cascade do |t|
     t.string "type"
     t.string "title"
     t.string "tid"
@@ -2840,7 +2840,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.string "content"
   end
 
-  create_table "template_key_words", force: :cascade do |t|
+  create_table "template_key_words", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "template_config_id", scale: 8
     t.integer "position", scale: 4
     t.integer "kid", scale: 4
@@ -2854,7 +2854,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["template_config_id"], name: "index_template_key_words_on_template_config_id"
   end
 
-  create_table "time_items", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "time_items", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "time_list_id", scale: 4
     t.time "start_at"
     t.time "finish_at"
@@ -2864,7 +2864,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["time_list_id"], name: "index_time_items_on_time_list_id"
   end
 
-  create_table "time_lists", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "time_lists", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "name"
     t.string "code"
     t.integer "interval_minutes", scale: 4, default: 0
@@ -2877,20 +2877,20 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_time_lists_on_organ_id"
   end
 
-  create_table "total_carts", force: :cascade do |t|
+  create_table "total_carts", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
     t.decimal "retail_price", default: "0.0", comment: "汇总：原价"
     t.decimal "discount_price", default: "0.0", comment: "汇总：优惠"
     t.decimal "bulk_price", default: "0.0"
     t.decimal "total_quantity", default: "0.0"
     t.integer "deposit_ratio", scale: 4, default: 100, comment: "最小预付比例"
-    t.decimal "item_amount", limit: 2, precision: 10, default: "0.0"
-    t.decimal "overall_additional_amount", limit: 2, precision: 10, default: "0.0"
-    t.decimal "overall_reduced_amount", limit: 2, precision: 10, default: "0.0"
+    t.decimal "item_amount", precision: 10, default: "0"
+    t.decimal "overall_additional_amount", precision: 10, default: "0"
+    t.decimal "overall_reduced_amount", precision: 10, default: "0"
     t.decimal "total_additional_amount", default: "0.0"
     t.decimal "total_reduced_amount", default: "0.0"
     t.decimal "original_amount", default: "0.0", comment: "原价，应用优惠之前的价格"
-    t.decimal "amount", limit: 2, precision: 10, default: "0.0"
+    t.decimal "amount", precision: 10, default: "0"
     t.integer "trade_items_count", scale: 4, default: 0
     t.integer "lock_version", scale: 4
     t.datetime "created_at", precision: 6, null: false
@@ -2900,21 +2900,21 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_total_carts_on_user_id"
   end
 
-  create_table "trade_items", force: :cascade do |t|
+  create_table "trade_items", id: { scale: 8 }, force: :cascade do |t|
     t.string "good_type"
     t.bigint "good_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "number", scale: 4
-    t.decimal "reduced_amount", limit: 2, precision: 10
-    t.decimal "additional_amount", limit: 2, precision: 10
-    t.decimal "single_price", limit: 2, precision: 10
+    t.decimal "reduced_amount", precision: 10
+    t.decimal "additional_amount", precision: 10
+    t.decimal "single_price", precision: 10
     t.boolean "myself"
     t.boolean "starred"
-    t.decimal "original_amount", limit: 2, precision: 10
-    t.decimal "retail_price", limit: 2, precision: 10
-    t.decimal "wholesale_price", limit: 2, precision: 10
+    t.decimal "original_amount", precision: 10
+    t.decimal "retail_price", precision: 10
+    t.decimal "wholesale_price", precision: 10
     t.string "status"
     t.string "good_name"
     t.decimal "weight", default: "0.0", comment: "重量"
@@ -2935,18 +2935,18 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_trade_items_on_user_id"
   end
 
-  create_table "trade_promotes", force: :cascade do |t|
+  create_table "trade_promotes", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "promote_id", scale: 8
     t.bigint "promote_charge_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "trade_item_id", scale: 8
     t.bigint "promote_good_id", scale: 8
     t.integer "sequence", scale: 4
-    t.decimal "based_amount", limit: 2, precision: 10
-    t.decimal "original_amount", limit: 2, precision: 10
-    t.decimal "computed_amount", limit: 2, precision: 10
+    t.decimal "based_amount", precision: 10
+    t.decimal "original_amount", precision: 10
+    t.decimal "computed_amount", precision: 10
     t.string "note"
     t.bigint "promote_cart_id", scale: 8
     t.boolean "edited", comment: "是否被客服改过价"
@@ -2964,7 +2964,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_trade_promotes_on_user_id"
   end
 
-  create_table "tutorials", force: :cascade do |t|
+  create_table "tutorials", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "member_id", scale: 8
     t.bigint "tutor_id", scale: 8
     t.string "kind"
@@ -2975,15 +2975,15 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.date "finish_on"
     t.string "performance"
     t.integer "allowance", scale: 4
-    t.string "note", scale: 4096
-    t.string "comment", scale: 4096
+    t.string "note"
+    t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_tutorials_on_member_id"
     t.index ["tutor_id"], name: "index_tutorials_on_tutor_id"
   end
 
-  create_table "user_providers", force: :cascade do |t|
+  create_table "user_providers", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
     t.bigint "provider_id", scale: 8
     t.datetime "created_at", null: false
@@ -2992,7 +2992,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_user_providers_on_user_id"
   end
 
-  create_table "user_taggeds", force: :cascade do |t|
+  create_table "user_taggeds", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_tag_id", scale: 8
     t.bigint "user_id", scale: 8
     t.datetime "created_at", precision: 6, null: false
@@ -3001,7 +3001,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_tag_id"], name: "index_user_taggeds_on_user_tag_id"
   end
 
-  create_table "user_tags", force: :cascade do |t|
+  create_table "user_tags", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.string "tagging_type"
     t.bigint "tagging_id", scale: 8
@@ -3013,7 +3013,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["tagging_type", "tagging_id"], name: "index_user_tags_on_tagging_type_and_tagging_id"
   end
 
-  create_table "users", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "users", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
     t.datetime "last_login_at"
@@ -3029,9 +3029,9 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.string "invited_code"
   end
 
-  create_table "verify_tokens", force: :cascade do |t|
+  create_table "verify_tokens", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
-    t.string "type", scale: 100
+    t.string "type"
     t.string "token"
     t.datetime "expire_at"
     t.string "identity"
@@ -3043,7 +3043,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["user_id"], name: "index_verify_tokens_on_user_id"
   end
 
-  create_table "volunteers", force: :cascade do |t|
+  create_table "volunteers", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.string "mobile"
     t.string "place"
@@ -3051,7 +3051,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "wait_items", force: :cascade do |t|
+  create_table "wait_items", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
     t.bigint "wait_list_id", scale: 8
     t.string "state"
@@ -3062,7 +3062,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["wait_list_id"], name: "index_wait_items_on_wait_list_id"
   end
 
-  create_table "wait_lists", force: :cascade do |t|
+  create_table "wait_lists", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "address_id", scale: 8
     t.bigint "wait_taxon_id", scale: 8
     t.bigint "organ_id", scale: 8
@@ -3080,7 +3080,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["wait_taxon_id"], name: "index_wait_lists_on_wait_taxon_id"
   end
 
-  create_table "wait_taxons", force: :cascade do |t|
+  create_table "wait_taxons", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -3088,7 +3088,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_wait_taxons_on_organ_id"
   end
 
-  create_table "wechat_apps", force: :cascade do |t|
+  create_table "wechat_apps", id: { scale: 8 }, force: :cascade do |t|
     t.string "name", null: false
     t.boolean "enabled", default: true
     t.string "appid"
@@ -3111,7 +3111,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["organ_id"], name: "index_wechat_apps_on_organ_id"
   end
 
-  create_table "wechat_extractions", force: :cascade do |t|
+  create_table "wechat_extractions", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "wechat_extractor_id", scale: 8
     t.string "name"
     t.string "matched"
@@ -3123,7 +3123,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["wechat_request_id"], name: "index_wechat_extractions_on_wechat_request_id"
   end
 
-  create_table "wechat_extractors", force: :cascade do |t|
+  create_table "wechat_extractors", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.string "prefix"
     t.string "suffix"
@@ -3140,7 +3140,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["wechat_response_id"], name: "index_wechat_extractors_on_wechat_response_id"
   end
 
-  create_table "wechat_menus", force: :cascade do |t|
+  create_table "wechat_menus", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "wechat_app_id", scale: 8
     t.bigint "parent_id", scale: 8
     t.string "type"
@@ -3156,7 +3156,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["wechat_app_id"], name: "index_wechat_menus_on_wechat_app_id"
   end
 
-  create_table "wechat_notices", force: :cascade do |t|
+  create_table "wechat_notices", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "wechat_template_id", scale: 8
     t.bigint "wechat_app_id", scale: 8
     t.datetime "created_at", precision: 6, null: false
@@ -3174,7 +3174,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["wechat_user_id"], name: "index_wechat_notices_on_wechat_user_id"
   end
 
-  create_table "wechat_registers", force: :cascade do |t|
+  create_table "wechat_registers", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "member_id", scale: 8
     t.string "id_name"
     t.string "id_number"
@@ -3185,7 +3185,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["member_id"], name: "index_wechat_registers_on_member_id"
   end
 
-  create_table "wechat_replies", force: :cascade do |t|
+  create_table "wechat_replies", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "wechat_app_id", scale: 8
     t.string "messaging_type"
     t.bigint "messaging_id", scale: 8
@@ -3202,7 +3202,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["wechat_user_id"], name: "index_wechat_replies_on_wechat_user_id"
   end
 
-  create_table "wechat_request_replies", force: :cascade do |t|
+  create_table "wechat_request_replies", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "wechat_request_id", scale: 8
     t.bigint "wechat_reply_id", scale: 8
     t.jsonb "body"
@@ -3212,7 +3212,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["wechat_request_id"], name: "index_wechat_request_replies_on_wechat_request_id"
   end
 
-  create_table "wechat_requests", force: :cascade do |t|
+  create_table "wechat_requests", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "wechat_user_id", scale: 8
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
@@ -3227,7 +3227,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["wechat_user_id"], name: "index_wechat_requests_on_wechat_user_id"
   end
 
-  create_table "wechat_responses", force: :cascade do |t|
+  create_table "wechat_responses", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "wechat_app_id", scale: 8
     t.string "match_value"
     t.datetime "created_at", precision: 6, null: false
@@ -3244,7 +3244,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["wechat_app_id"], name: "index_wechat_responses_on_wechat_app_id"
   end
 
-  create_table "wechat_subscribeds", force: :cascade do |t|
+  create_table "wechat_subscribeds", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "wechat_user_id", scale: 8
     t.bigint "wechat_template_id", scale: 8
     t.datetime "sending_at"
@@ -3255,14 +3255,14 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["wechat_user_id"], name: "index_wechat_subscribeds_on_wechat_user_id"
   end
 
-  create_table "wechat_tag_defaults", force: :cascade do |t|
+  create_table "wechat_tag_defaults", id: { scale: 8 }, force: :cascade do |t|
     t.string "name"
     t.string "default_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "wechat_tags", force: :cascade do |t|
+  create_table "wechat_tags", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "wechat_app_id", scale: 8
     t.string "name"
     t.string "tag_id"
@@ -3278,7 +3278,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["wechat_app_id"], name: "index_wechat_tags_on_wechat_app_id"
   end
 
-  create_table "wechat_templates", force: :cascade do |t|
+  create_table "wechat_templates", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "wechat_app_id", scale: 8
     t.string "template_id"
     t.string "title"
@@ -3292,7 +3292,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["wechat_app_id"], name: "index_wechat_templates_on_wechat_app_id"
   end
 
-  create_table "wechat_user_tags", force: :cascade do |t|
+  create_table "wechat_user_tags", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "wechat_user_id", scale: 8
     t.bigint "wechat_tag_id", scale: 8
     t.datetime "created_at", precision: 6, null: false
@@ -3303,7 +3303,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["wechat_user_id"], name: "index_wechat_user_tags_on_wechat_user_id"
   end
 
-  create_table "who_roles", force: :cascade do |t|
+  create_table "who_roles", id: { scale: 8 }, force: :cascade do |t|
     t.string "who_type"
     t.bigint "who_id", scale: 8
     t.bigint "role_id", scale: 8
@@ -3313,7 +3313,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_065905) do
     t.index ["who_type", "who_id"], name: "index_who_roles_on_who_type_and_who_id"
   end
 
-  create_table "whos", id: :serial, scale: 4, force: :cascade do |t|
+  create_table "whos", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "name", null: false
     t.string "type"
     t.datetime "created_at"
