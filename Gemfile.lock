@@ -37,7 +37,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_where.git
-  revision: c965b22763d7b3e6446b942d7e98c3ad67058d6b
+  revision: 2eddc1f10d79ee3fd37edc0abb384fe489d601bc
   specs:
     default_where (2.2.3)
       activerecord (>= 4.0, <= 6.1)
@@ -173,7 +173,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: c3e840cf22f0dcb44ddd53bd72534d5114ff041b
+  revision: 3c3ebfe64545f80402598b5907df23d4818eb9a5
   specs:
     rails_com (1.2.9)
       acme-client
@@ -256,7 +256,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 5693373a50b055796c9fe5f5819fed7b91deaa37
+  revision: ad9e821cbb0da2c4188a343d22fae2d919cffb8a
   specs:
     rails_notice (1.0.2)
       rails_auth
