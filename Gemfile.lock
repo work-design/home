@@ -51,7 +51,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: f0de4734d6ade3e1b942a382e8e4981a413d5f59
+  revision: 8a4192fa3d799b795ddd342e4eb1092825366dce
   specs:
     actioncable (6.1.0.alpha)
       actionpack (= 6.1.0.alpha)
@@ -135,7 +135,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_agency.git
-  revision: 1ec245150c2bc3a92d254a0ce986315bd7d9d8c8
+  revision: f5066e3927fc5e56c33601d6508cbc811f2ce690
   specs:
     rails_agency (0.1.0)
       rails_com (~> 1.2)
@@ -157,7 +157,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 3733a654dfded5c69450f98cb66a4a692001e23b
+  revision: 6309bc7e77a06da2f69ecddec3e66e08745519cb
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -274,7 +274,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 17e3216ea12d449e9cdf20053c0e2b079ab13a3d
+  revision: d2dcbaaa909104077a9160a5f8e5089692e54bc8
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -315,7 +315,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 15ea0e9eeef41d39cafcaea6e2a1a29b987afbca
+  revision: 6bd149df90d06a9bf6b57e3f3a3d1fd194c9dd0a
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
@@ -338,7 +338,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 0ad1d73c57eac3fa7c0eb101b7be7c061fc2a1be
+  revision: 2056cca305d047c0d04b943ed2a5dae6b8730b49
   specs:
     rails_wechat (0.1.0)
       rails_auth
