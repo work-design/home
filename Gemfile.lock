@@ -7,14 +7,6 @@ GIT
       rest-client (>= 2.0.0)
 
 GIT
-  remote: https://github.com/qinmingyuan/activestorage_upyun.git
-  revision: e886d97edbdc670c37532bb3b266b80ee35987fc
-  specs:
-    activestorage_upyun (0.6.0)
-      activestorage
-      upyun (~> 1.0.8)
-
-GIT
   remote: https://github.com/qinmingyuan/alipay2.git
   revision: cb4827ab516d064458c40ebaef4aa796bedbb157
   specs:
@@ -48,6 +40,14 @@ GIT
   specs:
     omniauth-wechat-oauth2 (0.1.0)
       omniauth-oauth2 (~> 1.5)
+
+GIT
+  remote: https://github.com/qinmingyuan/upyun_rails.git
+  revision: 4a6a7e77a6f7b2a5100a5eede83170e5de79312f
+  specs:
+    upyun_rails (0.1.0)
+      activestorage
+      rest-client
 
 GIT
   remote: https://github.com/rails/rails.git
@@ -157,7 +157,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 6309bc7e77a06da2f69ecddec3e66e08745519cb
+  revision: ae14fb91b391373c2ad5db8d47b22bd6d73c0ffa
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -166,14 +166,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 5874f576d16b2d1f66637ef794c5ac825c88b9b6
+  revision: a420ea634ec41eca0c1f914e66de0fc420df40a1
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 510303db5e190e5d5c245510de03561fb0f8f5fe
+  revision: d48e348e827d421e046f9067942df48049f62da8
   specs:
     rails_com (1.2.9)
       acme-client
@@ -185,14 +185,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: cb43dac66a9b040b9e63e15271ae3410a7b4d186
+  revision: bdf2e34a953fbedab769dee08a494db991e402f2
   specs:
     rails_crm (0.1.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: 29ef67d7375b0349c5a52ba8d33da375bbb729d8
+  revision: eda2f4889a666783a802d7dcc8d26bf08efd5ce6
   specs:
     rails_data (1.0.2)
       prawn (~> 2.2)
@@ -218,7 +218,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: c9e4358b03f2a3470a6b2e2010e11d7eaecbf59c
+  revision: b34063920fe60968c15f3246a0719c0347ff4e22
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -256,7 +256,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: ad9e821cbb0da2c4188a343d22fae2d919cffb8a
+  revision: 09ac4d6f4cb36d16993def4f176d2528ff90b9ea
   specs:
     rails_notice (1.0.2)
       rails_auth
@@ -264,7 +264,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 3d9cb728118325e12226f4ebf3171b5a64ef45f6
+  revision: f3e5fe9c5cdb35212350c2925c1c0f5ffba6d762
   specs:
     rails_org (0.1)
       rails_auth
@@ -274,7 +274,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: d2dcbaaa909104077a9160a5f8e5089692e54bc8
+  revision: e54c62b2398e655089a07cacaa08918ac9e042a2
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -306,7 +306,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 8d275bff0e7770cdacc3c4830e73c1b7cd7e02c5
+  revision: 9ff62ecca74d36686c958041eb17a6846b878246
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 1.0)
@@ -323,7 +323,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: b67bb79ce0c7dedb8ee9eaa9b5f4d154b7fc6dc6
+  revision: cb8696e5976fc50e3c6d4b635e1f6d56b1c825b5
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
@@ -338,7 +338,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 2056cca305d047c0d04b943ed2a5dae6b8730b49
+  revision: 8f6622c2402c6526da7d7f48d0f465f9eb9d000d
   specs:
     rails_wechat (0.1.0)
       rails_auth
@@ -482,11 +482,11 @@ GEM
     paypal-sdk-rest (1.7.4)
       multi_json (~> 1.0)
       xml-simple
-    pdf-core (0.7.0)
+    pdf-core (0.8.1)
     pg (1.2.3)
-    prawn (2.2.2)
-      pdf-core (~> 0.7.0)
-      ttfunk (~> 1.5)
+    prawn (2.3.0)
+      pdf-core (~> 0.8.1)
+      ttfunk (~> 1.6)
     prawn-table (0.2.2)
       prawn (>= 1.3.0, < 3.0.0)
     pry (0.13.1)
@@ -574,9 +574,6 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
-    upyun (1.0.9)
-      activesupport (>= 3.2.8)
-      rest-client (>= 1.6.7)
     web-console (4.0.4)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -606,7 +603,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activestorage_upyun!
   acts_as_list
   alipay2!
   amazing_print
@@ -668,6 +664,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks
+  upyun_rails!
   web-console
   webpacker
   wx_pay!

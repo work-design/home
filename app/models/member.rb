@@ -4,7 +4,6 @@ class Member < ApplicationRecord
   include RailsBench::Member
   include RailsRole::User
   include RailsTrade::Buyer
-  include RailsNotice::Receiver
   include RailsFinance::User
   include RailsAttend::Member
 
