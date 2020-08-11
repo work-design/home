@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.float "annual_add"
     t.float "left_annual_days"
     t.float "vacation_days"
-    t.string "details", scale: 1024
+    t.string "details"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "member_id", scale: 8
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "kind"
     t.datetime "start_at"
     t.datetime "finish_at"
-    t.string "note", scale: 2048
-    t.string "comment", scale: 2048
+    t.string "note"
+    t.string "comment"
     t.boolean "redeeming"
     t.string "redeeming_days", array: true
     t.boolean "processed"
@@ -171,7 +171,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "address_id", scale: 8
     t.bigint "user_id", scale: 8
     t.bigint "inviter_id", scale: 8
-    t.decimal "commission_ratio", limit: 2, precision: 4, default: "0.0", comment: "佣金比例"
+    t.decimal "commission_ratio", precision: 4, default: "0", comment: "佣金比例"
     t.string "kind"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -196,9 +196,9 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
   end
 
   create_table "advances", id: { scale: 8 }, force: :cascade do |t|
-    t.decimal "price", limit: 2, precision: 10
+    t.decimal "price", precision: 10
     t.string "apple_product_id"
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "card_template_id", scale: 8
@@ -218,7 +218,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "client_id", scale: 8
     t.bigint "agent_id", scale: 8
-    t.decimal "commission_ratio", limit: 2, precision: 4, comment: "交易时抽成比例"
+    t.decimal "commission_ratio", precision: 4, comment: "交易时抽成比例"
     t.string "note", comment: "备注"
   end
 
@@ -243,7 +243,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "serial_number"
     t.datetime "last_access_at"
     t.string "ip"
-    t.decimal "reward_amount", limit: 2, precision: 10
+    t.decimal "reward_amount", precision: 10
     t.integer "aim_logs_count", scale: 4, default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -285,7 +285,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "name"
     t.string "unit"
     t.string "repeat_type"
-    t.decimal "rate", limit: 2, precision: 10, default: "1.0"
+    t.decimal "rate", precision: 10, default: "1"
     t.integer "task_point", scale: 4, default: 0
     t.integer "reward_point", scale: 4, default: 0
     t.integer "reward_amount", scale: 4, default: 0
@@ -395,9 +395,9 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
   create_table "attendance_stats", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "member_id", scale: 8
     t.bigint "financial_month_id", scale: 8
-    t.string "costed_absence", scale: 1024
-    t.string "redeeming_absence", scale: 1024
-    t.string "free_absence", scale: 1024
+    t.string "costed_absence"
+    t.string "redeeming_absence"
+    t.string "free_absence"
     t.integer "allowance_days", scale: 4
     t.integer "late_days", scale: 4
     t.float "absence_redeeming_hours"
@@ -460,7 +460,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.json "audited_changes", default: {}
     t.json "related_changes", default: {}
     t.json "extra", default: {}
-    t.string "note", scale: 1024
+    t.string "note"
     t.string "remote_ip"
     t.string "controller_path"
     t.string "action_name"
@@ -528,8 +528,8 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "card_id", scale: 8
     t.bigint "advance_id", scale: 8
     t.bigint "trade_item_id", scale: 8
-    t.decimal "price", limit: 2, precision: 10
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "price", precision: 10
+    t.decimal "amount", precision: 10
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -542,7 +542,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "card_id", scale: 8
     t.string "consumable_type"
     t.bigint "consumable_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["card_id"], name: "index_card_expenses_on_card_id"
@@ -553,7 +553,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "card_id", scale: 8
     t.string "source_type"
     t.bigint "source_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.string "title"
     t.string "tag_str"
     t.datetime "created_at", null: false
@@ -567,7 +567,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "consumable_type"
     t.bigint "consumable_id", scale: 8
     t.bigint "card_expense_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["card_expense_id"], name: "index_card_returns_on_card_expense_id"
@@ -592,9 +592,9 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "client_type"
     t.bigint "client_id", scale: 8
     t.string "card_uuid"
-    t.decimal "amount", limit: 2, precision: 10
-    t.decimal "expense_amount", limit: 2, precision: 10
-    t.decimal "income_amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
+    t.decimal "expense_amount", precision: 10
+    t.decimal "income_amount", precision: 10
     t.integer "lock_version", scale: 4
     t.datetime "effect_at"
     t.datetime "expire_at"
@@ -615,7 +615,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "cart_id", scale: 8
     t.bigint "cart_item_id", scale: 8
     t.bigint "promote_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -629,7 +629,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
   end
 
   create_table "carts", id: { scale: 8 }, force: :cascade do |t|
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.bigint "user_id", scale: 8
     t.bigint "payment_strategy_id", scale: 8
     t.integer "deposit_ratio", scale: 4
@@ -662,7 +662,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "user_id", scale: 8
     t.string "source_type"
     t.bigint "source_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.string "title"
     t.string "tag_str"
     t.datetime "created_at", null: false
@@ -674,9 +674,9 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
 
   create_table "cashes", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10, default: "0.0"
-    t.decimal "income_amount", limit: 2, precision: 10, default: "0.0"
-    t.decimal "expense_amount", limit: 2, precision: 10, default: "0.0"
+    t.decimal "amount", precision: 10, default: "0"
+    t.decimal "income_amount", precision: 10, default: "0"
+    t.decimal "expense_amount", precision: 10, default: "0"
     t.integer "lock_version", scale: 4
     t.string "account_bank"
     t.string "account_name"
@@ -688,9 +688,9 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
 
   create_table "charges", id: { scale: 8 }, force: :cascade do |t|
     t.string "unit"
-    t.decimal "min", limit: 2, precision: 10
-    t.decimal "max", limit: 2, precision: 10
-    t.decimal "price", limit: 2, precision: 10
+    t.decimal "min", precision: 10
+    t.decimal "max", precision: 10
+    t.decimal "price", precision: 10
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -742,7 +742,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "title"
     t.text "body"
     t.integer "position", scale: 4, default: 0
-    t.string "list", scale: 50
+    t.string "list"
     t.bigint "detail_id", scale: 8
     t.bigint "author_id", scale: 8
     t.datetime "created_at", null: false
@@ -793,8 +793,8 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "part_id", scale: 8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "original_price", limit: 2, precision: 10
-    t.decimal "price", limit: 2, precision: 10
+    t.decimal "original_price", precision: 10
+    t.decimal "price", precision: 10
     t.index ["custom_id"], name: "index_custom_parts_on_custom_id"
     t.index ["part_id"], name: "index_custom_parts_on_part_id"
   end
@@ -805,7 +805,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "product_id", scale: 8
-    t.decimal "price", limit: 2, precision: 10
+    t.decimal "price", precision: 10
     t.bigint "organ_id", scale: 8
     t.string "name"
     t.string "sku"
@@ -823,7 +823,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
 
   create_table "data_lists", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.string "title"
-    t.string "comment", scale: 4096
+    t.string "comment"
     t.string "type"
     t.string "data_table"
     t.string "export_excel"
@@ -935,7 +935,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "participant_id", scale: 8
     t.string "state"
     t.integer "score", scale: 4
-    t.string "comment", scale: 4096
+    t.string "comment"
     t.string "quit_note"
     t.string "assigned_status"
     t.string "job_id"
@@ -959,13 +959,13 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
   create_table "events", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "event_taxon_id", scale: 8
     t.string "name"
-    t.string "description", scale: 4096
+    t.string "description"
     t.integer "position", scale: 4
     t.integer "event_items_count", scale: 4, default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "organ_id", scale: 8
-    t.decimal "price", limit: 2, precision: 10
+    t.decimal "price", precision: 10
     t.integer "event_participants_count", scale: 4, default: 0
     t.integer "members_count", scale: 4, default: 0
     t.index ["event_taxon_id"], name: "index_events_on_event_taxon_id"
@@ -976,12 +976,12 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "expense_id", scale: 8
     t.bigint "member_id", scale: 8
     t.bigint "financial_taxon_id", scale: 8
-    t.decimal "budget", limit: 2, precision: 10
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "budget", precision: 10
+    t.decimal "amount", precision: 10
     t.string "note"
     t.string "state"
     t.integer "quantity", scale: 4, default: 1
-    t.decimal "price", limit: 2, precision: 10
+    t.decimal "price", precision: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["expense_id"], name: "index_expense_items_on_expense_id"
@@ -997,14 +997,14 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "operator_id", scale: 8
     t.string "payable_type"
     t.bigint "payable_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.boolean "advance"
     t.string "state", default: "pending"
     t.string "note"
     t.string "type"
     t.string "payout_uuid"
-    t.decimal "requested_amount", limit: 2, precision: 10
-    t.decimal "actual_amount", limit: 2, precision: 10
+    t.decimal "requested_amount", precision: 10
+    t.decimal "actual_amount", precision: 10
     t.datetime "paid_at"
     t.string "account_bank"
     t.string "account_name"
@@ -1028,8 +1028,8 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "type"
     t.string "state", default: "init"
     t.string "subject"
-    t.decimal "amount", limit: 2, precision: 10
-    t.string "note", scale: 4096
+    t.decimal "amount", precision: 10
+    t.string "note"
     t.integer "invoices_count", scale: 4
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -1072,10 +1072,10 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "facilitate_taxon_id", scale: 8
-    t.decimal "price", limit: 2, precision: 10
+    t.decimal "price", precision: 10
     t.string "sku"
-    t.decimal "import_price", limit: 2, precision: 10
-    t.decimal "profit_price", limit: 2, precision: 10
+    t.decimal "import_price", precision: 10
+    t.decimal "profit_price", precision: 10
     t.string "qr_prefix"
     t.decimal "quantity"
     t.string "unit"
@@ -1143,7 +1143,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "provider_id", scale: 8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "export_price", limit: 2, precision: 10
+    t.decimal "export_price", precision: 10
     t.boolean "verified", default: false
     t.boolean "selected"
     t.string "good_type"
@@ -1198,7 +1198,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "name"
     t.string "type"
     t.string "key"
-    t.string "description", scale: 1024
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "list_id", scale: 8
@@ -1246,7 +1246,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "from_job_title_id", scale: 8
     t.string "state", default: "init"
     t.date "transfer_on"
-    t.string "reason_note", scale: 4096
+    t.string "reason_note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["from_department_id"], name: "index_job_transfers_on_from_department_id"
@@ -1315,7 +1315,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "referrer"
     t.string "violated_directive"
     t.string "effective_directive"
-    t.string "original_policy", scale: 1024
+    t.string "original_policy"
     t.string "disposition"
     t.string "blocked_uri"
     t.string "line_number"
@@ -1345,7 +1345,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "path"
     t.string "controller_name"
     t.string "action_name"
-    t.string "exception", scale: 10240
+    t.string "exception"
     t.string "exception_object"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -1497,7 +1497,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
 
   create_table "money_givens", id: { scale: 8 }, force: :cascade do |t|
     t.string "type"
-    t.decimal "amount", limit: 2, precision: 10, default: "0.0"
+    t.decimal "amount", precision: 10, default: "0"
     t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -1548,7 +1548,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "code"
     t.string "state", default: "0"
     t.string "title"
-    t.string "body", scale: 5000
+    t.string "body"
     t.string "link"
     t.datetime "sending_at"
     t.datetime "read_at"
@@ -1608,24 +1608,24 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
   create_table "orders", id: { scale: 8 }, force: :cascade do |t|
     t.string "uuid", null: false
     t.string "state", default: "0"
-    t.decimal "amount", limit: 2, precision: 10
-    t.decimal "received_amount", limit: 2, precision: 10
-    t.decimal "item_amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
+    t.decimal "received_amount", precision: 10
+    t.decimal "item_amount", precision: 10
     t.string "currency"
     t.integer "payment_id", scale: 4
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "payment_strategy_id", scale: 8
     t.boolean "myself"
-    t.decimal "overall_reduced_amount", limit: 2, precision: 10
-    t.decimal "overall_additional_amount", limit: 2, precision: 10
+    t.decimal "overall_reduced_amount", precision: 10
+    t.decimal "overall_additional_amount", precision: 10
     t.string "payment_status"
     t.bigint "user_id", scale: 8
     t.bigint "cart_id", scale: 8
     t.bigint "maintain_id", scale: 8
     t.bigint "organ_id", scale: 8
     t.integer "lock_version", scale: 4
-    t.string "note", scale: 4096
+    t.string "note"
     t.datetime "expire_at"
     t.json "extra", default: {}
     t.integer "trade_items_count", scale: 4, default: 0
@@ -1701,8 +1701,8 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "member_id", scale: 8
     t.datetime "start_at"
     t.datetime "finish_at"
-    t.string "note", scale: 1024
-    t.string "comment", scale: 1024
+    t.string "note"
+    t.string "comment"
     t.float "hours"
     t.string "state", default: "init"
     t.datetime "created_at", precision: 6, null: false
@@ -1794,9 +1794,9 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "type"
     t.integer "order_items_count", scale: 4, default: 0
     t.boolean "published", default: true
-    t.decimal "price", limit: 2, precision: 10
-    t.decimal "import_price", limit: 2, precision: 10
-    t.decimal "profit_price", limit: 2, precision: 10
+    t.decimal "price", precision: 10
+    t.decimal "import_price", precision: 10
+    t.decimal "profit_price", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "organ_id", scale: 8
@@ -1823,7 +1823,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
   create_table "payment_orders", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "payment_id", scale: 8
     t.bigint "order_id", scale: 8
-    t.decimal "check_amount", limit: 2, precision: 10
+    t.decimal "check_amount", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "state"
@@ -1856,22 +1856,22 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
   end
 
   create_table "payments", id: { scale: 8 }, force: :cascade do |t|
-    t.string "type", scale: 255
-    t.decimal "total_amount", limit: 2, precision: 10
-    t.decimal "fee_amount", limit: 2, precision: 10
-    t.decimal "income_amount", limit: 2, precision: 10
-    t.decimal "checked_amount", limit: 2, precision: 10
-    t.decimal "adjust_amount", limit: 2, precision: 10, default: "0.0"
-    t.string "payment_uuid", scale: 255
-    t.string "notify_type", scale: 255
+    t.string "type"
+    t.decimal "total_amount", precision: 10
+    t.decimal "fee_amount", precision: 10
+    t.decimal "income_amount", precision: 10
+    t.decimal "checked_amount", precision: 10
+    t.decimal "adjust_amount", precision: 10, default: "0"
+    t.string "payment_uuid"
+    t.string "notify_type"
     t.datetime "notified_at"
-    t.string "pay_status", scale: 255
-    t.string "seller_identifier", scale: 255
-    t.string "buyer_name", scale: 255
-    t.string "buyer_identifier", scale: 255
+    t.string "pay_status"
+    t.string "seller_identifier"
+    t.string "buyer_name"
+    t.string "buyer_identifier"
     t.string "buyer_bank"
     t.integer "user_id", scale: 4
-    t.string "currency", scale: 255
+    t.string "currency"
     t.string "comment"
     t.bigint "payment_method_id", scale: 8
     t.datetime "created_at", null: false
@@ -1893,8 +1893,8 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "operator_id", scale: 8
     t.bigint "cash_id", scale: 8
     t.string "payout_uuid"
-    t.decimal "requested_amount", limit: 2, precision: 10
-    t.decimal "actual_amount", limit: 2, precision: 10
+    t.decimal "requested_amount", precision: 10
+    t.decimal "actual_amount", precision: 10
     t.string "state"
     t.datetime "paid_at"
     t.boolean "advance", default: false
@@ -1929,7 +1929,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "parent_id", scale: 8
     t.string "name"
     t.integer "position", scale: 4
-    t.decimal "profit_margin", limit: 2, precision: 4
+    t.decimal "profit_margin", precision: 4
     t.jsonb "parent_ancestors"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -2065,10 +2065,10 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "earner_id", scale: 8
     t.string "source_type"
     t.bigint "source_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10, default: "0.0", comment: "用户打赏"
-    t.decimal "profit_amount", limit: 2, precision: 10, default: "0.0", comment: "平台收入"
-    t.decimal "royalty_amount", limit: 2, precision: 10, default: "0.0", comment: "作者分成"
-    t.decimal "reward_amount", limit: 2, precision: 10, default: "0.0", comment: "赏金池"
+    t.decimal "amount", precision: 10, default: "0", comment: "用户打赏"
+    t.decimal "profit_amount", precision: 10, default: "0", comment: "平台收入"
+    t.decimal "royalty_amount", precision: 10, default: "0", comment: "作者分成"
+    t.decimal "reward_amount", precision: 10, default: "0", comment: "赏金池"
     t.string "state", default: "init"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -2083,7 +2083,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "reward_id", scale: 8
     t.string "entity_type"
     t.bigint "entity_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10, default: "0.0"
+    t.decimal "amount", precision: 10, default: "0"
     t.integer "position", scale: 4
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -2159,7 +2159,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "parent_id", scale: 8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "profit_margin", limit: 2, precision: 4
+    t.decimal "profit_margin", precision: 4
     t.bigint "organ_id", scale: 8
     t.json "parent_ancestors"
     t.index ["organ_id"], name: "index_product_taxons_on_organ_id"
@@ -2175,13 +2175,13 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "type"
     t.integer "order_items_count", scale: 4, default: 0
     t.boolean "published", default: true
-    t.decimal "price", limit: 2, precision: 10
-    t.decimal "profit_price", limit: 2, precision: 10
+    t.decimal "price", precision: 10
+    t.decimal "profit_price", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "reference_price", limit: 2, precision: 10
+    t.decimal "reference_price", precision: 10
     t.bigint "organ_id", scale: 8
-    t.decimal "cost_price", limit: 2, precision: 10
+    t.decimal "cost_price", precision: 10
     t.json "product_taxon_ancestors"
     t.index ["organ_id"], name: "index_products_on_organ_id"
     t.index ["product_taxon_id"], name: "index_products_on_product_taxon_id"
@@ -2205,7 +2205,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
 
   create_table "project_funds", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "project_id", scale: 8
-    t.decimal "price", limit: 2, precision: 10
+    t.decimal "price", precision: 10
     t.boolean "visible", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -2273,18 +2273,18 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
 
   create_table "promote_charges", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "promote_id", scale: 8
-    t.decimal "min", limit: 2, precision: 10, default: "0.0"
-    t.decimal "max", limit: 2, precision: 10, default: "99999999.99"
-    t.decimal "parameter", limit: 2, precision: 10
+    t.decimal "min", precision: 10, default: "0"
+    t.decimal "max", precision: 10, default: "99999999"
+    t.decimal "parameter", precision: 10
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "contain_max"
     t.boolean "contain_min"
-    t.decimal "base_price", limit: 2, precision: 10
+    t.decimal "base_price", precision: 10
     t.string "unit"
-    t.decimal "filter_min", limit: 2, precision: 10
-    t.decimal "filter_max", limit: 2, precision: 10
+    t.decimal "filter_min", precision: 10
+    t.decimal "filter_max", precision: 10
     t.index ["promote_id"], name: "index_promote_charges_on_promote_id"
   end
 
@@ -2378,7 +2378,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "rally_id", scale: 8
     t.bigint "user_id", scale: 8
     t.bigint "inviter_id", scale: 8
-    t.decimal "commission_ratio", limit: 2, precision: 4, default: "0.0", comment: "佣金比例"
+    t.decimal "commission_ratio", precision: 4, default: "0", comment: "佣金比例"
     t.string "kind"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -2410,12 +2410,12 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "payment_id", scale: 8
     t.bigint "operator_id", scale: 8
     t.string "type"
-    t.decimal "total_amount", limit: 2, precision: 10
+    t.decimal "total_amount", precision: 10
     t.string "buyer_identifier"
-    t.string "comment", scale: 512
+    t.string "comment"
     t.string "state", default: "0"
     t.datetime "refunded_at"
-    t.string "reason", scale: 512
+    t.string "reason"
     t.string "currency"
     t.string "refund_uuid"
     t.datetime "created_at", null: false
@@ -2477,9 +2477,9 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "member_id", scale: 8
     t.string "state", default: "init"
     t.date "leave_on"
-    t.string "reason_note", scale: 4096
-    t.string "handover_note", scale: 4096
-    t.string "comment", scale: 4096
+    t.string "reason_note"
+    t.string "handover_note"
+    t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_resigns_on_member_id"
@@ -2489,7 +2489,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "reward_id", scale: 8
     t.bigint "user_id", scale: 8
     t.bigint "aim_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10, default: "0.0"
+    t.decimal "amount", precision: 10, default: "0"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["aim_id"], name: "index_reward_expenses_on_aim_id"
@@ -2500,7 +2500,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
   create_table "reward_incomes", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "reward_id", scale: 8
     t.bigint "user_id", scale: 8
-    t.decimal "reward_amount", limit: 2, precision: 10, default: "0.0"
+    t.decimal "reward_amount", precision: 10, default: "0"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["reward_id"], name: "index_reward_incomes_on_reward_id"
@@ -2510,11 +2510,11 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
   create_table "rewards", id: { scale: 8 }, force: :cascade do |t|
     t.string "entity_type"
     t.bigint "entity_id", scale: 8
-    t.decimal "min_piece", limit: 2, precision: 10, default: "1.0"
-    t.decimal "max_piece", limit: 2, precision: 10, default: "10.0"
-    t.decimal "amount", limit: 2, precision: 10
-    t.decimal "income_amount", limit: 2, precision: 10
-    t.decimal "expense_amount", limit: 2, precision: 10
+    t.decimal "min_piece", precision: 10, default: "1"
+    t.decimal "max_piece", precision: 10, default: "10"
+    t.decimal "amount", precision: 10
+    t.decimal "income_amount", precision: 10
+    t.decimal "expense_amount", precision: 10
     t.datetime "start_at"
     t.datetime "finish_at"
     t.boolean "enabled", default: true
@@ -2822,7 +2822,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "name"
     t.string "teaming_type"
     t.integer "teaming_id", scale: 4
-    t.string "description", scale: 1024
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "organ_id", scale: 8
@@ -2885,13 +2885,13 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.decimal "bulk_price", default: "0.0"
     t.decimal "total_quantity", default: "0.0"
     t.integer "deposit_ratio", scale: 4, default: 100, comment: "最小预付比例"
-    t.decimal "item_amount", limit: 2, precision: 10, default: "0.0"
-    t.decimal "overall_additional_amount", limit: 2, precision: 10, default: "0.0"
-    t.decimal "overall_reduced_amount", limit: 2, precision: 10, default: "0.0"
+    t.decimal "item_amount", precision: 10, default: "0"
+    t.decimal "overall_additional_amount", precision: 10, default: "0"
+    t.decimal "overall_reduced_amount", precision: 10, default: "0"
     t.decimal "total_additional_amount", default: "0.0"
     t.decimal "total_reduced_amount", default: "0.0"
     t.decimal "original_amount", default: "0.0", comment: "原价，应用优惠之前的价格"
-    t.decimal "amount", limit: 2, precision: 10, default: "0.0"
+    t.decimal "amount", precision: 10, default: "0"
     t.integer "trade_items_count", scale: 4, default: 0
     t.integer "lock_version", scale: 4
     t.datetime "created_at", precision: 6, null: false
@@ -2904,18 +2904,18 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
   create_table "trade_items", id: { scale: 8 }, force: :cascade do |t|
     t.string "good_type"
     t.bigint "good_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "number", scale: 4
-    t.decimal "reduced_amount", limit: 2, precision: 10
-    t.decimal "additional_amount", limit: 2, precision: 10
-    t.decimal "single_price", limit: 2, precision: 10
+    t.decimal "reduced_amount", precision: 10
+    t.decimal "additional_amount", precision: 10
+    t.decimal "single_price", precision: 10
     t.boolean "myself"
     t.boolean "starred"
-    t.decimal "original_amount", limit: 2, precision: 10
-    t.decimal "retail_price", limit: 2, precision: 10
-    t.decimal "wholesale_price", limit: 2, precision: 10
+    t.decimal "original_amount", precision: 10
+    t.decimal "retail_price", precision: 10
+    t.decimal "wholesale_price", precision: 10
     t.string "status"
     t.string "good_name"
     t.decimal "weight", default: "0.0", comment: "重量"
@@ -2939,15 +2939,15 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
   create_table "trade_promotes", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "promote_id", scale: 8
     t.bigint "promote_charge_id", scale: 8
-    t.decimal "amount", limit: 2, precision: 10
+    t.decimal "amount", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "trade_item_id", scale: 8
     t.bigint "promote_good_id", scale: 8
     t.integer "sequence", scale: 4
-    t.decimal "based_amount", limit: 2, precision: 10
-    t.decimal "original_amount", limit: 2, precision: 10
-    t.decimal "computed_amount", limit: 2, precision: 10
+    t.decimal "based_amount", precision: 10
+    t.decimal "original_amount", precision: 10
+    t.decimal "computed_amount", precision: 10
     t.string "note"
     t.bigint "promote_cart_id", scale: 8
     t.boolean "edited", comment: "是否被客服改过价"
@@ -2976,8 +2976,8 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.date "finish_on"
     t.string "performance"
     t.integer "allowance", scale: 4
-    t.string "note", scale: 4096
-    t.string "comment", scale: 4096
+    t.string "note"
+    t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_tutorials_on_member_id"
@@ -3032,7 +3032,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
 
   create_table "verify_tokens", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
-    t.string "type", scale: 100
+    t.string "type"
     t.string "token"
     t.datetime "expire_at"
     t.string "identity"
