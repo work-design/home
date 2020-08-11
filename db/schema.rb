@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_08_090014) do
+ActiveRecord::Schema.define(version: 2020_08_11_104227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -480,13 +480,11 @@ ActiveRecord::Schema.define(version: 2020_08_08_090014) do
     t.integer "access_counter", scale: 4, default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "organ_id", scale: 8
     t.bigint "member_id", scale: 8
     t.boolean "mock"
     t.index ["account_id"], name: "index_authorized_tokens_on_account_id"
     t.index ["member_id"], name: "index_authorized_tokens_on_member_id"
     t.index ["oauth_user_id"], name: "index_authorized_tokens_on_oauth_user_id"
-    t.index ["organ_id"], name: "index_authorized_tokens_on_organ_id"
     t.index ["user_id", "oauth_user_id", "account_id", "token"], name: "index_authorized_tokens_on_unique_token", unique: true
     t.index ["user_id"], name: "index_authorized_tokens_on_user_id"
   end
@@ -3143,7 +3141,10 @@ ActiveRecord::Schema.define(version: 2020_08_08_090014) do
     t.datetime "auth_code_expires_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "wechat_request_id", scale: 8
+    t.boolean "testcase"
     t.index ["wechat_platform_id"], name: "index_wechat_auths_on_wechat_platform_id"
+    t.index ["wechat_request_id"], name: "index_wechat_auths_on_wechat_request_id"
   end
 
   create_table "wechat_extractions", id: { scale: 8 }, force: :cascade do |t|
@@ -3284,11 +3285,9 @@ ActiveRecord::Schema.define(version: 2020_08_08_090014) do
   end
 
   create_table "wechat_requests", id: { scale: 8 }, force: :cascade do |t|
-    t.bigint "wechat_user_id", scale: 8
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "wechat_app_id", scale: 8
     t.string "type"
     t.string "msg_type"
     t.string "event"
@@ -3299,9 +3298,7 @@ ActiveRecord::Schema.define(version: 2020_08_08_090014) do
     t.string "open_id"
     t.json "reply_body"
     t.string "reply_encrypt"
-    t.index ["wechat_app_id"], name: "index_wechat_requests_on_wechat_app_id"
     t.index ["wechat_reply_id"], name: "index_wechat_requests_on_wechat_reply_id"
-    t.index ["wechat_user_id"], name: "index_wechat_requests_on_wechat_user_id"
   end
 
   create_table "wechat_response_requests", id: { scale: 8 }, force: :cascade do |t|
@@ -3314,7 +3311,6 @@ ActiveRecord::Schema.define(version: 2020_08_08_090014) do
   end
 
   create_table "wechat_responses", id: { scale: 8 }, force: :cascade do |t|
-    t.bigint "wechat_app_id", scale: 8
     t.string "match_value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -3328,7 +3324,19 @@ ActiveRecord::Schema.define(version: 2020_08_08_090014) do
     t.string "request_types", array: true
     t.string "appid"
     t.index ["effective_type", "effective_id"], name: "index_wechat_responses_on_effective_type_and_effective_id"
-    t.index ["wechat_app_id"], name: "index_wechat_responses_on_wechat_app_id"
+  end
+
+  create_table "wechat_services", id: { scale: 8 }, force: :cascade do |t|
+    t.bigint "wechat_request_id", scale: 8
+    t.string "type"
+    t.string "msgtype"
+    t.string "value"
+    t.string "appid"
+    t.string "open_id"
+    t.json "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["wechat_request_id"], name: "index_wechat_services_on_wechat_request_id"
   end
 
   create_table "wechat_subscribeds", id: { scale: 8 }, force: :cascade do |t|
