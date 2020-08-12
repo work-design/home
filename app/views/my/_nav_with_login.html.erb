@@ -1,6 +1,6 @@
 <div class="navbar-brand">
 <% if current_session_organ %>
-  <%= link_to index_url(subdomain: nil), class: 'navbar-item' do %>
+  <%= link_to index_url(subdomain: RailsCom.config.subdomain), class: 'navbar-item' do %>
     <%= image_pack_tag 'logo.png', class: 'image' %>
   <% end %>
   <div class="navbar-item">
