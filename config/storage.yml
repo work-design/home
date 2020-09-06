@@ -3,7 +3,7 @@ local:
   root: <%= Rails.root.join('storage') %>
 
 acme:
-  service: Disk
+  service: Disc
   root: <%= Rails.root.join('acme') %>
 
 test:

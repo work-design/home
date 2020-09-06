@@ -12,6 +12,7 @@ public/packs_dev
 public/fonts
 storage
 node_modules
+acme
 
 # Ignore master key for decrypting credentials and more.
 config/master.key
