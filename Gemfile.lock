@@ -157,7 +157,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: d0c49ad7302efaf569eca91f36a3a48f4b8a26e9
+  revision: 17c1f8b78f105a6d01bfb0586c3b257a2fe3ef46
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -166,7 +166,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 112a2321439648a24fcf2de3210987094aae9bc3
+  revision: 77c9f2b68f16c35e8db0d82a0ff15b6ffda9647d
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
@@ -174,7 +174,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 98c5c16775e24cae6bfcb44582a85f70ff9d311a
+  revision: 6cc1906a3288dee24670aa84db82f37bfc34ed7f
   specs:
     rails_com (1.2.9)
       acme-client
@@ -183,6 +183,7 @@ GIT
       httpx (~> 0.8)
       kaminari
       rails (~> 6.0)
+      rqrcode
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
@@ -212,7 +213,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: 35a88cad0013e5aa658114c2352a54fa8ea5400f
+  revision: 16d736e48683a48f8a49592972b3c9a87421966e
   specs:
     rails_event (0.1.1)
       rails_com (~> 1.2)
@@ -265,7 +266,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 8a0809d5c5f505dced247675f0be3e670adb1e95
+  revision: 7db11eb76af5918b748b228fa20472c0999d32a3
   specs:
     rails_org (0.1)
       rails_auth
