@@ -266,7 +266,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 6bb57eb9502634ee36bf008e0b5af848e4ceccf2
+  revision: 4d0cdcccb0acc888cac1fdd4fab251ebcf3e18d2
   specs:
     rails_org (0.1)
       rails_auth
@@ -326,7 +326,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: cb8696e5976fc50e3c6d4b635e1f6d56b1c825b5
+  revision: c3aca4645fd11878133d92dcc90102e95ac93782
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
@@ -341,7 +341,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 4d3e97c5038b5f58fa32e00566abe1787a3fd2cf
+  revision: 07d874b8e95d94abf3b22702c3994b656e0d490c
   specs:
     rails_wechat (0.1.0)
       rails_auth
