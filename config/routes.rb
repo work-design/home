@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   namespace :board do
     root '/auth/board/users#show'
   end
-  namespace :my do
+  namespace :me do
     root 'home#index'
   end
 
