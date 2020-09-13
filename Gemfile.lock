@@ -213,7 +213,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: 9c31d6eaa319c5244a6e61579afb4762e61dd390
+  revision: 35a88cad0013e5aa658114c2352a54fa8ea5400f
   specs:
     rails_event (0.1.1)
       rails_com (~> 1.2)
@@ -266,7 +266,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 2ae78a40bc264cb94e98e62e5d67310da040cdc7
+  revision: 278564a4f348af0b21a8444da016b810179fe493
   specs:
     rails_org (0.1)
       rails_auth
@@ -277,7 +277,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 05e6c65771453941ff8e3c9de52487a796f6e03f
+  revision: 60ced55a21e7b44369426e0fe0e16b46dad75b20
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
