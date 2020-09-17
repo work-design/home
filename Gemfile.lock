@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/jasl/wx_pay.git
-  revision: 444c2b844e99b505147a91ffa1e2f302d69ef7db
+  revision: 8dcedf14c391f865b5107cf2fb5d90cb81409e4b
   specs:
-    wx_pay (0.20.1)
+    wx_pay (0.21.0)
       activesupport (>= 3.2)
       rest-client (>= 2.0.0)
 
@@ -11,14 +11,6 @@ GIT
   revision: cb4827ab516d064458c40ebaef4aa796bedbb157
   specs:
     alipay2 (2.0)
-
-GIT
-  remote: https://github.com/qinmingyuan/closure_tree.git
-  revision: 32eb6a4c362be483845d279cfdd021286cd511db
-  specs:
-    closure_tree (7.0.0)
-      activerecord (>= 4.2.10)
-      with_advisory_lock (>= 4.0.0)
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
@@ -51,7 +43,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 8a4192fa3d799b795ddd342e4eb1092825366dce
+  revision: 77fc1c2b8ee95d5ee92224639aa41b91127d20c4
   specs:
     actioncable (6.1.0.alpha)
       actionpack (= 6.1.0.alpha)
@@ -123,7 +115,7 @@ GIT
       activerecord (= 6.1.0.alpha)
       activestorage (= 6.1.0.alpha)
       activesupport (= 6.1.0.alpha)
-      bundler (>= 1.3.0)
+      bundler (>= 1.15.0)
       railties (= 6.1.0.alpha)
       sprockets-rails (>= 2.0.0)
     railties (6.1.0.alpha)
@@ -157,7 +149,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: a77f86b6f159cf64225c6221d2408505ffd4249c
+  revision: dc530c684b137392a85783752ef19453f661b3d3
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -166,7 +158,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 77c9f2b68f16c35e8db0d82a0ff15b6ffda9647d
+  revision: ced26699599adfdaeb0c17068523bb8c0caf85b8
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
@@ -174,7 +166,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 6cc1906a3288dee24670aa84db82f37bfc34ed7f
+  revision: 072dafbc01289c5c4a245976a8f3079649847e0d
   specs:
     rails_com (1.2.9)
       acme-client
@@ -213,7 +205,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: 35a88cad0013e5aa658114c2352a54fa8ea5400f
+  revision: 5564a0aae698fa77829dc440a5574e249c4ffe29
   specs:
     rails_event (0.1.1)
       rails_com (~> 1.2)
@@ -228,7 +220,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: df30e10634942990896b5abf0e5d6ce6b179d74f
+  revision: 937efd1306253d3351ebe9c970c0a16b4cc54c66
   specs:
     rails_finance (0.1.0)
       rails_com (~> 1.2)
@@ -266,7 +258,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 278564a4f348af0b21a8444da016b810179fe493
+  revision: 73b0e94861852fda7ab4eb32f887a3c03c66e04f
   specs:
     rails_org (0.1)
       rails_auth
@@ -277,7 +269,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 60ced55a21e7b44369426e0fe0e16b46dad75b20
+  revision: 7043153f91c95d03dbbd5baec7bb11955dfd9e3f
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -294,7 +286,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 2be60ec93579d0764c5f90b66717edfeec4009a7
+  revision: fffe4971479fcc0239af38530f4969582933d4ad
   specs:
     rails_role (1.0.3)
       rails_com (~> 1.2)
@@ -309,11 +301,11 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 401808b42e399211f4db66ab69ca6f862498f9f9
+  revision: 60dfae4187a5b928c4b3ba5cd429486d57d02866
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 1.0)
-      closure_tree (>= 6.6, <= 7.1)
+      closure_tree (>= 7.2)
       rails_com (~> 1.2)
 
 GIT
@@ -341,7 +333,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: ae1adafd4719a9d002aea3ebf721291e471ddcd0
+  revision: 0e88247144061ac162be4f3a3d89a0639d94918e
   specs:
     rails_wechat (0.1.0)
       rails_auth
@@ -353,16 +345,16 @@ GEM
   specs:
     acme-client (2.0.6)
       faraday (>= 0.17, < 2.0.0)
-    acts_as_list (1.0.1)
+    acts_as_list (1.0.2)
       activerecord (>= 4.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     amazing_print (1.2.1)
-    bcrypt (3.1.15)
+    bcrypt (3.1.16)
     bindex (0.8.1)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
-    bootsnap (1.4.6)
+    bootsnap (1.4.8)
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.3)
@@ -375,9 +367,12 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     childprocess (3.0.0)
-    chunky_png (1.3.11)
+    chunky_png (1.3.12)
+    closure_tree (7.2.0)
+      activerecord (>= 4.2.10)
+      with_advisory_lock (>= 4.0.0)
     coderay (1.1.3)
-    concurrent-ruby (1.1.6)
+    concurrent-ruby (1.1.7)
     connection_pool (2.2.3)
     crass (1.0.6)
     dalli (2.7.10)
@@ -404,14 +399,14 @@ GEM
     httpx (0.8.2)
       http-2-next (>= 0.1.2)
       timers
-    i18n (1.8.4)
+    i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     image_processing (1.11.0)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
-    jbuilder (2.10.0)
+    jbuilder (2.10.1)
       activesupport (>= 5.0.0)
-    jwt (2.2.1)
+    jwt (2.2.2)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.1)
@@ -429,7 +424,7 @@ GEM
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.6.0)
+    loofah (2.7.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -444,7 +439,7 @@ GEM
     mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.14.1)
+    minitest (5.14.2)
     monetize (1.9.4)
       money (~> 6.12)
     money (6.13.8)
@@ -459,7 +454,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     netrc (0.11.0)
-    nio4r (2.5.2)
+    nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     oauth2 (1.4.4)
@@ -477,8 +472,8 @@ GEM
     omniauth-github (1.4.0)
       omniauth (~> 1.5)
       omniauth-oauth2 (>= 1.4.0, < 2.0)
-    omniauth-oauth2 (1.6.0)
-      oauth2 (~> 1.1)
+    omniauth-oauth2 (1.7.0)
+      oauth2 (~> 1.4)
       omniauth (~> 1.9)
     paypal-sdk-core (0.3.4)
       multi_json (~> 1.0)
@@ -501,8 +496,8 @@ GEM
     pry-stack_explorer (0.5.1)
       binding_of_caller (~> 0.7)
       pry (~> 0.13)
-    public_suffix (4.0.5)
-    puma (4.3.5)
+    public_suffix (4.0.6)
+    puma (4.3.6)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-proxy (0.6.5)
@@ -518,7 +513,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redis (4.2.1)
+    redis (4.2.2)
     regexp_parser (1.7.1)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
@@ -550,25 +545,25 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (2.3.0)
-    sidekiq (6.1.1)
+    sidekiq (6.1.2)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
     spreadsheet (1.2.6)
       ruby-ole (>= 1.0)
-    spring (2.1.0)
+    spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.2.1)
+    sprockets-rails (3.2.2)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     thor (1.0.1)
-    timers (4.3.0)
+    timers (4.3.2)
     ttfunk (1.6.2.1)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
@@ -583,7 +578,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webpacker (5.1.1)
+    webpacker (5.2.1)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
@@ -614,7 +609,6 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
   capybara
-  closure_tree!
   dalli
   default_form!
   default_where!

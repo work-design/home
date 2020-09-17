@@ -9,7 +9,6 @@ class User < ApplicationRecord
   include RailsProfile::User
   include RailsAgency::User
 
-  has_one :github_user
   has_one :wechat_user
   has_many :project_funds, dependent: :nullify
 
@@ -22,19 +21,6 @@ class User < ApplicationRecord
     Duty.where.not(id: workers.pluck(:duty_id)).select(:id, :name).map { |i| [i.name, i.id] }
   end
 
-  def github_client
-    github_user.client
-  end
-
-  def github_repos(name = nil)
-    if github_user && name
-      github_user.client.repo(name)
-    elsif github_user && name.nil?
-      github_user.client.repos.map { |r| { full_name: r.full_name, private: r.private } }
-    else
-      []
-    end
-  end
 
 end
 

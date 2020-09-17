@@ -1,5 +1,5 @@
 class Organ < ApplicationRecord
-  prepend RailsTaxon::Node
+  include RailsTaxon::Node
   include RailsOrg::Organ
   include RailsWechat::Organ
   include RailsFactory::Organ
