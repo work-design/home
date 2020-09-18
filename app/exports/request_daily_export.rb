@@ -3,8 +3,8 @@ class RequestDailyExport
 
   config do
     collect -> (params){
-      if params[:'created_at-lte']
-        params[:'created_at-lte'] = params[:'created_at-lte'].to_time.end_of_day
+      if params['created_at-lte']
+        params['created_at-lte'] = params['created_at-lte'].to_time.end_of_day
       end
       TextRequest.default_where(params)
     }
