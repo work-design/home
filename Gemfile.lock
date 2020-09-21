@@ -14,14 +14,14 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: dcd50bf3e14c0104ff1c9dd4b5d10b3ca3d34499
+  revision: 97bb05c23df95f21f72c4c573efb4a39b23a2574
   specs:
     default_form (1.5.1)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/qinmingyuan/default_where.git
-  revision: b7a2a88fb0293a1c2d341276fcc37d9153a3186c
+  revision: e2085480367e97f9786b851134ee87fa06d78125
   specs:
     default_where (2.2.3)
       activerecord (>= 4.0, <= 6.1)
@@ -149,7 +149,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: 7ff3635f2e78e4ebc0db7309476c6c33d4d05a86
+  revision: 8f0c925ce3e6570a963c639e3059dbbf63511db4
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -158,7 +158,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: f64b046b1734561df5e53235ca22bc8dfe018926
+  revision: bd9e817ab6e8fe26c0a52c32278abc50affa9b24
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
@@ -166,7 +166,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 6556fcfaeb19cd0ef15a086f7db47aed1f787724
+  revision: 58e3d3fc92b527365c2c0945fc59ace69f02f0fb
   specs:
     rails_com (1.2.9)
       acme-client
@@ -220,7 +220,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: ab7a6f29c782371cbe1bd93596599143dad8cbd9
+  revision: 5716b581a4ba93c0823666db2bfdb47f1ad292ec
   specs:
     rails_finance (0.1.0)
       rails_com (~> 1.2)
@@ -250,7 +250,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 300f2729a27232dee33c76f1dc92ee7e579d7248
+  revision: b5f29a4a3f126169f6ce35bf436aafe316b1a257
   specs:
     rails_notice (1.0.2)
       rails_auth
@@ -258,7 +258,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: f228a5ed1b3e604131c22b9ddc3908b1dedd7fe0
+  revision: dcbc2711b3e02ff737fc40e3303bbbaf82fa3af2
   specs:
     rails_org (0.1)
       rails_auth
@@ -333,7 +333,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 0e88247144061ac162be4f3a3d89a0639d94918e
+  revision: 8021938cf9193c6005f8aaca9271be14b02c1c30
   specs:
     rails_wechat (0.1.0)
       rails_auth
@@ -401,7 +401,7 @@ GEM
       timers
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
-    image_processing (1.11.0)
+    image_processing (1.12.0)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.10.1)
@@ -514,7 +514,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redis (4.2.2)
-    regexp_parser (1.7.1)
+    regexp_parser (1.8.0)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
