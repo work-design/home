@@ -1,9 +1,0 @@
-<p>
-  <%= link_to '默认', filter_params(except: :facilitate_taxon_id), class: active_helper(facilitate_taxon_id: '', active: 'button is-info', item: 'button is-light') %>
-  <% @facilitate_taxons.each do |facilitate_taxon| %>
-    <%= link_to facilitate_taxon.name, filter_params(facilitate_taxon_id: facilitate_taxon.id), class: active_helper(facilitate_taxon_id: facilitate_taxon.id, active: 'button is-info', item: 'button is-light') %>
-  <% end %>
-</p>
-
-
-
