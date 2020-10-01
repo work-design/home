@@ -70,7 +70,6 @@ gem 'rails_wechat', github: 'work-design/rails_wechat'
 gem 'rails_factory', github: 'work-design/rails_factory'
 gem 'rails_finance', github: 'work-design/rails_finance'
 gem 'rails_profile', github: 'work-design/rails_profile'
-gem 'rails_facility', github: 'work-design/rails_facility'
 gem 'rails_interact', github: 'work-design/rails_interact'
 
 # Debug
