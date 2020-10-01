@@ -7,7 +7,6 @@ workers 2
 threads 2, 32
 environment 'production'
 directory dir
-daemonize true
 prune_bundler true
 #early_hints true
 

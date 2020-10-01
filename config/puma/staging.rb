@@ -5,7 +5,6 @@ threads 5, 64
 environment 'staging'
 directory dir
 workers 1
-daemonize true
 prune_bundler true
 #early_hints true
 

@@ -4,7 +4,6 @@ port 3000
 threads 1, 1
 environment 'development'
 directory dir
-daemonize false
 #early_hints true
 
 bind "unix://#{File.expand_path('tmp/sockets/puma.sock', dir)}"
