@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_11_104227) do
+ActiveRecord::Schema.define(version: 2020_10_04_124710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -481,7 +481,8 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "member_id", scale: 8
-    t.boolean "mock"
+    t.boolean "mock_member"
+    t.boolean "mock_user"
     t.index ["account_id"], name: "index_authorized_tokens_on_account_id"
     t.index ["member_id"], name: "index_authorized_tokens_on_member_id"
     t.index ["oauth_user_id"], name: "index_authorized_tokens_on_oauth_user_id"
@@ -1024,7 +1025,6 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "creator_id", scale: 8
     t.bigint "financial_taxon_id", scale: 8
     t.bigint "payment_method_id", scale: 8
-    t.bigint "verifier_id", scale: 8
     t.string "type"
     t.string "state", default: "init"
     t.string "subject"
@@ -1033,11 +1033,15 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.integer "invoices_count", scale: 4
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "organ_id", scale: 8
+    t.string "expendable_type"
+    t.bigint "expendable_id", scale: 8
     t.index ["creator_id"], name: "index_expenses_on_creator_id"
+    t.index ["expendable_type", "expendable_id"], name: "index_expenses_on_expendable_type_and_expendable_id"
     t.index ["financial_taxon_id"], name: "index_expenses_on_financial_taxon_id"
+    t.index ["organ_id"], name: "index_expenses_on_organ_id"
     t.index ["payment_method_id"], name: "index_expenses_on_payment_method_id"
     t.index ["payout_id"], name: "index_expenses_on_payout_id"
-    t.index ["verifier_id"], name: "index_expenses_on_verifier_id"
   end
 
   create_table "extra_days", id: { scale: 8 }, force: :cascade do |t|
@@ -1054,6 +1058,23 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
   create_table "facilitate_providers", id: { scale: 8 }, force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "facilitate_id", scale: 8
+    t.bigint "provider_id", scale: 8
+    t.boolean "selected"
+    t.string "note"
+    t.string "record_name", default: "FacilitateProvider"
+    t.index ["facilitate_id"], name: "index_facilitate_providers_on_facilitate_id"
+    t.index ["provider_id"], name: "index_facilitate_providers_on_provider_id"
+  end
+
+  create_table "facilitate_taxon_hierarchies", id: { scale: 8 }, force: :cascade do |t|
+    t.integer "ancestor_id", scale: 4, null: false
+    t.integer "descendant_id", scale: 4, null: false
+    t.integer "generations", scale: 4, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "facilitate_taxon_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "facilitate_taxon_desc_idx"
   end
 
   create_table "facilitate_taxons", id: { scale: 8 }, force: :cascade do |t|
@@ -1062,8 +1083,9 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.integer "facilitates_count", scale: 4, default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "organ_id", scale: 8
-    t.index ["organ_id"], name: "index_facilitate_taxons_on_organ_id"
+    t.bigint "parent_id", scale: 8
+    t.json "parent_ancestors"
+    t.index ["parent_id"], name: "index_facilitate_taxons_on_parent_id"
   end
 
   create_table "facilitates", id: { scale: 8 }, force: :cascade do |t|
@@ -1085,9 +1107,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.integer "unified_quantity", scale: 4, default: 1
     t.string "buyer_type"
     t.integer "buyer_id", scale: 4
-    t.bigint "organ_id", scale: 8
     t.index ["facilitate_taxon_id"], name: "index_facilitates_on_facilitate_taxon_id"
-    t.index ["organ_id"], name: "index_facilitates_on_organ_id"
   end
 
   create_table "financial_months", id: { scale: 8 }, force: :cascade do |t|
@@ -1113,7 +1133,6 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
 
   create_table "financial_taxons", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "parent_id", scale: 8
-    t.bigint "verifier_id", scale: 8
     t.jsonb "parent_ancestors"
     t.string "name"
     t.integer "position", scale: 4
@@ -1121,8 +1140,9 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.boolean "individual", comment: "是否可盘点"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "organ_id", scale: 8
+    t.index ["organ_id"], name: "index_financial_taxons_on_organ_id"
     t.index ["parent_id"], name: "index_financial_taxons_on_parent_id"
-    t.index ["verifier_id"], name: "index_financial_taxons_on_verifier_id"
   end
 
   create_table "good_partners", id: { scale: 8 }, force: :cascade do |t|
@@ -1434,8 +1454,6 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "agency_id", scale: 8
     t.bigint "maintain_source_id", scale: 8
     t.bigint "organ_id", scale: 8
-    t.bigint "pipeline_member_id", scale: 8
-    t.bigint "pipeline_id", scale: 8
     t.string "state"
     t.string "note"
     t.datetime "created_at", precision: 6, null: false
@@ -1443,13 +1461,13 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "upstream_id", scale: 8
     t.bigint "source_id", scale: 8
     t.integer "position", scale: 4
+    t.bigint "task_template_id", scale: 8
     t.index ["agency_id"], name: "index_maintains_on_agency_id"
     t.index ["maintain_source_id"], name: "index_maintains_on_maintain_source_id"
     t.index ["member_id"], name: "index_maintains_on_member_id"
     t.index ["organ_id"], name: "index_maintains_on_organ_id"
-    t.index ["pipeline_id"], name: "index_maintains_on_pipeline_id"
-    t.index ["pipeline_member_id"], name: "index_maintains_on_pipeline_member_id"
     t.index ["source_id"], name: "index_maintains_on_source_id"
+    t.index ["task_template_id"], name: "index_maintains_on_task_template_id"
     t.index ["upstream_id"], name: "index_maintains_on_upstream_id"
   end
 
@@ -1484,14 +1502,12 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.integer "pomodoro", scale: 4
     t.bigint "organ_root_id", scale: 8
     t.boolean "owned"
-    t.bigint "provider_id", scale: 8
     t.json "department_ancestors"
     t.string "experience"
     t.string "attendance_number"
     t.integer "cached_role_ids", scale: 4, array: true
     t.index ["organ_id"], name: "index_members_on_organ_id"
     t.index ["organ_root_id"], name: "index_members_on_organ_root_id"
-    t.index ["provider_id"], name: "index_members_on_provider_id"
     t.index ["user_id"], name: "index_members_on_user_id"
   end
 
@@ -1539,6 +1555,10 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.datetime "updated_at", null: false
     t.json "counters", default: {}
     t.bigint "user_id", scale: 8
+    t.bigint "member_id", scale: 8
+    t.bigint "organ_id", scale: 8
+    t.index ["member_id"], name: "index_notification_settings_on_member_id"
+    t.index ["organ_id"], name: "index_notification_settings_on_organ_id"
     t.index ["user_id"], name: "index_notification_settings_on_user_id"
   end
 
@@ -1563,7 +1583,9 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "linked_type"
     t.bigint "linked_id", scale: 8
     t.bigint "user_id", scale: 8
+    t.bigint "member_id", scale: 8
     t.index ["linked_type", "linked_id"], name: "index_notifications_on_linked_type_and_linked_id"
+    t.index ["member_id"], name: "index_notifications_on_member_id"
     t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id"
     t.index ["organ_id"], name: "index_notifications_on_organ_id"
     t.index ["read_at"], name: "index_notifications_on_read_at"
@@ -1600,7 +1622,6 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.datetime "expires_at"
     t.string "state"
     t.json "extra", default: {}
-    t.string "remark"
     t.index ["account_id"], name: "index_oauth_users_on_account_id"
     t.index ["user_id"], name: "index_oauth_users_on_user_id"
   end
@@ -1690,9 +1711,9 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.integer "limit_wechat_menu", scale: 4, default: 1
     t.json "parent_ancestors"
     t.integer "cached_role_ids", scale: 4, array: true
-    t.string "code"
     t.boolean "official", comment: "是否官方"
     t.boolean "joinable", comment: "是否可搜索并加入"
+    t.string "domain"
     t.index ["area_id"], name: "index_organs_on_area_id"
     t.index ["parent_id"], name: "index_organs_on_parent_id"
   end
@@ -2199,6 +2220,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.bigint "organ_id", scale: 8
     t.string "real_name"
     t.string "nick_name"
+    t.jsonb "extra"
     t.index ["organ_id"], name: "index_profiles_on_organ_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
@@ -2219,6 +2241,8 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.decimal "unified_quantity", default: "0.0"
     t.string "buyer_type"
     t.integer "buyer_id", scale: 4
+    t.decimal "amount"
+    t.string "note"
     t.index ["project_id"], name: "index_project_funds_on_project_id"
     t.index ["user_id"], name: "index_project_funds_on_user_id"
   end
@@ -2231,10 +2255,28 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.integer "project_id", scale: 4
     t.boolean "owned"
     t.bigint "organ_id", scale: 8
+    t.string "source"
     t.index ["job_title_id"], name: "index_project_members_on_job_title_id"
     t.index ["member_id"], name: "index_project_members_on_member_id"
     t.index ["organ_id"], name: "index_project_members_on_organ_id"
     t.index ["project_id"], name: "index_project_members_on_project_id"
+  end
+
+  create_table "project_stages", id: { scale: 8 }, force: :cascade do |t|
+    t.string "name"
+    t.date "begin_on"
+    t.date "end_on"
+    t.string "state"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "project_taxons", id: { scale: 8 }, force: :cascade do |t|
+    t.string "name"
+    t.string "record_name", default: "ProjectTaxon"
+    t.jsonb "parameters", default: {}
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "project_webhooks", id: { scale: 8 }, force: :cascade do |t|
@@ -2253,6 +2295,16 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.datetime "updated_at", null: false
     t.string "github_repo"
     t.string "record_name", default: "Project"
+    t.bigint "organ_id", scale: 8
+    t.bigint "project_taxon_id", scale: 8
+    t.bigint "project_stage_id", scale: 8
+    t.string "state"
+    t.jsonb "parameters"
+    t.decimal "budget"
+    t.decimal "fund_amount"
+    t.index ["organ_id"], name: "index_projects_on_organ_id"
+    t.index ["project_stage_id"], name: "index_projects_on_project_stage_id"
+    t.index ["project_taxon_id"], name: "index_projects_on_project_taxon_id"
   end
 
   create_table "promote_carts", id: { scale: 8 }, force: :cascade do |t|
@@ -2762,6 +2814,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "tasking_type"
     t.bigint "tasking_id", scale: 8
     t.bigint "task_template_id", scale: 8
+    t.string "note"
     t.index ["job_title_id"], name: "index_tasks_on_job_title_id"
     t.index ["member_id"], name: "index_tasks_on_member_id"
     t.index ["organ_id"], name: "index_tasks_on_organ_id"
@@ -3030,6 +3083,38 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
     t.string "invited_code"
   end
 
+  create_table "verifications", id: { scale: 8 }, force: :cascade do |t|
+    t.string "verified_type"
+    t.bigint "verified_id", scale: 8
+    t.bigint "verifier_id", scale: 8
+    t.bigint "member_id", scale: 8
+    t.bigint "job_title_id", scale: 8
+    t.string "state"
+    t.string "note"
+    t.integer "position", scale: 4
+    t.boolean "confirmed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_title_id"], name: "index_verifications_on_job_title_id"
+    t.index ["member_id"], name: "index_verifications_on_member_id"
+    t.index ["verified_type", "verified_id"], name: "index_verifications_on_verified_type_and_verified_id"
+    t.index ["verifier_id"], name: "index_verifications_on_verifier_id"
+  end
+
+  create_table "verifiers", id: { scale: 8 }, force: :cascade do |t|
+    t.string "verifiable_type"
+    t.bigint "verifiable_id", scale: 8
+    t.bigint "member_id", scale: 8
+    t.bigint "job_title_id", scale: 8
+    t.string "name"
+    t.integer "position", scale: 4
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_title_id"], name: "index_verifiers_on_job_title_id"
+    t.index ["member_id"], name: "index_verifiers_on_member_id"
+    t.index ["verifiable_type", "verifiable_id"], name: "index_verifiers_on_verifiable_type_and_verifiable_id"
+  end
+
   create_table "verify_tokens", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
     t.string "type"
@@ -3177,19 +3262,18 @@ ActiveRecord::Schema.define(version: 2020_08_11_104227) do
   end
 
   create_table "wechat_menus", id: { scale: 8 }, force: :cascade do |t|
-    t.bigint "wechat_app_id", scale: 8
     t.bigint "parent_id", scale: 8
     t.string "type"
     t.string "menu_type"
     t.string "name"
     t.string "value"
     t.string "appid"
-    t.string "pagepath"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "position", scale: 4
+    t.string "mp_appid"
+    t.string "mp_pagepath"
     t.index ["parent_id"], name: "index_wechat_menus_on_parent_id"
-    t.index ["wechat_app_id"], name: "index_wechat_menus_on_wechat_app_id"
   end
 
   create_table "wechat_notices", id: { scale: 8 }, force: :cascade do |t|

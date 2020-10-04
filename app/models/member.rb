@@ -4,7 +4,7 @@ class Member < ApplicationRecord
   include RailsBench::Member
   include RailsRole::User
   include RailsTrade::Buyer
-  include RailsFinance::User
+  include RailsFinance::Member
   include RailsAttend::Member
 
 end

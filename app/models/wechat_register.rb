@@ -1,4 +1,4 @@
 class WechatRegister < ApplicationRecord
   include RailsWechat::WechatRegister
-  include RailsBench::Tasking
+  include RailsBenchExt::Tasking
 end
