@@ -159,7 +159,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 878e65ab7f5d802ab1268ed047b277be752e083e
+  revision: 7a4ce92fa7ca166511bd5c7627c23d7ffe3be211
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
@@ -187,7 +187,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: 4d0e947d02b6af60a64cf84604f1aa2aefbcdd14
+  revision: ee243fad130037d2c88ac41035cc8565ce60dd50
   specs:
     rails_data (1.0.2)
       prawn (~> 2.2)
@@ -213,7 +213,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_factory.git
-  revision: 2e90355762a9519b33a1cc713a22ad183764b2dc
+  revision: b2edc25a089c5dede6cf64751495840d13da3f67
   specs:
     rails_factory (1.0.0)
       rails_com (~> 1.2)
@@ -221,7 +221,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: 3670005a612b7344856c83f0ba64e45eaa655132
+  revision: a06c738183a9cb014537e23586d9bb18aed55e97
   specs:
     rails_finance (0.1.0)
       rails_audit
@@ -260,7 +260,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: fed9b2a865e75cd5e0eed195cfa26eb961b301c3
+  revision: 5b2b4a5ad4d79dd205edfb208db352163e1bbeb3
   specs:
     rails_org (0.1)
       rails_auth
