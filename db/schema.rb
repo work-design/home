@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_04_124710) do
+ActiveRecord::Schema.define(version: 2020_10_11_144827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -317,6 +317,7 @@ ActiveRecord::Schema.define(version: 2020_10_04_124710) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "notifications_count", scale: 4
     t.integer "readed_count", scale: 4
+    t.string "type"
     t.index ["organ_id"], name: "index_annunciations_on_organ_id"
     t.index ["publisher_type", "publisher_id"], name: "index_annunciations_on_publisher_type_and_publisher_id"
   end
@@ -516,6 +517,24 @@ ActiveRecord::Schema.define(version: 2020_10_04_124710) do
     t.index ["plan_item_id"], name: "index_bookings_on_plan_item_id"
     t.index ["seat_id"], name: "index_bookings_on_seat_id"
     t.index ["time_item_id"], name: "index_bookings_on_time_item_id"
+  end
+
+  create_table "budgets", id: { scale: 8 }, force: :cascade do |t|
+    t.bigint "organ_id", scale: 8
+    t.bigint "member_id", scale: 8
+    t.string "budgeting_type"
+    t.bigint "budgeting_id", scale: 8
+    t.bigint "financial_taxon_id", scale: 8
+    t.string "state", default: "init"
+    t.string "subject"
+    t.decimal "amount"
+    t.string "note", scale: 4096
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["budgeting_type", "budgeting_id"], name: "index_budgets_on_budgeting_type_and_budgeting_id"
+    t.index ["financial_taxon_id"], name: "index_budgets_on_financial_taxon_id"
+    t.index ["member_id"], name: "index_budgets_on_member_id"
+    t.index ["organ_id"], name: "index_budgets_on_organ_id"
   end
 
   create_table "cache_lists", id: { scale: 8 }, force: :cascade do |t|
@@ -977,7 +996,6 @@ ActiveRecord::Schema.define(version: 2020_10_04_124710) do
     t.bigint "expense_id", scale: 8
     t.bigint "member_id", scale: 8
     t.bigint "financial_taxon_id", scale: 8
-    t.decimal "budget", precision: 10
     t.decimal "amount", precision: 10
     t.string "note"
     t.string "state"
@@ -985,6 +1003,9 @@ ActiveRecord::Schema.define(version: 2020_10_04_124710) do
     t.decimal "price", precision: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "budget_id", scale: 8
+    t.decimal "budget_amount"
+    t.index ["budget_id"], name: "index_expense_items_on_budget_id"
     t.index ["expense_id"], name: "index_expense_items_on_expense_id"
     t.index ["financial_taxon_id"], name: "index_expense_items_on_financial_taxon_id"
     t.index ["member_id"], name: "index_expense_items_on_member_id"
@@ -1036,6 +1057,8 @@ ActiveRecord::Schema.define(version: 2020_10_04_124710) do
     t.bigint "organ_id", scale: 8
     t.string "expendable_type"
     t.bigint "expendable_id", scale: 8
+    t.bigint "budget_id", scale: 8
+    t.index ["budget_id"], name: "index_expenses_on_budget_id"
     t.index ["creator_id"], name: "index_expenses_on_creator_id"
     t.index ["expendable_type", "expendable_id"], name: "index_expenses_on_expendable_type_and_expendable_id"
     t.index ["financial_taxon_id"], name: "index_expenses_on_financial_taxon_id"
@@ -1471,6 +1494,20 @@ ActiveRecord::Schema.define(version: 2020_10_04_124710) do
     t.index ["upstream_id"], name: "index_maintains_on_upstream_id"
   end
 
+  create_table "member_annunciates", id: { scale: 8 }, force: :cascade do |t|
+    t.bigint "annunciation_id", scale: 8
+    t.bigint "job_title_id", scale: 8
+    t.bigint "department_id", scale: 8
+    t.integer "notifications_count", scale: 4, default: 0
+    t.string "state"
+    t.datetime "annunciated_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["annunciation_id"], name: "index_member_annunciates_on_annunciation_id"
+    t.index ["department_id"], name: "index_member_annunciates_on_department_id"
+    t.index ["job_title_id"], name: "index_member_annunciates_on_job_title_id"
+  end
+
   create_table "member_departments", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "member_id", scale: 8
     t.bigint "job_title_id", scale: 8
@@ -1506,6 +1543,10 @@ ActiveRecord::Schema.define(version: 2020_10_04_124710) do
     t.string "experience"
     t.string "attendance_number"
     t.integer "cached_role_ids", scale: 4, array: true
+    t.string "notifiable_types", default: [], array: true
+    t.jsonb "counters", default: {}
+    t.integer "showtime", scale: 4, default: 0
+    t.boolean "accept_email", default: true
     t.index ["organ_id"], name: "index_members_on_organ_id"
     t.index ["organ_root_id"], name: "index_members_on_organ_root_id"
     t.index ["user_id"], name: "index_members_on_user_id"
@@ -2225,6 +2266,19 @@ ActiveRecord::Schema.define(version: 2020_10_04_124710) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "project_facilitates", id: { scale: 8 }, force: :cascade do |t|
+    t.bigint "project_id", scale: 8
+    t.bigint "facilitate_taxon_id", scale: 8
+    t.bigint "facilitate_id", scale: 8
+    t.bigint "provider_id", scale: 8
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["facilitate_id"], name: "index_project_facilitates_on_facilitate_id"
+    t.index ["facilitate_taxon_id"], name: "index_project_facilitates_on_facilitate_taxon_id"
+    t.index ["project_id"], name: "index_project_facilitates_on_project_id"
+    t.index ["provider_id"], name: "index_project_facilitates_on_provider_id"
+  end
+
   create_table "project_funds", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "project_id", scale: 8
     t.decimal "price", precision: 10
@@ -2243,6 +2297,7 @@ ActiveRecord::Schema.define(version: 2020_10_04_124710) do
     t.integer "buyer_id", scale: 4
     t.decimal "amount"
     t.string "note"
+    t.decimal "budget"
     t.index ["project_id"], name: "index_project_funds_on_project_id"
     t.index ["user_id"], name: "index_project_funds_on_user_id"
   end
@@ -2260,6 +2315,19 @@ ActiveRecord::Schema.define(version: 2020_10_04_124710) do
     t.index ["member_id"], name: "index_project_members_on_member_id"
     t.index ["organ_id"], name: "index_project_members_on_organ_id"
     t.index ["project_id"], name: "index_project_members_on_project_id"
+  end
+
+  create_table "project_preferences", id: { scale: 8 }, force: :cascade do |t|
+    t.bigint "project_taxon_id", scale: 8
+    t.bigint "facilitate_taxon_id", scale: 8
+    t.bigint "facilitate_id", scale: 8
+    t.bigint "provider_id", scale: 8
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["facilitate_id"], name: "index_project_preferences_on_facilitate_id"
+    t.index ["facilitate_taxon_id"], name: "index_project_preferences_on_facilitate_taxon_id"
+    t.index ["project_taxon_id"], name: "index_project_preferences_on_project_taxon_id"
+    t.index ["provider_id"], name: "index_project_preferences_on_provider_id"
   end
 
   create_table "project_stages", id: { scale: 8 }, force: :cascade do |t|
@@ -2300,8 +2368,9 @@ ActiveRecord::Schema.define(version: 2020_10_04_124710) do
     t.bigint "project_stage_id", scale: 8
     t.string "state"
     t.jsonb "parameters"
-    t.decimal "budget"
     t.decimal "fund_amount"
+    t.decimal "fund_budget"
+    t.decimal "expense_amount"
     t.index ["organ_id"], name: "index_projects_on_organ_id"
     t.index ["project_stage_id"], name: "index_projects_on_project_stage_id"
     t.index ["project_taxon_id"], name: "index_projects_on_project_taxon_id"
@@ -3037,6 +3106,18 @@ ActiveRecord::Schema.define(version: 2020_10_04_124710) do
     t.index ["tutor_id"], name: "index_tutorials_on_tutor_id"
   end
 
+  create_table "user_annunciates", id: { scale: 8 }, force: :cascade do |t|
+    t.bigint "annunciation_id", scale: 8
+    t.bigint "user_tag_id", scale: 8
+    t.integer "notifications_count", scale: 4, default: 0
+    t.string "state"
+    t.datetime "annunciated_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["annunciation_id"], name: "index_user_annunciates_on_annunciation_id"
+    t.index ["user_tag_id"], name: "index_user_annunciates_on_user_tag_id"
+  end
+
   create_table "user_providers", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "user_id", scale: 8
     t.bigint "provider_id", scale: 8
@@ -3081,6 +3162,10 @@ ActiveRecord::Schema.define(version: 2020_10_04_124710) do
     t.string "source"
     t.integer "cached_role_ids", scale: 4, array: true
     t.string "invited_code"
+    t.string "notifiable_types", default: [], array: true
+    t.jsonb "counters", default: {}
+    t.integer "showtime", scale: 4, default: 0
+    t.boolean "accept_email", default: true
   end
 
   create_table "verifications", id: { scale: 8 }, force: :cascade do |t|
