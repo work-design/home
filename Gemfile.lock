@@ -43,7 +43,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 0475215d4fa1a6db2a92a0065081fe19c64cc124
+  revision: 9492339979e94570dee00d071be0ef255065837a
   specs:
     actioncable (6.1.0.alpha)
       actionpack (= 6.1.0.alpha)
@@ -136,7 +136,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_attend.git
-  revision: 2bf99e4d6375137814c88e620deb3b11f042fbea
+  revision: ac8798c0a1289faceeeaf116db58c8742d00b61d
   specs:
     rails_attend (0.1.0)
       rails_com (~> 1.2)
@@ -150,7 +150,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: baf6fc9f5f06780c1b08e6dc6cff20c1543de99f
+  revision: f7998e42dd89be5ab4ea9858c3bef266a9437474
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -159,7 +159,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: e7a7e77112fb5ac559c667bbf95f85e8efeaccc3
+  revision: 18c1a102265c07afb2a6ef0c50fa1d3d004147d2
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
@@ -167,7 +167,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: f60a931fe8f2cb0b5e5964d8a8daf0d028539f18
+  revision: e47c6ae93127bb60e568a09b3679c2b3b2f6766d
   specs:
     rails_com (1.2.9)
       acme-client
@@ -176,7 +176,6 @@ GIT
       httpx (~> 0.8)
       kaminari
       rails (~> 6.0)
-      rqrcode
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
@@ -221,7 +220,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: a06c738183a9cb014537e23586d9bb18aed55e97
+  revision: 956de1656fc6ff479c62d1c91542fa33c2514277
   specs:
     rails_finance (0.1.0)
       rails_audit
@@ -252,7 +251,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 67555fb12d06548307d1e5e6c6dc84da465a159c
+  revision: 78fe81326d65d7b262b6ae35f7ea971d14f36c72
   specs:
     rails_notice (1.0.2)
       rails_auth
@@ -260,7 +259,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 5b2b4a5ad4d79dd205edfb208db352163e1bbeb3
+  revision: 7c795b1864cb085b8b162ff13032273f97236224
   specs:
     rails_org (0.1)
       rails_auth
@@ -279,7 +278,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_quip.git
-  revision: a927207c5616cc6816aa89de3594014f06b99e3b
+  revision: ecfddb63d806846c0863b5e8f1e2c701eb7e7c2f
   specs:
     rails_quip (0.1.0)
       httpx
@@ -288,7 +287,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: fffe4971479fcc0239af38530f4969582933d4ad
+  revision: 95fd9854d400fa0595f814620cc85fa5875e7fe9
   specs:
     rails_role (1.0.3)
       rails_com (~> 1.2)
