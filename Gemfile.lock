@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 56536edc9bbc76fdc435489c451b0e550b6ae230
+  revision: 699c6867b73fa56229cea6f69a431be278bda341
   specs:
     default_form (1.5.1)
       rails_com (~> 1.2)
@@ -159,7 +159,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: cdc8cec95582dc7e167bfc384817c5a2d7da91c6
+  revision: 79b70beff52faacff473a26a4aeed0f74512712b
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
@@ -167,7 +167,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 85325228d5b9065f6ba8160df74a1d954fcd9cc1
+  revision: 07678ee62de92d0b644dbcfa8e66a83cfd70e3fc
   specs:
     rails_com (1.2.9)
       acme-client
@@ -179,7 +179,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_crm.git
-  revision: 0537b7a46a6c60f72b17f99c9d01596a34059146
+  revision: 9c23570854ab7a5063a8c5d9132fb5916b27e950
   specs:
     rails_crm (0.1.0)
       rails_com (~> 1.2)
@@ -220,7 +220,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: 68c105d268f17a6e33fe07f884809101aaddd2fb
+  revision: 7a4e3a798339e9f2193c82538662db82f8b318fd
   specs:
     rails_finance (0.1.0)
       rails_audit
@@ -235,7 +235,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_interact.git
-  revision: ed32237f54b4602841abbf911771177614721657
+  revision: cbd36b4d0bd254447508f0638606617ee4d2fe08
   specs:
     rails_interact (0.1.0)
       rails_com (~> 1.2)
@@ -259,7 +259,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 004996a93393d69a35500b7d3070e32b6cee39a5
+  revision: 8fd56673d1e2be37dcfdf0530e980692db91c366
   specs:
     rails_org (0.1)
       rails_auth
@@ -270,7 +270,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 16480966c97fad15014d3dc40a46f03cd4a13cb8
+  revision: 8bd26e1f8f795e8f09fd9ae13f613d87359fc337
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -302,7 +302,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: e7dfc276c39cde2d9d5e7303d769a8c16c810459
+  revision: 6b3facd8adad8326c6cacf067fe7df4c97f358d6
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 1.0)
