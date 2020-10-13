@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_11_144827) do
+ActiveRecord::Schema.define(version: 2020_10_13_141457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -522,8 +522,8 @@ ActiveRecord::Schema.define(version: 2020_10_11_144827) do
   create_table "budgets", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
     t.bigint "member_id", scale: 8
-    t.string "budgeting_type"
-    t.bigint "budgeting_id", scale: 8
+    t.string "financial_type"
+    t.bigint "financial_id", scale: 8
     t.bigint "financial_taxon_id", scale: 8
     t.string "state", default: "init"
     t.string "subject"
@@ -531,8 +531,8 @@ ActiveRecord::Schema.define(version: 2020_10_11_144827) do
     t.string "note", scale: 4096
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["budgeting_type", "budgeting_id"], name: "index_budgets_on_budgeting_type_and_budgeting_id"
     t.index ["financial_taxon_id"], name: "index_budgets_on_financial_taxon_id"
+    t.index ["financial_type", "financial_id"], name: "index_budgets_on_financial_type_and_financial_id"
     t.index ["member_id"], name: "index_budgets_on_member_id"
     t.index ["organ_id"], name: "index_budgets_on_organ_id"
   end
@@ -1055,13 +1055,12 @@ ActiveRecord::Schema.define(version: 2020_10_11_144827) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "organ_id", scale: 8
-    t.string "expendable_type"
-    t.bigint "expendable_id", scale: 8
     t.bigint "budget_id", scale: 8
+    t.bigint "fund_use_id", scale: 8
     t.index ["budget_id"], name: "index_expenses_on_budget_id"
     t.index ["creator_id"], name: "index_expenses_on_creator_id"
-    t.index ["expendable_type", "expendable_id"], name: "index_expenses_on_expendable_type_and_expendable_id"
     t.index ["financial_taxon_id"], name: "index_expenses_on_financial_taxon_id"
+    t.index ["fund_use_id"], name: "index_expenses_on_fund_use_id"
     t.index ["organ_id"], name: "index_expenses_on_organ_id"
     t.index ["payment_method_id"], name: "index_expenses_on_payment_method_id"
     t.index ["payout_id"], name: "index_expenses_on_payout_id"
@@ -1166,6 +1165,52 @@ ActiveRecord::Schema.define(version: 2020_10_11_144827) do
     t.bigint "organ_id", scale: 8
     t.index ["organ_id"], name: "index_financial_taxons_on_organ_id"
     t.index ["parent_id"], name: "index_financial_taxons_on_parent_id"
+  end
+
+  create_table "fund_incomes", id: { scale: 8 }, force: :cascade do |t|
+    t.bigint "fund_id", scale: 8
+    t.bigint "user_id", scale: 8
+    t.string "financial_type"
+    t.bigint "financial_id", scale: 8
+    t.string "name"
+    t.boolean "visible"
+    t.decimal "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["financial_type", "financial_id"], name: "index_fund_incomes_on_financial_type_and_financial_id"
+    t.index ["fund_id"], name: "index_fund_incomes_on_fund_id"
+    t.index ["user_id"], name: "index_fund_incomes_on_user_id"
+  end
+
+  create_table "fund_uses", id: { scale: 8 }, force: :cascade do |t|
+    t.bigint "fund_id", scale: 8
+    t.string "financial_type"
+    t.bigint "financial_id", scale: 8
+    t.decimal "budget_amount"
+    t.decimal "amount", default: "0.0"
+    t.string "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["financial_type", "financial_id"], name: "index_fund_uses_on_financial_type_and_financial_id"
+    t.index ["fund_id"], name: "index_fund_uses_on_fund_id"
+  end
+
+  create_table "funds", id: { scale: 8 }, force: :cascade do |t|
+    t.string "name"
+    t.decimal "budget"
+    t.decimal "amount", default: "0.0"
+    t.string "note"
+    t.string "sku"
+    t.decimal "price", limit: 2, precision: 10, default: "0.0"
+    t.decimal "advance_price", default: "0.0"
+    t.json "extra", default: {}
+    t.string "unit"
+    t.decimal "quantity", default: "0.0"
+    t.decimal "unified_quantity", default: "0.0"
+    t.string "buyer_type"
+    t.integer "buyer_id", scale: 4
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "good_partners", id: { scale: 8 }, force: :cascade do |t|
@@ -2371,6 +2416,7 @@ ActiveRecord::Schema.define(version: 2020_10_11_144827) do
     t.decimal "fund_amount"
     t.decimal "fund_budget"
     t.decimal "expense_amount"
+    t.decimal "budget_amount"
     t.index ["organ_id"], name: "index_projects_on_organ_id"
     t.index ["project_stage_id"], name: "index_projects_on_project_stage_id"
     t.index ["project_taxon_id"], name: "index_projects_on_project_taxon_id"
@@ -3138,14 +3184,14 @@ ActiveRecord::Schema.define(version: 2020_10_11_144827) do
 
   create_table "user_tags", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
-    t.string "tagging_type"
-    t.bigint "tagging_id", scale: 8
     t.string "name"
     t.integer "user_taggeds_count", scale: 4
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "user_tagging_type"
+    t.bigint "user_tagging_id", scale: 8
     t.index ["organ_id"], name: "index_user_tags_on_organ_id"
-    t.index ["tagging_type", "tagging_id"], name: "index_user_tags_on_tagging_type_and_tagging_id"
+    t.index ["user_tagging_type", "user_tagging_id"], name: "index_user_tags_on_user_tagging_type_and_user_tagging_id"
   end
 
   create_table "users", id: { type: :serial, scale: 4 }, force: :cascade do |t|
