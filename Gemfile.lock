@@ -159,15 +159,16 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: b2cea12df4129fa021f7640005a0c15848667884
+  revision: f18eedd372da4a7e9d4333601ceab2049f74bd0c
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
+      rails_finance
       rails_org
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 8ee730831fd7cc9b9c3fe0c7784cbf6359ca5e6d
+  revision: f8a2e2b19b57c3d669730a4c4faa0aa014f79c48
   specs:
     rails_com (1.2.9)
       acme-client
@@ -220,7 +221,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: f144da9e471ba8fbf2373ae0a202fa49986f70aa
+  revision: cfa23de6a61edf300b92f30167f11ef7449a7f25
   specs:
     rails_finance (0.1.0)
       rails_audit
@@ -259,7 +260,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 8fd56673d1e2be37dcfdf0530e980692db91c366
+  revision: f7ee110150d16a48e995b10921bc662499ac2283
   specs:
     rails_org (0.1)
       rails_auth
@@ -270,7 +271,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 8bd26e1f8f795e8f09fd9ae13f613d87359fc337
+  revision: afe106ccc5da53c78e47a72a47d65ad3a06d2559
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
