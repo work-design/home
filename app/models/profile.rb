@@ -4,6 +4,6 @@ class Profile < ApplicationRecord
   include RailsTrade::Buyer
   include RailsVip::Profile
 
-  store :extra, accessors: [:wechat, :major, :degree, :highest_education, :work_experience], coder: ActiveRecord::PgCoder
+  store_accessor :extra, :wechat, :major, :degree, :highest_education, :work_experience
 
 end
