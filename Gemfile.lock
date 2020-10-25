@@ -214,13 +214,6 @@ GIT
       rails_com (~> 1.2)
 
 GIT
-  remote: https://github.com/work-design/rails_factory.git
-  revision: 91c8c4b9efa4812bf1ecafde113e09f0f6a8efbb
-  specs:
-    rails_factory (1.0.0)
-      rails_com (~> 1.2)
-
-GIT
   remote: https://github.com/work-design/rails_finance.git
   revision: 9c09efa5a641e5d9a1b54f0033ccbbf1f33bda0f
   specs:
@@ -292,14 +285,6 @@ GIT
       rails_com (~> 1.2)
 
 GIT
-  remote: https://github.com/work-design/rails_ship.git
-  revision: b09279f428034525fadd83f33bdeedd0a2d5c2bc
-  specs:
-    rails_ship (0.1.0)
-      rails_com (~> 1.2)
-      rails_trade
-
-GIT
   remote: https://github.com/work-design/rails_trade.git
   revision: 7810a9e411df1d054c99b7ec87685f8b116c7412
   specs:
@@ -314,13 +299,6 @@ GIT
     rails_vip (0.1.0)
       rails_com (~> 1.2)
       rails_trade
-
-GIT
-  remote: https://github.com/work-design/rails_wait.git
-  revision: 2e7defa50bed47399d29c71a5b2ab59425313174
-  specs:
-    rails_wait (0.1.0)
-      rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
@@ -629,7 +607,6 @@ DEPENDENCIES
   rails_data!
   rails_detail!
   rails_event!
-  rails_factory!
   rails_finance!
   rails_growth!
   rails_interact!
@@ -639,10 +616,8 @@ DEPENDENCIES
   rails_profile!
   rails_quip!
   rails_role!
-  rails_ship!
   rails_trade!
   rails_vip!
-  rails_wait!
   rails_wechat!
   redis
   rqrcode
