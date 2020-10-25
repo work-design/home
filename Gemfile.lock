@@ -159,7 +159,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 166604bacca96d10b0cbd046ceea75f4f43fc322
+  revision: ebc78ebcf2ce48a35c325fbe98a9e477e3ac4037
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
@@ -286,7 +286,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: ce269e88c1f9ce9627427d6eb23f90d1feeed013
+  revision: 83fb970bcc4c8818391b1cfab6c279a61091e92e
   specs:
     rails_role (1.0.3)
       rails_com (~> 1.2)
