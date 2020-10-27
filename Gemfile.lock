@@ -159,7 +159,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: ebc78ebcf2ce48a35c325fbe98a9e477e3ac4037
+  revision: eabdab2e91feb616928936a2629575cbf3dffee3
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
@@ -168,7 +168,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 24c6bf56597b273e027bb1423b96a8b0b115ec01
+  revision: 85e94ae7049dc7db5174611341e44882da4d2a6e
   specs:
     rails_com (1.2.9)
       acme-client
@@ -208,7 +208,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: b995cc39612fccb4cddef5db8260c760f108bd4a
+  revision: 79e1554d87280b2ba70145bda6e100b311223c09
   specs:
     rails_event (0.1.1)
       rails_com (~> 1.2)
@@ -263,7 +263,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 7228422c49684c2bb338731cee6de71cfd281fe8
+  revision: 2a58b8ef2704c624fcf4815ae8cd6daa7555c920
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -286,7 +286,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 7810a9e411df1d054c99b7ec87685f8b116c7412
+  revision: eea160cc71b95e76d0038557a79e17d89a08a6f0
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
@@ -294,7 +294,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vip.git
-  revision: c3aca4645fd11878133d92dcc90102e95ac93782
+  revision: f4509c4264d54818662346c9ca709a37e3ae86c5
   specs:
     rails_vip (0.1.0)
       rails_com (~> 1.2)
@@ -302,7 +302,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
-  revision: 74b4ce8fc473a2bc0955391ec971c10d62f73c12
+  revision: 3769e8588ed11eee45d80d6ad43e9c932bc74eb1
   specs:
     rails_wechat (0.1.0)
       rails_auth
