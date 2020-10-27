@@ -1,6 +1,6 @@
 require.context('../images', true)
 
-import 'style_com/application'
+import 'css'
 
 import './channels'
 
