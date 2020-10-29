@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_25_035502) do
+ActiveRecord::Schema.define(version: 2020_10_29_124211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -537,6 +537,13 @@ ActiveRecord::Schema.define(version: 2020_10_25_035502) do
     t.index ["financial_type", "financial_id"], name: "index_budgets_on_financial_type_and_financial_id"
     t.index ["member_id"], name: "index_budgets_on_member_id"
     t.index ["organ_id"], name: "index_budgets_on_organ_id"
+  end
+
+  create_table "busynesses", id: { scale: 8 }, force: :cascade do |t|
+    t.string "identifier"
+    t.integer "position", scale: 4
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "cache_lists", id: { scale: 8 }, force: :cascade do |t|
@@ -1080,6 +1087,18 @@ ActiveRecord::Schema.define(version: 2020_10_25_035502) do
     t.index ["organ_id"], name: "index_extra_days_on_organ_id"
   end
 
+  create_table "facilitate_indicators", id: { scale: 8 }, force: :cascade do |t|
+    t.bigint "facilitate_id", scale: 8
+    t.bigint "facilitate_taxon_id", scale: 8
+    t.bigint "indicator_id", scale: 8
+    t.string "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["facilitate_id"], name: "index_facilitate_indicators_on_facilitate_id"
+    t.index ["facilitate_taxon_id"], name: "index_facilitate_indicators_on_facilitate_taxon_id"
+    t.index ["indicator_id"], name: "index_facilitate_indicators_on_indicator_id"
+  end
+
   create_table "facilitate_providers", id: { scale: 8 }, force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -1111,8 +1130,13 @@ ActiveRecord::Schema.define(version: 2020_10_25_035502) do
     t.bigint "parent_id", scale: 8
     t.json "parent_ancestors"
     t.bigint "organ_id", scale: 8
+    t.bigint "project_taxon_id", scale: 8
+    t.string "color"
+    t.string "description"
+    t.integer "indicators_count", scale: 4, default: 0
     t.index ["organ_id"], name: "index_facilitate_taxons_on_organ_id"
     t.index ["parent_id"], name: "index_facilitate_taxons_on_parent_id"
+    t.index ["project_taxon_id"], name: "index_facilitate_taxons_on_project_taxon_id"
   end
 
   create_table "facilitates", id: { scale: 8 }, force: :cascade do |t|
@@ -1123,8 +1147,6 @@ ActiveRecord::Schema.define(version: 2020_10_25_035502) do
     t.bigint "facilitate_taxon_id", scale: 8
     t.decimal "price", precision: 10
     t.string "sku"
-    t.decimal "import_price", precision: 10
-    t.decimal "profit_price", precision: 10
     t.string "qr_prefix"
     t.decimal "quantity"
     t.string "unit"
@@ -1300,40 +1322,29 @@ ActiveRecord::Schema.define(version: 2020_10_25_035502) do
   end
 
   create_table "governs", id: { type: :serial, scale: 4 }, force: :cascade do |t|
-    t.string "name"
-    t.string "code"
     t.integer "position", scale: 4, default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.bigint "govern_taxon_id", scale: 8
-    t.string "type"
-    t.index ["govern_taxon_id"], name: "index_governs_on_govern_taxon_id"
-  end
-
-  create_table "indicator_taxons", id: { scale: 8 }, force: :cascade do |t|
-    t.bigint "organ_id", scale: 8
-    t.string "name"
-    t.string "color"
-    t.string "description"
-    t.integer "indicators_count", scale: 4
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["organ_id"], name: "index_indicator_taxons_on_organ_id"
+    t.string "identifier"
+    t.string "namespace_identifier", default: "application"
+    t.string "business_identifier"
   end
 
   create_table "indicators", id: { scale: 8 }, force: :cascade do |t|
     t.bigint "organ_id", scale: 8
-    t.bigint "indicator_taxon_id", scale: 8
     t.string "name"
     t.string "description"
     t.string "unit"
     t.decimal "reference_min"
     t.decimal "reference_max"
-    t.string "targt_source"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["indicator_taxon_id"], name: "index_indicators_on_indicator_taxon_id"
+    t.bigint "project_taxon_id", scale: 8
+    t.bigint "facilitate_taxon_id", scale: 8
+    t.string "target_source"
+    t.index ["facilitate_taxon_id"], name: "index_indicators_on_facilitate_taxon_id"
     t.index ["organ_id"], name: "index_indicators_on_organ_id"
+    t.index ["project_taxon_id"], name: "index_indicators_on_project_taxon_id"
   end
 
   create_table "infos", id: { scale: 8 }, force: :cascade do |t|
@@ -1682,6 +1693,16 @@ ActiveRecord::Schema.define(version: 2020_10_25_035502) do
     t.string "title"
     t.index ["money_type", "money_id"], name: "index_money_givens_on_money_type_and_money_id"
     t.index ["organ_id"], name: "index_money_givens_on_organ_id"
+  end
+
+  create_table "name_spaces", id: { scale: 8 }, force: :cascade do |t|
+    t.string "name"
+    t.string "identifier", default: "application"
+    t.boolean "verify_organ"
+    t.boolean "verify_member"
+    t.boolean "verify_user"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "news_reply_items", id: { scale: 8 }, force: :cascade do |t|
@@ -2425,6 +2446,7 @@ ActiveRecord::Schema.define(version: 2020_10_25_035502) do
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "state"
     t.index ["indicator_id"], name: "index_project_indicators_on_indicator_id"
     t.index ["project_id"], name: "index_project_indicators_on_project_id"
   end
@@ -2481,6 +2503,28 @@ ActiveRecord::Schema.define(version: 2020_10_25_035502) do
     t.decimal "budget_amount"
     t.decimal "expense_amount"
     t.integer "projects_count", scale: 4
+  end
+
+  create_table "project_taxon_facilitates", id: { scale: 8 }, force: :cascade do |t|
+    t.bigint "project_taxon_id", scale: 8
+    t.bigint "facilitate_taxon_id", scale: 8
+    t.bigint "facilitate_id", scale: 8
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["facilitate_id"], name: "index_project_taxon_facilitates_on_facilitate_id"
+    t.index ["facilitate_taxon_id"], name: "index_project_taxon_facilitates_on_facilitate_taxon_id"
+    t.index ["project_taxon_id"], name: "index_project_taxon_facilitates_on_project_taxon_id"
+  end
+
+  create_table "project_taxon_indicators", id: { scale: 8 }, force: :cascade do |t|
+    t.bigint "project_taxon_id", scale: 8
+    t.bigint "facilitate_taxon_id", scale: 8
+    t.bigint "indicator_id", scale: 8
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["facilitate_taxon_id"], name: "index_project_taxon_indicators_on_facilitate_taxon_id"
+    t.index ["indicator_id"], name: "index_project_taxon_indicators_on_indicator_id"
+    t.index ["project_taxon_id"], name: "index_project_taxon_indicators_on_project_taxon_id"
   end
 
   create_table "project_taxons", id: { scale: 8 }, force: :cascade do |t|
@@ -2794,14 +2838,15 @@ ActiveRecord::Schema.define(version: 2020_10_25_035502) do
 
   create_table "role_rules", id: { type: :serial, scale: 4 }, force: :cascade do |t|
     t.integer "role_id", scale: 4
-    t.integer "rule_id", scale: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.bigint "govern_id", scale: 8
-    t.bigint "govern_taxon_id", scale: 8
     t.string "status", default: "available"
+    t.string "controller_identifier"
+    t.string "action_identifier"
+    t.string "params_name"
+    t.string "params_identifier"
     t.index ["govern_id"], name: "index_role_rules_on_govern_id"
-    t.index ["govern_taxon_id"], name: "index_role_rules_on_govern_taxon_id"
   end
 
   create_table "role_types", id: { scale: 8 }, force: :cascade do |t|
@@ -2818,18 +2863,26 @@ ActiveRecord::Schema.define(version: 2020_10_25_035502) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean "visible"
-    t.string "code"
     t.string "who_types", array: true
   end
 
+  create_table "rule_operations", id: { scale: 8 }, force: :cascade do |t|
+    t.string "action_identifier"
+    t.string "operation", default: "read"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "rules", id: { type: :serial, scale: 4 }, force: :cascade do |t|
-    t.string "name"
-    t.string "code"
-    t.integer "govern_id", scale: 4
     t.integer "position", scale: 4, default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "params"
+    t.string "identifier"
+    t.string "namespace_identifier", default: "application"
+    t.string "business_identifier"
+    t.string "controller_identifier"
+    t.string "action_name"
+    t.string "operation", default: "read"
   end
 
   create_table "schedules", id: { scale: 8 }, force: :cascade do |t|
