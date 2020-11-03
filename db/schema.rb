@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_124211) do
+ActiveRecord::Schema.define(version: 2020_11_03_121639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -2840,13 +2840,12 @@ ActiveRecord::Schema.define(version: 2020_10_29_124211) do
     t.integer "role_id", scale: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.bigint "govern_id", scale: 8
-    t.string "status", default: "available"
     t.string "controller_identifier"
-    t.string "action_identifier"
     t.string "params_name"
     t.string "params_identifier"
-    t.index ["govern_id"], name: "index_role_rules_on_govern_id"
+    t.string "business_identifier"
+    t.string "namespace_identifier"
+    t.string "action_name"
   end
 
   create_table "role_types", id: { scale: 8 }, force: :cascade do |t|
@@ -2864,6 +2863,7 @@ ActiveRecord::Schema.define(version: 2020_10_29_124211) do
     t.datetime "updated_at"
     t.boolean "visible"
     t.string "who_types", array: true
+    t.jsonb "role_hash", default: {}
   end
 
   create_table "rule_operations", id: { scale: 8 }, force: :cascade do |t|
