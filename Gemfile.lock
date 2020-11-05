@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_auth.git
-  revision: cde282b4479e84f289dfd140a188d64ca1aad5f3
+  revision: aaa31f5c7a265741914d2b91bfc7bfd4244d80ab
   specs:
     rails_auth (1.0.6)
       bcrypt (~> 3.1)
@@ -74,7 +74,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 9b6e5c6c73f0f57c33fcec7d77ed3f758635eaec
+  revision: 372170f04a647ff547ad0af045834d5bcfa19da1
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
@@ -83,7 +83,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: fd5d0cee772434a5518625371b9ac065860ef83e
+  revision: 8a48c5f2630855a490aa6dbfa8d040279ad16905
   specs:
     rails_com (1.2.9)
       acme-client
@@ -94,13 +94,6 @@ GIT
       httpx (~> 0.8)
       kaminari
       rails (~> 6.0)
-
-GIT
-  remote: https://github.com/work-design/rails_crm.git
-  revision: 9c23570854ab7a5063a8c5d9132fb5916b27e950
-  specs:
-    rails_crm (0.1.0)
-      rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_data.git
@@ -123,14 +116,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_event.git
-  revision: e2498ffbd1fad56b4bbca1711d36ca7482e0c872
+  revision: e5fa3aa97e23559b209d14231208c2797cdc722b
   specs:
     rails_event (0.1.1)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: 57a1c10f9e177292b7f064e50da71ecab8d06cdc
+  revision: 67c7d860ff7d3983053a0fbf6160bd67200526d0
   specs:
     rails_finance (0.1.0)
       rails_audit
@@ -168,7 +161,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: fba82a61e9f801ae33ef68114a911dfc86b4aa8c
+  revision: 893678368d1b16f0a9ec27744aa6ef685c5a97bf
   specs:
     rails_org (0.1)
       rails_auth
@@ -194,7 +187,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 7cb7f42702d0aec897390aeec31291d8087995df
+  revision: 38072075589c42de7de7da6170818189e472ccce
   specs:
     rails_role (1.0.3)
       rails_com (~> 1.2)
@@ -206,14 +199,6 @@ GIT
     rails_trade (0.0.2)
       money-rails (~> 1.12)
       rails_com (~> 1.2)
-
-GIT
-  remote: https://github.com/work-design/rails_vip.git
-  revision: ea4785c4c9cc35d7ece2308694e4b0457edfd466
-  specs:
-    rails_vip (0.1.0)
-      rails_com (~> 1.2)
-      rails_trade
 
 GIT
   remote: https://github.com/work-design/rails_wechat.git
@@ -600,7 +585,6 @@ DEPENDENCIES
   rails_auth!
   rails_bench!
   rails_com!
-  rails_crm!
   rails_data!
   rails_detail!
   rails_event!
@@ -614,7 +598,6 @@ DEPENDENCIES
   rails_quip!
   rails_role!
   rails_trade!
-  rails_vip!
   rails_wechat!
   redis
   rqrcode
