@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_08_045656) do
+ActiveRecord::Schema.define(version: 2020_11_09_182626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1152,9 +1152,7 @@ ActiveRecord::Schema.define(version: 2020_11_08_045656) do
     t.boolean "published", default: true
     t.decimal "advance_price", default: "0.0"
     t.json "extra", default: {}
-    t.integer "unified_quantity", scale: 4, default: 1
-    t.string "buyer_type"
-    t.integer "buyer_id", scale: 4
+    t.decimal "unified_quantity", default: "1.0"
     t.bigint "organ_id", scale: 8
     t.index ["facilitate_taxon_id"], name: "index_facilitates_on_facilitate_taxon_id"
     t.index ["organ_id"], name: "index_facilitates_on_organ_id"
@@ -1262,8 +1260,6 @@ ActiveRecord::Schema.define(version: 2020_11_08_045656) do
     t.string "unit"
     t.decimal "quantity", default: "0.0"
     t.decimal "unified_quantity", default: "0.0"
-    t.string "buyer_type"
-    t.integer "buyer_id", scale: 4
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.jsonb "budget_detail", default: {}
@@ -2535,6 +2531,8 @@ ActiveRecord::Schema.define(version: 2020_11_08_045656) do
     t.decimal "budget_amount"
     t.decimal "expense_amount"
     t.integer "projects_count", scale: 4
+    t.bigint "organ_id", scale: 8
+    t.index ["organ_id"], name: "index_project_taxons_on_organ_id"
   end
 
   create_table "project_webhooks", id: { scale: 8 }, force: :cascade do |t|
@@ -3040,6 +3038,8 @@ ActiveRecord::Schema.define(version: 2020_11_08_045656) do
     t.bigint "member_id", scale: 8
     t.jsonb "parent_ancestors"
     t.string "color"
+    t.bigint "department_id", scale: 8
+    t.index ["department_id"], name: "index_task_templates_on_department_id"
     t.index ["job_title_id"], name: "index_task_templates_on_job_title_id"
     t.index ["member_id"], name: "index_task_templates_on_member_id"
     t.index ["organ_id"], name: "index_task_templates_on_organ_id"
@@ -3077,6 +3077,9 @@ ActiveRecord::Schema.define(version: 2020_11_08_045656) do
     t.bigint "project_id", scale: 8
     t.bigint "task_template_id", scale: 8
     t.string "note"
+    t.bigint "department_id", scale: 8
+    t.string "serial_number", comment: "Task Template test repeat"
+    t.index ["department_id"], name: "index_tasks_on_department_id"
     t.index ["job_title_id"], name: "index_tasks_on_job_title_id"
     t.index ["member_id"], name: "index_tasks_on_member_id"
     t.index ["organ_id"], name: "index_tasks_on_organ_id"

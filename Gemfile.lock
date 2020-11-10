@@ -74,7 +74,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_bench.git
-  revision: 45e24c63a1565747ac9f4293be1b3e7fe5abca53
+  revision: 21675a412de06e60fc500f88f076135e25198b94
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
@@ -83,7 +83,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 2e263090c8715b269906009b2bb240e15ea7b15f
+  revision: 1271a7f4087e579c1ab4710c0c5dcb2ef2b57ab2
   specs:
     rails_com (1.2.9)
       acme-client
@@ -161,7 +161,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 57b5cd1bb9efa88b9e3497d31e8413c0b4bb3813
+  revision: a9ce4df01d504e73954dc2e21aaac08b2c6e09f7
   specs:
     rails_org (0.1)
       rails_auth
@@ -187,7 +187,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_role.git
-  revision: 45ce6deca7fdba0b5dd2d2ffe13da0a06b449999
+  revision: 716760cf257c4c254a6ea1a60816d9b5f5d49007
   specs:
     rails_role (1.0.3)
       rails_com (~> 1.2)
