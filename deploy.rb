@@ -96,5 +96,5 @@ OptionParser.new do |opts|
 end.parse!
 
 if $0 == __FILE__
-  Deploy.exec_cmds(options[:env], added_cmds: 'systemctl --user restart sidekiq_gai')
+  Deploy.exec_cmds(options[:env], added_cmds: 'systemctl --user restart sidekiq_work')
 end

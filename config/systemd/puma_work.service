@@ -1,0 +1,12 @@
+[Unit]
+Description=Puma HTTP Server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ubuntu/web/one_work/current
+ExecStart=/bin/bash -lc '/home/ubuntu/.rbenv/shims/bundle exec puma -C config/puma/staging.rb'
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
