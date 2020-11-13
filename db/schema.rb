@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_09_182626) do
+ActiveRecord::Schema.define(version: 2020_11_13_104845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1106,6 +1106,7 @@ ActiveRecord::Schema.define(version: 2020_11_09_182626) do
     t.bigint "provider_id", scale: 8
     t.boolean "selected"
     t.string "note"
+    t.decimal "export_price"
     t.index ["facilitate_id"], name: "index_facilitate_providers_on_facilitate_id"
     t.index ["provider_id"], name: "index_facilitate_providers_on_provider_id"
   end

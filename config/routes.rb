@@ -33,9 +33,6 @@ Rails.application.routes.draw do
     resources :order_items
   end
 
-  constraints ->(req) { AuthorizedToken.find_by(token: req.env['rack.session']['auth_token'])&.user if req.env['rack.session'].present? } do
-    get '' => 'bench/board/tasks#index'
-  end
   root to: 'home#index'
 
   require 'sidekiq/web'
