@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_13_104845) do
+ActiveRecord::Schema.define(version: 2020_11_14_064934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -677,12 +677,10 @@ ActiveRecord::Schema.define(version: 2020_11_13_104845) do
     t.integer "lock_version", scale: 4
     t.decimal "original_amount", default: "0.0", comment: "原价，应用优惠之前的价格"
     t.bigint "member_id", scale: 8
-    t.bigint "total_cart_id", scale: 8
     t.index ["address_id"], name: "index_carts_on_address_id"
     t.index ["member_id"], name: "index_carts_on_member_id"
     t.index ["organ_id"], name: "index_carts_on_organ_id"
     t.index ["payment_strategy_id"], name: "index_carts_on_payment_strategy_id"
-    t.index ["total_cart_id"], name: "index_carts_on_total_cart_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -3194,29 +3192,6 @@ ActiveRecord::Schema.define(version: 2020_11_13_104845) do
     t.bigint "organ_id", scale: 8
     t.string "kind"
     t.index ["organ_id"], name: "index_time_lists_on_organ_id"
-  end
-
-  create_table "total_carts", id: { scale: 8 }, force: :cascade do |t|
-    t.bigint "user_id", scale: 8
-    t.decimal "retail_price", default: "0.0", comment: "汇总：原价"
-    t.decimal "discount_price", default: "0.0", comment: "汇总：优惠"
-    t.decimal "bulk_price", default: "0.0"
-    t.decimal "total_quantity", default: "0.0"
-    t.integer "deposit_ratio", scale: 4, default: 100, comment: "最小预付比例"
-    t.decimal "item_amount", limit: 2, precision: 10, default: "0.0"
-    t.decimal "overall_additional_amount", limit: 2, precision: 10, default: "0.0"
-    t.decimal "overall_reduced_amount", limit: 2, precision: 10, default: "0.0"
-    t.decimal "total_additional_amount", default: "0.0"
-    t.decimal "total_reduced_amount", default: "0.0"
-    t.decimal "original_amount", default: "0.0", comment: "原价，应用优惠之前的价格"
-    t.decimal "amount", limit: 2, precision: 10, default: "0.0"
-    t.integer "trade_items_count", scale: 4, default: 0
-    t.integer "lock_version", scale: 4
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "address_id", scale: 8
-    t.index ["address_id"], name: "index_total_carts_on_address_id"
-    t.index ["user_id"], name: "index_total_carts_on_user_id"
   end
 
   create_table "trade_items", id: { scale: 8 }, force: :cascade do |t|
