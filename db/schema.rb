@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_064934) do
+ActiveRecord::Schema.define(version: 2020_11_14_080009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -667,8 +667,6 @@ ActiveRecord::Schema.define(version: 2020_11_14_064934) do
     t.decimal "retail_price", default: "0.0", comment: "商品汇总的原价"
     t.decimal "discount_price", default: "0.0"
     t.decimal "bulk_price", default: "0.0"
-    t.decimal "total_reduced_amount", default: "0.0", comment: "汇总的减少价格"
-    t.decimal "total_additional_amount", default: "0.0"
     t.decimal "total_quantity", default: "0.0"
     t.decimal "item_amount", default: "0.0"
     t.decimal "overall_additional_amount", default: "0.0"
@@ -1825,8 +1823,6 @@ ActiveRecord::Schema.define(version: 2020_11_14_064934) do
     t.integer "trade_items_count", scale: 4, default: 0
     t.bigint "address_id", scale: 8
     t.bigint "produce_plan_id", scale: 8
-    t.decimal "total_additional_amount", default: "0.0"
-    t.decimal "total_reduced_amount", default: "0.0"
     t.decimal "original_amount", default: "0.0", comment: "原价，应用优惠之前的价格"
     t.index ["address_id"], name: "index_orders_on_address_id"
     t.index ["cart_id"], name: "index_orders_on_cart_id"
