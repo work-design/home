@@ -1,19 +1,14 @@
-# One Work
+# Work Design
 
-One Work 将尝试一切均开源的模式进行运作，包括：
+[Work Design](https://github.com/work-design/handbook)
 
-* 代码开源；
-* 商业模式开源，具体见[项目说明书](https://github.com/one-work/project)
-* 企业管理模式开源，具体见[员工手册](https://github.com/one-work/handbook)
-* 财务数据即时公开，具体见：暂未开放;
+## 技术栈
 
-## 初衷（为什么开发并开源这套系统）
-One Work 是一个通过优化生产关系提升生产力的系统，具体如下：
-1. 释放个体的闲置专业能力；
-2. 建立相对公平的评价体系；
-3. 通过异业联盟，降低市场成本；
+* [Ruby On Rails](https://github.com/rails/rails)
+* [Stimulus](https://github.com/stimulusjs/stimulus)
+* [Turbolinks](https://github.com/turbolinks/turbolinks)
+* [Bulma](https://github.com/jgthms/bulma)
 
-## 理念及功能
 
 ## 说明
 当然，没有万金油。以上各种现代管理方式，并非适合所有性质的岗位，如服务行业就不大适用于弹性工作制。
