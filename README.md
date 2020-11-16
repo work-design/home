@@ -4,15 +4,15 @@
 
 ## 技术栈
 
-Rails 原教旨主义，善用 Rails Engine。不仅如此，通过对 Rails 框架的扩展和规范使用，代码量远低于常规 Rails 项目。
+Rails 原教旨主义，善用 Rails Engine，尽可能减少依赖。不仅如此，通过对 Rails 框架的扩展和规范使用，代码量远低于常规 Rails 项目。
 
 * [Ruby On Rails](https://github.com/rails/rails): 最新版本
   * [Stimulus](https://github.com/stimulusjs/stimulus)
   * [Turbolinks](https://github.com/turbolinks/turbolinks)
   * [Server-generated JavaScript Responses (SJR)](https://signalvnoise.com/posts/3697-server-generated-javascript-responses)
   * [Webpacker](https://github.com/rails/webpacker)
-* 前端
-  * [Bulma](https://github.com/jgthms/bulma)
+* 前端：未采用 jQuery 或其他框架；
+  * [Bulma](https://github.com/jgthms/bulma): 纯 CSS 库，js 采用 stimulus；
   * [Weui](https://github.com/Tencent/weui)
   * [Sortable](https://github.com/SortableJS/sortablejs)  
   * [Choices](https://github.com/jshjohnson/Choices)
