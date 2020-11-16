@@ -3,11 +3,11 @@
     <i class="fas fa-home weui-tabbar__icon"></i>
     <div class="weui-tabbar__label">首页</div>
   <% end %>
-  <%= link_to product_taxons_path, class: 'weui-tabbar__item' do %>
+  <%= link_to facilitates_path, class: 'weui-tabbar__item' do %>
     <i class="fas fa-store-alt weui-tabbar__icon"></i>
     <div class="weui-tabbar__label">产品</div>
   <% end %>
-  <%= link_to my_cart_path, class: 'weui-tabbar__item' do %>
+  <%= link_to({ controller: 'trade/my/carts', action: 'show' }, class: 'weui-tabbar__item') do %>
     <i class="fas fa-shopping-cart weui-tabbar__icon">
       <span class="weui-badge"><%= current_cart_count %></span>
     </i>
