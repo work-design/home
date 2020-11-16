@@ -14,10 +14,7 @@ Rails 原教旨主义，善用 Rails Engine，尽可能减少依赖。不仅如�
 * 前端：未采用 jQuery 或其他框架；
   * [Bulma](https://github.com/jgthms/bulma): 纯 CSS 库，js 采用 stimulus；
   * [Weui](https://github.com/Tencent/weui)
-  * [Sortable](https://github.com/SortableJS/sortablejs)  
-  * [Choices](https://github.com/jshjohnson/Choices)
 * Postgresql
-* Redis
 
 ## 说明
 当然，没有万金油。以上各种现代管理方式，并非适合所有性质的岗位，如服务行业就不大适用于弹性工作制。
