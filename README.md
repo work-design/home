@@ -4,10 +4,13 @@
 
 ## 技术栈
 
+Rails 原教旨主义，善用 Rails Engine。不仅如此，通过对 Rails 框架的扩展和规范使用，代码量远低于常规 Rails 项目。
+
 * [Ruby On Rails](https://github.com/rails/rails)
 * [Stimulus](https://github.com/stimulusjs/stimulus)
 * [Turbolinks](https://github.com/turbolinks/turbolinks)
 * [Bulma](https://github.com/jgthms/bulma)
+* [Server-generated JavaScript Responses (SJR)](https://signalvnoise.com/posts/3697-server-generated-javascript-responses)
 
 
 ## 说明
