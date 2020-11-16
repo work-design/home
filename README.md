@@ -6,12 +6,18 @@
 
 Rails 原教旨主义，善用 Rails Engine。不仅如此，通过对 Rails 框架的扩展和规范使用，代码量远低于常规 Rails 项目。
 
-* [Ruby On Rails](https://github.com/rails/rails)
-* [Stimulus](https://github.com/stimulusjs/stimulus)
-* [Turbolinks](https://github.com/turbolinks/turbolinks)
-* [Bulma](https://github.com/jgthms/bulma)
-* [Server-generated JavaScript Responses (SJR)](https://signalvnoise.com/posts/3697-server-generated-javascript-responses)
-
+* [Ruby On Rails](https://github.com/rails/rails): 最新版本
+  * [Stimulus](https://github.com/stimulusjs/stimulus)
+  * [Turbolinks](https://github.com/turbolinks/turbolinks)
+  * [Server-generated JavaScript Responses (SJR)](https://signalvnoise.com/posts/3697-server-generated-javascript-responses)
+  * [Webpacker](https://github.com/rails/webpacker)
+* 前端
+  * [Bulma](https://github.com/jgthms/bulma)
+  * [Weui](https://github.com/Tencent/weui)
+  * [Sortable](https://github.com/SortableJS/sortablejs)  
+  * [Choices](https://github.com/jshjohnson/Choices)
+* Postgresql
+* Redis
 
 ## 说明
 当然，没有万金油。以上各种现代管理方式，并非适合所有性质的岗位，如服务行业就不大适用于弹性工作制。
