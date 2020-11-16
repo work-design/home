@@ -194,7 +194,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 38de62bef16fb5319f1c73c7be7738f55c240de2
+  revision: 073735e75ae6dca86b09509d90687c7426ceee43
   specs:
     rails_trade (0.0.2)
       money-rails (~> 1.12)
@@ -290,7 +290,7 @@ GEM
     bindex (0.8.1)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
-    bootsnap (1.5.0)
+    bootsnap (1.5.1)
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.3)
@@ -315,7 +315,7 @@ GEM
     debug_inspector (0.0.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    erubi (1.9.0)
+    erubi (1.10.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.1.0)
@@ -338,7 +338,7 @@ GEM
       timers
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
-    image_processing (1.12.0)
+    image_processing (1.12.1)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.10.1)
@@ -358,7 +358,7 @@ GEM
     kaminari-core (1.2.1)
     kramdown (2.3.0)
       rexml
-    listen (3.2.1)
+    listen (3.3.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.7.0)
@@ -371,9 +371,9 @@ GEM
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2020.0512)
+    mime-types-data (3.2020.1104)
     mimemagic (0.3.5)
-    mini_magick (4.10.1)
+    mini_magick (4.11.0)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.2)
@@ -527,12 +527,12 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    tzinfo (2.0.2)
+    tzinfo (2.0.3)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
-    web-console (4.0.4)
+    web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
