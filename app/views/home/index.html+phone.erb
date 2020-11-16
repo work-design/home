@@ -13,7 +13,7 @@
 </div>
 
 <div class="weui-cells">
-  <%= link_to my_orders_path, class: 'weui-cell weui-cell_access' do %>
+  <%= link_to({ controller: 'trade/my/orders' }, class: 'weui-cell weui-cell_access') do %>
     <div class="weui-cell__hd">
       <i class="fas fa-user-alt"></i>
     </div>
