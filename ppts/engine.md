@@ -27,7 +27,9 @@ marp: true
 
 ---
 # 业务组件化
-* 更完善、更成熟的业务逻辑：如登陆基于 auth_token，相对于 user_id 更安全和支持更多功能
+* 业务层面的 DRY
+* 更完善、更成熟的业务逻辑
+如 RailsAuth 中登陆基于 auth_token，相对于 user_id 更安全和支持更多功能
 
 ---
 ## https://github.com/work-design
@@ -35,13 +37,15 @@ marp: true
 * 30 个
 
 ---
-# 好的轮子
+# 如何衡量技术体系的优劣
 
 * 开发成本低
   * 代码量尽可能少
-  * 尽可能减少技术栈
-  * 门槛低
+  * 技术栈尽可能少
+  * 需要开发人员掌握的知识尽可能少（门槛低）
 * 开发效率高
+  * 自动化工具
+
 <!--
 只有提升开发效率，提升生产力，才能赚更多的钱。
 -->
@@ -51,52 +55,25 @@ marp: true
 * DRY(Dont Repeat Yourself)
 
 ---
-# 现有的轮子难以满足需求
+# 如何衡量组件的优劣
 
-* 难以 override: 如 Devise 等
-* 难以配置：如 SimpleForm 等
-* 难以迁移，沉没成本高：如 ActionAdmin 等
-
----
-# 我们要造的轮子
-
+* 容易 Override
+* 容易配置
+* 容易迁移，在项目中引入，尽量避免改动祖传代码
+* 尽可能减少沉没成本
 * 集成简单，大部分安装后即可直接使用
-* 尽可能减少配置
 * 尽可能减少 DSL，DSL 即是学习成本
 
 <!--
-1. 路由不必 mount
--->
----
-# 怎么造
-
-* 从现有项目中剥离，避免纸上谈兵
-* 尽可能理解业务的本质
-* 主动出击，影响老板和产品经理
-
-<!--
-1. 如开发早教系统，约课逻辑，是一个典型的且通用的预约功能；
-2. 如 rails_trade, 能适配各种可售卖对象；
-3. 尽量能够与公司共赢，我的 LGPL-3.0 鸡贼示例
--->
----
-# 造轮子痛点
-
-* 交付优先：造轮子产生的成本与交付项目之间的平衡
-* 二八法则：用 20% 的开发成本满足 80% 的场景
-* 易于 Override：基于二八法则，ruby在这方面极具优势
-
-<!--
-1. 如果项目不交付，那就失业了；
-2. 循序渐进，一个项目中抽一两个轮子即可；
-3. 二八法则的前提是 容易 override;
-4. require 和 require_relative 的区别；
+反面例子 Devise
+SimpleForm
+ActionAdmin
+集成：如路由不必 mount
 -->
 
 ---
-# Rails Egnine 要解决的问题
+# 业务组件化要面对的主要问题
 
-* 如何使用：在项目中引入，尽量避免改动祖传代码
 * 如何覆写 Override 
 
 ---
@@ -115,7 +92,7 @@ rails_auth
 ```
 
 ---
-# 定义 model 里的方法
+# 定义 Model 里的方法
 ```ruby
 # rails_auth/app/models/rails_auth/user.rb
 
@@ -134,9 +111,9 @@ module RailsAuth::Account
 
 end
 ```
----
 
-# 定义 model
+---
+# 在 Engine 中定义 Model
 ```ruby
 # rails_auth/app/models/account.rb
 class Account < ApplicationRecord
@@ -146,7 +123,7 @@ end unless defined? Account
 
 ---
 
-# 如何 Override
+# 在 Rails 中 Override
 ```ruby
 class Account < ApplicationRecord
   include RailsAuth::Account
@@ -158,11 +135,13 @@ class Account < ApplicationRecord
   end
 end
 ```
----
-# 此举意义
-1. 易用，什么都不用干，即可使用现成的 Model
-2. 易扩展，易override
-3. 易理解，很容易知道相应的 model 在哪些 engine 里有定义（`Account.ancestors`）
+
+<!--
+易用：什么都不用干，即可使用现成的 Model
+易扩展：易 Override
+也提供了一种组织大 model 代码的规范
+易理解：很容易知道相应的 model 在哪些 engine 里有定义（`Account.ancestors`）
+-->
 
 ---
 # 不需要写 Migration
@@ -170,16 +149,14 @@ end
 实现了 Django 引以为傲的 自动迁移功能
 
 ---
-# 如何使用
-
-bin/rails g rails_com:migrations
-
----
-# 此举的意义？
-* 只需要在一个地方定义 model 的属性
-* Engine 开发更容易，不用 install migrations，可以放心大胆的去调整 Model
+* 如何使用：`bin/rails g rails_com:migrations`
+* 好处:
+  * 只需要在一个地方定义 model 的属性，顺便干了 annotate 的事
+  * 方便开发，不用 install migrations，可以放心大胆的去调整 Model
 
 ---
+应用示例
+
 ```ruby
 class Adminer < ApplicationRecord
   include RailsAuth::User
@@ -189,7 +166,7 @@ end
 bin/rails g rails_com:migrations
 ```
 ---
-* 使用 rails_com:migrations 后：
+使用 rails_com:migrations 后
 
 ```ruby
 class RailsComMigration < ActiveRecord::Migration[6.0]
@@ -203,7 +180,6 @@ end
 ```
 
 ---
-
 # Controller / View
 
 ---
@@ -211,7 +187,6 @@ end
 
 ```ruby
 class Auth::Admin::UsersController < Auth::Admin::BaseController
-  
   def index
     q_params = {}
     q_params.merge! params.permit(:name)
@@ -226,7 +201,6 @@ class Auth::Admin::UsersController < Auth::Admin::BaseController
       render :new, locals: { model: @user }, status: :unprocessable_entity
     end
   end
-
 end
 ```
 
@@ -250,8 +224,13 @@ end
 * 极大的减少了 View 层代码量
 
 ---
+## 尽可能将业务逻辑转移到 Model 层
+* 易测试
+
+---
 # Write View
-* 可取的示例变量：instance_variables - _protected_ivars
+* local_variables
+* 实例变量：instance_variables - _protected_ivars
 * 条件判断和循环
 * 可使用的 helper 方法：link_to，等常用方法
 * form_build: default_form
@@ -259,9 +238,7 @@ end
 <!--
 1. 谁知道怎么获取自定义的示例变量；
 -->
----
-## 尽可能将业务逻辑转移到 Model 层
-* 易测试
+
 ---
 
 # RailsDoc 即将完成
@@ -311,6 +288,7 @@ end
 * 改造前：
 模板文件的正则匹配
 依据搜索路径匹配到 模板名 符合要求即渲染
+如 html 请求，view 目录下没有 index.html.erb，会渲染 index.jbuilder 
 * 改造后：
 提升了 format 格式的优先级
 匹配到 模板名+ format 才进行渲染
@@ -324,12 +302,14 @@ https://github.com/work-design/rails_com/tree/master/app/views/application
 -->
 
 ---
+# Turbo Stream 示例
 ```erb
 # create.turbo_stream.erb
 <%= turbo_stream.prepend 'tbody', partial: 'index_tbody', layout: 'index_tr', locals: { model: instance_variable_get("@#{controller_name.singularize}") } %>
 <%= turbo_stream.update 'modal' %>
 ```
 ---
+# Jbuilder 示例
 ```ruby
 # new.json.jbuider / edit.json.jbuilder
 json.error model.errors.as_json(full_messages: true)
@@ -338,14 +318,15 @@ json.message model.error_text
 ---
 # 常规只涉及到增删改查
 ```ruby
-# maintain_logs
-_filter.html.erb  # 搜索
+# html 
+_filter_form.html.erb  # 搜索
 _form.html.erb  # 表单
-_maintain_log.json.jbuilder
-_show.json.jbuilder
+_new_form.html.erb
+_edit_form.html.erb
+_index_thead.html.erb
+_index_table.html.erb
 _show_table.html.erb
 index.html.erb
-index.json.jbuilder
 ```
 ---
 # Override Controller
@@ -370,8 +351,8 @@ end
 ```ruby
 # In Project
 Rails.application.routes.draw do
-  namespace :my do
-    resources :agencies, only: [:new] do
+  scope :my, module: 'my', as: :my do
+    resources :agencies, only: [] do
       collection do
         get :search
       end
@@ -381,15 +362,16 @@ end
 ```
 
 ---
-# Assets 
+# Assets
 
 * webpacker 支持 Engine
-* js / css 依据 controller / action 分离，代码清晰
+* js / css: 
 
----
-# 示例
-
-https://github.com/work-design/rails_auth/tree/master/app/assets/javascripts/controllers
+```
+# app/views/auth/panel/users
+panel.html.erb
+panel.js
+```
 
 ---
 # Override Assets
