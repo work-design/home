@@ -229,12 +229,11 @@ end
 * 实例变量：instance_variables - _protected_ivars
 * 条件判断和循环
 * 可使用的 helper 方法：link_to，等常用方法
-* form_build: default_form
+* Form Builder: default_form
 
 <!--
-1. 谁知道怎么获取自定义的示例变量；
+谁知道怎么获取自定义的实例变量；
 -->
-
 ---
 
 # RailsDoc 即将完成
@@ -304,6 +303,7 @@ https://github.com/work-design/rails_com/tree/master/app/views/application
 <%= turbo_stream.prepend 'tbody', partial: 'index_tbody', layout: 'index_tr', locals: { model: instance_variable_get("@#{controller_name.singularize}") } %>
 <%= turbo_stream.update 'modal' %>
 ```
+
 ---
 # Jbuilder 示例
 ```ruby
@@ -311,6 +311,7 @@ https://github.com/work-design/rails_com/tree/master/app/views/application
 json.error model.errors.as_json(full_messages: true)
 json.message model.error_text
 ```
+
 ---
 # 常规只涉及到增删改查
 ```ruby
@@ -384,7 +385,6 @@ panel.js
 # Q & A
 
 ---
-
 # Rails Engine 为什么不用 namespace 隔离
 
 * 意义：
