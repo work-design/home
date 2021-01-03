@@ -1,8 +1,4 @@
----
-title: engine安装使用指南
-category: about
-layout: post
----
+# engine安装使用指南
 
 假设engine 的名称为 rails_xxx
 
