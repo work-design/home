@@ -6,43 +6,50 @@ class:
 paginate: true
 marp: true
 ---
+# Work Design 开发体系
+覃明圆
 
-# Rails Engine 组件化开发实践
-
-Work Design - 覃明圆
-
-<!--
-1. 自我介绍
--->
 ---
-
 * PPT 使用 markdown 编写
 * https://github.com/marp-team
 
-<!--
-潜台词：
--->
+---
+# 分而治之
+* 微服务
+* 模块化
 
 ---
-# Work Design
-## https://github.com/work-design
+# Rails Engine（模块化）
 
+* Model
+* Controller
+* View
+
+---
+# 业务组件化
+* 更完善、更成熟的业务逻辑：如登陆基于 auth_token，相对于 user_id 更安全和支持更多功能
+
+---
+## https://github.com/work-design
 * 3年
 * 30 个
+
 ---
+# 好的轮子
 
-# 为什么要造轮子？
-
-* 提升开发效率，降低开发成本
-
-* 一次撸码，到处运行 (Write Once, Run Everywhere)
-DRY(Dont Repeat Yourself)
-* 更完善、更成熟的业务逻辑
-如登陆基于 auth_token，相对于 user_id 更安全和支持更多功能
-
+* 开发成本低
+  * 代码量尽可能少
+  * 尽可能减少技术栈
+  * 门槛低
+* 开发效率高
 <!--
-1. 为什么要提升开发效率，提升生产力，才能赚更多的钱。
+只有提升开发效率，提升生产力，才能赚更多的钱。
 -->
+
+---
+# 如何减少代码量
+* DRY(Dont Repeat Yourself)
+
 ---
 # 现有的轮子难以满足需求
 
@@ -87,11 +94,6 @@ DRY(Dont Repeat Yourself)
 -->
 
 ---
-# 什么是Rails Engine 
-
-* Model、Controller、View 的集合体
-
----
 # Rails Egnine 要解决的问题
 
 * 如何使用：在项目中引入，尽量避免改动祖传代码
@@ -101,7 +103,7 @@ DRY(Dont Repeat Yourself)
 ## Model
 
 ---
-## 如何定义模型
+## 定义模型
 
 ```text
 rails_auth
@@ -174,9 +176,7 @@ bin/rails g rails_com:migrations
 
 ---
 # 此举的意义？
-
-* 懒：程序员第一生产力
-* DRY：只需要在一个地方定义 model 的属性
+* 只需要在一个地方定义 model 的属性
 * Engine 开发更容易，不用 install migrations，可以放心大胆的去调整 Model
 
 ---
@@ -211,6 +211,13 @@ end
 
 ```ruby
 class Auth::Admin::UsersController < Auth::Admin::BaseController
+  
+  def index
+    q_params = {}
+    q_params.merge! params.permit(:name)
+
+    @users = User.default_where(q_params).page(params[:page])
+  end
 
   def create
     @user = User.new(user_params)
@@ -224,25 +231,19 @@ end
 ```
 
 ---
-# 跟平常所见的 Controller 有什么区别？
-
----
-* 没有 redirect_to 
-* 没有 respond_to 
+# 跟常见的 Controller 有什么区别？
+* 没有 redirect_to
+* 没有 respond_to
 * 几乎没有逻辑
 
 <!--
 1. 互动：redirect_to 怎么实现的
 2. 在 turbolinks 下是如何实现的
 -->
----
-# 此举的意义？
 
-* 尽可能将控制能力转移到 View 层
-* 尽可能将业务逻辑转移到 Model 层
 
 ---
-# 转移控制能力到 View 层
+## 尽可能将控制能力转移到 View 层
 
 * 模板语言的学习成本更低：erb, jbulder
 * View 层 Override 更灵活，更强大
@@ -259,6 +260,10 @@ end
 1. 谁知道怎么获取自定义的示例变量；
 -->
 ---
+## 尽可能将业务逻辑转移到 Model 层
+* 易测试
+---
+
 # RailsDoc 即将完成
 
 * 将 controller 的对象 的属性进行输出
@@ -269,8 +274,38 @@ end
 # view 查找路径
 
 ```ruby
-My::AgenciesController.ancestors
+Auth::Panel::UsersController.ancestors
+
+[
+  Auth::Panel::UsersController,
+  Auth::Panel::BaseController,
+  PanelController,
+  ApplicationController
+]
 ```
+
+---
+```ruby
+Auth::Panel::UsersController._prefixes
+
+[
+  'auth/panel/users',
+  'auth/panel/base', 
+  'panel', 
+  'application'
+]
+
+```
+---
+```ruby
+class Auth::Panel::UsersController < Auth::Panel::BaseController
+
+  def self.local_prefixes
+    [controller_path, 'auth/admin/base']
+  end
+end
+```
+
 ---
 # 我们的改造
 * 改造前：
