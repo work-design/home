@@ -391,10 +391,6 @@ end
 
 https://github.com/work-design/rails_auth/tree/master/app/assets/javascripts/controllers
 
-<!--
-https://github.com/work-design/rails_auth/tree/master/app/assets/javascripts/controllers
--->
-
 ---
 # Override Assets
 项目中同路径
