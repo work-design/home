@@ -324,16 +324,10 @@ https://github.com/work-design/rails_com/tree/master/app/views/application
 -->
 
 ---
-```html
-# create.erb.html / update.erb.html / destroy.erb.html
-<script>
-  if (typeof Turbolinks === 'undefined') {
-    window.location = document.referrer
-  } else {
-    Turbolinks.clearCache()
-    Turbolinks.visit(document.referrer, {action: 'replace'})
-  }
-</script>
+```erb
+# create.turbo_stream.erb
+<%= turbo_stream.prepend 'tbody', partial: 'index_tbody', layout: 'index_tr', locals: { model: instance_variable_get("@#{controller_name.singularize}") } %>
+<%= turbo_stream.update 'modal' %>
 ```
 ---
 ```ruby
