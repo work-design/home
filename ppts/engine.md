@@ -59,10 +59,10 @@ marp: true
 
 * 容易 Override
 * 容易配置
-* 容易迁移，在项目中引入，尽量避免改动祖传代码
-* 尽可能减少沉没成本
-* 集成简单，大部分安装后即可直接使用
-* 尽可能减少 DSL，DSL 即是学习成本
+* 容易迁移：在项目中引入时，尽量避免改动祖传代码
+* 容易移除：尽可能减少沉没成本
+* 集成简单：安装后即可直接使用
+* 尽可能减少 DSL：DSL 即是学习成本
 
 <!--
 反面例子 Devise
@@ -74,7 +74,7 @@ ActionAdmin
 ---
 # 业务组件化要面对的主要问题
 
-* 如何覆写 Override 
+* 如何覆写 Override
 
 ---
 ## Model
@@ -101,14 +101,12 @@ module RailsAuth::Account
 
   included do
     attribute :identity, :string
-
     belongs_to :user
   end
 
   def send_token
     puts 'implement this in project'
   end
-
 end
 ```
 
@@ -196,7 +194,6 @@ class Auth::Admin::UsersController < Auth::Admin::BaseController
 
   def create
     @user = User.new(user_params)
-
     unless @user.join(params)
       render :new, locals: { model: @user }, status: :unprocessable_entity
     end
@@ -214,7 +211,6 @@ end
 1. 互动：redirect_to 怎么实现的
 2. 在 turbolinks 下是如何实现的
 -->
-
 
 ---
 ## 尽可能将控制能力转移到 View 层
