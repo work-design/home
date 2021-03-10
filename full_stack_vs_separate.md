@@ -46,7 +46,7 @@ Rails 一直以来给人们留下的是全栈框架的印象，Rails 程序员�
 2. 浏览器接收到 js 代码片段，在 head 里新建一个 script 标签，将 js代码片段放到 script 标签内，js代码执行，[具体实现](https://github.com/rails/rails/blob/03516a924e71db7e065c8fb31c1d37af9b7c34ce/actionview/app/assets/javascripts/rails-ujs/utils/ajax.coffee#L69)；
 
 SJR 的优点有：
-1. 服务端只用像浏览器发送少量文本，即可实现丰富的逻辑；
+1. 服务端只用向浏览器发送少量文本，即可实现灵活的逻辑；
 2. 可以在 view 层复用 partial，节省了大量代码；
 3. 足够灵活，对 js 的能力没有限制，同时通过 erb 可以自由使用 view 层的变量和方法；
 
