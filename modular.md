@@ -1,9 +1,3 @@
----
-title: 模块化开发
-category: about
-layout: post
----
-
 # 模块化开发
 
 在工程领域，模块化是一个老生常谈的话题。

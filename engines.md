@@ -1,9 +1,4 @@
----
-title: Rails 应用模块化之 Rails Engines
-category: about
-layout: post
----
-
+# Rails 应用模块化之 Rails Engines
 
 ## 关于Rails Engine
 
