@@ -1,6 +1,12 @@
-# Work Design 技术体系
+# Work Design
 
-Work Design 技术体系是一套追求低成本开发，高效率产出的软件方案。由以下几部分组成：
+Work Design 是基于一套快速开发体系发展而来，融合技术治理、产品、运营思路、商业模式的整套体系。
+
+为了让知识和技术惠及更多人，我们采取了毫无保留开源的策略，免除企业和使用者的后顾之忧。
+
+## [技术体系](stack)
+
+Work Design 的技术体系是一套追求低成本开发，高效率产出的软件方案。由以下几部分组成：
 
 * 软件快速开发体系：
   * 基于公认效率最高的 Web 全栈开发框架：[Ruby On Rails](https://github.com/rails/rails) ，相对常规 Rails 开发提升 2~3 倍效率（基于代码总量判断）；
@@ -13,25 +19,26 @@ Work Design 技术体系是一套追求低成本开发，高效率产出的软�
 
 Work Design 是业务组件化的先驱，在业务复杂多变的情况下达到了平衡。旨在打造一个开发成本低，维护简单，扩展灵活的应用框架，支持微信等多端。
 
-## Work Design 的优势
-* 全面，Work Design 不仅仅是技术服务，是融合产品、技术治理、运营思路、商业模式的整套体系；
+## [Work Design 应用](project)
+基于 Work Design 的技术体系和组件，我们搭建了 https://work.design 这个应用。这个项目的使命如下：
+* 基于业务组件进行“搭积木”式快速开发的实践和演示；
+* 为 Work Design 的生态服务；
+
+
+## 架构理念
 * 最佳实践
 * 灵活，易于扩展，Override
-* 减少重复工作造成的浪费
-* 开源，让知识和技术惠及更多人，免除企业的后顾之忧
-* 全链条
+* [减少重复工作造成的浪费]
+* [全链条]
+* [约定优于配置](default.md)
+* [工具优于约定](tools.md)
+* [前后端“分离”](full_stack_vs_separate.md)
 
 ## Work Design 原理
 * [降低数字化成本，实现技术普惠](why_build_self.md)
 * [工具](tools.md)
 * [模块化](modular.md)
 * [语言是生产力](function-vs-object.md)
-
-## 架构理念
-* [约定优于配置](default.md)
-* [工具优于约定](tools.md)
-* [前后端“分离”](full_stack_vs_separate.md)
-
 
 ## 技术原则
 技术架构和选型遵循以下原则：
