@@ -59,3 +59,8 @@
 ## 参考
 * [Netflix 文化](https://jobs.netflix.com/culture)
 * [Basecamp 员工手册](https://github.com/basecamp/handbook)
+
+## 书籍
+* [不拘一格](https://item.jd.com/13051050.html)
+* [看不见的沟通](https://item.jd.com/12216055.html)
+* [授权](https://item.jd.com/12634422.html)
