@@ -1,8 +1,4 @@
----
-title: Ruby & Rails代码风格
-category: about
-layout: post
----
+# Ruby & Rails代码风格
 
 参考：[社区版本Ruby Style](https://github.com/JuanitoFatas/ruby-style-guide/blob/master/README-zhCN.md)
 
