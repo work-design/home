@@ -10,5 +10,3 @@ end
 ```
 
 [[管理与发布]]
-
-[nihao](https://github.com/orgs/whmall/dashboard)
