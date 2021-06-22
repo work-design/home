@@ -67,3 +67,6 @@ Work Design 的生态正是为解决你的问题而生，Web 应用的开发是�
 * [有个想法](https://github.com/yougexiangfa)：基于 Work Design 技术栈孵化的技术服务公司
 
 如果你希望基于 Work Design 提供的组件来打造属于自己的公司和项目，亦或者是成为自由职业者，尽请提交 [issue](https://github.com/work-design/home/issues)，我们会将你加入到这个列表当中。
+
+## 联系我
+![](assets/wechat.jpg)
