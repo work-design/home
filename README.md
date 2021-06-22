@@ -5,7 +5,7 @@ Work Design 是基于一套快速开发体系发展而来，融合了技术治�
 Work Design 是业务组件化的先驱，在业务复杂多变的情况下达到了平衡。旨在打造一个开发成本低，维护简单，扩展灵活的应用框架，支持微信等多端。
 
 包含：
-* [Work Design 技术体系](#Work Design 技术体系)[更多](stack)
+* [Work Design 技术体系](#Work-Design-技术体系)[更多](stack)
 * [Work Design 应用][更多](project)
 * [Work Design 团队治理][更多](handbook)
 
