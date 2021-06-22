@@ -13,9 +13,9 @@
 
 ## 目录
 
-* [保护视力](lib/eye_health.md)
-* [颈椎病防范](lib/cervical_vertebra_health.md)
-* [慢性胃病防范及康复](lib/stomach_health.md)
+* [保护视力](eye_health.md)
+* [颈椎病防范](cervical_vertebra_health.md)
+* [慢性胃病防范及康复](stomach_health.md)
 * [办公室健身指南]
 
 ## 项目说明
