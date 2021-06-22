@@ -12,7 +12,7 @@ Work Design 是业务组件化的先驱，在业务复杂多变的情况下达�
 * [Work Design 团队治理](#Work-Design-团队治理)
   * [更多](handbook)
 
-## Work Design 技术体系
+## [Work Design 技术体系](stack)
 
 Work Design 的技术体系是一套追求低成本开发，高效率产出的软件方案。由以下几部分组成：
 
@@ -46,12 +46,12 @@ Work Design 的技术体系是一套追求低成本开发，高效率产出的�
 * 尽可能对开发者友好，降低入门门槛；
 * 尽可能完善且系统化的文档；
 
-## Work Design 应用
+## [Work Design 应用](project)
 基于 Work Design 的技术体系和组件，我们搭建了 https://work.design 这个应用。这个项目的使命如下：
 * 基于业务组件进行“搭积木”式快速开发的实践和演示；
 * 为 Work Design 的生态服务；
 
-## Work Design 团队治理
+## [Work Design 团队治理](handbook)
 Work Design 的技术体系是一套侵略性比较强的技术体系，责任越大，权利越大。因为Work Design 的业务组件和技术体系对业务进行了一定程度的干预，如果要想发挥这套技术的最大效率，配合团队治理方案是最佳选择。
 
 当然，Work Design 的技术线路和工具对于 Rails 开发体验也已经是革命性的提升了，就算你想独立绕开默认提供的组件，我们的全栈开发架构也能让你比常规 Rails 开发效率高出数倍，就更别提相对于 Java, PHP 等的技术栈了。
