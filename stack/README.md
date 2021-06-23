@@ -11,7 +11,7 @@ Web 应用开发领域，Rails 是以生产力为出发点的最佳框架。基�
 ## 怎么做
 
 * 全栈开发，降低技术栈复杂度
-  * 全栈开发，前后端不分离[关于全栈开发](about/full_stack.md)
+  * 全栈开发，前后端不分离[关于全栈开发](full_stack.md)
   * 前后端分离的本质
   * 克制使用Service层 [](blogs/concern.md)
 
