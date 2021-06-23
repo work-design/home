@@ -25,16 +25,16 @@ Work Design 的技术体系是一套追求低成本开发，高效率产出的�
 * 灵活，易于扩展，Override
 * [减少重复工作造成的浪费]
 * [全链条]
-* [约定优于配置](default.md)
-* [工具优于约定](tools.md)
-* [前后端“分离”](full_stack_vs_separate.md)
+* [约定优于配置](stack/default.md)
+* [工具优于约定](stack/tools.md)
+* [前后端“分离”](stack/full_stack.md)
 
 #### 原理
-* [降低数字化成本，实现技术普惠](why_build_self.md)
-* [工具](tools.md)：优化工具，提升生产力，除了通用的功能及组件，我们也对一些工具进行了优化，比如表单构建工具。
-* [模块化](modular.md)：我们将通用的功能进行了抽取，以 Rails Engine 的形式附加到主项目即可快速应用某块功能；
+* [降低数字化成本，实现技术普惠](stack/why_build_self.md)
+* [工具](stack/tools.md)：优化工具，提升生产力，除了通用的功能及组件，我们也对一些工具进行了优化，比如表单构建工具。
+* [模块化](stack/modular.md)：我们将通用的功能进行了抽取，以 Rails Engine 的形式附加到主项目即可快速应用某块功能；
 * [体系化]：基于统一的设计理念，UI体系，一致性。
-* [语言是生产力](function-vs-object.md)
+* [语言是生产力](stack/function-vs-object.md)
 
 #### 技术原则
 技术架构和选型遵循以下原则：
