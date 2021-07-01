@@ -406,24 +406,12 @@ panel.js
 # Q & A
 
 ---
-# Rails Engine 为什么不用 namespace 隔离
+# 为什么推崇 Engine 按照业务组织代码？
 
-* 意义：
-  * 可以从各个层次，各个姿势进行复用
-  * 懒：不用每个 model 都带 namespace
-* 解决：
-  * 路由 _path / _url helper 方法冲突，忍忍吧，override一下
-  * model 冲突，已解决，自己定义model, engine里自动失效
-  * controller 已有 namespace，不会冲突
-
----
-# 代码分布在各个 engine 里，是否加大了读代码的难度；
-
-* 用 engine:
-我不知道去哪找相关的定义的代码
-
-* 不用 engine:
-如果一个 model 进行了拆分，你可能也不知道去哪读代码
+* 一定要分：把关联性更大的代码放到一起；
+* 当业务复杂，代码快速增长时：
+  * 不用 engine：代码全部扔到 models 目录下
+  * 用 engine: 不知道去哪找相关的定义的代码
 
 ---
 # 解决方案
