@@ -382,7 +382,7 @@ end
 ---
 # Assets
 
-* webpacker 支持 Engine
+* viter：https://github.com/qinmingyuan/viter
 * js / css: 
 
 ```
@@ -400,9 +400,6 @@ panel.js
 
 * 项目中同路径
 * enum 支持
-
----
-
 
 
 ---
