@@ -6,7 +6,7 @@ class:
 paginate: true
 marp: true
 ---
-# Work Design 开发体系
+# Work Design 技术体系
 覃明圆
 
 ---
@@ -14,48 +14,54 @@ marp: true
 * https://github.com/marp-team
 
 ---
-# 分而治之
-* 微服务
-* 模块化
-
----
-# Rails Engine（模块化）
-
-* Model
-* Controller
-* View
-
----
-# 业务组件化
-* 业务层面的 DRY
-* 更完善、更成熟的业务逻辑
-如 RailsAuth 中登陆基于 auth_token，相对于 user_id 更安全和支持更多功能
-
----
+# Work Design 开源地址
 ## https://github.com/work-design
-* 3年
-* 30 个
 
 ---
-# 如何衡量技术体系的优劣
+# Work Design 的追求
 
-* 开发成本低
+* 降低开发成本
   * 代码量尽可能少
+  * 少用库
+* 降低开发门槛
   * 技术栈尽可能少
-  * 需要开发人员掌握的知识尽可能少（门槛低）
-* 开发效率高
-  * 自动化工具
+  * 需要开发人员掌握的知识尽可能少
+* 提升开发效率
+  * 自动化工具（约定优于配置，工具优于约定）
 
 <!--
 只有提升开发效率，提升生产力，才能赚更多的钱。
 -->
 
 ---
+# 长桶理论
+* 让你的长处足够长，就会忽略掉你的短处
+
+<!--
+当马云足够有钱的时候，就觉得马云就很帅
+-->
+
+---
+# 分而治之
+* 微服务：通过 Api 通信，可以是不同的技术栈；
+* 模块化：同一套技术栈，Rails Engine：
+* 组件化：
+  * UI 组件化
+  * 业务组件化
+
+---
+# 业务组件化
+* 业务层面的 DRY
+* 在发展中：不断完善、不断成熟
+如 RailsAuth 中登陆基于 auth_token，相对于 user_id 更安全和支持更多功能
+
+
+---
 # 如何减少代码量
 * DRY(Dont Repeat Yourself)
 
 ---
-# 如何衡量组件的优劣
+# 业务组件化的追求
 
 * 容易 Override
 * 容易配置
@@ -74,10 +80,11 @@ ActionAdmin
 ---
 # 业务组件化要面对的主要问题
 
-* 如何覆写 Override
+* 如何 Override
 
 ---
 ## Model
+采用 include 架构
 
 ---
 ## 定义模型
@@ -86,7 +93,7 @@ ActionAdmin
 rails_auth
   app
     models
-      rails_auth
+      auth
         user.rb
       user.rb
 ```
@@ -94,18 +101,21 @@ rails_auth
 ---
 # 定义 Model 里的方法
 ```ruby
-# rails_auth/app/models/rails_auth/user.rb
+# rails_auth/app/models/auth/model/user.rb
 
-module RailsAuth::Account
+module Auth
+  module Model::Account
   extend ActiveSupport::Concern
 
-  included do
-    attribute :identity, :string
-    belongs_to :user
-  end
+    included do
+      attribute :identity, :string
+      belongs_to :user
+    end
 
-  def send_token
-    puts 'implement this in project'
+    def send_token
+      puts 'implement this in main Application'
+    end
+
   end
 end
 ```
@@ -113,23 +123,27 @@ end
 ---
 # 在 Engine 中定义 Model
 ```ruby
-# rails_auth/app/models/account.rb
-class Account < ApplicationRecord
-  include RailsAuth::Account
-end unless defined? Account
+# rails_auth/app/models/auth/account.rb
+module Auth
+  class Account < ApplicationRecord
+    include Model::Account
+  end
+end
 ```
 
 ---
 
-# 在 Rails 中 Override
+# 在 Main App 中 Override
 ```ruby
-class Account < ApplicationRecord
-  include RailsAuth::Account
-  
-  attribute :identity, :integer
+module Auth
+  class Account < ApplicationRecord
+    include RailsAuth::Account
+    
+    attribute :identity, :integer
 
-  def send_token
-    SmsHelper.send(self.identity, '666666')
+    def send_token
+      SmsHelper.send(self.identity, '666666')
+    end
   end
 end
 ```
@@ -142,15 +156,12 @@ end
 -->
 
 ---
-# 不需要写 Migration
-
-实现了 Django 引以为傲的 自动迁移功能
-
----
-* 如何使用：`bin/rails g rails_com:migrations`
-* 好处:
-  * 只需要在一个地方定义 model 的属性，顺便干了 annotate 的事
-  * 方便开发，不用 install migrations，可以放心大胆的去调整 Model
+# 工具
+* 不需要写 Migration：实现了 Django 引以为傲的自动迁移功能
+  * 如何使用：`bin/rails g rails_com:migrations`
+  * 好处:
+    1. 只需要在一个地方定义 model 的属性，顺便干了 annotate 的事
+    2. 方便开发，不用 install migrations，可以放心大胆的去调整 Model
 
 ---
 应用示例
@@ -178,31 +189,41 @@ end
 ```
 
 ---
-# Controller / View
+# Controller
 
 ---
 # Controller
 
 ```ruby
-class Auth::Admin::UsersController < Auth::Admin::BaseController
-  def index
-    q_params = {}
-    q_params.merge! params.permit(:name)
+module Auth
+  class Admin::UsersController < Admin::BaseController
 
-    @users = User.default_where(q_params).page(params[:page])
-  end
+    def index
+      q_params = {}
+      q_params.merge! params.permit(:name)
 
-  def create
-    @user = User.new(user_params)
-    unless @user.join(params)
-      render :new, locals: { model: @user }, status: :unprocessable_entity
+      @users = User.default_where(q_params).page(params[:page])
     end
+
+    def create
+      @user = User.new(user_params)
+      unless @user.join(params)
+        render :new, locals: { model: @user }, status: :unprocessable_entity
+      end
+    end
+
   end
 end
 ```
 
 ---
-# 跟常见的 Controller 有什么区别？
+# 软件工程 团队治理
+* 全栈技术框架下的：前后端分离
+* 写 Model 的 Ruby 程序员
+* 写 View 的 程序员
+
+---
+# 对 Controller 进行优化
 * 没有 redirect_to
 * 没有 respond_to
 * 几乎没有逻辑
@@ -224,7 +245,7 @@ end
 * 易测试
 
 ---
-# Write View
+# View 层程序员
 * local_variables
 * 实例变量：instance_variables - _protected_ivars
 * 条件判断和循环

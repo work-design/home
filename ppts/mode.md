@@ -7,8 +7,7 @@ paginate: true
 marp: true
 ---
 
-# Work Design 工作设计
-## 商业模式
+# Work Design 商业模式
 
 ---
 
