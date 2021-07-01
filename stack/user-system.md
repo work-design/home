@@ -4,7 +4,7 @@
 
 ![](../assets/images/user.png)
 
-### 说明
+#### 说明
 
 * User 为用户体系的中心模型，代表一个独立在应用中活跃的人，主要处理登陆相关功能；User 与 Account/Profile/Member 均为一对多关系。
 
@@ -16,7 +16,7 @@
 
 * Account/Profile/Member 均包含 identity 字段，除了与 User 直接关联，彼此之间通过 identity 来相互关联。
 
-### 设计思考
+#### 设计思考
 
 * 本架构设计首先考虑的是满足如 SaaS 系统的复杂场景：
 
