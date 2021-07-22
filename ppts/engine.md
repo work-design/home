@@ -13,6 +13,7 @@ marp: true
 * PPT 使用 markdown 编写
 * https://github.com/marp-team
 
+![bg](https://github.com/marp-team.png)
 ---
 # Work Design 开源地址
 ## https://github.com/work-design
