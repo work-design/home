@@ -35,8 +35,9 @@ marp: true
 -->
 
 ---
-# 长板理论
+# 长板 vs 短板
 * 当你的长板足够长，你的短板就可以被忽略
+![bg right](assets/mutong.webp)
 
 <!--
 当马云足够有钱的时候，就觉得马云就很帅
@@ -82,7 +83,8 @@ marp: true
 # 业务组件化要面对的主要问题
 
 * 如何 Override
-
+  * Main App 中优先级更高
+  * 粒度（层级）更细优先级越高
 ---
 ## Model
 采用 include 架构
