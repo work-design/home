@@ -7,36 +7,51 @@ paginate: true
 marp: true
 ---
 # Work Design 技术体系
-覃明圆@Fork AI
+
+覃明圆 @ Fork AI
 
 ---
-* PPT 使用 markdown 编写
-* https://github.com/marp-team
+# PPT 使用 markdown 编写
+* github.com/marp-team
 
 ![bg](https://github.com/marp-team.png)
+
 ---
-# Work Design 开源地址
-## https://github.com/work-design
+# 开源地址
+github.com/work-design
+![bg right](assets/qrcode.png)
 
 ---
 # Work Design 的追求
 
-* 降低开发成本
-  * 代码量尽可能少
-  * 少用库
-* 降低开发门槛
-  * 技术栈尽可能少
-  * 需要开发人员掌握的知识尽可能少
-* 提升开发效率
-  * 自动化工具（约定优于配置，工具优于约定）
+---
+
+# 降低开发成本
+* 代码量尽可能少
+* 少用库
+
+---
+
+# 降低开发门槛
+* 技术栈尽可能少
+* 需要开发人员掌握的知识尽可能少
+
+---
+
+# 提升开发效率
+* 自动化工具（约定优于配置，工具优于约定）
 
 <!--
 只有提升开发效率，提升生产力，才能赚更多的钱。
 -->
+---
+# Work Design 哲学
 
 ---
 # 长板 vs 短板
-* 当你的长板足够长，你的短板就可以被忽略
+
+当你的长板足够长
+你的短板就可以被忽略
 ![bg right](assets/mutong.webp)
 
 <!--
@@ -45,8 +60,11 @@ marp: true
 
 ---
 # 分而治之
-* 微服务：通过 Api 通信，可以是不同的技术栈；
-* 模块化：同一套技术栈，Rails Engine：
+
+* 微服务：
+通过 Api 通信，可以是不同的技术栈；
+* 模块化：
+同一套技术栈，Rails Engine：
 * 组件化：
   * UI 组件化
   * 业务组件化
