@@ -1,40 +1,55 @@
 ---
 theme: gaia
 class:
-- lead
-- invert
+ - lead
+ - invert
 paginate: true
 marp: true
+---
+# SaaS as a Module
+# Rails 业务组件化实践
 ---
 # Work Design 技术体系
 
 覃明圆 @ Fork AI
 
 ---
-# PPT 使用 markdown 编写
-* github.com/marp-team
-
-![bg](https://github.com/marp-team.png)
-
----
-# 开源地址
-github.com/work-design
+#### github.com/work-design
 ![bg right](assets/qrcode.png)
 
 ---
+# PPT 使用 markdown 编写
+github.com/marp-team
+
+
+---
+# Work Design 的哲学
+<!-- backgroundColor: #333300 -->
+---
+# 长板 vs 短板
+当你的长板足够长
+你的短板就可以被忽略
+
+![bg right](assets/mutong.webp)
+
+---
+# 让 Rails 开发效率更高
+
+---
 # Work Design 的追求
-
+<!-- backgroundColor: #006633 -->
 ---
-
 # 降低开发成本
-* 代码量尽可能少
-* 少用库
+* 尽可能少写代码
+  * DRY(Dont Repeat Yourself)
+  * 继承，Override
+* 尽可能少用库
 
 ---
-
 # 降低开发门槛
-* 技术栈尽可能少
 * 需要开发人员掌握的知识尽可能少
+* 技术栈尽可能少
+* DSL 尽可能少：DSL即学习成本
 
 ---
 
@@ -45,45 +60,35 @@ github.com/work-design
 只有提升开发效率，提升生产力，才能赚更多的钱。
 -->
 ---
-# Work Design 哲学
 
----
-# 长板 vs 短板
-
-当你的长板足够长
-你的短板就可以被忽略
-![bg right](assets/mutong.webp)
-
-<!--
-当马云足够有钱的时候，就觉得马云就很帅
--->
-
+# Work Deisgn 工程
+<!-- backgroundColor: #336699 -->
 ---
 # 分而治之
+---
+# 微服务 vs 模块化
+* 微服务
+通过 Api 通信，可以是不同的技术栈
+* 模块化（组件化）
+同一套技术栈，Rails Engine
 
-* 微服务：
-通过 Api 通信，可以是不同的技术栈；
-* 模块化：
-同一套技术栈，Rails Engine：
-* 组件化：
-  * UI 组件化
-  * 业务组件化
+---
+# 优先模块化
+# 不排斥微服务
+
+---
+# 提升模块化
+
+### UI组件化 ➡️ 业务组件化
 
 ---
 # 业务组件化
 * 业务层面的 DRY
 * 在发展中不断完善、不断成熟
+
+<!--
 如 RailsAuth 中登陆基于 auth_token，相对于 user_id 更安全和支持更多功能
-
-
----
-# 如何减少代码量
-* DRY(Dont Repeat Yourself)
-* 继承，Override
-
----
-# 如何降低门槛
-* 尽可能减少 DSL：DSL 即是学习成本
+-->
 
 ---
 # 业务组件化的追求
@@ -98,9 +103,7 @@ github.com/work-design
 集成：如路由不必 mount
 -->
 ---
-# 业务组件化要面对的主要问题
-
-* 如何 Override
+# Override 通用规则
   * Main App 中优先级更高
   * 粒度（层级）更细优先级越高
 ---
@@ -126,8 +129,7 @@ rails_auth
 
 module Auth
   module Model::Account
-  extend ActiveSupport::Concern
-
+    extend ActiveSupport::Concern
     included do
       attribute :identity, :string
       belongs_to :user
@@ -136,7 +138,6 @@ module Auth
     def send_token
       puts 'implement this in main Application'
     end
-
   end
 end
 ```
@@ -177,32 +178,33 @@ end
 -->
 
 ---
-# 工具
-* 不需要写 Migration：实现了 Django 引以为傲的自动迁移功能
-  * 如何使用：`bin/rails g rails_com:migrations`
-  * 好处:
-    1. 只需要在一个地方定义 model 的属性，顺便干了 annotate 的事
-    2. 方便开发，不用 install migrations，可以放心大胆的去调整 Model
+# 自动迁移
+不需要写 Migration：实现了 Django 引以为傲的自动迁移功能
+* 如何使用：`bin/rails g rails_com:migrations`
+* 好处:
+  * 只需要在一个地方定义 model 的属性，顺便干了 annotate 的事
+  * 方便开发，不用 install migrations，可以放心大胆的去调整 Model
 
 ---
-应用示例
-
 ```ruby
 class Adminer < ApplicationRecord
   include RailsAuth::User
+  belongs_to :user
 end
 ```
+
+---
 ```shell
 bin/rails g rails_com:migrations
 ```
----
-使用 rails_com:migrations 后
 
+---
 ```ruby
 class RailsComMigration < ActiveRecord::Migration[6.0]
   def change
     create_table :adminers do |t|
       t.string :name
+      t.belongs_to :user
       t.timestamps
     end
   end
@@ -210,84 +212,17 @@ end
 ```
 
 ---
-# Controller
 
 ---
-# Controller
-
-```ruby
-module Auth
-  class Admin::UsersController < Admin::BaseController
-
-    def index
-      q_params = {}
-      q_params.merge! params.permit(:name)
-
-      @users = User.default_where(q_params).page(params[:page])
-    end
-
-    def create
-      @user = User.new(user_params)
-      unless @user.join(params)
-        render :new, locals: { model: @user }, status: :unprocessable_entity
-      end
-    end
-
-  end
-end
-```
-
----
-# 软件工程 团队治理
-* 全栈技术框架下的：前后端分离
-* 写 Model 的 Ruby 程序员
-* 写 View 的 程序员
-
----
-# 对 Controller 进行优化
-* 没有 redirect_to
-* 没有 respond_to
-* 几乎没有逻辑
-
-<!--
-1. 互动：redirect_to 怎么实现的
-2. 在 turbolinks 下是如何实现的
--->
-
----
-## 尽可能将控制能力转移到 View 层
-
-* 模板语言的学习成本更低：erb, jbulder
-* View 层 Override 更灵活，更强大
-* 极大的减少了 View 层代码量
-
----
-## 尽可能将业务逻辑转移到 Model 层
-* 易测试
-
----
-# View 层程序员
-* local_variables
-* 实例变量：instance_variables - _protected_ivars
-* 条件判断和循环
-* 可使用的 helper 方法：link_to，等常用方法
-* Form Builder: default_form
-
-<!--
-谁知道怎么获取自定义的实例变量；
--->
----
-
-# RailsDoc 即将完成
-
-* 将 controller 的对象 的属性进行输出
+# View
 
 ---
 # Override View
 * 技术：在 Main App 中同路径覆盖
 * 场景优化：最需要被覆盖的包括
-  * 字段的增减；
-  * 操作区域；
+  * 字段的增减
+  * 操作区域
+  * Form 表单
 ---
 # view 查找路径
 
@@ -336,14 +271,14 @@ end
 
 ---
 # View 提供的默认模板
-https://github.com/work-design/rails_com/tree/master/app/views/application
+github.com/work-design/rails_com/tree/master/app/views/application
 
 <!--
 https://github.com/work-design/rails_com/tree/master/app/views/application
 -->
 
 ---
-# Turbo Stream 示例
+# 示例一：Turbo Stream
 ```erb
 # create.turbo_stream.erb
 <%= turbo_stream.prepend 'tbody', partial: 'index_tbody', layout: 'index_tr', locals: { model: instance_variable_get("@#{controller_name.singularize}") } %>
@@ -351,7 +286,7 @@ https://github.com/work-design/rails_com/tree/master/app/views/application
 ```
 
 ---
-# Jbuilder 示例
+# 示例二：Jbuilder
 ```ruby
 # new.json.jbuider / edit.json.jbuilder
 json.error model.errors.as_json(full_messages: true)
@@ -372,7 +307,65 @@ _show_table.html.erb
 index.html.erb
 ```
 ---
-# Override Controller
+# Controller
+
+---
+```ruby
+module Auth
+  class Admin::UsersController < Admin::BaseController
+    def index
+      q_params = {}
+      q_params.merge! user_filter_params
+
+      @users = User.default_where(q_params).page(params[:page])
+    end
+
+    def create
+      @user = User.new(user_params)
+      unless @user.join(params)
+        render :new, locals: { model: @user }, status: :unprocessable_entity
+      end
+    end
+  end
+end
+```
+---
+```ruby
+def user_filter_params
+  q = params.permit(
+    :id,
+    'name-like',
+    'accounts.identity',
+    'last_login_at-desc'
+  )
+  q.merge! super if defined? super
+  q
+end
+
+def user_params
+  p = params.fetch(:user, {}).permit(
+    :name,
+    :avatar,
+    :password,
+    :disabled,
+    user_tag_ids: [],
+    accounts_attributes: {}
+  )
+  p.merge! super if defined? super
+  p
+end
+```
+---
+# 在 Main App 中 override
+
+---
+```ruby
+module Auth
+  class Admin::UsersController < Admin::BaseController
+    include Controller::Users
+  end
+end
+```
 ---
 # 重新定义路由
 * override url
@@ -403,6 +396,63 @@ Rails.application.routes.draw do
   end
 end
 ```
+
+------
+# Work Design 的前后端分离
+* 写 Model 的 Ruby 程序员
+* 写 View 的 程序员
+
+<!-- backgroundColor: #666600 -->
+---
+# Controller 优化
+
+---
+# Controller 的基本任务
+* 赋值
+  * @users = User.default_where(params)
+  * @user = User.new(params)
+* View 控制
+  * render 'create' if save
+  * render 'new' unless save
+
+---
+* 几乎没有逻辑
+* 没有 redirect_to
+* 没有 respond_to
+
+<!--
+1. 互动：redirect_to 怎么实现的
+2. 在 turbolinks 下是如何实现的
+-->
+
+---
+## 尽可能将控制能力转移到 View 层
+
+* 模板语言的学习成本更低：erb, jbulder
+* View 层 Override 更灵活，更强大
+* 极大的减少了 View 层代码量
+
+---
+## 尽可能将业务逻辑转移到 Model 层
+* 容易测试
+
+---
+# View 层程序员
+* local_variables
+* 实例变量：instance_variables - _protected_ivars
+* 条件判断和循环
+* 可使用的 helper 方法：link_to，button_to 等常用方法
+* Form Builder: default_form
+
+<!--
+谁知道怎么获取自定义的实例变量；
+-->
+---
+
+# 自动文档化 RailsDoc 
+
+* 将 controller 的对象 的属性进行输出
+
 
 ---
 # Assets
