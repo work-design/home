@@ -1,8 +1,8 @@
-# Rails 相关文档
+# Rails 服务器（Linux）部署
 
 ## 安装环境
-
-* [Ubuntu](env.md)
+* [用户](user.md)
+* [安装软件](env.md)
 
 ## 部署
 * [部署](deploy.md)
