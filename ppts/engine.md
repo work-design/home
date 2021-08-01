@@ -74,12 +74,11 @@ github.com/marp-team
 
 ---
 # 优先模块化
-# 不排斥微服务
+不排斥微服务
 
 ---
-# 提升模块化
-
-### UI组件化 ➡️ 业务组件化
+# 加强模块化
+UI组件化 ➡️ 业务组件化
 
 ---
 # 业务组件化
@@ -212,17 +211,12 @@ end
 ```
 
 ---
-
----
 # View
 
 ---
 # Override View
 * 技术：在 Main App 中同路径覆盖
-* 场景优化：最需要被覆盖的包括
-  * 字段的增减
-  * 操作区域
-  * Form 表单
+
 ---
 # view 查找路径
 
@@ -269,6 +263,11 @@ end
 提升了 format 格式的优先级
 匹配到 模板名+ format 才进行渲染
 
+---
+* 场景优化：最需要被覆盖的包括
+  * 字段的增减
+  * 操作区域
+  * Form 表单
 ---
 # View 提供的默认模板
 github.com/work-design/rails_com/tree/master/app/views/application
