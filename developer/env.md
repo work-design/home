@@ -39,6 +39,7 @@ chsh -s /usr/bin/fish
 ## Bundle
 * pg: `sudo apt install libpq-dev`
 * unf_ext: `sudo apt install g++`
+* nio4r: `sudo apt install libev`
 
 ## Rails 准备
 * 初始化数据库: `env RAILS_ENV=production bin/rails db:create`
