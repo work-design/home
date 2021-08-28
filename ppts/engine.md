@@ -11,7 +11,7 @@ marp: true
 ---
 # Work Design 技术体系
 
-覃明圆 @ Fork AI
+覃明圆
 
 ---
 #### github.com/work-design
