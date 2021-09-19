@@ -4,6 +4,7 @@ class:
  - lead
  - invert
 paginate: true
+controller: marp-item
 marp: true
 ---
 # SaaS as a Module
