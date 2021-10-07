@@ -15,7 +15,7 @@ marp: true
 
 ---
 #### github.com/work-design
-![bg right](assets/qrcode.png)
+![bg right](../assets/qrcode.png)
 
 ---
 # PPT 使用 markdown 编写
@@ -30,7 +30,7 @@ github.com/marp-team
 当你的长板足够长
 你的短板就可以被忽略
 
-![bg right](assets/mutong.webp)
+![bg right](../assets/mutong.webp)
 
 ---
 # 让 Rails 开发效率更高
