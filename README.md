@@ -1,6 +1,6 @@
 # Work Design
 
-Work Design 的诞生只有一个目标，即如何以更低的成本和更高的效率来开发 Web 应用。
+Work Design 所追求的只有一个目标，即如何以更低的成本和更高的效率来开发 Web 应用。
 
 Work Design 是基于一套快速开发体系发展而来，融合了技术治理、产品、运营思路、商业模式的整套体系。
 
@@ -80,6 +80,7 @@ Work Design 的生态正是为解决你的问题而生，Web 应用的开发是�
 * [Work Design](https://github.com/work-design/work.design)：定位于服务小微型企业，为自由职业者提供平台，基于 Work Design 技术栈孵化的开源项目，旨在打造下一代企业管理系统
 * [武汉有个想法软件咨询有限公司](https://github.com/yougexiangfa)：基于 Work Design 技术栈孵化的技术服务公司
 * [上海拓体信息科技有限公司](http://www.tallty.com/)：深耕教务管理、房地产行业的技术服务公司
+* [一餐之计](https://meal.design/)：餐饮行业数字化新方案，对餐饮店家无抽佣
 
 如果你希望基于 Work Design 提供的组件来打造属于自己的公司和项目，亦或者是成为自由职业者，尽请提交 [issue](https://github.com/work-design/home/issues)，我们会将你加入到这个列表当中。
 
