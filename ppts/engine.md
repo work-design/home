@@ -6,16 +6,15 @@ class:
 paginate: true
 marp: true
 ---
-# SaaS as a Module
-# Rails 业务组件化实践
----
-# Work Design 技术体系
 
+# Work Design 技术体系
+### 业务组件化
+---
 覃明圆
 
 ---
-#### github.com/work-design
-![bg right](../assets/qrcode.png)
+* github: github.com/work-design
+* gitee: gitee.com/work-design
 
 ---
 # PPT 使用 markdown 编写
@@ -30,38 +29,39 @@ github.com/marp-team
 当你的长板足够长
 你的短板就可以被忽略
 
-![bg right](../assets/mutong.webp)
+---
+![bg](../assets/mutong.webp)
 
 ---
-# 让 Rails 开发效率更高
+# 进一步提升 Rails 开发效率
 
 ---
-# Work Design 的追求
+# 怎么实现
 <!-- backgroundColor: #006633 -->
 ---
 # 降低开发成本
-* 尽可能少写代码
+* 写更少的代码
   * DRY(Dont Repeat Yourself)
-  * 继承，Override
-* 尽可能少用库
-
+  * 约定优于配置
+  * 继承与覆写（Override）
+* 少写代码
+  * 代码生成：工具优于约定
+  * 元编程
+<!--
+Rails 社区给了答案，我们只需要做的更好
+-->
 ---
 # 降低开发门槛
 * 需要开发人员掌握的知识尽可能少
-* 技术栈尽可能少
+* 技术栈尽可能少：减少库的使用
 * DSL 尽可能少：DSL即学习成本
-
----
-
-# 提升开发效率
-* 自动化工具（约定优于配置，工具优于约定）
 
 <!--
 只有提升开发效率，提升生产力，才能赚更多的钱。
 -->
 ---
 
-# Work Deisgn 工程
+# 业务组件化
 <!-- backgroundColor: #336699 -->
 ---
 # 分而治之
@@ -79,8 +79,9 @@ github.com/marp-team
 不排斥微服务
 
 ---
-# 加强模块化
-UI组件化 ➡️ 业务组件化
+# 进一步加强模块化
+1. UI组件化
+2. 业务组件化
 
 ---
 # 业务组件化
@@ -181,7 +182,7 @@ end
 ---
 # 自动迁移
 不需要写 Migration：实现了 Django 引以为傲的自动迁移功能
-* 如何使用：`bin/rails g rails_com:migrations`
+* 如何使用：`bin/rails g rails_extend:migrations`
 * 好处:
   * 只需要在一个地方定义 model 的属性，顺便干了 annotate 的事
   * 方便开发，不用 install migrations，可以放心大胆的去调整 Model
@@ -196,7 +197,7 @@ end
 
 ---
 ```shell
-bin/rails g rails_com:migrations
+bin/rails g rails_extend:migrations
 ```
 
 ---
