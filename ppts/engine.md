@@ -5,6 +5,7 @@ class:
  - invert
 paginate: true
 marp: true
+backgroundImage: url(../assets/bg.jpg)
 ---
 
 # Work Design 技术体系
@@ -13,6 +14,7 @@ marp: true
 覃明圆
 
 ---
+
 * github: github.com/work-design
 * gitee: gitee.com/work-design
 
@@ -20,10 +22,8 @@ marp: true
 # PPT 使用 markdown 编写
 github.com/marp-team
 
-
 ---
 # Work Design 的哲学
-<!-- backgroundColor: #333300 -->
 ---
 # 长板 vs 短板
 当你的长板足够长
@@ -37,7 +37,6 @@ github.com/marp-team
 
 ---
 # 怎么实现
-<!-- backgroundColor: #006633 -->
 ---
 # 降低开发成本
 * 写更少的代码
@@ -62,7 +61,6 @@ Rails 社区给了答案，我们只需要做的更好
 ---
 
 # 业务组件化
-<!-- backgroundColor: #336699 -->
 ---
 # 分而治之
 降低体系复杂度
@@ -297,21 +295,36 @@ json.message model.error_text
 
 ---
 # 常规只涉及到增删改查
-```ruby
-# html 
+```
+# html
+_index/_index_thead.html.erb  # 表头
+_index/_index_tbody.html.erb  # 内容
 _filter_form.html.erb  # 搜索
 _form.html.erb  # 表单
-_new_form.html.erb
-_edit_form.html.erb
-_index_thead.html.erb
-_index_table.html.erb
-_show_table.html.erb
-index.html.erb
+_show_table.html.erb  # 详情页
 ```
 ---
 # Controller
 
 ---
+常规的 Controller 几乎没有代码
+```ruby
+# https://github.com/work-design/rails_com/blob/main/app/controllers/com/panel/acme_accounts_controller.rb
+module Com
+  class Panel::AcmeAccountsController < Panel::BaseController
+
+    private
+    def acme_account_permit_params
+      [
+        :email
+      ]
+    end
+
+  end
+end
+```
+---
+但是很容易 Override 
 ```ruby
 module Auth
   class Admin::UsersController < Admin::BaseController
@@ -404,7 +417,6 @@ end
 * 写 Model 的 Ruby 程序员
 * 写 View 的 程序员
 
-<!-- backgroundColor: #666600 -->
 ---
 # Controller 优化
 
