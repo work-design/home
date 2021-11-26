@@ -24,21 +24,20 @@ github.com/marp-team
 
 ---
 # Work Design 的哲学
+
+---
+![bg](../assets/mutong.webp)
+
 ---
 # 长板 vs 短板
 当你的长板足够长
 你的短板就可以被忽略
 
 ---
-![bg](../assets/mutong.webp)
-
----
 # 进一步提升 Rails 开发效率
 
 ---
-# 怎么实现
----
-# 降低开发成本
+# 进一步降低开发成本
 * 写更少的代码
   * DRY(Dont Repeat Yourself)
   * 约定优于配置
@@ -50,7 +49,7 @@ github.com/marp-team
 Rails 社区给了答案，我们只需要做的更好
 -->
 ---
-# 降低开发门槛
+# 进一步降低开发门槛
 * 需要开发人员掌握的知识尽可能少
 * 技术栈尽可能少：减少库的使用
 * DSL 尽可能少：DSL即学习成本
@@ -58,12 +57,12 @@ Rails 社区给了答案，我们只需要做的更好
 <!--
 只有提升开发效率，提升生产力，才能赚更多的钱。
 -->
----
 
-# 业务组件化
 ---
 # 分而治之
-降低体系复杂度
+### 降低体系复杂度
+
+* 基于 Rails Engine 的 MVC 模块化
 
 ---
 # 微服务 vs 模块化
@@ -78,23 +77,23 @@ Rails 社区给了答案，我们只需要做的更好
 
 ---
 # 进一步加强模块化
-1. UI组件化
-2. 业务组件化
+1. UI组件化（View 层）
+2. 业务组件化（Model 层）
 
----
-# 业务组件化
+<!--
+Controller 层忽略不计，真的没什么代码
+
 * 业务层面的 DRY
 * 在发展中不断完善、不断成熟
 
-<!--
 如 RailsAuth 中登陆基于 auth_token，相对于 user_id 更安全和支持更多功能
 -->
 
 ---
 # 业务组件化的追求
 
-* 开箱即用，尽可能少的配置，安装后即可直接使用
-* 容易 Override（反例：Device）
+* 易用：尽可能少的配置，力求开箱即用
+* 易覆写：Override（反例：Device）
 * 易插拔：
   * 容易迁移：在项目中引入时，尽量避免改动祖传代码(反例：SimpleForm)
   * 容易移除：尽可能减少沉没成本，移除和替换的时候需要改动的代码也很少（反例：ActionAdmin）
@@ -105,13 +104,18 @@ Rails 社区给了答案，我们只需要做的更好
 ---
 # Override 通用规则
   * Main App 中优先级更高
-  * 粒度（层级）更细优先级越高
+  * 粒度越细（层级越低）优先级越高
 ---
-## Model
+## 组件化之 Model 层
 采用 include 架构
+
+* 易 Override
+* 易复用
 
 ---
 ## 定义模型
+
+github.com/work-design/rails_auth/tree/main/app/models/auth
 
 ```text
 rails_auth
@@ -178,14 +182,17 @@ end
 -->
 
 ---
-# 自动迁移
+# 工具：Model 层自动迁移
 不需要写 Migration：实现了 Django 引以为傲的自动迁移功能
-* 如何使用：`bin/rails g rails_extend:migrations`
+* 使用：`bin/rails g rails_extend:migrations`
 * 好处:
   * 只需要在一个地方定义 model 的属性，顺便干了 annotate 的事
   * 方便开发，不用 install migrations，可以放心大胆的去调整 Model
+  * 综合传统自动迁移和 migration 的优点
 
 ---
+
+定义：
 ```ruby
 class Adminer < ApplicationRecord
   include RailsAuth::User
@@ -193,7 +200,7 @@ class Adminer < ApplicationRecord
 end
 ```
 
----
+运行：
 ```shell
 bin/rails g rails_extend:migrations
 ```
@@ -212,7 +219,11 @@ end
 ```
 
 ---
-# View
+# 组件化之 View 层
+
+* 数据和排版分类
+  * 数据（tr-> td/th）
+  * 排版
 
 ---
 # Override View
@@ -255,20 +266,25 @@ end
 ```
 
 ---
-# 我们的改造
-* 改造前：
+# Format 匹配规则
+* Rails 默认：
 模板文件的正则匹配
 依据搜索路径匹配到 模板名 符合要求即渲染
 如 html 请求，view 目录下没有 index.html.erb，会渲染 index.jbuilder 
-* 改造后：
+* Work Design 优化：
 提升了 format 格式的优先级
 匹配到 模板名+ format 才进行渲染
 
 ---
-* 场景优化：最需要被覆盖的包括
-  * 字段的增减
-  * 操作区域
+# 什么需要被 Override
+* 输出（字段、属性）：
+  * 增加或减少字段
+  * 字段的排版
+  * 查询条件(form, item)
+* 输入（表单）：
   * Form 表单
+* 操作区域
+  
 ---
 # View 提供的默认模板
 github.com/work-design/rails_com/tree/master/app/views/application
