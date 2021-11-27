@@ -38,7 +38,6 @@ github.com/marp-team
 
 ---
 # 进一步提升 Rails 的长板
-### 开发效率
 
 ---
 # 降低开发成本
@@ -48,13 +47,13 @@ github.com/marp-team
   * 继承与覆写（Override）
 * 少写代码
   * 代码生成：工具优于约定
-  * 元编程
+  * [元编程](https://github.com/work-design/rails_com/blob/main/app/controllers/com/controller/admin.rb)
 <!--
 Rails 社区给了答案，我们只需要做的更好
 -->
 ---
 # 降低开发门槛
-* 需要开发人员掌握的知识尽可能少
+### 需要开发人员掌握的知识尽可能少
 * 技术栈尽可能少
   * 前端：避免使用 Vue / React 等前端框架
   * 后端：减少库的使用
@@ -89,6 +88,7 @@ Controller 层忽略不计，真的没什么代码
 # 业务组件化的哲学
 
 * 易用：尽可能减少配置，力求开箱即用
+  * 默认提供，即便不用也不会有副作用
 * 易覆写（Override）：反例 Device
 * 易插拔：
   * 容易迁移：在项目中引入时，尽量避免改动祖传代码(DefaultForm Vs [SimpleForm](https://github.com/heartcombo/simple_form))
@@ -217,41 +217,35 @@ end
 ---
 # 组件化之 View 层
 
-* 数据和排版分类
+* 数据和排版分离
   * 数据（tr-> td/th）
-  * 排版
-
+  * 排版：[tr](https://github.com/work-design/rails_com/blob/main/app/views/application/_index_tr.html.erb)
+* 排版与样式分离
+  * HTML负责排版和数据，比 JSON 更灵活先进
+  * CSS + JS 负责美
 ---
 # Override View
-* 技术：在 Main App 中同路径覆盖
+* 在 Main App 中同路径覆盖
+* 基于 _prefixes 
 
 ---
 # view 查找路径
 
 ```ruby
 Auth::Panel::UsersController.ancestors
-
 [
   Auth::Panel::UsersController,
   Auth::Panel::BaseController,
   PanelController,
   ApplicationController
 ]
-```
 
----
-```ruby
 Auth::Panel::UsersController._prefixes
-
-[
-  'auth/panel/users',
-  'auth/panel/base', 
-  'panel', 
-  'application'
-]
-
+['auth/panel/users', 'auth/panel/base', 'panel', 'application']
 ```
 ---
+# _prefixes 自定义
+
 ```ruby
 class Auth::Panel::UsersController < Auth::Panel::BaseController
 
