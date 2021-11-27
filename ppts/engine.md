@@ -10,7 +10,10 @@ backgroundImage: url(../assets/bg.jpg)
 
 # Work Design 技术体系
 ### 业务组件化
----
+
+<br>
+<br>
+
 覃明圆
 
 ---
@@ -31,13 +34,14 @@ github.com/marp-team
 ---
 # 长板 vs 短板
 当你的长板足够长
-你的短板就可以被忽略
+你的短板就不再是短板
 
 ---
-# 进一步提升 Rails 开发效率
+# 进一步提升 Rails 的长板
+### 开发效率
 
 ---
-# 进一步降低开发成本
+# 降低开发成本
 * 写更少的代码
   * DRY(Dont Repeat Yourself)
   * 约定优于配置
@@ -49,9 +53,11 @@ github.com/marp-team
 Rails 社区给了答案，我们只需要做的更好
 -->
 ---
-# 进一步降低开发门槛
+# 降低开发门槛
 * 需要开发人员掌握的知识尽可能少
-* 技术栈尽可能少：减少库的使用
+* 技术栈尽可能少
+  * 前端：避免使用 Vue / React 等前端框架
+  * 后端：减少库的使用
 * DSL 尽可能少：DSL即学习成本
 
 <!--
@@ -59,26 +65,16 @@ Rails 社区给了答案，我们只需要做的更好
 -->
 
 ---
-# 分而治之
-### 降低体系复杂度
+# 降低体系复杂度
+### 分而治之
 
 * 基于 Rails Engine 的 MVC 模块化
-
----
-# 微服务 vs 模块化
-* 微服务
-通过 Api 通信，可以是不同的技术栈
-* 模块化（组件化）
-同一套技术栈，Rails Engine
-
----
-# 优先模块化
-不排斥微服务
-
----
-# 进一步加强模块化
-1. UI组件化（View 层）
-2. 业务组件化（Model 层）
+* 优先模块化，不排斥微服务
+  * 微服务：通过 Api 通信，可以是不同的技术栈
+  * 模块化（组件化）：同一套技术栈
+* 进一步加强模块化
+  * UI组件化（View 层）
+  * 业务组件化（Model 层）
 
 <!--
 Controller 层忽略不计，真的没什么代码
@@ -90,23 +86,23 @@ Controller 层忽略不计，真的没什么代码
 -->
 
 ---
-# 业务组件化的追求
+# 业务组件化的哲学
 
-* 易用：尽可能少的配置，力求开箱即用
-* 易覆写：Override（反例：Device）
+* 易用：尽可能减少配置，力求开箱即用
+* 易覆写（Override）：反例 Device
 * 易插拔：
-  * 容易迁移：在项目中引入时，尽量避免改动祖传代码(反例：SimpleForm)
-  * 容易移除：尽可能减少沉没成本，移除和替换的时候需要改动的代码也很少（反例：ActionAdmin）
+  * 容易迁移：在项目中引入时，尽量避免改动祖传代码(DefaultForm Vs [SimpleForm](https://github.com/heartcombo/simple_form))
+  * 容易移除：尽可能减少沉没成本，移除和替换的时候需要改动的代码也很少（反例[ActionAdmin](https://activeadmin.info)）
 
 <!--
 集成：如路由不必 mount
 -->
 ---
-# Override 通用规则
+# 覆写（Override）
   * Main App 中优先级更高
   * 粒度越细（层级越低）优先级越高
 ---
-## 组件化之 Model 层
+# 组件化之 Model 层
 采用 include 架构
 
 * 易 Override
@@ -268,12 +264,9 @@ end
 ---
 # Format 匹配规则
 * Rails 默认：
-模板文件的正则匹配
-依据搜索路径匹配到 模板名 符合要求即渲染
-如 html 请求，view 目录下没有 index.html.erb，会渲染 index.jbuilder 
+模板名（index) 优先级高于 _prefixes，依据搜索路径匹配到*模板名*符合要求即渲染。如 html 请求，view 目录下没有 index.html.erb，会渲染 index.jbuilder 
 * Work Design 优化：
-提升了 format 格式的优先级
-匹配到 模板名+ format 才进行渲染
+提升了 format 格式的优先级，view 目录下没有 index.html.erb ，就算有 index.jbuilder，也会一级级向上查找只至找到 index.html.erb 才进行渲染
 
 ---
 # 什么需要被 Override
@@ -488,7 +481,7 @@ end
 ---
 # Assets
 
-* viter：https://github.com/qinmingyuan/viter
+* vite：https://github.com/work-design/rails_vite
 * js / css: 
 
 ```
@@ -509,9 +502,9 @@ panel.js
 
 
 ---
-# 为什么推崇 Engine 按照业务组织代码？
+# 按业务（Rails Engine）组织代码
 
-* 一定要分：把关联性更大的代码放到一起；
+* 分而治之：把关联性更大的代码放到一起；
 * 当业务复杂，代码快速增长时：
   * 不用 engine：代码全部扔到 models 目录下
   * 用 engine: 不知道去哪找相关的定义的代码
