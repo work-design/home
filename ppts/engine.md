@@ -22,7 +22,7 @@ backgroundImage: url(../assets/bg.jpg)
 * gitee: gitee.com/work-design
 
 ---
-# PPT 使用 markdown 编写
+# PPT 使用 markdown 撰写
 github.com/marp-team
 
 ---
@@ -55,9 +55,9 @@ Rails 社区给了答案，我们只需要做的更好
 # 降低开发门槛
 ### 需要开发人员掌握的知识尽可能少
 * 技术栈尽可能少
-  * 前端：避免使用 Vue / React 等前端框架
+  * 前端：拥抱 Hotwire，尽量避免使用 Vue / React 等前端框架
   * 后端：减少库的使用
-* DSL 尽可能少：DSL即学习成本
+* DSL 尽可能少：DSL 即学习成本
 
 <!--
 只有提升开发效率，提升生产力，才能赚更多的钱。
@@ -89,10 +89,10 @@ Controller 层忽略不计，真的没什么代码
 
 * 易用：尽可能减少配置，力求开箱即用
   * 默认提供，即便不用也不会有副作用
-* 易覆写（Override）：反例 Device
 * 易插拔：
   * 容易迁移：在项目中引入时，尽量避免改动祖传代码(DefaultForm Vs [SimpleForm](https://github.com/heartcombo/simple_form))
   * 容易移除：尽可能减少沉没成本，移除和替换的时候需要改动的代码也很少（反例[ActionAdmin](https://activeadmin.info)）
+* **易覆写（Override）**：反例 Device
 
 <!--
 集成：如路由不必 mount
@@ -101,6 +101,16 @@ Controller 层忽略不计，真的没什么代码
 # 覆写（Override）
   * Main App 中优先级更高
   * 粒度越细（层级越低）优先级越高
+---
+
+* Override Model
+* Override View
+* Override 其他：
+  * Override Controller
+  * Override 路由
+  * Override Assets
+  * Override i18n
+
 ---
 # 组件化之 Model 层
 采用 include 架构
@@ -203,7 +213,7 @@ bin/rails g rails_extend:migrations
 
 ---
 ```ruby
-class RailsComMigration < ActiveRecord::Migration[6.0]
+class RailsExtendMigration_1 < ActiveRecord::Migration[6.0]
   def change
     create_table :adminers do |t|
       t.string :name
@@ -218,10 +228,10 @@ end
 # 组件化之 View 层
 
 * 数据和排版分离
-  * 数据（tr-> td/th）
+  * 数据：如 td / th
   * 排版：[tr](https://github.com/work-design/rails_com/blob/main/app/views/application/_index_tr.html.erb)
 * 排版与样式分离
-  * HTML负责排版和数据，比 JSON 更灵活先进
+  * HTML 负责排版和数据，比 JSON 更灵活先进
   * CSS + JS 负责美
 ---
 # Override View
@@ -256,23 +266,14 @@ end
 ```
 
 ---
-# Format 匹配规则
+# View Partial Render 优化
 * Rails 默认：
 模板名（index) 优先级高于 _prefixes，依据搜索路径匹配到*模板名*符合要求即渲染。如 html 请求，view 目录下没有 index.html.erb，会渲染 index.jbuilder 
 * Work Design 优化：
 提升了 format 格式的优先级，view 目录下没有 index.html.erb ，就算有 index.jbuilder，也会一级级向上查找只至找到 index.html.erb 才进行渲染
 
 ---
-# 什么需要被 Override
-* 输出（字段、属性）：
-  * 增加或减少字段
-  * 字段的排版
-  * 查询条件(form, item)
-* 输入（表单）：
-  * Form 表单
-* 操作区域
-  
----
+
 # View 提供的默认模板
 github.com/work-design/rails_com/tree/master/app/views/application
 
@@ -306,22 +307,27 @@ _filter_form.html.erb  # 搜索
 _form.html.erb  # 表单
 _show_table.html.erb  # 详情页
 ```
+
+---
+# 什么需要被 Override
+* 输出（字段、属性）：
+  * 增加或减少字段
+  * 字段的排版
+  * 查询条件(form, item)
+* 输入（表单）：
+  * Form 表单
+* 操作区域
+  
 ---
 # Controller
+让 Controller 更瘦
 
 ---
 常规的 Controller 几乎没有代码
 ```ruby
-# https://github.com/work-design/rails_com/blob/main/app/controllers/com/panel/acme_accounts_controller.rb
+# https://github.com/work-design/rails_com/blob/main/app/controllers/com/panel/infos_controller.rb
 module Com
-  class Panel::AcmeAccountsController < Panel::BaseController
-
-    private
-    def acme_account_permit_params
-      [
-        :email
-      ]
-    end
+  class Panel::InfosController < Panel::BaseController
 
   end
 end
@@ -374,85 +380,76 @@ def user_params
 end
 ```
 ---
-# 在 Main App 中 override
+# Controller 主要干两件事
 
----
+* 赋值给共享给 View 层的示例变量
+  * @users = User.default_where(params)
+  * @user = User.new(params)
+* View 控制，即 Controller 本身的定位
+
 ```ruby
-module Auth
-  class Admin::UsersController < Admin::BaseController
-    include Controller::Users
-  end
+if save
+  render 'create'
+else
+  render 'new'
 end
 ```
+
 ---
-# 重新定义路由
-* override url
-* override helper 方法
+# Conroller 的任务已完成
+* 尽可能将业务逻辑交给 Model 层
+  * 容易测试
+  * Model 就是具备数据持久化的类
+* 将控制能力交给 View 层，尽可能移除 redirect_to，也没必要写 respond_to
+  * 模板语言的学习成本更低：erb、jbulder
+  * View 层 Override 更灵活，更强大
+
+<!--
+1. 互动：redirect_to 怎么实现的
+2. 在 turbolinks 下是如何实现的
+-->
+---
+# Override Controller
+
+* 像 Model 层一样 Override
+  * Main App 中的优先级更高
+* 重新定义路由
 
 <!--
 1. 直白的说明白路由是干嘛的；
 -->
 ---
 ```ruby
+# In Engine
 Rails.application.routes.draw do
-  scope :my, module: 'agency/my', as: :my do
-    resources :agencies
-  end
+  resources :agencies
 end
-```
----
 
-```ruby
-# In Project
+# In Main App
 Rails.application.routes.draw do
-  scope :my, module: 'my', as: :my do
-    resources :agencies, only: [] do
-      collection do
-        get :search
-      end
+  resources :agencies, only: [] do
+    collection do
+      get :search
     end
   end
 end
 ```
 
-------
+---
 # Work Design 的前后端分离
-* 写 Model 的 Ruby 程序员
+* 写 Model 层的程序员
+  * 技能发展：Ruby -> ActiveRecord -> 数据库 -> Rails 其他
+  * 偏业务方向，注重架构能力
 * 写 View 的 程序员
+  * 技能发展：HTML + CSS -> 原生 Javascript(Hotwired)
+  * 偏交互，更懂用户体验
 
 ---
-# Controller 优化
+# 让 Rails 更适合小型创业公司
 
----
-# Controller 的基本任务
-* 赋值
-  * @users = User.default_where(params)
-  * @user = User.new(params)
-* View 控制
-  * render 'create' if save
-  * render 'new' unless save
-
----
-* 几乎没有逻辑
-* 没有 redirect_to
-* 没有 respond_to
-
-<!--
-1. 互动：redirect_to 怎么实现的
-2. 在 turbolinks 下是如何实现的
--->
-
----
-## 尽可能将控制能力转移到 View 层
-
-* 模板语言的学习成本更低：erb, jbulder
-* View 层 Override 更灵活，更强大
-* 极大的减少了 View 层代码量
-
----
-## 尽可能将业务逻辑转移到 Model 层
-* 容易测试
-* Model 就是具备数据持久化的类
+* Work Deisgn “前后端分离” 的意义：
+  * 培训 Rails 开发者更容易
+  * 可以以更低的成本雇佣开发人员
 
 ---
 # View 层程序员
@@ -460,16 +457,17 @@ end
 * 实例变量：instance_variables - _protected_ivars
 * 条件判断和循环
 * 可使用的 helper 方法：link_to，button_to 等常用方法
-* Form Builder: default_form
+  * link_to 使用 `key: value` 格式([示例](https://github.com/work-design/rails_com/blob/main/app/views/application/_index_tr.html.erb))，更容易让前端开发者理解，也更容易重构
+* Form Builder: [default_form](https://github.com/work-design/rails_com/tree/main/lib/default_form)
 
 <!--
 谁知道怎么获取自定义的实例变量；
 -->
 ---
 
-# 自动文档化 RailsDoc 
+# 文档自动化 RailsDoc
 
-* 将 controller 的对象 的属性进行输出
+* 将 controller 的对象及其属性进行输出
 
 
 ---
@@ -492,8 +490,7 @@ panel.js
 # Override I18n
 
 * 项目中同路径
-* enum 支持
-
+* enum 支持：[示例](https://github.com/work-design/rails_com/blob/main/config/locales/zh.enum.yml)
 
 ---
 # 按业务（Rails Engine）组织代码
@@ -502,13 +499,9 @@ panel.js
 * 当业务复杂，代码快速增长时：
   * 不用 engine：代码全部扔到 models 目录下
   * 用 engine: 不知道去哪找相关的定义的代码
-
----
-# 解决方案
-
 * 使用 RubyMine
-  * 看源码的功能
-  * 把多个项目放到同一个工作区
+  * 读源码更方便
+  * 把多个 Engine 放到同一个工作区
 
 ---
 # Make Rails Great Again!
