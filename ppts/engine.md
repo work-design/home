@@ -323,9 +323,9 @@ _show_table.html.erb  # 详情页
 让 Controller 更瘦
 
 ---
-常规的 Controller 几乎没有代码
+[常规的 Controller 几乎没有代码](https://github.com/work-design/rails_com/blob/main/app/controllers/com/panel/infos_controller.rb)
+
 ```ruby
-# https://github.com/work-design/rails_com/blob/main/app/controllers/com/panel/infos_controller.rb
 module Com
   class Panel::InfosController < Panel::BaseController
 
@@ -396,7 +396,7 @@ end
 ```
 
 ---
-# Conroller 的任务已完成
+
 * 尽可能将业务逻辑交给 Model 层
   * 容易测试
   * Model 就是具备数据持久化的类
@@ -495,10 +495,11 @@ panel.js
 ---
 # 按业务（Rails Engine）组织代码
 
-* 分而治之：把关联性更大的代码放到一起；
-* 当业务复杂，代码快速增长时：
+* 把关联性更大的代码放到一起
+  * 在 model / controller / view 间跳转的频次更高
+* 当业务复杂，代码快速增长时
   * 不用 engine：代码全部扔到 models 目录下
-  * 用 engine: 不知道去哪找相关的定义的代码
+  * 用 engine: 业务边界划分要清晰，不然很容易不知道相关业务逻辑应该在哪个 engine
 * 使用 RubyMine
   * 读源码更方便
   * 把多个 Engine 放到同一个工作区
