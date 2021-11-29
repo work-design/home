@@ -17,7 +17,6 @@ backgroundImage: url(../assets/bg.jpg)
 覃明圆
 
 ---
-
 * github: github.com/work-design
 * gitee: gitee.com/work-design
 
@@ -38,6 +37,11 @@ github.com/marp-team
 
 ---
 # 进一步提升 Rails 的长板
+
+---
+* 降低开发成本
+* 降低开发门槛
+* 降低体系复杂度
 
 ---
 # 降低开发成本
@@ -85,7 +89,7 @@ Controller 层忽略不计，真的没什么代码
 -->
 
 ---
-# 业务组件化的哲学
+# 业务组件化
 
 * 易用：尽可能减少配置，力求开箱即用
   * 默认提供，即便不用也不会有副作用
@@ -231,7 +235,7 @@ end
   * 数据：如 td / th
   * 排版：[tr](https://github.com/work-design/rails_com/blob/main/app/views/application/_index_tr.html.erb)
 * 排版与样式分离
-  * HTML 负责排版和数据，比 JSON 更灵活先进
+  * HTML 负责排版和数据，比 JSON 更灵活，更强大
   * CSS + JS 负责美
 ---
 # Override View
@@ -506,6 +510,6 @@ panel.js
 
 ---
 # Make Rails Great Again!
-### 18571856813（微信同号）
+### 15573130715（微信同号）
 
 # Q & A
