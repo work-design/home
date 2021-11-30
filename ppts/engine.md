@@ -8,8 +8,8 @@ marp: true
 backgroundImage: url(../assets/bg.jpg)
 ---
 
-# Work Design 技术体系
-### 业务组件化
+# Rails 业务组件化开发实践
+### Work Design 技术体系
 
 <br>
 <br>
@@ -38,19 +38,18 @@ github.com/marp-team
 ---
 # 进一步提升 Rails 的长板
 
----
-* 降低开发成本
-* 降低开发门槛
-* 降低体系复杂度
+* 进一步提升开发效率，降低开发成本
+* 进一步降低开发门槛
+* 进一步降低体系复杂度
 
 ---
-# 降低开发成本
+# 提升开发效率，降低开发成本
 * 写更少的代码
   * DRY(Dont Repeat Yourself)
   * 约定优于配置
   * 继承与覆写（Override）
 * 少写代码
-  * 代码生成：工具优于约定
+  * 生成代码：工具优于约定
   * [元编程](https://github.com/work-design/rails_com/blob/main/app/controllers/com/controller/admin.rb)
 <!--
 Rails 社区给了答案，我们只需要做的更好
@@ -71,13 +70,22 @@ Rails 社区给了答案，我们只需要做的更好
 # 降低体系复杂度
 ### 分而治之
 
-* 基于 Rails Engine 的 MVC 模块化
-* 优先模块化，不排斥微服务
-  * 微服务：通过 Api 通信，可以是不同的技术栈
-  * 模块化（组件化）：同一套技术栈
-* 进一步加强模块化
-  * UI组件化（View 层）
-  * 业务组件化（Model 层）
+---
+# 模块化 vs 微服务
+
+* 微服务：通过 Api 通信，可以是不同的技术栈
+* 模块化（组件化）：同一套技术栈
+
+---
+# 基于 Rails Engine 的模块化
+### 业务组件化
+
+* View 层
+  * 纯 CSS 库：[Bulma](https://bulma.io)
+  * 基于 Stimulus 的原生 JS 组件：[rails_design](https://github.com/work-design/rails_design/tree/main/app/assets/javascripts/stimulus_com)
+* Model 层
+  * attributes / relation / callback / validations / methods
+
 
 <!--
 Controller 层忽略不计，真的没什么代码
@@ -89,12 +97,12 @@ Controller 层忽略不计，真的没什么代码
 -->
 
 ---
-# 业务组件化
+# 我们怎样造轮子
 
 * 易用：尽可能减少配置，力求开箱即用
   * 默认提供，即便不用也不会有副作用
 * 易插拔：
-  * 容易迁移：在项目中引入时，尽量避免改动祖传代码(DefaultForm Vs [SimpleForm](https://github.com/heartcombo/simple_form))
+  * 容易迁移：在项目中引入时，尽量避免改动祖传代码(DefaultForm vs [SimpleForm](https://github.com/heartcombo/simple_form))
   * 容易移除：尽可能减少沉没成本，移除和替换的时候需要改动的代码也很少（反例[ActionAdmin](https://activeadmin.info)）
 * **易覆写（Override）**：反例 Device
 
@@ -103,24 +111,27 @@ Controller 层忽略不计，真的没什么代码
 -->
 ---
 # 覆写（Override）
-  * Main App 中优先级更高
-  * 粒度越细（层级越低）优先级越高
----
 
 * Override Model
 * Override View
-* Override 其他：
+* Override 其他
   * Override Controller
   * Override 路由
   * Override Assets
   * Override i18n
 
 ---
-# 组件化之 Model 层
-采用 include 架构
+# Override 约定
+* Main App 中优先级更高
+* 粒度越细（层级越低）优先级越高
 
-* 易 Override
-* 易复用
+---
+# Model 层
+
+* 采用 include 架构
+  * 易 Override
+  * 易复用
+* migration 自动生成
 
 ---
 ## 定义模型
@@ -137,13 +148,14 @@ rails_auth
 ```
 
 ---
-# 定义 Model 里的方法
+# 定义 Model 
 ```ruby
 # rails_auth/app/models/auth/model/user.rb
 
 module Auth
   module Model::Account
     extend ActiveSupport::Concern
+
     included do
       attribute :identity, :string
       belongs_to :user
@@ -173,7 +185,7 @@ end
 ```ruby
 module Auth
   class Account < ApplicationRecord
-    include RailsAuth::Account
+    include Model::Account
     
     attribute :identity, :integer
 
@@ -192,7 +204,7 @@ end
 -->
 
 ---
-# 工具：Model 层自动迁移
+# Model 层自动迁移
 不需要写 Migration：实现了 Django 引以为傲的自动迁移功能
 * 使用：`bin/rails g rails_extend:migrations`
 * 好处:
@@ -205,7 +217,7 @@ end
 定义：
 ```ruby
 class Adminer < ApplicationRecord
-  include RailsAuth::User
+  attribute :name, :string
   belongs_to :user
 end
 ```
@@ -229,14 +241,14 @@ end
 ```
 
 ---
-# 组件化之 View 层
+# View 层
 
-* 数据和排版分离
-  * 数据：如 td / th
-  * 排版：[tr](https://github.com/work-design/rails_com/blob/main/app/views/application/_index_tr.html.erb)
-* 排版与样式分离
-  * HTML 负责排版和数据，比 JSON 更灵活，更强大
-  * CSS + JS 负责美
+* 需要被 Override 的部分
+
+
+---
+
+
 ---
 # Override View
 * 在 Main App 中同路径覆盖
@@ -312,6 +324,11 @@ _form.html.erb  # 表单
 _show_table.html.erb  # 详情页
 ```
 
+---
+# 需要被 Override 的部分
+* 数据和排版分离
+  * 数据：如 td / th
+  * 排版：[tr](https://github.com/work-design/rails_com/blob/main/app/views/application/_index_tr.html.erb)
 ---
 # 什么需要被 Override
 * 输出（字段、属性）：
