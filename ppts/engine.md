@@ -78,13 +78,12 @@ Rails 社区给了答案，我们只需要做的更好
 
 ---
 # 基于 Rails Engine 的模块化
-### 业务组件化
 
 * View 层
   * 纯 CSS 库：[Bulma](https://bulma.io)
   * 基于 Stimulus 的原生 JS 组件：[rails_design](https://github.com/work-design/rails_design/tree/main/app/assets/javascripts/stimulus_com)
 * Model 层
-  * attributes / relation / callback / validations / methods
+  * 预定义：attributes / relation / callback / validations / methods
 
 
 <!--
@@ -97,7 +96,7 @@ Controller 层忽略不计，真的没什么代码
 -->
 
 ---
-# 我们怎样造轮子
+# 我们要造怎样的轮子
 
 * 易用：尽可能减少配置，力求开箱即用
   * 默认提供，即便不用也不会有副作用
@@ -105,25 +104,22 @@ Controller 层忽略不计，真的没什么代码
   * 容易迁移：在项目中引入时，尽量避免改动祖传代码(DefaultForm vs [SimpleForm](https://github.com/heartcombo/simple_form))
   * 容易移除：尽可能减少沉没成本，移除和替换的时候需要改动的代码也很少（反例[ActionAdmin](https://activeadmin.info)）
 * **易覆写（Override）**：反例 Device
+  * Main App 中优先级更高
+  * 粒度越细（层级越低）优先级越高
 
 <!--
 集成：如路由不必 mount
 -->
 ---
-# 覆写（Override）
+# Work Design 组件化治理
 
-* Override Model
-* Override View
-* Override 其他
-  * Override Controller
-  * Override 路由
-  * Override Assets
-  * Override i18n
-
----
-# Override 约定
-* Main App 中优先级更高
-* 粒度越细（层级越低）优先级越高
+* Model 层
+* View 层
+* Controller
+* 其他：
+  * 路由
+  * Assets
+  * i18n
 
 ---
 # Model 层
@@ -131,7 +127,8 @@ Controller 层忽略不计，真的没什么代码
 * 采用 include 架构
   * 易 Override
   * 易复用
-* migration 自动生成
+  * 易理解：Ruby 基础知识
+* 自动生成 migration
 
 ---
 ## 定义模型
@@ -243,16 +240,10 @@ end
 ---
 # View 层
 
-* 需要被 Override 的部分
-
-
----
-
-
----
-# Override View
-* 在 Main App 中同路径覆盖
-* 基于 _prefixes 
+* Override 通用规则
+  * View partial 查找逻辑，基于 _prefixes
+* 怎么写 View 代码，更容易被 Override
+* 生成代码
 
 ---
 # view 查找路径
@@ -269,6 +260,21 @@ Auth::Panel::UsersController.ancestors
 Auth::Panel::UsersController._prefixes
 ['auth/panel/users', 'auth/panel/base', 'panel', 'application']
 ```
+---
+# _prefixes 的实现
+
+[链接](https://github.com/rails/rails/blob/bd6f580c5b053ab75d6310cc29ee6d70473eea0c/actionview/lib/action_view/view_paths.rb#L23)
+
+```ruby
+def _prefixes # :nodoc:
+  @_prefixes ||= begin
+    return local_prefixes if superclass.abstract?
+
+    local_prefixes + superclass._prefixes
+  end
+end
+```
+
 ---
 # _prefixes 自定义
 
@@ -314,7 +320,9 @@ json.message model.error_text
 ```
 
 ---
-# 常规只涉及到增删改查
+# 生成 Views 默认代码
+常规只涉及到增删改查
+
 ```
 # html
 _index/_index_thead.html.erb  # 表头
@@ -325,23 +333,32 @@ _show_table.html.erb  # 详情页
 ```
 
 ---
-# 需要被 Override 的部分
-* 数据和排版分离
-  * 数据：如 td / th
-  * 排版：[tr](https://github.com/work-design/rails_com/blob/main/app/views/application/_index_tr.html.erb)
----
-# 什么需要被 Override
-* 输出（字段、属性）：
-  * 增加或减少字段
+# View 层常见 Override 需求
+* 输出：列表页、详情页
+  * 增加或减少 model 属性
   * 字段的排版
-  * 查询条件(form, item)
 * 输入（表单）：
   * Form 表单
 * 操作区域
-  
+  * tr
+* 条件查询
+  * fitler form
+  * fitler table
+
 ---
-# Controller
-让 Controller 更瘦
+# 让 View 层更容易 Override
+* 数据和排版分离
+  * 数据：如 td / th
+  * 排版：[tr](https://github.com/work-design/rails_com/blob/main/app/views/application/_index_tr.html.erb)
+
+---
+# Controller 层
+
+* Override
+  * 元编程提供 CURD 等通用 action，更容易 Override
+* 让 Controller 更瘦，写更少的代码
+  * 将业务逻辑交给 Model 层
+  * 将控制能力交给 View 层
 
 ---
 [常规的 Controller 几乎没有代码](https://github.com/work-design/rails_com/blob/main/app/controllers/com/panel/infos_controller.rb)
@@ -358,48 +375,18 @@ end
 ```ruby
 module Auth
   class Admin::UsersController < Admin::BaseController
+
     def index
       q_params = {}
-      q_params.merge! user_filter_params
+      q_params.merge! params.permit(:name)
 
       @users = User.default_where(q_params).page(params[:page])
     end
 
-    def create
-      @user = User.new(user_params)
-      unless @user.join(params)
-        render :new, locals: { model: @user }, status: :unprocessable_entity
-      end
-    end
   end
 end
 ```
----
-```ruby
-def user_filter_params
-  q = params.permit(
-    :id,
-    'name-like',
-    'accounts.identity',
-    'last_login_at-desc'
-  )
-  q.merge! super if defined? super
-  q
-end
 
-def user_params
-  p = params.fetch(:user, {}).permit(
-    :name,
-    :avatar,
-    :password,
-    :disabled,
-    user_tag_ids: [],
-    accounts_attributes: {}
-  )
-  p.merge! super if defined? super
-  p
-end
-```
 ---
 # Controller 主要干两件事
 
@@ -409,7 +396,7 @@ end
 * View 控制，即 Controller 本身的定位
 
 ```ruby
-if save
+if @user.save
   render 'create'
 else
   render 'new'
@@ -417,13 +404,24 @@ end
 ```
 
 ---
+# 将业务逻辑交给 Model 层
 
-* 尽可能将业务逻辑交给 Model 层
+* 好处：
   * 容易测试
-  * Model 就是具备数据持久化的类
-* 将控制能力交给 View 层，尽可能移除 redirect_to，也没必要写 respond_to
+* 实践：
+  * 避免 Service 层：Model 就是具备数据持久化能力的类
+  * 擅用 Callback：在 calback 中通过指定 if/unless 条件
+
+---
+# 将控制能力交给 View 层
+
+
+* 好处：
   * 模板语言的学习成本更低：erb、jbulder
   * View 层 Override 更灵活，更强大
+* 实践：
+  * 没必要写 respond_to
+  * 移除 redirect_to：`Turbo.visit` 更强大，性能原理类似
 
 <!--
 1. 互动：redirect_to 怎么实现的
@@ -440,6 +438,7 @@ end
 1. 直白的说明白路由是干嘛的；
 -->
 ---
+# 路由
 ```ruby
 # In Engine
 Rails.application.routes.draw do
@@ -455,6 +454,26 @@ Rails.application.routes.draw do
   end
 end
 ```
+
+---
+# Assets
+
+* rails_vite：支持热更新
+* 支持 views 下的 js 文件
+```
+# app/views/auth/panel/users
+panel.html.erb
+panel.js
+```
+* Assets Override：项目中同路径
+
+---
+# I18n
+
+* enum 支持：[示例](https://github.com/work-design/rails_com/blob/main/config/locales/zh.enum.yml)
+* Override
+  * Main App 中优先级更高
+  * 支持对翻译内容的细粒度 override
 
 ---
 # Work Design 的前后端分离
@@ -490,28 +509,6 @@ end
 
 * 将 controller 的对象及其属性进行输出
 
-
----
-# Assets
-
-* vite：https://github.com/work-design/rails_vite
-* js / css: 
-
-```
-# app/views/auth/panel/users
-panel.html.erb
-panel.js
-```
-
----
-# Override Assets
-项目中同路径
-
----
-# Override I18n
-
-* 项目中同路径
-* enum 支持：[示例](https://github.com/work-design/rails_com/blob/main/config/locales/zh.enum.yml)
 
 ---
 # 按业务（Rails Engine）组织代码
