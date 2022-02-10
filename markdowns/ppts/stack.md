@@ -13,19 +13,28 @@ backgroundImage: url(../assets/bg.jpg)
 覃明圆
 
 ---
+* Rails 全栈技术介绍
+* 全栈开发 vs 前后端分离
+* 业务组件化介绍
+
+---
 # 基于 Rails
 
 * 前沿
 * 持续的生命力
-* 开发哲学：影响使用者的思维方式
+* 优秀的开发哲学：会积极影响使用者的思维方式
 * 让使用者越来越轻松
 
 ---
-# 高于 Rails
+# 高于 Rails ( work design )
 
 * 全栈
   * 纯 CSS：基于 Bulma(PC 端)， Weui(移动端，微信生态)
   * 基于 Stimulus 的 javascript 库
+* 业务组件化
+* 低代码策略
+  * 为 model 动态增减字段
+  * 个性化的 views
 
 ---
 # 前沿
@@ -53,7 +62,7 @@ backgroundImage: url(../assets/bg.jpg)
 
 ---
 # 对开发者的影响
-## 在硅谷，Rails 风头正劲的时候，融资时估值直接翻倍
+在硅谷，Rails 风头正劲的时候，融资时估值直接翻倍
 
 * 抓主要矛盾（Web 应用中的性能瓶颈在 IO，不在开发语言的执行效率）
 * 兼容并包，平衡的艺术：技术选型不是非此即彼
@@ -64,9 +73,10 @@ backgroundImage: url(../assets/bg.jpg)
 * 框架做更多
 
 ---
-# 全栈
+# 全栈 Vs 前后端分离
 
-## 优点
+---
+# 全栈的优点
 * 相对于前后端分离：代码总量最少
   * 省去了重复性的前后端工作：路由，Model 定义
   * 直接传输 HTML 片段：后端导出 JSON，前端构造请求，将 JSON 转化为 Model, 基于 Vue 渲染 HTML。为何不直接将 HTML 片段发给浏览器。
@@ -74,13 +84,15 @@ backgroundImage: url(../assets/bg.jpg)
   * json 比 html 少的数据量，完全可以忽略不计。一个包有 576 字节。
 * 减少前后端的沟通和协作成本
 
-## 缺点
-* 生态更好：基于 Vue 和 React 的 Design 库
+---
+# 全栈的缺点
+* 大前端生态更好：基于 Vue 和 React 的 Design 库
+  * 不过这些库的维护成本也很高（element UI 断更事件)
 * 市场环境：招聘、培训
-
+* 工程实践：螺丝钉化不好做
 
 ---
-# 基于 Rails 的 Work Design
+# 基于 Rails Engine 的业务组件化
 
 * 业务层的
   * DRY
