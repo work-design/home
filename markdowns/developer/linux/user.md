@@ -7,6 +7,7 @@
 ### 新建用户
 ```bash
 # 新建一个用户
+# -m 表示新建家目录
 useradd -m webuser
 
 # 设置密码
