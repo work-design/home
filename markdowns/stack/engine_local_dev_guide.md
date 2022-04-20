@@ -1,3 +1,5 @@
+# 本地开发环境
+
 ## 远程使用
 
 如果您已经熟悉 engine 的用法和提供的功能，不需要随时查看 engine 源代码，可以直接在`Gemfile`中添加远程的 github 代码库：
@@ -13,21 +15,12 @@ gem 'rails_ui', github: "work-design/rails_ui"
 
 我们更推荐的本地`submodule`方式，可以随时查看 engine 的文档、源码。
 
-### 第一步：新建项目总文件夹
+1. 新建项目总文件夹：进入文件夹后，新建或拷贝已有的主项目。
 
-进入文件夹后，新建或拷贝已有的主项目。
+2. 克隆全部 engine 到本地项目总文件夹：`git clone https://github.com/work-design/rails_engine.git`
 
-### 第二步：克隆全部 engine 到本地项目总文件夹。
+3. 进入到刚 clone 的 engine 目录中，初始化 engine: `git submodule update --init`
 
-```shell
-git clone https://github.com/work-design/rails_engine.git
-```
-
-### 第三步：进入到刚 clone 的 engine 目录中，初始化 engine
-
-```shell
-git submodule update --init
-```
 
 命令会根据`.gitmodules`这个文件中的配置`clone`所有 engine 到本地。如果您只是需要部分组件，也可以修改`.gitmodules`文件，只加入您项目需要的 rails_xxx。
 
@@ -44,7 +37,7 @@ git pull
 git submodule update --rebase(或--merge)
 ```
 
-### 第四步：配置`bundle`
+4. 配置`bundle`
 
 您也可以直接在`Gemfile`中直接指定 Gem 的路径为本地目录。
 
@@ -64,6 +57,12 @@ bundle config local.rails_xxx ~/your_main_project_path/engine_path/rails_xxx
 
 ```
 BUNDLE_LOCAL__RAILS_XXX: "~/your_main_project_path/engine_path/rails_xxx"
+```
+
+5. 本地化 npm
+
+```shell
+npm link 
 ```
 
 #### 第五步：在`RubyMine`或`VSCode`中开发
