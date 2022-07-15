@@ -26,7 +26,19 @@ end
   2. 调整参数更灵活，不必要因为增加或者减少参数，重新排版；
 
 ## Rails
-  
+
+### 模型定义
+
+* 推荐代码顺序如下：
+  1. `attribute`
+  2. `enum`
+  3. `belongs_to`
+  4. `has_one/has_many`
+  5. `scope`
+  6. `validate`
+  7. `callbacks`
+
+
 * 定义Enum时尽量使用hash, 避免使用Array（Integer）,理由：
   1. 灵活性更强，我们先看一个使用Array的例子；
   ```ruby
