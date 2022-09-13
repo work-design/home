@@ -38,6 +38,7 @@ chsh -s /usr/bin/fish
 * unf_ext: `sudo apt install g++`
 * nio4r: `sudo apt install libev`
 * nokogiri: `sudo apt install libxml2-dev libxslt-dev`
+* mysql2: `apt install libmysqlclient-dev`
 
 ## Rails 准备
 * 初始化数据库: `env RAILS_ENV=production bin/rails db:create`
