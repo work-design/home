@@ -1,4 +1,4 @@
-# 所有 组件 概览
+# 组件列表
 
 ## 通用
 * [rails_com](https://github.com/work-design/rails_com)
