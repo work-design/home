@@ -30,11 +30,11 @@ rake rails_xxx_engine:install:migrations
 所有 Gem 采用Rails内置的 `ActiveSupport::Configurable` 模块，统一配置语法如下：
 
 ```ruby
-
 RailsXxx.configure do |config|
   config.admin_controller = 'PanelController'
 end
 ```
+
 通用的配置项有：
 * admin_controller
 * my_controller
