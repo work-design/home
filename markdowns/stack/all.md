@@ -12,3 +12,4 @@
 ## 业务体系
 * 电商：[rails_trade](https://github.com/work-design/rails_trade)
 * 运输：[rails_ship](https://github.com/work-design/rails_ship)
+* 生产管理：[rails_factory](https://github.com/work-design/rails_factory)
