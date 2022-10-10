@@ -1,16 +1,26 @@
 # 组件列表
 
 ## 通用
-* [rails_com](https://github.com/work-design/rails_com)
-* 权限管理：[rails_extend](https://github.com/work-design/rails_extend)
+* [rails\_com][1]
+* 权限管理：[rails\_extend][2]
 
 ## 用户体系
-* 鉴权: [rails_auth](https://github.com/work-design/rails_auth)
-* 组织架构：[rails_org](https://github.com/work-design/rails_org)
-* 用户信息：[rails_profile](https://github.com/work-design/rails_profile)
+* 鉴权: [rails\_auth][3]
+* 组织架构：[rails\_org][4]
+* 用户信息：[rails\_profile][5]
 
 ## 业务体系
-* 电商：[rails_trade](https://github.com/work-design/rails_trade)
-* 运输：[rails_ship](https://github.com/work-design/rails_ship)
-* 生产管理：[rails_factory](https://github.com/work-design/rails_factory)
-* 生产管理：[rails_bench](https://github.com/work-design/rails_bench)
+* 电商：[rails\_trade][6]
+* 运输：[rails\_ship][7]
+* 生产管理：[rails\_factory][8]
+* 工作台：[rails\_bench][9]
+
+[1]:	https://github.com/work-design/rails_com
+[2]:	https://github.com/work-design/rails_extend
+[3]:	https://github.com/work-design/rails_auth
+[4]:	https://github.com/work-design/rails_org
+[5]:	https://github.com/work-design/rails_profile
+[6]:	https://github.com/work-design/rails_trade
+[7]:	https://github.com/work-design/rails_ship
+[8]:	https://github.com/work-design/rails_factory
+[9]:	https://github.com/work-design/rails_bench

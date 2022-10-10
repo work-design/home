@@ -1,5 +1,5 @@
 *.pptx
 *.html
 
-# metion editor
-
+# for Ulysses
+.Ulysses-Settings.plist
