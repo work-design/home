@@ -1,2 +1,9 @@
 *.pptx
 *.html
+
+# metion editor
+
+.db/
+.markeditor/
+.posts_info.json
+markdowns/.archive/
