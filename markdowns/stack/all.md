@@ -15,6 +15,10 @@
 * 生产管理：[rails\_factory][8]
 * 工作台：[rails\_bench][9]
 
+## 第三方平台
+* 微信：[rails_wechat][10]
+
+
 [1]:	https://github.com/work-design/rails_com
 [2]:	https://github.com/work-design/rails_extend
 [3]:	https://github.com/work-design/rails_auth
@@ -24,3 +28,4 @@
 [7]:	https://github.com/work-design/rails_ship
 [8]:	https://github.com/work-design/rails_factory
 [9]:	https://github.com/work-design/rails_bench
+[10]:	https://github.com/work-design/rails_wechat
