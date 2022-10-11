@@ -14,9 +14,10 @@
 * 运输：[rails\_ship][7]
 * 生产管理：[rails\_factory][8]
 * 工作台：[rails\_bench][9]
+* 财务管理：[rails\_finance][10]
 
 ## 第三方平台
-* 微信：[rails_wechat][10]
+* 微信：[rails\_wechat][11]
 
 
 [1]:	https://github.com/work-design/rails_com
@@ -28,4 +29,5 @@
 [7]:	https://github.com/work-design/rails_ship
 [8]:	https://github.com/work-design/rails_factory
 [9]:	https://github.com/work-design/rails_bench
-[10]:	https://github.com/work-design/rails_wechat
+[10]:	https://github.com/work-design/rails_finance
+[11]:	https://github.com/work-design/rails_wechat
