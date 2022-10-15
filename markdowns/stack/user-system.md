@@ -49,4 +49,4 @@ Profile 是对人这个主体的描述，按常规理解，也是同类系统的
 [2]:	https://github.com/work-design/rails_profile
 [3]:	https://github.com/work-design/rails_org
 
-[image-1]:	assets/images/user.png
+[image-1]:	assets/user.png
