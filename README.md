@@ -107,8 +107,8 @@ Work Design 的生态正是为解决你的问题而生，Web 应用的开发是�
 [3]:	#Work-Design-%E5%9B%A2%E9%98%9F%E6%B2%BB%E7%90%86
 [4]:	stack
 [5]:	https://github.com/rails/rails
-[6]:	stack/default.md
-[7]:	stack/tools.md
+[6]:	markdowns/stack/default.md
+[7]:	markdowns/stack/tools.md
 [8]:	stack/full_stack.md
 [9]:	stack/why_build_self.md
 [10]:	stack/tools.md
@@ -124,6 +124,5 @@ Work Design 的生态正是为解决你的问题而生，Web 应用的开发是�
 [20]:	https://jifenzise.com
 [21]:	https://shurensiji.com
 [22]:	https://github.com/work-design/home/issues
-
 
 [image-1]:	assets/wechat.jpg
