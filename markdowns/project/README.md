@@ -1,4 +1,4 @@
-# Work Design 应用
+# Work Design 商业模式
 
 [Work Design](https://work.design) 是适用于现代企业的通用管理系统，以期实现如下目标：
 
