@@ -10,7 +10,7 @@
 * 用户信息：[rails\_profile][5]
 
 ## 基础功能
-* 基于 Markdown 的内容管理系统：[rails_markdown][6]
+* 基于 Markdown 的内容管理系统：[rails\_markdown][6]
 
 ## 业务体系
 * 电商：[rails\_trade][7]
