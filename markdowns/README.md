@@ -2,5 +2,12 @@
 
 ## 颜色
 
-* [Adobe Color](https://color.adobe.com)
-* [Paletton](https://paletton.com)
+* [Adobe Color][1]
+* [Paletton][2]
+## Markdown 
+
+* [github markdown][3]
+
+[1]:	https://color.adobe.com
+[2]:	https://paletton.com
+[3]:	https://github.github.com/gfm
