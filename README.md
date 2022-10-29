@@ -8,10 +8,9 @@ Work Design 是业务组件化的先驱，在业务复杂多变的情况下达�
 
 包含：
 
-* [Work Design 技术体系][1]
+* [技术体系][1]
 * [通用商业模式][2]
-* [Work Design 应用][3]
-* [Work Design 团队治理][4]
+* [团队治理][4]
 
 ## [Work Design 技术体系][5]
 
