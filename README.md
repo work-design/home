@@ -102,20 +102,20 @@ Work Design 的生态正是为解决你的问题而生，Web 应用的开发是�
 ![][image-1]
 
 [1]:	#Work-Design-%E6%8A%80%E6%9C%AF%E4%BD%93%E7%B3%BB
-[2]:	project
+[2]:	markdowns/project
 [3]:	#Work-Design-%E5%BA%94%E7%94%A8
 [4]:	#Work-Design-%E5%9B%A2%E9%98%9F%E6%B2%BB%E7%90%86
-[5]:	stack
+[5]:	markdowns/stack
 [6]:	https://github.com/rails/rails
 [7]:	markdowns/stack/default.md
 [8]:	markdowns/stack/tools.md
-[9]:	stack/full_stack.md
-[10]:	stack/why_build_self.md
-[11]:	stack/tools.md
-[12]:	stack/modular.md
-[14]:	stack/function-vs-object.md
-[15]:	project
-[16]:	handbook
+[9]:	markdowns/stack/full_stack.md
+[10]:	markdowns/stack/why_build_self.md
+[11]:	markdowns/stack/tools.md
+[12]:	markdowns/stack/modular.md
+[14]:	markdowns/stack/function-vs-object.md
+[15]:	markdowns/project
+[16]:	markdowns/handbook
 [17]:	https://github.com/work-design/engine
 [18]:	https://github.com/work-design/work.design
 [19]:	https://github.com/yougexiangfa
