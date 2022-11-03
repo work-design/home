@@ -2,5 +2,4 @@
 *.html
 
 # for Ulysses
-.Ulysses-Settings.plist
 **/.Ulysses-Group.plist
