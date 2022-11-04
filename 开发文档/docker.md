@@ -17,7 +17,7 @@
 
 * 第一次使用：`docker-compose build`
 
-```bash
+```shell
 docker-compose up
 ```
 
