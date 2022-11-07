@@ -44,12 +44,6 @@ Work Design 更适用于现代企业的管理，当社会的流动效率越来�
 
 Work Design 的一切都是围绕“提升生产力”而设计的。生产关系决定了生产力，而生产关系的内核是管理，软件则是管理能力的承载，系统的管理理念则是形成企业文化的基石。
 
-## 项目开发
-
-[Work Design](https://github.com/work-design/work.design) 基于一系列[开源组件](https://github.com/work-design/engine)进行组装和快速开发，Work Design 富有创新性的架构使得其所提供的功能既可以作为 SaaS 系统对外提供，也可以用于企业独立部署使用和二次开发。
-
-除了 Work Design 本项目开源以外，Work Design 提供的组件涵盖了大量的常规需求。基于这些组件，遵循 Work Design 的[开发指南][9]，自由的添加针对自身企业的个性化需求，即可实现快速开发。
-
 ## 可持续性
 
 * [盈利模式](盈利模式.md)
@@ -66,6 +60,8 @@ Work Design 的一切都是围绕“提升生产力”而设计的。生产关�
 
 ## 其他应用领域
 
+除了 Work Design 本项目开源以外，Work Design 提供的组件涵盖了大量的常规需求。基于这些组件，遵循 Work Design 的[开发指南](../开发文档)，自由的添加针对自身企业的个性化需求，即可实现快速开发。
+
 除了 Work Design，我们亦会通过开放合作的形式在早教、餐饮、社区、旅游这些领域实践数个标杆项目。这些项目在本项目提供的商业模式框架和理念下进行运行。
 
 ## 其他
@@ -78,9 +74,5 @@ Work Design 的一切都是围绕“提升生产力”而设计的。生产关�
 [4]:	partnership.md
 [5]:	flexible.md
 [6]:	ecological.md
-[7]:
-[8]:
-[9]:	about
 [10]:	profit.md
 [11]:	tech.md
-[16]:	intention.md
