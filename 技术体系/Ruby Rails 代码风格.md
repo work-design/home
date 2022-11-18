@@ -1,6 +1,6 @@
 # Ruby & Rails代码风格
 
-参考：[社区版本Ruby Style][1]
+参考：[社区版本Ruby Style](https://github.com/JuanitoFatas/ruby-style-guide/blob/master/README-zhCN.md)
 
 主要是做一些团队内的补充；
 
@@ -57,6 +57,5 @@ enum state: {
 ```
   这样在拓展的时候就方便得多。
 
-  2. 避免魔法数字，如果直接查询数据的时候，对于存在于数据库中的数字0，1等，不能直观的知道其意义，需要参考代码中的定义。
 
-[1]:	https://github.com/JuanitoFatas/ruby-style-guide/blob/master/README-zhCN.md
+2. 避免魔法数字，如果直接查询数据的时候，对于存在于数据库中的数字0，1等，不能直观的知道其意义，需要参考代码中的定义。
