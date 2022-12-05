@@ -1,6 +1,6 @@
 # Work Design 倡导的商业模式
 
-作为一套普惠技术体系，Work Design 在创建过程中，对商业逻辑进行剖析，底层商业逻辑则是孕育 Work Design 的基础。
+作为一套普惠技术体系，Work Design 在创建的过程中也在探索一套通用的商业逻辑。Work Design 是为商业目标服务的，对商业目标的理解也正是 Work Design 在追求的需求合理性。
 
 ## 理解商业模式
 
