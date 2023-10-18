@@ -10,7 +10,7 @@
   * `config/credentials/test.yml.enc`
 * 数据库生成：`bin/rails db:setup`
 * 数据库迁移（以下任选一种）
-  * 方式一：生成迁移：`bin/rails rails_com:migrations` + 迁移：`bin/rails db:migrate`
+  * 方式一：生成迁移：`bin/rails rails_extend:migrations` + 迁移：`bin/rails db:migrate`
   * 方式二：加载数据库 Schema 定义：`bin/rails db:schema:load`
 
 ## 项目依赖的配置
