@@ -1,41 +1,35 @@
 # Git Submodule 使用指南
 
 
-## 本地`submodule`方式
+## 初始化
 
-我们更推荐的本地`submodule`方式，可以随时查看 engine 的文档、源码。
-
-1. 新建项目总文件夹：进入文件夹后，新建或拷贝已有的主项目。
-
-2. 克隆全部 engine 到本地项目总文件夹：`git clone https://github.com/work-design/engine.git`
-
-3. 进入到刚 clone 的 engine 目录中，初始化 engine: `git submodule update --init`
+1. 下载 engine 汇总项目：`git clone git@github.com:work-design/engine.git`
+2. 进入到刚 clone 的 engine 目录中，初始化 engine: `git submodule update --init`
+3. `git submodule foreach git checkout main`
 
 
-命令会根据`.gitmodules`这个文件中的配置`clone`所有 engine 到本地。如果您只是需要部分组件，也可以修改`.gitmodules`文件，只加入您项目需要的 rails_xxx。
+## 新增一个 submodule
 
+`git submodule add git@github.com:username/xxx.git rails_xxx`
+
+上面的命令会更新`.gitsubmodules`文件：
 ```yaml
 [submodule "rails_xxx"]
   path = rails_xxx
-  url = git@github.com:work-design/rails_xxx.git
+  url = git@github.com:username/xxx.git
 ```
 
-后续更新项目:
+## 更新
 
-```shell
-git pull
-git submodule update --rebase(或--merge)
-```
+* 除了更新汇总项目，同时会将有更新的模块(submodule)项目下的代码一并 `git fetch` 到本地
+`git pull`
+
+* 已 fetch 到本地的模块代码，还未合并，执行下面两个命令的任何一个：
+  * `git submodule update --rebase`：采用 rebase 模式合并远端代码到本地；
+  * `git submodule update --merge`：采用 merge 模式合并远端代码到本地；
 
 4. 配置`bundle`
 
-您也可以直接在`Gemfile`中直接指定 Gem 的路径为本地目录。
-
-```yaml
-gem 'rails_xxx", path:"~/your_gem_local_path"
-```
-
-但这种方式缺少灵活性，`Gemfile`带一大堆本地文件显得不专业 。
 
 所以我们建议您使用`bundle config`命令来拦截`Gemfile`中的设置。每次`bundle install`时从本地文件获取`Gem`，而不是从远程网络中获取。您可以这样做：
 
