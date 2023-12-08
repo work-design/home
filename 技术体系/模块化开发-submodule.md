@@ -1,15 +1,5 @@
-# 本地开发环境
+# Git Submodule 使用指南
 
-## 远程使用
-
-如果您已经熟悉 engine 的用法和提供的功能，不需要随时查看 engine 源代码，可以直接在`Gemfile`中添加远程的 github 代码库：
-
-```yaml
-gem 'rails_ui', github: "work-design/rails_ui"
-```
-
-然后 `bundle install`即可。
-不过，`work design engine`业务抽象化组件集合了众多特性，随时查阅组件提供的功能和属性，然后根据您项目的实际需要进行定制和 override 重载是我们推荐的方式，所以我们更推荐您使用本地`submodule`的方式来进行开发。
 
 ## 本地`submodule`方式
 
@@ -17,7 +7,7 @@ gem 'rails_ui', github: "work-design/rails_ui"
 
 1. 新建项目总文件夹：进入文件夹后，新建或拷贝已有的主项目。
 
-2. 克隆全部 engine 到本地项目总文件夹：`git clone https://github.com/work-design/rails_engine.git`
+2. 克隆全部 engine 到本地项目总文件夹：`git clone https://github.com/work-design/engine.git`
 
 3. 进入到刚 clone 的 engine 目录中，初始化 engine: `git submodule update --init`
 
