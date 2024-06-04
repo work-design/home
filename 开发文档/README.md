@@ -3,6 +3,7 @@
 
 ## 前端技术栈
 * [技术栈及文档](html.md)
+* [配色](color.md)
 
 ## Rails 服务器（Linux）部署
 
