@@ -24,3 +24,5 @@
 ```
 CREATE SUBSCRIPTION sub_name CONNECTION 'host=shu.ren port=5432 dbname=sanbao_production user=postgres password=postgres' PUBLICATION pub_name;
 ```
+
+* 查询：`SELECT * FROM pg_subscription;`
