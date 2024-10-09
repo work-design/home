@@ -19,4 +19,8 @@
 
 
 ### 在订阅者数据库上
-* 创建订阅者：`CREATE SUBSCRIPTION sub_name CONNECTION 'host=shu.ren port=5432 dbname=sanbao_production user=postgres password=postgres' PUBLICATION pub_name;`
+* 创建订阅者：
+
+```
+CREATE SUBSCRIPTION sub_name CONNECTION 'host=shu.ren port=5432 dbname=sanbao_production user=postgres password=postgres' PUBLICATION pub_name;
+```
