@@ -5,7 +5,7 @@ class:
  - invert
 paginate: true
 marp: true
-backgroundImage: url(../assets/bg.jpg)
+backgroundImage: url(images/bg.jpg)
 ---
 
 # 全栈开发技术体系简介
