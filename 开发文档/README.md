@@ -27,8 +27,13 @@
 ## Rails 服务器（Linux）部署
 
 ### 安装环境
-* [用户](user.md)
-* [安装软件](env.md)
+
+#### MacOS
+* [环境准备](mac/env.md)
+
+#### Linux
+* [用户](linux/user.md)
+* [安装软件](linux/env.md)
 
 ### 部署
 * [部署](deploy.md)
