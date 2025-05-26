@@ -8,7 +8,7 @@
 ## 首次部署
 
 * 服务器准备:
-  * 为 root 账号设置 ssh 登录授权；
+  * 为 root 账号设置 ssh 登录授权，[设置方式](deploy.md)；
   * 安全策略，开放 80/443 端口；
   * [非 root 用户](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user)
 * 开始部署：
