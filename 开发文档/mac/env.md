@@ -9,3 +9,9 @@
 
 ## 安装 Ruby
 
+
+## 安装 nodejs
+
+## 安装 Postgresql 数据库
+
+* `brew install postgresql@18`

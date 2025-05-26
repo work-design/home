@@ -19,11 +19,6 @@
   * `bin/rails g rails_com:migrations`
   * 重启 应用
 
-
-## 前端技术栈
-* [技术栈及文档](html.md)
-* [配色](color.md)
-
 ## Rails 服务器（Linux）部署
 
 ### 安装环境
@@ -40,7 +35,11 @@
 * [SSH 相关配置](ssh.md)
 
 ### 其他
-* [内网穿透](frp.md)
+* [内网穿透](frp.md)：用于本地开发，将集成服务的请求转发至开发机器用作调试
 
 ### Docker
 * [Docker 指南](docker.md)
+
+## 前端技术栈
+* [技术栈及文档](html.md)
+* [配色](color.md)
