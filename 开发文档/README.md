@@ -12,8 +12,19 @@
 3. 个性化配置：
   * 修改 development 配置文件：`bin/rails credentials:edit -e development`
   * 设置选项：
-    * database_user
-    * secret_key_base
+
+```
+secret_key_base: 128位字符
+database_user:
+database_password:
+active_record_encryption:
+  primary_key: 32位字符
+  deterministic_key: 32位字符
+  key_derivation_salt: 32位字符
+```
+
+系统提供了快速生成密钥的命令：`bin/secret`, 默认为 32 位字符，如需指定字符位数，将位数作为参数传入即可：`bin/secret 128`
+
 3. 非加密个性化配置：`config.x`
 4. 新增 engine 后：
   * `bin/rails g rails_com:migrations`
