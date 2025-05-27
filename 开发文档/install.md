@@ -20,3 +20,9 @@
 配置内容：
 * mailer: 邮箱，用于发送邮件，推荐使用腾讯企业邮箱，每日 500 封免费额度
 * wechat: 微信公众号 Oauth 登陆
+
+
+3. 非加密个性化配置：`config.x`
+4. 新增 engine 后：
+  * `bin/rails g rails_com:migrations`
+  * 重启 应用

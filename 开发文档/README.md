@@ -25,10 +25,9 @@ active_record_encryption:
 
 系统提供了快速生成密钥的命令：`bin/secret`, 默认为 32 位字符，如需指定字符位数，将位数作为参数传入即可：`bin/secret 128`
 
-3. 非加密个性化配置：`config.x`
-4. 新增 engine 后：
-  * `bin/rails g rails_com:migrations`
-  * 重启 应用
+4. 初始化数据库
+
+
 
 ## Rails 服务器（Linux）部署
 
